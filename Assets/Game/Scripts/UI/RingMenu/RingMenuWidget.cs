@@ -39,7 +39,7 @@ namespace UI.RingMenu
                 sectionInstance.Icon.transform.localPosition = Vector3.zero +
                                                                Quaternion.AngleAxis(i * stepLength, Vector3.forward) *
                                                                Vector3.up * iconDist;
-                sectionInstance.Set(_ringMenu.References);
+                //sectionInstance.Set(_ringMenu.References);
             }
 
             foreach (var menuItem in _ringMenu.References)
