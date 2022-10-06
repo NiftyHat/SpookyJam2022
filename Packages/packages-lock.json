@@ -7,10 +7,11 @@
       "dependencies": {}
     },
     "com.niftyhat.editormenu": {
-      "version": "file:../../NiftyFramework/NiftyEditorMenu",
+      "version": "https://github.com/NiftyHat/NiftyEditorMenu.git",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "7db8e996912a62ccb05778d5262c467f703953cf"
     },
     "com.niftyhat.glyphs": {
       "version": "file:../../NiftyFramework/NiftyGlyphs",
@@ -36,12 +37,13 @@
       }
     },
     "com.niftyhat.scriptableset": {
-      "version": "file:../../NiftyFramework/NiftyScriptableSet",
+      "version": "https://github.com/NiftyHat/NiftyScriptableSet.git",
       "depth": 0,
-      "source": "local",
+      "source": "git",
       "dependencies": {
         "com.niftyhat.editormenu": "0.4.0"
-      }
+      },
+      "hash": "5a0bc924bdd582dcaa932b057441aa6149a1874f"
     },
     "com.unity.2d.animation": {
       "version": "6.0.4",
