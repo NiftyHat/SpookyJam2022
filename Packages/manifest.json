@@ -1,10 +1,7 @@
 {
   "dependencies": {
-    "com.devoid.signals": "file:../../NiftyFramework/deVoidSignals",
     "com.niftyhat.editormenu": "https://github.com/NiftyHat/NiftyEditorMenu.git",
-    "com.niftyhat.glyphs": "file:../../NiftyFramework/NiftyGlyphs",
-    "com.niftyhat.niftycore": "file:../../NiftyFramework/NiftyCore",
-    "com.niftyhat.niftycrafts": "file:../../NiftyFramework/NiftyCrafts",
+    "com.niftyhat.niftycore": "https://github.com/NiftyHat/NiftyCore.git",
     "com.niftyhat.scriptableset": "https://github.com/NiftyHat/NiftyScriptableSet.git",
     "com.unity.2d.animation": "6.0.4",
     "com.unity.2d.pixel-perfect": "5.0.0",

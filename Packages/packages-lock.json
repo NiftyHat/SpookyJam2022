@@ -1,11 +1,5 @@
 {
   "dependencies": {
-    "com.devoid.signals": {
-      "version": "file:../../NiftyFramework/deVoidSignals",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {}
-    },
     "com.niftyhat.editormenu": {
       "version": "https://github.com/NiftyHat/NiftyEditorMenu.git",
       "depth": 0,
@@ -13,28 +7,12 @@
       "dependencies": {},
       "hash": "7db8e996912a62ccb05778d5262c467f703953cf"
     },
-    "com.niftyhat.glyphs": {
-      "version": "file:../../NiftyFramework/NiftyGlyphs",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.niftyhat.niftycore": "0.0.1",
-        "com.niftyhat.editormenu": "0.4.0"
-      }
-    },
     "com.niftyhat.niftycore": {
-      "version": "file:../../NiftyFramework/NiftyCore",
+      "version": "https://github.com/NiftyHat/NiftyCore.git",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
-    },
-    "com.niftyhat.niftycrafts": {
-      "version": "file:../../NiftyFramework/NiftyCrafts",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.niftyhat.niftycore": "0.0.1"
-      }
+      "source": "git",
+      "dependencies": {},
+      "hash": "bd3f9075d3ac832f2a6762b455f6cdaaa994f14c"
     },
     "com.niftyhat.scriptableset": {
       "version": "https://github.com/NiftyHat/NiftyScriptableSet.git",
