@@ -240,8 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ringMenu: {fileID: 11400000, guid: 38d5e130a9734f1409307a5ed5cdf2d4, type: 2}
-  _sectionPrefab: {fileID: 3504060932871403459, guid: 86ff6edb20e289d41a0879ca58e95aea,
-    type: 3}
+  _sectionPrefab: {fileID: 1975944921}
   _sectionSpacing: 1
 --- !u!1 &519420028
 GameObject:
@@ -332,6 +331,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3504060932257667467}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1975944921 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3504060932871403459, guid: 86ff6edb20e289d41a0879ca58e95aea,
+    type: 3}
+  m_PrefabInstance: {fileID: 3504060932257667467}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2579c1da94eab34458b2d1cdbbb16eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2046628326
 GameObject:
   m_ObjectHideFlags: 0
