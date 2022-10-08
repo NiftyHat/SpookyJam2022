@@ -1,20 +1,25 @@
+using Data.Menu;
 using UnityEngine;
 
-namespace UI
+namespace UI.RingMenu
 {
     [CreateAssetMenu(fileName = "RingMenuItem", menuName = "RingMenu/MenuItem", order = 2)]
-    public class RingMenuItemData : ScriptableObject, IRingMenuItem
+    public class RingMenuItemData : ScriptableObject, IRingMenuItem, IMenuItem
     {
         [SerializeField] private string _friendlyName;
 
         [SerializeField] private Sprite _icon;
         
-        private RingMenuModel _subMenu;
+        private RingMenu.RingMenuModel _subMenu;
+        
+        private string _description;
 
         public string FriendlyName => _friendlyName;
 
         public Sprite Icon => _icon;
 
-        public RingMenuModel SubMenu => _subMenu;
+        public string Description => _description;
+
+        public RingMenu.RingMenuModel SubMenu => _subMenu;
     }
 }

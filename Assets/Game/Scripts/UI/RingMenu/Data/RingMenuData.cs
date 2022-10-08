@@ -5,11 +5,11 @@ using UnityUtils;
 namespace UI
 {
     [CreateAssetMenu(fileName = "RingMenu", menuName = "RingMenu/Menu", order = 2)]
-    public class RingMenuData : ScriptableSet<RingMenuItemData>, IFactory<RingMenuModel>
+    public class RingMenuData : ScriptableSet<RingMenu.RingMenuItemData>, IFactory<RingMenu.RingMenuModel>
     {
-        public RingMenuModel Create()
+        public RingMenu.RingMenuModel Create()
         {
-            return new RingMenuModel(References);
+            return new RingMenu.RingMenuModel(References);
         }
 
     }

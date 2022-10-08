@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace UI.RingMenu
 {
     public class RingMenuSectionWidget : MonoBehaviour
     {
@@ -15,7 +15,7 @@ namespace UI
 
         public int Index => _index;
 
-        public void Set(RingMenuItemData menuItem, int index)
+        public void Set(RingMenu.RingMenuItemData menuItem, int index)
         {
             _icon.sprite = menuItem.Icon;
             _index = index;

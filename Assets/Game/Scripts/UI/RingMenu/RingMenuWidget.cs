@@ -1,14 +1,16 @@
 using System;
 using System.Collections.Generic;
+using TouchInput.UnitControl;
+using UI.ContextMenu;
 using UnityEngine;
 using UnityUtils;
 
-namespace UI
+namespace UI.RingMenu
 {
-    public class RingMenuWidget : MonoBehaviour
+    public class RingMenuWidget : MonoBehaviour, IContextMenu
     {
         [SerializeField] protected RingMenuData _ringMenu;
-        protected RingMenuModel _model;
+        protected RingMenu.RingMenuModel _model;
 
         [SerializeField] RingMenuSectionWidget _sectionPrefab;
         [SerializeField] protected float _sectionSpacing = 1f;
@@ -85,5 +87,15 @@ namespace UI
         }
 
         private float NormalizeAngle(float a) => (a + 360f) % 360;
+        public void Open(Vector2 screenPosition)
+        {
+            gameObject.transform.position = screenPosition;
+            gameObject.SetActive(true);
+        }
+
+        public void Close()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
