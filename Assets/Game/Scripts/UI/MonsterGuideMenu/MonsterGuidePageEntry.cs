@@ -5,30 +5,32 @@ using TMPro;
 
 public class MonsterGuidePageEntry : MonoBehaviour
 {
-    public TextMeshProUGUI monsterNameDisplay;
-    public UnityEngine.UI.Image monsterPortrait;
-    public TextMeshProUGUI descriptionDisplay;
-    public TextMeshProUGUI hintDisplay;
+    [SerializeField]
+    private TextMeshProUGUI monsterNameDisplay;
+    [SerializeField]
+    private UnityEngine.UI.Image monsterPortrait;
+    [SerializeField]
+    private TextMeshProUGUI descriptionDisplay;
+    [SerializeField]
+    private TextMeshProUGUI hintDisplay;
 
 
 
 
     //Populate page with monster data
-    public void SetData()
+    public void SetData(MonsterGuidePageSO data)
     {
-        monsterNameDisplay.SetText("");
-        monsterPortrait.sprite = null;
-        descriptionDisplay.SetText("");
-        hintDisplay.SetText("");
+        monsterNameDisplay.SetText(data.monsterName);
+        monsterPortrait.sprite = data.image;
+        descriptionDisplay.SetText(data.description);
+        hintDisplay.SetText(data.hint);
     }
 
-    public void Display()
+    public void SetDisplay( bool isVisible)
     {
-
-    }
-
-    public void Hide()
-    {
-
+        monsterNameDisplay.gameObject.SetActive(isVisible);
+        monsterPortrait.gameObject.SetActive(isVisible);
+        descriptionDisplay.gameObject.SetActive(isVisible);
+        hintDisplay.gameObject.SetActive(isVisible);
     }
 }
