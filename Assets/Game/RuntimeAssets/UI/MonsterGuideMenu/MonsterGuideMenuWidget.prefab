@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6518810929176687320}
   - component: {fileID: 6749486524111440234}
   m_Layer: 5
-  m_Name: PrevButton
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ RectTransform:
   m_Children:
   - {fileID: 4326559926921539622}
   m_Father: {fileID: 8298878997375413394}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6518810929176687320}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2883609376395094575}
+        m_TargetAssemblyTypeName: MonsterGuideMenuWidget, Assembly-CSharp
+        m_MethodName: NextPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1070121230338610319
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +146,7 @@ GameObject:
   - component: {fileID: 3029920293123856559}
   - component: {fileID: 4761974963630240446}
   m_Layer: 5
-  m_Name: NextButton
+  m_Name: PrevButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +165,7 @@ RectTransform:
   m_Children:
   - {fileID: 4984082913441280281}
   m_Father: {fileID: 8298878997375413394}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -241,7 +253,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3029920293123856559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2883609376395094575}
+        m_TargetAssemblyTypeName: MonsterGuideMenuWidget, Assembly-CSharp
+        m_MethodName: PreviousPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1278378073374614765
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +344,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: <
 --- !u!1 &2318190244332239381
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,7 +685,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: '>'
 --- !u!1 &6687153330500043159
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,8 +717,8 @@ RectTransform:
   - {fileID: 6262736551215958568}
   - {fileID: 6717446800007248811}
   - {fileID: 6839538621254448604}
-  - {fileID: 8143318476633159959}
   - {fileID: 590236092245940133}
+  - {fileID: 8143318476633159959}
   m_Father: {fileID: 4329914189826553827}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -758,8 +782,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ae12b9c8e716f6348bcba85c3cb22ebe, type: 2}
   leftPage: {fileID: 9165063700778393743}
   rightPage: {fileID: 8999070040348339960}
-  nextButton: {fileID: 1070121230338610319}
-  previousButton: {fileID: 984588921134680250}
+  nextButton: {fileID: 984588921134680250}
+  previousButton: {fileID: 1070121230338610319}
 --- !u!1001 &8480545524604836580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1016,12 +1040,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1ddf849b07b1e8449a071627b7af46f, type: 3}
---- !u!224 &6839538621254448604 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2921104973609410895, guid: f1ddf849b07b1e8449a071627b7af46f,
-    type: 3}
-  m_PrefabInstance: {fileID: 8530720789848265875}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8999070040348339960 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 756652950874536555, guid: f1ddf849b07b1e8449a071627b7af46f,
@@ -1034,3 +1052,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56e25b2b68e7a354e910c6f14bbf351c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &6839538621254448604 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2921104973609410895, guid: f1ddf849b07b1e8449a071627b7af46f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8530720789848265875}
+  m_PrefabAsset: {fileID: 0}
