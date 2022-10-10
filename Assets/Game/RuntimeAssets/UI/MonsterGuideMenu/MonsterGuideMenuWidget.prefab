@@ -712,6 +712,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4436415479668160522}
+  - component: {fileID: 2883609376395094575}
   m_Layer: 5
   m_Name: MonsterGuideMenuWidget
   m_TagString: Untagged
@@ -739,6 +740,26 @@ RectTransform:
   m_AnchoredPosition: {x: 17.887, y: 7.1548}
   m_SizeDelta: {x: 507.8224, y: 295.564}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2883609376395094575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8871159889993567718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8647861d65d8a34ebb7ed9f9f639432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+  - {fileID: 11400000, guid: 8bb0be9c1dc0a1d42aa3e873af36f3ef, type: 2}
+  - {fileID: 11400000, guid: b16f62b5732d18a4ab79228b38c63457, type: 2}
+  - {fileID: 11400000, guid: ae12b9c8e716f6348bcba85c3cb22ebe, type: 2}
+  leftPage: {fileID: 9165063700778393743}
+  rightPage: {fileID: 8999070040348339960}
+  nextButton: {fileID: 1070121230338610319}
+  previousButton: {fileID: 984588921134680250}
 --- !u!1001 &8480545524604836580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -858,6 +879,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1ddf849b07b1e8449a071627b7af46f, type: 3}
+--- !u!114 &9165063700778393743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 756652950874536555, guid: f1ddf849b07b1e8449a071627b7af46f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8480545524604836580}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e25b2b68e7a354e910c6f14bbf351c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6717446800007248811 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2921104973609410895, guid: f1ddf849b07b1e8449a071627b7af46f,
@@ -989,3 +1022,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 8530720789848265875}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8999070040348339960 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 756652950874536555, guid: f1ddf849b07b1e8449a071627b7af46f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8530720789848265875}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e25b2b68e7a354e910c6f14bbf351c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
