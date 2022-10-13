@@ -15,7 +15,7 @@ public enum LocationsSeen
 }
 
 //Data object for Player's notes on masked guests
-public class MaskedGuestMenuData
+public class MaskedGuestCardData
 {
     public string name;
     public LocationsSeen locationsSeen;
