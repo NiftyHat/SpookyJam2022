@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace UI.RingMenu
@@ -6,13 +7,11 @@ namespace UI.RingMenu
     {
         public string FriendlyName;
         public Sprite Icon;
-        public RingMenuModel SubMenu;
     }
 
     public interface IRingMenuItem
     {
         string FriendlyName { get; }
         Sprite Icon { get; }
-        RingMenuModel SubMenu { get; }
     }
 }

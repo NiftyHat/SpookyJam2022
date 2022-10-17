@@ -44,7 +44,7 @@ namespace NiftyFramework.ScreenInput
                         
                         if (OnInputStart != null)
                         {
-                            screenPointRay = Camera.main.ScreenPointToRay(touchZero.position);
+                            screenPointRay = mainCamera.ScreenPointToRay(touchZero.position);
                             OnInputStart(worldPosition, touchZero.deltaPosition, screenPointRay, 0);
                         }
 
@@ -54,7 +54,7 @@ namespace NiftyFramework.ScreenInput
                         _inputDownTime += Time.deltaTime;
                         if (OnInputMoved != null)
                         {
-                            screenPointRay = Camera.main.ScreenPointToRay(touchZero.position);
+                            screenPointRay = mainCamera.ScreenPointToRay(touchZero.position);
                             OnInputMoved(worldPosition, touchZero.deltaPosition, screenPointRay, _inputDownTime);
                         }
 

@@ -1,16 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
 using NiftyScriptableSet;
 using UnityEngine;
-using UnityUtils;
 
-namespace UI
+namespace UI.RingMenu
 {
     [CreateAssetMenu(fileName = "RingMenu", menuName = "RingMenu/Menu", order = 2)]
-    public class RingMenuData : ScriptableSet<RingMenu.RingMenuItemData>, IFactory<RingMenu.RingMenuModel>
+    public class RingMenuData : ScriptableSet<RingMenuItemData>, IRingMenuViewData, ISerializationCallbackReceiver
     {
-        public RingMenu.RingMenuModel Create()
+        private IList<IRingMenuItem> _items;
+        public IList<IRingMenuItem> Items => _items;
+        public int Count => _items?.Count ?? 0;
+        public void OnBeforeSerialize()
         {
-            return new RingMenu.RingMenuModel(References);
+            
         }
 
+        public void OnAfterDeserialize()
+        {
+            _items = References.Cast<IRingMenuItem>().ToList();
+        }
     }
 }
