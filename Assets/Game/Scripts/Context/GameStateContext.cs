@@ -29,6 +29,8 @@ namespace Context
 
         private PlayerInputHandler _player;
 
+        private event Action<PlayerInputHandler> _onPlayerAssigned;
+
         public GameStateContext(TimeData timeData)
         {
             _timeData = timeData;
@@ -39,6 +41,19 @@ namespace Context
         public void SetPlayer(PlayerInputHandler playerInputHandler)
         {
             _player = playerInputHandler;
+            _onPlayerAssigned?.Invoke(_player);
+        }
+
+        public void GetPlayer(Action<PlayerInputHandler> onComplete)
+        {
+            if (_player != null)
+            {
+                onComplete.Invoke(_player);
+            }
+            else
+            {
+                _onPlayerAssigned += onComplete;
+            }
         }
 
         private void HandlePhaseChange(int oldValue, int newValue)
