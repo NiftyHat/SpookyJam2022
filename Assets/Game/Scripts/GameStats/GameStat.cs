@@ -71,5 +71,10 @@ namespace GameStats
         {
             Set(Value + amount);
         }
+
+        public bool IsMaxValue()
+        {
+            return _value == _max;
+        }
     }
 }

@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285db24a7a6747159b5ad4dba214c7fd, type: 3}
   m_Name: TimeData
   m_EditorClassIdentifier: 
-  _partyStartTime: 7
+  _startTimeInHours: 7
   _turnsPerPhase: 4
   _partyTimeInHours: 6
+  _gameOverTimeOut: {fileID: -8187825875754293677, guid: 0a1d5b9cddaf5794aae9e417cf1b6921,
+    type: 2}
+  TurnsPerPhase: 4

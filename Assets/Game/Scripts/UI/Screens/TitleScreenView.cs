@@ -1,4 +1,5 @@
-using System.Collections;
+using Context;
+using NiftyFramework.Core.Context;
 using UI.Widgets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,20 +13,33 @@ namespace UI.Screens
         [SerializeField] private LoadingBarView _loadingBarView;
         [SerializeField] private LayoutGroup _buttonsGroup;
 
+        private GameStateContext _gameStateContext;
+
         protected void Start()
         {
-            _playButton.onClick.AddListener(HandleClickPlay);
+            _playButton.enabled = false;
+            ContextService.Get<GameStateContext>(HandleGameStateContext);
+
             _loadingBarView.Clear();
+        }
+
+        private void HandleGameStateContext(GameStateContext service)
+        {
+            _playButton.enabled = true;
+            //TODO - dsaunders this should be driven by a state system and not whatever the fuck this garbage code is.
+            _gameStateContext = service;
+            _playButton.onClick.AddListener(HandleClickPlay);
         }
 
         private void HandleClickPlay()
         {
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(1);
+            _gameStateContext.StartGame(out var loadingOperation);
             if (_loadingBarView != null)
             {
                 _buttonsGroup.gameObject.SetActive(false);
-                _loadingBarView.Set(asyncLoad);
+                _loadingBarView.Set(loadingOperation);
             }
+
         }
 
     }

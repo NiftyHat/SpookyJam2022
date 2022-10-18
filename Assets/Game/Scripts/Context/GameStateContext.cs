@@ -1,10 +1,13 @@
 using System;
+using System.ComponentModel;
 using Data;
 using Entity;
 using GameStats;
 using Interactions;
 using NiftyFramework.Core;
 using NiftyFramework.Core.Context;
+using UnityEngine.SceneManagement;
+using AsyncOperation = UnityEngine.AsyncOperation;
 
 namespace Context
 {
@@ -28,6 +31,7 @@ namespace Context
         private readonly TimeData _timeData;
 
         private PlayerInputHandler _player;
+        private GameOverReasonData _gameOverReason;
 
         private event Action<PlayerInputHandler> _onPlayerAssigned;
 
@@ -72,6 +76,12 @@ namespace Context
             {
                 return;
             }
+
+            if (Turns.IsMaxValue())
+            {
+                EndGame(_timeData.GameOverTimeOut);
+                return;
+            }
             Turns.Add(1);
             _currentTime = ConvertTurnsToTime(Turns.Value);
             int newPhase = Turns.Value / _timeData.TurnsPerPhase;
@@ -80,6 +90,20 @@ namespace Context
                 Phase.Value = newPhase;
             }
             OnTurnStarted?.Invoke(Turns.Value, Turns.Max, Phase.Value);
+        }
+
+        public void StartGame(out AsyncOperation loadingOperation )
+        {
+            Turns.Value = 0;
+            Phase.Value = 0;
+            _currentTime = ConvertTurnsToTime(Turns.Value);
+            loadingOperation = SceneManager.LoadSceneAsync(1);
+        }
+
+        private void EndGame(GameOverReasonData gameOverReasonData = null)
+        {
+            _gameOverReason = gameOverReasonData;
+            SceneManager.LoadScene(2);
         }
 
         public TimeSpan ConvertTurnsToTime(int turn)

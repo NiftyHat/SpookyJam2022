@@ -1,4 +1,6 @@
+using Context;
 using Data;
+using NiftyFramework.Core.Context;
 using NiftyFramework.UI;
 using TMPro;
 using UnityEngine;
@@ -14,14 +16,24 @@ namespace UI.Screens
         [SerializeField] private Button _titleButton;
         [SerializeField] private TextMeshProUGUI _labelGameOverReason;
 
+        private GameStateContext _gameStateContext;
+
         protected void Start()
         {
-            _retryButton.onClick.AddListener(HandleRetryClick);
+            _retryButton.enabled = false;
+            ContextService.Get<GameStateContext>(HandleGameStateContext);
             _quitButton.onClick.AddListener(HandleQuitClick);
             _titleButton.onClick.AddListener(HandleTitleClick);
 #if UNITY_IPHONE
             _quitButton.gameObject.SetActive(false);
 #endif
+        }
+
+        private void HandleGameStateContext(GameStateContext gameStateContext)
+        {
+            _gameStateContext = gameStateContext;
+            _retryButton.onClick.AddListener(HandleRetryClick);
+            _retryButton.enabled = true;
         }
 
         private void HandleTitleClick()
@@ -40,7 +52,7 @@ namespace UI.Screens
 
         private void HandleRetryClick()
         {
-            SceneManager.LoadScene(1);
+            _gameStateContext.StartGame(out _);
         }
 
         public void Set(GameOverReasonData gameOver)
