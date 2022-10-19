@@ -2,7 +2,6 @@ using Context;
 using NiftyFramework.Core.Context;
 using UI.Widgets;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace UI.Screens

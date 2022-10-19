@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8594268752274956579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0d85acfcf9494c8a19f0ea23f501d7, type: 3}
+  m_Name: BalconyLocation
+  m_EditorClassIdentifier: 
+  _friendlyName: The Balcony
+  _description: 
+  _icon: {fileID: 21300000, guid: de75d8fa0f64038499a907df727a1575, type: 3}
+--- !u!114 &-3538942094896422244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0d85acfcf9494c8a19f0ea23f501d7, type: 3}
+  m_Name: UpperLanding
+  m_EditorClassIdentifier: 
+  _friendlyName: Upper Landing
+  _description: 
+  _icon: {fileID: 21300000, guid: a6bfecdacc55ac1449f24471fecf3acd, type: 3}
+--- !u!114 &-2087783226966105912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0d85acfcf9494c8a19f0ea23f501d7, type: 3}
+  m_Name: DanceHallArea
+  m_EditorClassIdentifier: 
+  _friendlyName: The Dance Hall
+  _description: 
+  _icon: {fileID: 21300000, guid: eef712de2b0ed9045b0a746f7ac53d42, type: 3}
+--- !u!114 &-622056154717205662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0d85acfcf9494c8a19f0ea23f501d7, type: 3}
+  m_Name: GardenLocation
+  m_EditorClassIdentifier: 
+  _friendlyName: The Statue Garden
+  _description: 
+  _icon: {fileID: 21300000, guid: e266c9d0d196d224c95dc612daa5389a, type: 3}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39651ed13a0e4faf8aad16af6c31f0ac, type: 3}
+  m_Name: PlacesData
+  m_EditorClassIdentifier: 
+  _references:
+  - {fileID: -622056154717205662}
+  - {fileID: -8594268752274956579}
+  - {fileID: -3538942094896422244}
+  - {fileID: 935647436183426658}
+  - {fileID: 4635359559426436241}
+  - {fileID: -2087783226966105912}
+--- !u!114 &935647436183426658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0d85acfcf9494c8a19f0ea23f501d7, type: 3}
+  m_Name: LowerLanding
+  m_EditorClassIdentifier: 
+  _friendlyName: Lower Landing
+  _description: 
+  _icon: {fileID: 21300000, guid: a6bfecdacc55ac1449f24471fecf3acd, type: 3}
+--- !u!114 &4635359559426436241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0d85acfcf9494c8a19f0ea23f501d7, type: 3}
+  m_Name: BuffetLocation
+  m_EditorClassIdentifier: 
+  _friendlyName: The Buffet
+  _description: 
+  _icon: {fileID: 21300000, guid: f72752c7c6802ea4a91a6e7bfefe173c, type: 3}

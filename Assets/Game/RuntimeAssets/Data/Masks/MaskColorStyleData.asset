@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4457675236536071387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e5ec79605c4bf18eadc9daefcdd224, type: 3}
+  m_Name: YellowMask
+  m_EditorClassIdentifier: 
+  _color: {r: 1, g: 0.83297265, b: 0, a: 1}
+  _friendlyName: Yellow
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75cb6195f064b4287516f9ad61a69f3, type: 3}
+  m_Name: MaskColorStyleData
+  m_EditorClassIdentifier: 
+  _references:
+  - {fileID: 5532107318250856858}
+  - {fileID: 7353603276203469712}
+  - {fileID: 564835610832978127}
+  - {fileID: -4457675236536071387}
+--- !u!114 &564835610832978127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e5ec79605c4bf18eadc9daefcdd224, type: 3}
+  m_Name: WhiteMask
+  m_EditorClassIdentifier: 
+  _color: {r: 1, g: 1, b: 1, a: 1}
+  _friendlyName: White
+--- !u!114 &5532107318250856858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e5ec79605c4bf18eadc9daefcdd224, type: 3}
+  m_Name: RedMask
+  m_EditorClassIdentifier: 
+  _color: {r: 1, g: 0, b: 0, a: 1}
+  _friendlyName: Red
+--- !u!114 &7353603276203469712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e5ec79605c4bf18eadc9daefcdd224, type: 3}
+  m_Name: BlueMask
+  m_EditorClassIdentifier: 
+  _color: {r: 0.30113026, g: 0.49410725, b: 0.9528302, a: 1}
+  _friendlyName: 

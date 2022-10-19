@@ -1,0 +1,1820 @@
+id,firstName,middleName,lastName,gender
+1,aaron,,smith,m
+2,abel,,becher,m
+3,abel,,alleyne,m
+4,abel,,smith,m
+5,abi,,keith,?
+6,abigail,,benson,f
+7,abraham,,hurley,m
+8,abraham,,rees,m
+9,adam,,lowdan,m
+10,adam,,cardonnel,m
+11,adam,,ingles,m
+12,adam,,gordan,m
+13,adelaide,,dunsford,f
+14,adeline,,alexander,f
+15,adolphus,frederick,guelph,m
+16,adolphus,frederick charles william ,vane-tempest,m
+17,aeneas,,macdonnell,m
+18,agnes,,surriage,f
+19,agnes,,beresford,f
+20,agness,,cordwent,f
+21,alan,,macpherson,m
+22,alan,,mcnab,m
+23,alan,,bellingham,m
+24,alathea,,fitzherbert,f
+25,alberic,,drummond-burrell,m
+26,albert,wing,saunders,m
+27,albertina,marianna,gaulis,f
+28,albinia,,bertie,f
+29,albinia,,townshend,f
+30,albinia,,price,f
+31,albinia,jane,hobart,f
+32,albinia,,broderick,f
+33,albinia,,midleton,f
+34,albion,,durban,m
+35,aldborough,brydges,henniker,m
+36,alek,,poole,m
+37,alethea,,jamees,f
+38,aletheia,,mellingson,f
+39,alexander,,fraser,m
+40,alexander,,bruce,m
+41,alexander,,davison,m
+42,alexander,penrose,miller,m
+43,alexander,george henry,russell,m
+44,alexandra,,mckeand,f
+45,alexandra,,stephenson,m
+46,alexandre,,d'arblay,m
+47,alexandrina,victoria,guelph,f
+48,alexandrina,,von strych,f
+49,alexandrine,amelia,murray,f
+50,alexis,,thompson,m
+51,alfred,,street,m
+52,alfred,,guelph,m
+53,alfred,henry,paget,m
+54,algernon,,fulke,m
+55,algernon,,seymour,m
+56,alice,,foster,f
+57,alicia,,mitford,f
+58,alicia,,johnston,f
+59,alida,,scott,f
+60,allan,,mcdonald,m
+61,allan,billingham,cairnes,m
+62,allen,,mclean,m
+63,allen,,mclean,m
+64,alleyne,,fitzherbert,m
+65,alleyne,,waller,m
+66,almeria,augusta,cary,f
+67,almeria,,carpenter,f
+68,alured,,townshend,f
+69,alwyne,,compton,m
+70,amabel,,yorke,f
+71,amabel,,pole,f
+72,amalius,,beauclerk,m
+73,ambrose,,o'farrell,m
+74,amelia,,george,f
+75,amelia,,mitchell,f
+76,amelia,anne,hobart,f
+77,amelia,,guelph,f
+78,amelia,,benwell,f
+79,amy,decima,hooper,f
+80,amyrald,,dancer,m
+81,anabella,christiana,honywood,f
+82,anastacia,,daly,f
+83,anastasia,,cradock,f
+84,anastasia,,daly,f
+85,anastasia,maria,lawson,f
+86,anastasia,,foster,f
+87,anastatia,,beevor,f
+88,anchoretta,,eyre,f
+89,andrew,,Bell,m
+90,andrew,,graham,m
+91,andrew,,millar,m
+92,andrew,,lawrie,m
+93,andrew,,usher,m
+94,andrew,vincent,corbet,m
+95,andrews,,windsor-hickman,m
+96,andrews,,windsor,m
+97,aneurin,lloyd,lodge,m
+98,angel,catharine,booth,f
+99,angel,,wray,?
+100,angela,georgina,withipole,f
+101,angela,,rodney,f
+102,angela,,stratford,f
+103,angelica,,mcdonald,f
+104,angelica ,,kaufmann,f
+105,angelina,,read,f
+106,angelina,,smith,f
+107,angelina,maria cecilia,gould,f
+108,angelina,,smith,f
+109,angelique,,clermont,f
+110,angmondisham,,vesey,m
+111,angus,,campbell,m
+112,ann,,smyth,f
+113,anna,martina,browne ffolkes,f
+114,anna,maria cornelia,vanneck,f
+115,anna,gabriella,head,f
+116,anna,aletheia elizabetha,paget,f
+117,anna,,windsor,f
+118,anna,maria elizabeth,needham,f
+119,anna,antonia,swinburne,f
+120,anna ,sophia,temple,f
+121,anna ,margaretta,meredith,f
+122,annabella,eliza cassandra,hawke,f
+123,anne,frederica elizabeth,fleming,f
+124,anne,gabriella,head,f
+125,anne,bettina,beevor,f
+126,anne,horatio,seymour,f
+127,anne,constantia,beresford,f
+128,anne ,,mathew,f
+129,annette,,browne,f
+130,annice,,paul,f
+131,annsi,,owens,f
+132,anstace,,blake,f
+133,anthanasius,,laffer,m
+134,anthony,,malone,m
+135,anthony,,ashley,m
+136,anthony,,bacon,m
+137,anthony,,cooke,m
+138,anthony ,adrian,keith-falconer,m
+139,anthony ,adrian,falconer,m
+140,antoinette,,reyne,f
+141,antoinette,anna,rodney,f
+142,antoinette,,parker,f
+143,antony,,gibbs,m
+144,apollonia,,stourton,f
+145,apollonia,,nourse,f
+146,apolonia,,langdale,f
+147,arabella,,day,f
+148,arabella,,vane,f
+149,arabella,,beaumont,f
+150,arabella,,rossiter,f
+151,arabella,,smyth,f
+152,arabella,,townshend,f
+153,arabella,,crosbie,f
+154,arabella,,fitzgerald,f
+155,arabella,,fortesque,f
+156,araminta,,berestford,f
+157,archibald,,campbell,m
+158,archibald,archibald,argyle campbell,m
+159,archibald,,heriment,m
+160,arent,,shuyler de pyester,m
+161,aretas,,akers,m
+162,ariana,,shelly,f
+163,armandine,sophie leonie corisande,de gramont,f
+164,arnolda,margaret,van dam steen,f
+165,aron,,larcombe,m
+166,artemidorus,cromwell,russell,m
+167,arthur,rowley,heyland,m
+168,arthur,,wellesley,m
+169,arthur,john,somerset,m
+170,arthur,caesar,tollemache,m
+171,arthur,philip,perceval,m
+172,arthur,,Upton,m
+173,arundel,,stratford,f
+174,aseneth,,hann,f
+175,ashley,,loftus,m
+176,ashley,,cowper,m
+177,ashton,,mosley,m
+178,ashton,,mosley,m
+179,athalmer,,aylmer,m
+180,athanasius,,nagle,m
+181,atholl,keturah,murray,f
+182,aubone,,surtees,m
+183,aubone,,surtees,m
+184,aubrey,,paul,m
+185,aubrey,,devere ,m
+186,audrey,,townshend,f
+187,augusta,,fane,f
+188,augusta,sophia,guelph,f
+189,augusta,,beaumont,f
+190,augusta,,noel,f
+191,augustus,,merry,m
+192,augustus,frederick,guelph,m
+193,aurea,,otway,f
+194,auston,,hake,m
+195,badham,,thornhill,m
+196,baldwin,,wake,m
+197,balzaliel,,sherman,m
+198,banastre,,lloyd,m
+199,baptist,wriothesley,noel,m
+200,barbara,,dillon,f
+201,barbara,camilla,mcintyre,f
+202,barclay,,thomas,m
+203,barnaby,,murphy,m
+204,barnard,,hole,m
+205,barnard,,foord bowes,m
+206,bartholemew,,randall,m
+207,bartholomew,,hughes,m
+208,basetta,,holbrook,f
+209,basil,,hall,m
+210,basil,,fitzherbert,m
+211,basil ,william,douglas,m
+212,basilia,,dawes,f
+213,bassett,,collins,m
+214,bathsua,hering,ellis,?
+215,beatrice,,letherby,f
+216,beatrice,,trevelyn,f
+217,beatrix,,darell,f
+218,beatrix,,montgomerie,f
+219,belinda,,blennerhossett,f
+220,belinda,,edwards,f
+221,belinda,,colebrooke,f
+222,bella,anna,adnutt,f
+223,bellett,,burroughs,m
+224,bellingham,george fenton,graham,m
+225,benedict,,hammill,m
+226,benjamin,,ramadge,m
+227,benjamin,,d'avigdor,m
+228,benjamin,,harenc,m
+229,bennet,,stephens,m
+230,bentinck,walter,yelverton,m
+231,berkeley,thomas,paget,m
+232,berkeley,octavius,noel,m
+233,bernard,,astley,m
+234,bernard,,mullins,m
+235,bertram,arthur,sullivan,m
+236,bethia,,baillie,f
+237,betsey,,cranch,f
+238,betsy,,bullar,f
+239,bettia,,walker,f
+240,betty,maria,trevor-roper,f
+241,beulah,,gazard,f
+242,bigoe,,armstrong,?
+243,blundel,,charlton,m
+244,blyney,tenison,roper,m
+245,boyd,,alexander,m
+246,bracey,,briney,m
+247,brand,frederick,sullivan,m
+248,bransley,,cooper,m
+249,brian,william darwin,cooke,m
+250,bridget,,bourke,f
+251,bridget,,wyne,f
+252,bridget ,,hennessey,f
+253,bridget , ,daly,f
+254,broderick,,hartwell,m
+255,brooke,,bridges,m
+256,brooke,,boothby,m
+257,brownlow,,paget,m
+258,bryan,,reynolds,m
+259,bryan,,o'loghlen,m
+260,brydges,,trecothic,m
+261,byzantia,,cartwright,f
+262,cadwallader-davis,,blayney,m
+263,caleb,hillier,parry,m
+264,cameron,,john,m
+265,camerona,,campbell,f
+266,camilla,,porterfield,f
+267,camilla,,powlett,f
+268,camilla,,bennett,f
+269,camilla,,whatman,f
+270,camilla,,buchanan,f
+271,capel,,lofft,m
+272,cara,,combe,f
+273,carew,,hoblyn,m
+274,carew,,vyvyan,m
+275,carey,,le marchant,m
+276,carnaby,,haggreston,m
+277,carolina,,barry,f
+278,carolina,,riddell,f
+279,carolina,,brudenell,f
+280,carolina,amelia,pyntz,f
+281,caroline,,moggridge,f
+282,caroline,isabella,lybbe powys,f
+283,caroline,matilda,guelph,f
+284,caroline,alicia,shaw,f
+285,caroline,,paget,f
+286,caroline,leonora,fox-strangeways,f
+287,carteret,,le marchant,f
+288,caryer,,sherard,m
+289,cassandra,,austen,f
+290,cassandra,,nugent,f
+291,cassandra,agnes,chamberlayne,f
+292,cassandra,,turner,f
+293,cassandra,julia,hawke,f
+294,cassandra,,willoughby,f
+295,catharina,,powell,f
+296,catharina,,crawley-boevy,f
+297,catharine,,hardy,f
+298,catharine,,nelson,f
+299,catherine,,townshend,f
+300,catherine,frances nannette,milner,f
+301,catherine,,byrne,f
+302,cecil,james,gordan,m
+303,cecil,francis,hamilton,m
+304,cecilia,olivia geraldine,fitzgerald,f
+305,celia,,matthews,f
+306,chaloner,,hawke,m
+307,chardin,,musgrave,m
+308,charity,,davey,f
+309,charity,,ourry,f
+310,charity,,dixon,f
+311,charity ,graeme,farquhar,f
+312,charles,caractacus ostorius maximilian gustavus adolphus,stone,m
+313,charles,,austen,m
+314,charles,,kennedy,m
+315,charles,aytone,douglas,m
+316,charles,,mcguchin,m
+317,charles,,paulet,m
+318,charles,ingoldsby,,m
+319,charles,william,stewart,m
+320,charles,,aykeroid,m
+321,charles,saunders john,fane,m
+322,charles,atticus,middleton,m
+323,charles,rhoderic,macgrigor,m
+324,charles,amelius,hervey,m
+325,charles,conrad,grey,m
+326,charles,james sholto,douglas,m
+327,charles,ewan,law,m
+328,charles,,Moss,m
+329,charles,,Broderick,m
+330,charles,,Lindsey,m
+331,charles,,Thorneton,m
+332,charles,,Holdsworth,m
+333,charlotte,anne,burney,f
+334,charlotte,augusta matilda,guelph,f
+335,charlotte,augusta,guelph,f
+336,charlotte,augusta annabella,drummond-burrell,f
+337,charlotte,augusta louisa,guelph,f
+338,charlotte,,st. john,f
+339,charlotte,,townshend,f
+340,charlotte,clara,payles,f
+341,charlotte,,paget,f
+342,charlotte,albinia,douglas-scott,f
+343,charlotte,susannah,swales,f
+344,charlotte,anne josephine,tennant,f
+345,charlotte-florentia,,clive,f
+346,chatwynd,,trumbull,f
+347,christabella,,dayrolles,f
+348,christian,henrietta caroline,strangeways,f
+349,christian,frederick charles alexander james,johnston,m
+350,christiana,alexandrine egypta,bonaparte,f
+351,christina,,sighterman,f
+352,christmas,,paul,m
+353,christobella,,tyrrol,f
+354,christopher,,lofft,m
+355,christopher,,nisbet,m
+356,christopher,,croudace,m
+357,christopher,french,st. george,m
+358,christopher,,bedingfield,m
+359,christopher,,hawkins,m
+360,christopher,kirwin,lister,m
+361,christopher,dillon,bellew,m
+362,christopher,,Bethell,m
+363,clara,,cridland,f
+364,clara,,price,f
+365,clare,,ffrench,f
+366,clarence,edward,paget,m
+367,clarinda,,fallon,f
+368,clarisa,,davey,f
+369,clarissa,,darell,f
+370,clarissa,,claringbole,f
+371,clarissa,,peach peach,f
+372,claud,,hamilton,m
+373,claude,edward,scott,m
+374,claudia,sulpiccia barbara,baynees,f
+375,claudius,,kerr,m
+376,claudius,,amyand,m
+377,clement,,poole,m
+378,clementina,elizabeth,drummond-burrell,f
+379,clementina,,lockhart,f
+380,clementina,sarah,drummond,f
+381,clotilda,,hoare,f
+382,clotworthy,,taylour,m
+383,clotworthy,,rowley,m
+384,colin,,campbell,m
+385,colin,,mcdougall,m
+386,colin,,douglas,m
+387,colin,,drummond,m
+388,colin,,lamont,m
+389,colin,alexander,campbell,m
+390,colina,,campbell,f
+391,collan,,harvey,m
+392,connell,,scanlan,m
+393,constantia,,stourton,f
+394,constantia,maria,campbell,f
+395,constantia,maria,pigot,f
+396,conway,,benning,m
+397,corantine,,benoit,f
+398,corbetta,,owen,f
+399,cordelia,,moouat,f
+400,cordelia,,murray,f
+401,cordelia,winifreda,whitemore,f
+402,corisande,emma,bennett,f
+403,cornelia,,green,f
+404,cornelia,maria,shuyler de pyester,f
+405,cornelia,paulina,sandby,f
+406,cornelia,sarah,cornish,f
+407,cornelia,,hays,f
+408,cornelius,,mckendrick,m
+409,cornelius,,armytage,m
+410,corry,,somerville,?
+411,cosmo,george,russell,m
+412,cosmo,george,gordan,m
+413,cosmo,,gordan,m
+414,coulson,,fellowes,m
+415,courtenay,,boyle,m
+416,courtenay,edmund william,bayle,m
+417,courteney,crowe,kenny,m
+418,craven,,fitzhardinge,m
+419,crisp,,molyneux,m
+420,crispin,,nicholas,m
+421,croker,,barrington,m
+422,culling,charles,smith,m
+423,cuthbert,,ellison,m
+424,cynric,,lloyd,m
+425,cyril,,winnington,m
+426,cyril,,Jackson,m
+427,cyrus,,griffin,m
+428,dacre,barrett,lennard,m
+429,daines,,barrington,m
+430,daines,,barrington,m
+431,dalilah,,white,f
+432,daniel,,mccalman,m
+433,daniel,,white,m
+434,daniel,,finch,m
+435,daniel,,barrington,m
+436,daniel,,salt,m
+437,daniel,james,webb,m
+438,darius,,drake,m
+439,darkess,,chalk,?
+440,dashwood,,bacon,m
+441,david,,campbell,m
+442,david,,howell,m
+443,david,,verner,m
+444,david,,ogilvy,m
+445,david,,pennant,m
+446,david,frederick,Markham,m
+447,david ,,annan ,m
+448,david ,,baille,m
+449,david ,,conynham,m
+450,david ,,kerr,m
+451,deborah,,lewis,f
+452,deborah,susannah,freind,f
+453,deborah,,davis,f
+454,deborah ,,davis,f
+455,deborah ,,winchester,f
+456,delphine,,onslow,f
+457,denis,,pack,m
+458,denny,baker,cuffe,m
+459,denton,,steele,m
+460,denzil,,onslow,m
+461,denzil,,onslow,m
+462,derwent,,coleridge,m
+463,diana,cinderella,bowes-lyon,f
+464,diana,,beauclerk,f
+465,diana,,blackett,f
+466,diana,,bowyer,f
+467,diana,,sturt,f
+468,diana,,spencer,f
+469,diana,,bunbury,f
+470,diana,,barham,f
+471,diana,,howard,f
+472,diana,juliana,pleydell-bowerie,f
+473,diana,clarissa,chetwynd,f
+474,dianna,,jones,f
+475,dianna,,vickery,f
+476,dianysius,,broad,m
+477,digby,,mackworth,m
+478,digby,wingfield,digby,m
+479,dina,,wardle,f
+480,dinah,,frankland,f
+481,dinah,,haley,f
+482,dionysia,,long,f
+483,dolly,,pentreath,f
+484,dominick,,browne,m
+485,dominick,,blake,m
+486,dominick,,trant,m
+487,dominico,,santiero,m
+488,dominus,,hadton,m
+489,donald,,campbell,m
+490,donald,,farquharson,m
+491,donald,,ogilvy,m
+492,dora,,beresford,f
+493,dora,,watson,f
+494,dora,,nixon,f
+495,dorcas,,stevenson,f
+496,dorothea,,sinclair,f
+497,dorothea,,hucks,f
+498,dorothy , ,shafto,f
+499,dorothy ,patricia,thomas,f
+500,dorriel,,campbell,f
+501,douglas,,douglas-hamilton,m
+502,dudley,,ackland,m
+503,dudley,montagu,perceval,m
+504,dudley,,coutets,m
+505,dudley,worsley,rylestone,m
+506,dugald,,mcinnes,m
+507,dugald,,campbell,m
+508,duke,,yonge,m
+509,dulcibella,,hay,f
+510,dulcibella,,eden,f
+511,dunbar,,douglas,m
+512,dunbar,james,douglas,m
+513,duncan,,campbell,m
+514,duncan,,arbuthnot,m
+515,duncan,,mclaren,m
+516,duncan,,mclaren,m
+517,duncan,,macdonnell,m
+518,duncan,,arbuthnott,m
+519,duncan,,Campbell,m
+520,dymphna,,pery,f
+521,dymphna,,dillon,f
+522,ebenezer,,macculloch,m
+523,echlin,,molyneux,m
+524,eden,,wedderburn,m
+525,edgar,atheling,drummond,m
+526,edmund,,l'estrange,m
+527,edmund,,armstrong,m
+528,edmund,,hornby,m
+529,edmund,,turnor,m
+530,eduard,emile,schmidlin,m
+531,edward,ioan,thomas,m
+532,edward,,austen-knight,m
+533,edward,,currie,m
+534,edward,augustus,guelph,m
+535,edward,,navasour,m
+536,edward,otto,trevelyn,m
+537,edward,henry julius,hawke,m
+538,edward,,denys,m
+539,edward,geoffrey,stanley,m
+540,edward,marmaduke joseph,vavasour,m
+541,edward,,Harvey,m
+542,edward,alured,Draper,m
+543,edward,,Vernon,m
+544,edward ,henry julius,hawke,m
+545,edwin,,fairfax,m
+546,edwin,,lascelles,m
+547,edwina,,penrose,f
+548,egerton,charles william ,milman,m
+549,egerton,,leigh,m
+550,eglantine,,maxwell,f
+551,ela,,de beauchamp,f
+552,eldred,,allen,m
+553,eldred,,roberts,m
+554,eleanor,,austen,f
+555,eleanor,catherine,bradstreet,f
+556,eleanora,,hamilton,f
+557,eleanora,,syme,f
+558,eleanora,,campbell,f
+559,eleonora,,agnew,f
+560,eleonora,,fraser,f
+561,eliab,,harvey ,m
+562,elias,,mallet,m
+563,elihu,,durban,m
+564,elijah,,impey,m
+565,elijah,,impey,m
+566,elisa,,wallis,f
+567,elisabeth,,male,f
+568,elisha,,sims,m
+569,elisha,,harris,m
+570,eliza,,austen,f
+571,eliza,,bizarre,f
+572,eliza ,,kent,f
+573,elizabeth,,guelph,f
+574,elizabeth,susan,drummond-burrell,f
+575,elizabeth,georgiana adelaide,guelph,f
+576,elizabeth,araminta,gore,f
+577,elizabeth,,townshend,f
+578,elizabeth,penelope,stewart,f
+579,elizabeth,theressa,strangeways,f
+580,elizabeth,,farren,f
+581,elizabeth,araminta,monck,f
+582,elizabeth,melesina,fleury,f
+583,elizabeth,dorothea francis,rush,f
+584,elizabeth,clotilda,barclay,f
+585,elizabeth,malet,palk,f
+586,elizabeth,fredericaa,manners,f
+587,elizabeth,rosetta,massy,f
+588,elizabeth,rosetta,massy-dawson,f
+589,elizabeth ,araminta,monck,f
+590,ellen,,sullivan,f
+591,ellen,,barrett,f
+592,ellick,,rullands,m
+593,ellinor,,hamilton,f
+594,elliot,dunkin,johnston,m
+595,eloisa,,owen,f
+596,elton,,levett,m
+597,emelia,,palk,f
+598,emilia,charlotte,lennox,f
+599,emily,almeria,shuckburgh,f
+600,emily,victorine elizabeth,rumbold,f
+601,emily,,browne,f
+602,emily,,douglas,f
+603,emily,harriet,wellesley,f
+604,emily,susanna laura,waldegrave,f
+605,emily,angel,foley,f
+606,emily ,theophilia,metcalfe,f
+607,emma,emily,shaw,f
+608,emma,eugenia elizabeth,freemantle,f
+609,emma,martha,money,f
+610,emma,,st. john,f
+611,emma,julia,noel,f
+612,emmeline,,bathurst,f
+613,eneas,,gilker,m
+614,ephraim,,fra….,m
+615,ephraim,,chambers,m
+616,erasmus,dixon,borrowes,m
+617,ereskine,alexander,fraser,m
+618,eric,,mackay,m
+619,eric,george ,buchan,m
+620,esau,,shearn,f
+621,esme,stewart,erskine,m
+622,ester,,cox,f
+623,esther,,burney,f
+624,esther,sabina,winn,f
+625,esther,,warren,f
+626,esther,,curzon,f
+627,esther,joanna,farr,f
+628,esther,,cohen,f
+629,ethelred,,stile,m
+630,eudoxia,saulnier,de cherriers,f
+631,eugene,,fairfax,m
+632,euphan,,dickson,f
+633,euphemia,margaret,buchan,f
+634,euphmia,,gaudian,f
+635,euphonia,,mcnair,f
+636,eusebius,,horton,m
+637,euseby,,Cleaver,m
+638,eustacia,,bassett,f
+639,evan,,baille,m
+640,evander,,arbuthnott,m
+641,evelyn,,alston,m
+642,evelyn,,pierrepoint,m
+643,everard,,st. john-mildmay,m
+644,ewan,,cameron,m
+645,ewan,,baille,m
+646,ewen,,cameron,m
+647,eyre,,power,m
+648,eyre,,evans,m
+649,fanny,,adams,f
+650,fanny,,tuttiel,f
+651,fanny,mary,ffolkes,f
+652,fanny ,,leader,f
+653,farquhar,,gordon,m
+654,felicia,,hemans,f
+655,felicia,elizabetha,hole,f
+656,felicia,jemima,beauchamp,f
+657,felicite,anne josephe,curzon,f
+658,felicite,anne josephe,de wattines,f
+659,felicite,anne,browne,f
+660,felix,william george richard,bedingfeld,m
+661,felix,,ladbrooke,m
+662,felix,thomas,tollemache,m
+663,felizarda,,pole,f
+664,felton,,hervey,m
+665,ferdinand,,williamson,m
+666,ferdinando,,askew,m
+667,ferdinando,tracy,travell,m
+668,fergus,james,graham,m
+669,fiducia,,lomax,f
+670,finlay,,shaw,m
+671,fisher,,lyttleton,m
+672,fleming,,french,m
+673,flora,,gander,f
+674,flora,,hamilton,f
+675,florence,,trent,f
+676,florentina,,wrey,f
+677,florentius,,vassal,m
+678,floretta,,keyser,f
+679,florinda,,gerard,f
+680,florinda,,trench,f
+681,forbes,,Champagne,m
+682,forster,,adair,m
+683,fox,maule,ramsay,m
+684,francelina,,mcclintock,f
+685,francelina,,nesbitt,f
+686,frances,,palmer,f
+687,frances,,burney,f
+688,frances,gabriella,talbot,f
+689,frances,,clack,f
+690,frances,jory,middleton,f
+691,frances,muriel,strangeways,f
+692,frances,cerjat kenneth,mackenzie,f
+693,frances,laura,dundas,f
+694,frances,caroline,annesley,f
+695,frances,,muire,m
+696,francina,,wedikind,f
+697,francis,julia,burrell,f
+698,francis,,austen,m
+699,francis,,wilson,m
+700,francis,nathaniel pierpont,burton conynham,m
+701,francis,brian,hill,m
+702,francis,miles,milman,m
+703,francis,alexander,falconer,m
+704,francis,lucius,austin,m
+705,francis,blake,delavel,m
+706,francis,thomas,Hammond,m
+707,francisca,alicia,wilbraham,f
+708,francsdatt,,dadt,m
+709,frederic,steuart,trench,m
+710,frederica,,skynner,f
+711,frederica,louisa,davers,f
+712,frederick,peter,balssiere,m
+713,frederick,,Cavendish Ponsonby,m
+714,frederick ,william,guelph,m
+715,frederick ,augustus,guelph,m
+716,frederick ,william robert,vane,m
+717,fulke,southwell,greville-nugent,m
+718,gabiel,,bray,m
+719,gabriel,,clarke,m
+720,gabriel,,goldney,m
+721,gabriel,,morris,m
+722,gabriel,,hanger,m
+723,gabriel,,shaw,m
+724,gabriella,,onslow,f
+725,gamaliel,,fair,m
+726,garden,,duff,m
+727,gaspar,,erck,m
+728,gavin,,young,m
+729,gawen,,aynsley,m
+730,gaynor,,barry,m
+731,george,,austen,m
+732,george,,austen knight,m
+733,george,,brown,m
+734,george,herbert,adams,m
+735,george,augustus frederick,guelph,m
+736,george,gordon,byron,m
+737,george,anson,byron,m
+738,george,william,finch,m
+739,george,augustus frederick john,fane,m
+740,george,alured,Nugent,m
+741,george,,Prevost,m
+742,george,henry,Law,m
+743,george,,FitzClarence,m
+744,george,,Scott,m
+745,george ,,gordan,m
+746,george ,heneage,dundas,m
+747,george ,warren,edwardes,m
+748,george ,,lawrence,m
+749,george ,darby ,st. quinton,m
+750,georgiana,tryphena,thrubsby,f
+751,georgiana,augusta,somerset,f
+752,georgiana,henrietta louisa,wesley,f
+753,georgina,carolina,lennox,f
+754,georgine,,onslow,f
+755,gerald,valerian,colley-wesley,m
+756,gerald,,chetwynd-talbot,m
+757,geraldina,eugenia,wallace,f
+758,geraldine,,jewsbury,f
+759,gerard,anne,edwards,m
+760,gerard,,vanneck,m
+761,gertrude,henrietta,cunyngham,f
+762,gertrude,,vanneck,f
+763,gervais,parker,bushe,m
+764,gervase,anthony,eyre,m
+765,gibson,,dalziel,m
+766,giles,,loder,m
+767,giles,,knightly,m
+768,gloriana,,folsome,f
+769,glynn,,wynne,m
+770,glynne,earle,welby-gregory,f
+771,godfrey,,sinclair,m
+772,godfrey,theodore,graham,m
+773,godfrey,alexander,cohen,m
+774,gonville,,bromhead,m
+775,goodlatt,,rynd,m
+776,gordon,c.,innes,m
+777,grace,trevor charlotte,boscawen,f
+778,grace,anne,coffey,f
+779,graeme,alexander,sinclair-lockhart,m
+780,graham,,hanmer,m
+781,graham,,montogomery,m
+782,graham,,oxenden,m
+783,grant,,aitken,m
+784,granville,,sharp,m
+785,granville,anson,chetwynd,m
+786,granville,george,waldegrave,m
+787,granville,charles henry,somerset,m
+788,granville,henry,bridgeman,m
+789,granville,,dudley-ryder,m
+790,gregory,,nichollson,m
+791,gregory,,martin,m
+792,gresham,,page,m
+793,greswolde,dudley orlando,bridgeman,m
+794,greville,,phillimore,m
+795,grey,,hesilrige,m
+796,griffin,,ransom,m
+797,griffith,,ellis,m
+798,griffith,,boynton,m
+799,griffith,,davis,m
+800,grigor,,grigorson,m
+801,griselda,,stanhope,f
+802,guildford,james hillier,mainwaring-ellerker-onslow,m
+803,guy,,campbell,m
+804,gwenllian,,llywelyn,f
+805,gwynne,,vaughan,m
+806,halswell,,tynle,m
+807,hamelin,,trelawny,m
+808,hamilla,augusta,boyle,f
+809,hamlet,,obins,m
+810,hampsen,,erskine,m
+811,hannah,,more,f
+812,hannah,,montgomery,f
+813,hannah,althea,bettesworth,f
+814,hannah,,chapman,f
+815,hannah,chapman,gurney,f
+816,hannah,,nisbet,f
+817,hannah,,tighe,f
+818,hannah,,burnett,m
+819,hannibal,,thomas,m
+820,hans,francis,hasstings,m
+821,hanson,,berney,m
+822,harriet,,palmer,f
+823,harriet,,becher,f
+824,harriet,matilda,robbins,f
+825,harriett,anne,southwell,f
+826,harriette,felicite,seymour,f
+827,harriot,,bridges,f
+828,harriot,,hale,f
+829,harriot,margaret,hamilton,f
+830,harriott,,pelham,f
+831,harry,,parker,m
+832,harvey,,goodwin,m
+833,harvie,morton,farquhar,m
+834,hector,,mclean,m
+835,hedworth,,liddell,m
+836,helena,jane  ,townshend,f
+837,helena,,perceval,f
+838,helena,,bligh,f
+839,helena,,burnett,m
+840,helenora,,maxwell,f
+841,helenora,,maxwell,f
+842,heneage,,finch,f
+843,heneage,william,dering,m
+844,hennora,,whaling,f
+845,henrietta,,butler,f
+846,henrietta,elizabeth,ridley,f
+847,henrietta,jemima,baird,f
+848,henrietta,,tinney,f
+849,henrietta,charlotte,tracy-keck,f
+850,henrietta,martha,cruden,f
+851,henrietta,,grey,f
+852,henrietta,,alison,f
+853,henriette,,onslow,f
+854,henry,,austen,m
+855,henry,,walter,m
+856,henry,,clevering,m
+857,henry,william,paget,m
+858,henry,sacheverel,wilmot,m
+859,henry,willoughby,trevelyn,m
+860,henry,sutton,fane,m
+861,henry,lancelot,amherst,m
+862,henry,thomas leopold,strangeways,m
+863,henry,,wellesley,m
+864,henry,bate,Dudley,m
+865,henry,george,Grey,m
+866,henry,,Torrens,m
+867,herbert,windsor,hickman,m
+868,herbert,windsor,stuart,m
+869,herbert,,mackworth,m
+870,hercules,,beere,m
+871,hercules,langford,taylour,m
+872,hercules,,rowley,m
+873,hercules,,langrische,m
+874,hersey,christina maria,gavin,f
+875,hervey,,de montmorency,m
+876,hester,annabella,annesley,f
+877,hester,eleonor,buller,f
+878,hew,drummond,elphinstone-dalrymple,m
+879,hew,,dalyrmple,m
+880,hibbert,,newton,m
+881,hildebrand,,Oakesm ,m
+882,holt,,archer,m
+883,honora,margaretta,gould,f
+884,honoratus,leigh,rigby,m
+885,honoria,louisa,Cadogan,f
+886,honoria,louisa,blake,f
+887,honoria,,barrington,f
+888,horace,,beauchamp,f
+889,horace,william,cadogan,m
+890,horace,,cantaneo,m
+891,horatia,margaret,shaw,f
+892,horatio,armand,powlett,m
+893,horatio,,dowsing,m
+894,horation,,chidgey,m
+895,hosea,,guiness,m
+896,hugh,,blackburn,f
+897,hugh,,campbell,m
+898,hugh,,birchall,m
+899,hugh,maximilian,eliot,m
+900,hugh,,hare,m
+901,humphrey,,fox,m
+902,humphrey,,brereton,m
+903,hungerford,,hoskyns,m
+904,hungerford,,hoskyns,m
+905,hyacinth,,chevers,f
+906,hyacinthe,gabrielle,roland,f
+907,hyacinthe,mary,wellesley,f
+908,ianthe,,shelley,f
+909,idris ,,vaughn,m
+910,iever,,mcquiqan,m
+911,ilay,,campbell,m
+912,indiana,,talbot,f
+913,inigo,thomas,freemaan,m
+914,irene,,rose,f
+915,isaac,,sherwood,m
+916,isabella,charlotte antoinette sophia,homspesch,f
+917,isabella,cecilia viviana,middleton,f
+918,isabella,,mahoney,m
+919,isabilla,,chalmer,f
+920,isadore,,blake,m
+921,isett,,jenkins,f
+922,issacher,,binney,m
+923,issobelle,,cockburn,f
+924,izett,,knight,f
+925,jabez,,hornblower,m
+926,jabez,,johnson,m
+927,jabez,,mckenzie,m
+928,jacintha,catherine,hesketh,f
+929,jacintha,,dalyrmple,f
+930,jacobina,,bell,f
+931,jacobina,,younger,f
+932,jacobina,,hamilton,f
+933,jacomina,gertrude,van der graaf,f
+934,jacques,marc,prevost,m
+935,jacquetta,,louis,f
+936,jacquetta,,belfield,f
+937,jacquetta,,baring,f
+938,james,,austen,m
+939,james,,walter,m
+940,james,,burney,m
+941,james,,stewart,m
+942,james,,reynolds,m
+943,james,oliver,lautour,m
+944,james,milles,ridell,m
+945,james,,montresor,m
+946,james,,Leith,m
+947,james,,Montgomerie,m
+948,jamima,,younger,f
+949,jane,,austen,f
+950,jane,frances,louis,f
+951,jane,,noel,f
+952,janet,,miller,f
+953,janet,,paget,f
+954,janet,lucrectia,wallace,f
+955,janet,,erskine,m
+956,jannette,,wilson,f
+957,jaques,,boyse,m
+958,jasper,,creagh,m
+959,jean,mary,powelett,f
+960,jean,baptiste guillaume edouard charles,campbell,m
+961,jeannette,catherine,macgregor,f
+962,jehosaphat,,postle,m
+963,jemima,,pole,f
+964,jemima,,lefroy,f
+965,jemima,,cornwallis,f
+966,jenico,,preston,m
+967,jenico,,preston,m
+968,jennet,,lewis,f
+969,jennifer,,callaway,m
+970,jenny,,windover,f
+971,jeremiah,,crampton,m
+972,jeremiah,,hill,m
+973,jeremy,,lock,m
+974,jermyn ,,davers,m
+975,jesse,,geard,m
+976,jessie,,dewar,f
+977,jessy,,miller,f
+978,jessy,catherine,hesketh,f
+979,jestina,,hill,f
+980,jethro,,hornblower,m
+981,jethro,,borrow,m
+982,joanna,,crawley-boevy,f
+983,joanna,,rollo,f
+984,joanna,,law,f
+985,job,watson,royle,m
+986,jocelyn,,price,m
+987,joel,,evered,m
+988,joel,,higgins,m
+989,johanna,,gore,f
+990,john,,campbell,m
+991,john,randoll,mckenzie,m
+992,john,gaspard,le marchant,m
+993,john,emilius daniel edward,finch,m
+994,john,douglas edward,campbell,m
+995,john,caesar,hawkins,m
+996,john,davy,foulkes,m
+997,john,theophilius,rawdon,m
+998,john,joshua earl,carysfort,m
+999,john,cadwalader,erskine,m
+1000,john,,Hallam,m
+1001,john,thomas,Troy,m
+1002,john,gaspard,Le Marchant,m
+1003,john,,Abercromby,m
+1004,john,,MacDonald,m
+1005,john,,Buckner,m
+1006,john ,tracy william,french,m
+1007,jonah,,puckey,m
+1008,jonah,,harrop,m
+1009,jonas,,jones,m
+1010,jonathan,,wrixen,m
+1011,jonathan,,jennings,m
+1012,jonathan,,hoare,m
+1013,jonathan,hawkins,rashleigh,m
+1014,jonathan,,backhouse,m
+1015,jonathan,,coates,m
+1016,jonathan,stackhouse,rashleigh,m
+1017,jonathan,wathen,waller,m
+1018,jonathan,,cubitt,m
+1019,jonathon,,hornblower,m
+1020,jonathon,,couch,m
+1021,jones,,ferris,m
+1022,jones,,fawson,m
+1023,jordan,,butler,?
+1024,josceline,,courtenay,?
+1025,josceline,,percy,m
+1026,joseph,,bennett,m
+1027,joseph,,aykeroid,m
+1028,joseph,,tangye,m
+1029,joseph,moses,levy,m
+1030,josephina,,stonehouse,f
+1031,josette,,arbuthnott,f
+1032,joshua,,howell,m
+1033,joshua,christmas,paul,m
+1034,joshua,,vanneck,m
+1035,joyce,,leeson,f
+1036,judith,,clive,f
+1037,judith,christine,wood,f
+1038,julia,,eyre,f
+1039,julian,,martin,?
+1040,julian,,berney,f
+1041,julian,jane,maitland,f
+1042,julian,henry charles,fane,m
+1043,julian,,slight,m
+1044,juliana,lucy,annesley,f
+1045,juliana,bettina,beevor,f
+1046,juliet,,renny,f
+1047,julines,,hering,f
+1048,julius,caesar,thompson,m
+1049,julius,,deedes,m
+1050,julius,hutchinson,hutchinson,m
+1051,justin,,mac cartie,m
+1052,justina,maria,stepney,f
+1053,justinian,,isham,m
+1054,karenhappuch,,benett,f
+1055,katharine,elizabeth,hamilton,f
+1056,katharine,charteris,wemyss,f
+1057,katherine,sydney,windsor-hickman,f
+1058,katherine,annabella,bisshopp,f
+1059,katherine,eloisa,trafford,f
+1060,katherine,margaret,paulet,f
+1061,katherine,,douglas,f
+1062,keane,,osbourne,m
+1063,keating,james,bradford,m
+1064,keith,alexander,jackson,m
+1065,keith,,urquhart,m
+1066,keith,,fraser,m
+1067,kenelm,,wilmot,m
+1068,kezia,,dermen,f
+1069,kimbery,,vowels,f
+1070,kingsmill,grove,key,m
+1071,kyrle,ernle,money,m
+1072,kythe,caroline,wright,f
+1073,lachlan,,black,m
+1074,laetitia,,little ,f
+1075,laetitia,,ricketts,f
+1076,laetitia,,trevor,f
+1077,lancelot,,machell,m
+1078,latimer,,neville,m
+1079,lauchlan,,poore,m
+1080,launcelot,miles,halton,m
+1081,laura,,vane,f
+1082,laura,,isabella,f
+1083,laura,,keppel,f
+1084,laura,,hawkins,f
+1085,laura,,bromley,f
+1086,laura,,tollemarche,f
+1087,laura,frances,paget,f
+1088,laure,angelique,d'avaray,f
+1089,laurence,harman,king-harman,m
+1090,laurence,,nugent,m
+1091,lavalin,,nugent,m
+1092,laves,,shuck,m
+1093,lavinia,,bingham,f
+1094,lavinia,,bestwick,f
+1095,lavinia,,st. leger,f
+1096,lavinia,,bingham,f
+1097,lavinia,,dinning,f
+1098,lavinia,,fenton,f
+1099,lawrence,,mcquat,m
+1100,lawrence,,arnot,m
+1101,lawrence,,watson,m
+1102,lawrence,,dundas,m
+1103,lawrence,,dundas,m
+1104,lawrence,,palk,m
+1105,lazarus,,male,m
+1106,lazarus,steele,roberts md,m
+1107,leckie,,campbell,m
+1108,leith,,overhall,m
+1109,leland, ,noel,m
+1110,lelia,,skipworth,f
+1111,lemuel,,shuldham,m
+1112,lemule,,shuldham,m
+1113,lena,,vanderdanky,f
+1114,lennox,,frederick,m
+1115,leonard,,potter,m
+1116,leonard,,nightingale,m
+1117,leonard,worsely,holmes,m
+1118,Leonora,,leigh,f
+1119,leontina,,drummond,f
+1120,leopold,james henry,grey,m
+1121,leopold,erasmus,dryden,m
+1122,letitia,,ridell,f
+1123,lewellyn rees,,rowland,m
+1124,lewen,,powell,m
+1125,lewis,,shewbridge,m
+1126,lilias,,alexander,f
+1127,lilias,,anderson,f
+1128,lindsay,,campbell,f
+1129,lionel,,smythe,m
+1130,lionel,,sackville,m
+1131,lionel,charles,dawson,m
+1132,lionel,,vane,m
+1133,lionel,,copely,m
+1134,livia,sophia,bryanston,f
+1135,llewellyn,,fairfax,m
+1136,llewelyn,,mostyn,m
+1137,lloyd,stewart,bruce,m
+1138,lockhart,,alexander,m
+1139,lockhart,,gordon,m
+1140,lodowick,,rees,m
+1141,lora,,dawnay,f
+1142,lorenzo,,hely-hutchinson,m
+1143,lorenzo,moore,stewart,m
+1144,lorne,,ferrier,m
+1145,louisa,,chidgey,f
+1146,louisa,dorothea,stanley,f
+1147,louisa,anne,guelph,f
+1148,louisa,augusta,lennox,f
+1149,louisa,,bertie,f
+1150,louisa,,paget,f
+1151,louisa,,greday,f
+1152,louisa,maddelena,lennox,f
+1153,love,venus,rivers,f
+1154,loveday,,vyvyan,f
+1155,lovelace,,stamer,m
+1156,lowry,balfor,cole,m
+1157,luc,,boreel,m
+1158,lucas,,pepys,m
+1159,lucas,,dillon,m
+1160,lucia,,broughton,f
+1161,lucie,,currie,f
+1162,lucinda,,armstrong,f
+1163,lucinda,,tuite,f
+1164,lucinda,,watkins,f
+1165,lucinda,,stamer,f
+1166,lucinda,,matthews,f
+1167,lucinda,,ramssey,f
+1168,lucinda,,hannay,f
+1169,lucius,,parsons,m
+1170,lucius,,curtis,m
+1171,lucius,ferdinando,cary,m
+1172,lucius,,inchiquin,m
+1173,lucrectia,,blois,f
+1174,lucretia,georgiana,ffolkes,f
+1175,lucy,,noel,f
+1176,lucy,,knightly,f
+1177,lucy,,strangeways,f
+1178,lucy,,fitzherbert,f
+1179,lucy,mabella,portman,f
+1180,ludivina,,loughnan,f
+1181,ludovic,,grant,m
+1182,ludovic,,colquhoun,m
+1183,ludovic,,duff,m
+1184,luke,,brennan,m
+1185,luke,,mahon,m
+1186,luke,,gardiner,m
+1187,luke,,white,m
+1188,lumley,,woodyear,m
+1189,lydia,,blunt,f
+1190,lydia,,price,f
+1191,lydia,,mayer,f
+1192,lydia,,blunt,f
+1193,lynch,salusbury,cotton,m
+1194,mabella,,alexander,f
+1195,mabella,josephina,needham,f
+1196,mackay,hugh,baillie,m
+1197,macky,,calendar,m
+1198,madeleine,,saumarez,f
+1199,madelina,,gordon,f
+1200,madelina,susan,cerjat,f
+1201,madeline,,gordan,f
+1202,madeline,,durrell,f
+1203,madeline,,connell,f
+1204,magdalen,,cochrane,f
+1205,maitland,thomas,rodney,m
+1206,malachy,,daly,m
+1207,malachy,,donelan,m
+1208,malcolm,,mcdiarmid,m
+1209,Mallet,,vaughan,f
+1210,mallet,,langley,f
+1211,mallet,,clarke,f
+1212,malvina,elizabeth,hemphill,f
+1213,mangalina,,hutchings,f
+1214,manoah,,delacherois,m
+1215,marcella,,ffrench,f
+1216,marcella,,malone,f
+1217,marcella,cowell,carew,f
+1218,marcia,anastasia,lindsey,f
+1219,marcia,,sympson,f
+1220,marcia,bridget,fox,f
+1221,marcia,,fox-lane,f
+1222,marcia,,tollemache,f
+1223,marcus,,o'hara,m
+1224,marcus,anthony,levinge,m
+1225,marcus,,beresford,m
+1226,margaret,randalina,barnewell,f
+1227,margaret,alexia,fraser,f
+1228,margaret,,vanneck,f
+1229,margaretta,henrietta,beek,f
+1230,margaretta,,bourke,f
+1231,margaretta,,gardner,f
+1232,marguerite,,purves,f
+1233,maria,,allen,f
+1234,maria,melosina,caulfield,f
+1235,maria,josepha,stanley,f
+1236,maria,victoria,grant,f
+1237,maria,rembertina,falconer,f
+1238,maria,letalia,grant,f
+1239,maria,,grillo,f
+1240,maria,josepha,falkiner,f
+1241,maria,janetta,nelthorpe,f
+1242,maria,louisa,gore,f
+1243,maria,antonia,swinburne,f
+1244,maria,wynne,banks,f
+1245,mariana,,jones,f
+1246,marianna,,devereaux,f
+1247,marianna,,campbell,f
+1248,marianna,,wolfe,f
+1249,marianne,,connor,f
+1250,marianne,,scott,f
+1251,marianne, ,paterson,f
+1252,marie,rosalie,de bourdeille,f
+1253,marie,clarissa,trebhault,f
+1254,marie alexandrine,ignatie julie,de richepance,f
+1255,marin,,fane,m
+1256,marinda,,sydenham,f
+1257,mark,,thomas,m
+1258,mark,,masterman-sykes,m
+1259,mark,john,currie,m
+1260,mark,anthony,levinge,m
+1261,marmaduke,,dawnay,m
+1262,marmaduke,,darell,m
+1263,marmaduke,,ramsay,m
+1264,marmaduke ,,thompson,m
+1265,martha,,hart,f
+1266,martha,,lloyd,f
+1267,martha,,harley,f
+1268,martha,,dalyrmple,f
+1269,martha,elizabeth mary,prittie,f
+1270,martha,sabina,lamb,f
+1271,martin,,davey,m
+1272,martin,,dane,m
+1273,martin,,sandys,m
+1274,martin,john,west,m
+1275,martin,,ffrench,m
+1276,mary,theophila,palmer,f
+1277,mary,,gibson,f
+1278,mary,,guelph,f
+1279,mary,amelia,shuckburgh,f
+1280,mary,alicia,baird,f
+1281,mary,philippa artemisia,child,f
+1282,mary,venetia,pauncefort-duncombe,f
+1283,mary,isabel,macculloch,f
+1284,mary,,kerr,f
+1285,mary,cassandra,jervis,f
+1286,mary,caroline,manners,f
+1287,mary,christina,forbes,f
+1288,mary,lucinda,butler,f
+1289,mary,,paget,f
+1290,mary,charlotte anne,wellesley,f
+1291,mary,andalusia,dickens,f
+1292,mary,fanny,blunt,f
+1293,mary,dulcibella,eden,f
+1294,mary,victorine,sheffield,f
+1295,mary,scarlett,campbell,f
+1296,mary,claudine,swindon,f
+1297,mary,arabella,foljambe,f
+1298,mary,josephine,roche,f
+1299,mary ,jane,clermont,f
+1300,mary anne,angelina,cusack-smith,f
+1301,marya,,baulch,f
+1302,mathew,,law,f
+1303,mathewana,sarah,onslow,f
+1304,mathias,,pratt,m
+1305,matilda,,st. john,f
+1306,matilda,,methuan,f
+1307,matilda,,stewart,f
+1308,matilda,ellen,dawson,f
+1309,matthew,,argent,m
+1310,matthew,,robinson,m
+1311,matthew,,Raine,m
+1312,matthew ,,henderson,m
+1313,matty,,poore,f
+1314,maurice,,stephens,m
+1315,maxwell,,mackenzie,m
+1316,melesina,,chenevix,f
+1317,melesina,,chenevix,f
+1318,melina,,keith,f
+1319,meliora,,crichton,f
+1320,meliora,,mynors,f
+1321,melosina,adelaide,meade,f
+1322,meltiah,,barlow,?
+1323,mercia,mary anne,lisle,f
+1324,meredith,maria,wetherell,f
+1325,meriah,,harvard,f
+1326,merrik,,burrell,m
+1327,mervyn,,stewart,m
+1328,mervyn,,archdall,m
+1329,meryel,,williams,f
+1330,methven,,ereskine,m
+1331,michael,,hamilton,m
+1332,michael,angelo,taylor,m
+1333,michael,ward,stewart,m
+1334,michael, ,creagh,m
+1335,middleton,,turnbull,m
+1336,miguel,,del gardo,m
+1337,miles,,nightingale,m
+1338,miles,,beevor,m
+1339,miles,john,stapleton,m
+1340,miles,thomas,stapleton,m
+1341,miles,,branthwayt,m
+1342,miles,,stapleton,m
+1343,millicent,,blennerhossett,f
+1344,millicent, ,miles,f
+1345,millicent,,sparrow,f
+1346,mirabella,,wise,f
+1347,miranda,,floyd,f
+1348,molyneux,,smith,m
+1349,molyneux,,shuldham,m
+1350,money,,wigram,m
+1351,monica,,stapleton,f
+1352,monica,,strickland,f
+1353,monica,,morris,f
+1354,monnoux,,cope,m
+1355,montagu,,lind,m
+1356,montague,,hawtry,m
+1357,montague,villiers,fane,m
+1358,montgomery,grenville john,stewart,m
+1359,morgan,,kavanagh,m
+1360,morgan,,lewis,m
+1361,morgan,thomas ,lloyd,m
+1362,morgan,,kavanagh,m
+1363,morgan,popkin,traherne,m
+1364,morgan ,treherne,traherne,m
+1365,mortan,,lindsey,m
+1366,mortimer,,rodney,m
+1367,mortimer,percy,drummond,m
+1368,moses,lionel,levy,m
+1369,moses,,mendes,m
+1370,moses,,monteflore,m
+1371,murdoch,,mcmillan,m
+1372,murdoch,,mackenzie,m
+1373,murrough,,o'bryen,m
+1374,muschamp,,vesey,m
+1375,musgrave,alured henry,harris,m
+1376,mylles,,cave-browne-cave,m
+1377,nanny,,thornycroft,f
+1378,nanny,,gregory,f
+1379,naria/marena,,white,f
+1380,nash,,grose,m
+1381,nathan,,edbrook,m
+1382,nathan,,sowden,m
+1383,nathaniel,,fowler,m
+1384,neil,,talbot,m
+1385,nelson,,ryecraft,m
+1386,neptune,,blood,m
+1387,nevile,,fane,m
+1388,nevile,,fane,m
+1389,neville,,burnard,m
+1390,newland,,maynard,m
+1391,newton,,chambers,m
+1392,newton,,ward,m
+1393,nichola,,french,f
+1394,nicholas,,bacon,m
+1395,nicholas,,boguns,m
+1396,nicholas,,lysaght,m
+1397,nicholas,,Roch,m
+1398,nicol,,stenhouse,m
+1399,nicola,helen meredith,buchan,f
+1400,niell,,niell,m
+1401,nigel,,bowyer gresley,m
+1402,nocholas,,trebilcock,m
+1403,noel,,digby,m
+1404,noel,hill neale,synge,m
+1405,norman,,maccleod,m
+1406,obadiah,,pocock,m
+1407,o'bryen,,bellingham,m
+1408,octavia,,fisher,f
+1409,octavia,,stewart,f
+1410,octavius,,guelph,m
+1411,octavius,,wigram,m
+1412,octavius,,pelly,m
+1413,olive,,keith,f
+1414,olivia,emilia,nugent,f
+1415,olivia,letitia catherine,fitzgerald,f
+1416,olivia,,walsh,f
+1417,olympia,elizabeth,morshead,f
+1418,orchard,,bullock,m
+1419,orford,,gordon,m
+1420,orlando,,bridgeman,m
+1421,orlando,,bridgeman,m
+1422,osmond,,derina,m
+1423,oswald,,mosley,m
+1424,other-archer,,windsor,m
+1425,other-hickman,,windsor,m
+1426,owen,,davis,m
+1427,owen,,berry,m
+1428,owen,,williams,m
+1429,owen,william,salusbery-trelawny,m
+1430,owen,,stanley,m
+1431,pamela,,fitzgerald,f
+1432,pascoe,,grenfell,m
+1433,patience,,crichton,f
+1434,patience,,foster,f
+1435,patience,,tuite,f
+1436,patience,christian,carpenter,f
+1437,patience,anne,de crespigny,f
+1438,patricia,heron,gordan,f
+1439,patricia,,gordon,f
+1440,patrick,,patrick,m
+1441,patrick,,purvews,m
+1442,patrick,adrian,carnegie,m
+1443,patrick,,lawson,m
+1444,paul,,noad,m
+1445,paul,,fraser,m
+1446,paul,harry,durell burrard,m
+1447,paul,,saint-pol,m
+1448,paul,,jodrell,m
+1449,paulet,,st. john-mildmay,m
+1450,paulina,,southwell,f
+1451,paulina,,lushington,f
+1452,paulus,aemilius,gordon,m
+1453,pearce,,baldwin,m
+1454,peche,,hart,m
+1455,penelope,,colthurst,f
+1456,penelope,melesina,tuite,f
+1457,peniel,,gates,f
+1458,penn,assheton,curzon,m
+1459,percy,,burrell,m
+1460,percy,,barrington,m
+1461,percy,,Joscelyn,m
+1462,peregrine,,osborne,m
+1463,peregrine,,maitland,m
+1464,peregrine,,cust,m
+1465,persiana,,bard,f
+1466,peter,,alpin,m
+1467,peter,,milne,m
+1468,peter,leopold louis francis,nassau,m
+1469,peter,,mills,m
+1470,peter,leopold,cowper,m
+1471,peter,,Craig,m
+1472,phebe,,boulton,f
+1473,phila,,de lancy,f
+1474,philadelphia,,johnstone,f
+1475,philadelphia,,norris,f
+1476,philip,,woolcombe,m
+1477,philip,yorke,gore,m
+1478,philip,stanhope,Dodd,m
+1479,philippa,juliana,neave,f
+1480,phillipa,,may,m
+1481,phillippa,letitia,godfrey,f
+1482,phillis,,holt,f
+1483,phillis,,hill,f
+1484,phillomy,,kelly,m
+1485,phineas,,illingworth,m
+1486,phipps,,vaanssittart,m
+1487,phoebe,,morris,f
+1488,phoebe,,trent,f
+1489,phoebe,,sherman,f
+1490,phoebe,,hartney,f
+1491,pierce,,butler,m
+1492,pierre,,roland,m
+1493,pissillo,,trent,f
+1494,pitcairn,,onslow,m
+1495,pleasance,,case,f
+1496,pleasance,,bagge,f
+1497,polyjena,,pyne,f
+1498,polyxene,,von tubeuf,f
+1499,popley,,onslow,f
+1500,poulett,george henry,somerset,m
+1501,powell,,morphew,m
+1502,price,,blackwood,m
+1503,primrose,,elphinstone,f
+1504,primrose,,elphinstone,f
+1505,prince,,smith,m
+1506,priscilla,,slocombe,f
+1507,priscilla,,cooke,f
+1508,priscilla,anne,wellesley,f
+1509,prudence,,adams,f
+1510,prudence,,earbury,f
+1511,prudence,penelope,trevor,f
+1512,prudentia,,coote,f
+1513,pryce,,campbell,m
+1514,pryse,,pryse,m
+1515,pudsey,,jesson,m
+1516,pyne,,cavendish,f
+1517,quaile,,somerville,m
+1518,rabinett,,spurdle,?
+1519,rachael,,daniel,f
+1520,rafela,,del gardo,f
+1521,raleigh,,trevelyan,m
+1522,ranald,,macdonald,m
+1523,randall,,ford,m
+1524,randolph,,stewart,m
+1525,raphael,,walsh,m
+1526,rawdon,,mccrea,m
+1527,rawleigh,dawkin,masnel,m
+1528,rebeckah,,wingfield,f
+1529,reginald,,grey,m
+1530,reginald,,courtenay,m
+1531,reginald,,pyndar,m
+1532,remington,,turnour,m
+1533,renea,,leighton,f
+1534,reuben,,lawrence,m
+1535,reynoldia,,alleyne,f
+1536,rhoda,,boulton,f
+1537,rhoda,,delavel,f
+1538,rhoda,,parker,f
+1539,richard,,strachey,m
+1540,richard,,onslow,m
+1541,richard,,reynell,m
+1542,richard,,richardson,m
+1543,richard,,barrington,m
+1544,richard,pierse,mahony,m
+1545,richard,,onslow,m
+1546,richard,,Bagot,m
+1547,richard,,Beadon,m
+1548,richard,bruce,Stopford,m
+1549,richard ,thomas,burney,m
+1550,richard ,,wellesley,m
+1551,richarda,,annesley,f
+1552,roach,,vaughan,m
+1553,robert,,macnamb,m
+1554,robert,uniacke,fitzgerald,m
+1555,robert,william henry,maude,m
+1556,robert,seymour,nugent,m
+1557,robert,bruce,dundas,m
+1558,robert,cary,elwes,m
+1559,robert,cary elwes,pelham,m
+1560,robert,james,Carr,m
+1561,robert,,Kingscote,m
+1562,robert,,Holdsworth,m
+1563,robert,marratt,Miller,m
+1564,robiniana,,brown,f
+1565,roderick,,o'niell,m
+1566,roderick,,macleod,m
+1567,roderick,,mackenzie,m
+1568,roger,,stopford,m
+1569,romeo,,arbuthnott,m
+1570,ronald,,mcallister,m
+1571,ronald,,campbell,m
+1572,rosa,,harvey,f
+1573,rosa,josepha louisa,sturt,f
+1574,rosabelle,,bonham,f
+1575,rosalinda,eleonora,butler,f
+1576,rosalinda,,gilker,f
+1577,rosamond,,yarburgh,f
+1578,rosamund,,dixie,f
+1579,rosamund,,roberts,f
+1580,rosamund,,mundy,f
+1581,rosanna,,blennerhossett,f
+1582,rosanna,,lyster,f
+1583,rosannah,,england,f
+1584,rosannah,,england,f
+1585,rose,,bernard,f
+1586,rose,whitworth,aylmer,f
+1587,rosetta,,plunkett,f
+1588,rosetta,,macnaghten,f
+1589,rosina,,purves,f
+1590,ross,,mahon,m
+1591,rowena,,gare,f
+1592,rowena,,keith,f
+1593,rowenia,,chard,f
+1594,rowland,,heyland,m
+1595,rowland,,hill,m
+1596,rowley,,lascelles,m
+1597,sabine,,robarts,f
+1598,sabine,matilda,paterson,f
+1599,sacheverell, ,chandos-pole,m
+1600,salisbury,,tichborne,f
+1601,salome,,martyn,f
+1602,salome,letitia,molesworth,f
+1603,sambrooke,,anson,m
+1604,samia,,falkiner,f
+1605,sampson,,stawell,m
+1606,samuel,,estwicke,m
+1607,sara,,coleridge,f
+1608,sara,eliza,rennell,f
+1609,sara,,tremelling,m
+1610,sarah,harriet,burney,f
+1611,sarah,,lloyd,f
+1612,sarah,elizabeth frances henriettea ricarda,moore,f
+1613,sarah,agatha,miles,f
+1614,sarah ,sophia,fane,f
+1615,sarah ,rachel,fraser,f
+1616,sarah ,,perrin,f
+1617,saumarez,,dubourdieu,m
+1618,saunders,,gore,f
+1619,scanina,,merrett,f
+1620,scepter,,keith,?
+1621,sebastain,,dickinson,m
+1622,sebastian,stewart,dickinson,m
+1623,sebastian,,smith,m
+1624,selah,,collins,f
+1625,selina,,greenslade,f
+1626,selina,,shirley,f
+1627,selina,,furnese,f
+1628,selina,sophia,metcalfe,f
+1629,selina,,stewart,f
+1630,selina,,needham,f
+1631,semira,,vesey,f
+1632,septimus,,curtis,m
+1633,septimus,lancelot,worsely,m
+1634,sevilla,,erskine,f
+1635,sewallis,shirley,rolle,f
+1636,sewallis,,shirley,m
+1637,shawe,,cartland,m
+1638,sheldon, ,walter,m
+1639,shirley,,farmer steele perkins,f
+1640,sholto,basil,douglas,m
+1641,shubal,,barlow,?
+1642,shute,,barrington,m
+1643,sibella,,gibbs,f
+1644,sibella,,boswell,f
+1645,sidney,,sinclair,f
+1646,silas,,miles,m
+1647,simeon,henry,stuart,m
+1648,simeon,,buckman,m
+1649,simon,,govan,m
+1650,simon,,fraser,m
+1651,simon,,butler,m
+1652,sinclair,,davidson,m
+1653,smith,,pettigrew,m
+1654,solomon,,dayrolles,m
+1655,solomon,,meretto,m
+1656,sophia,,guelph,f
+1657,sophia,margaret julianna,penn,f
+1658,sophia ,catherina maria,southwell,f
+1659,sophie,,romilly,f
+1660,spencer,,brett,m
+1661,spencer,,perceval,m
+1662,st. leger,richard,glyn,m
+1663,stafford,,o'brien,m
+1664,stanislaus,,browne,m
+1665,stephen,,allen,m
+1666,stephen,,radcliffe,m
+1667,stephen,francis charles,annesley,m
+1668,stephen,,metcalfe,m
+1669,steuarta,,erskine,f
+1670,stopford,,ram,m
+1671,stratford,,canning,m
+1672,suckling,,nelson,m
+1673,susan,,woodford,f
+1674,susan,euphemia,beckford,f
+1675,susan ,isabella,burrell,f
+1676,susanna,elizabeth,burney,f
+1677,susanna,,hedges,f
+1678,susanna,,kennedy,f
+1679,susannah,,shearn,f
+1680,susannah,sarah louisa,strangeways,f
+1681,sydney,arabella,cotton,f
+1682,sydney,,churchill,m
+1683,sydney,robert,bellingham,m
+1684,sydney,,waterlow,m
+1685,sylvania,,barlow,f
+1686,sylvania,,garner,f
+1687,sylvanus,,barlow,m
+1688,sylvanus,,barlow,m
+1689,sylvester,,falkiner,m
+1690,sylvester,,douglas,m
+1691,syndney,robert,bellingham,m
+1692,tatton,,talbot,m
+1693,tenison,alan,somerville,m
+1694,teresa,,heneage,f
+1695,teresa,,fitzherbert,f
+1696,terrick,,hamilton,m
+1697,terrick,,hamilton,m
+1698,thedosia,charlotte,vaughan,f
+1699,theobald, ,butler,m
+1700,theodora,,blennerhossett,f
+1701,theodora,,townshend,f
+1702,theodosia,,abdy,f
+1703,theophilius,,michell,m
+1704,theophilus,,baker,m
+1705,theresa,,gage,f
+1706,theresia,pauline,ott,f
+1707,thirza,,lee,f
+1708,thomas,,austen,m
+1709,thomas,,fowle,m
+1710,thomas,,barry,m
+1711,thomas,,reignolds,m
+1712,thomas,mervyn,medlicott,m
+1713,thomas,james,dundas,m
+1714,thomas,peregrine,courtenay,m
+1715,thomas,,strangeways,m
+1716,thomas,americas,erskine,m
+1717,thomas,tristram,piggot,m
+1718,thomas,,Burgess,m
+1719,thomas,,Elrington,m
+1720,thomas,,Dawson,m
+1721,thomas,,L'Estrange,m
+1722,thomas ,hugh,nugent,m
+1723,thornton,raleigh,trevelyan,m
+1724,thynne,howe,gwynne,m
+1725,timothy,,neave,m
+1726,titus,,salt,m
+1727,tobias,,frere,m
+1728,tompkins,,Hilgrove Turner,m
+1729,tonman,,mosley,m
+1730,townshend,,Forester,m
+1731,trasea,,dadt,f
+1732,trevor,,graham,f
+1733,trevor,,williams,m
+1734,trevor,,wheler,m
+1735,trevor,charles,barrett-lennard,m
+1736,trevor,,corry,m
+1737,tristram,,carlyon,m
+1738,tryphena,,shelley,f
+1739,tryphena,,bathurst,f
+1740,tysoe,saul,hancock,m
+1741,udolphus,,aylmer,m
+1742,ulysses,,burgh,m
+1743,ulysses,,de burgh,m
+1744,una,,maclean,f
+1745,urania,,fellowes,f
+1746,urania,anne,paulet,f
+1747,uriah,,parsons,m
+1748,uriah,,tonkin,m
+1749,urith,,drake,f
+1750,valentine,,le grice,m
+1751,valentine,,simpson,m
+1752,vashti,,preddy,f
+1753,vere,,fane,m
+1754,victoria,catherine mary,pole-tylney-long-wellesley,f
+1755,villiers,henry plantagenant,somerset,m
+1756,vincent,,darley,m
+1757,virginia,,murray,f
+1758,virginia,frances zerlina,taylour,f
+1759,virginius,,murray,f
+1760,virtue,,brown,f
+1761,virtue,,fisher,f
+1762,wade,toby,caulfeild,m
+1763,walden,,hanmer,m
+1764,wallop,,brabazon,m
+1765,walter,,bean,m
+1766,walter,,birmingham,m
+1767,walter,bouchier,devereaux,m
+1768,walter,fletcher,fane,m
+1769,warren,,fitzroy,m
+1770,warwick,,lake,m
+1771,watkins,william,wynn,m
+1772,wendela,eleanore,boreel,f
+1773,wendelina,elizabeth,van brienem,f
+1774,wentworth,a.,pyke,m
+1775,wentworth, ,burgess,m
+1776,wilfrid,,lawson,m
+1777,wilhelmina,,alexander,f
+1778,wilhelmina,,agnew,f
+1779,wilhelmina,,molesworth,f
+1780,wilhelmina,frederica,massey,f
+1781,william,,munro,m
+1782,william,,allix,m
+1783,william,cecil,pery,m
+1784,william,faithful ,fortesque,m
+1785,william,,wellesley,m
+1786,william,,dundas,m
+1787,william,,paget,m
+1788,william,ewart,gladstone,m
+1789,william,adrian,keith-falconer,m
+1790,william,drogo,montagu,m
+1791,william,aeneas,moncrieffe,m
+1792,william,,baille,m
+1793,william,dalziel,colquhoun,m
+1794,william,griffiith,davies,m
+1795,william,,Jackson,m
+1796,william,,Short,m
+1797,william,,Van Mildert,m
+1798,william,,Magee,m
+1799,william,,Howley,m
+1800,william, ,Keppel,m
+1801,william,,Wheatley,m
+1802,william,,Stuart,m
+1803,william,,Loftus,m
+1804,william ,henry,guelph,m
+1805,williamina,,ross,f
+1806,windham,,carmichael-anstruther,m
+1807,winifred,,lucas,f
+1808,winifred,,thompson,f
+1809,winifred,,maxwell,f
+1810,wortley,cornelia anne,moir,f
+1811,wriothesley,,russell,m
+1812,wynne,,baird,m
+1813,zaccheus,,isham,m
+1814,zachary,,macaulay,m
+1815,zachary,,chambers,m
+1816,zachary,clutterbuck,bayly,m
+1817,zebedee,,weeks,m
+1818,zephaniah,,job,m
+1819,zoe,,skene,f
