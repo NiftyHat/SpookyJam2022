@@ -5,15 +5,15 @@ namespace Entity
 {
     public class NPCEntity
     {
-        public NameData.Entry _name;
-        public MaskEntity _mask;
-        public NameData.ImpliedGender _impliedGender;
-        public MonsterTypeData MonsterTypeData;
+        private NameData.Entry _name;
+        private MaskEntity _mask;
+        private NameData.ImpliedGender _impliedGender;
+        private MonsterTypeData _monsterTypeData;
 
         public NPCEntity(MaskEntity mask, MonsterTypeData monsterTypeData, NameData.Entry nameData)
         {
             _mask = mask;
-            MonsterTypeData = monsterTypeData;
+            _monsterTypeData = monsterTypeData;
         }
     }
 }
