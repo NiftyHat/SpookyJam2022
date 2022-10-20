@@ -2,9 +2,12 @@ using UnityEngine;
 
 namespace Data.Trait
 {
-    [CreateAssetMenu(fileName = "TraitData", menuName = "Game/TraitData", order = 1)]
+    
     public class TraitData : ScriptableObject
     {
-        
+        [SerializeField] private string _friendlyName;
+        [SerializeField] private Sprite _icon;
+        public string FriendlyName => _friendlyName;
+        public Sprite Icon => _icon;
     }
 }
