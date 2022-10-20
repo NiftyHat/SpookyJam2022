@@ -25,7 +25,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c0d85acfcf9494c8a19f0ea23f501d7, type: 3}
-  m_Name: UpperLanding
+  m_Name: UpperLandingLocation
   m_EditorClassIdentifier: 
   _friendlyName: Upper Landing
   _description: 
@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c0d85acfcf9494c8a19f0ea23f501d7, type: 3}
-  m_Name: DanceHallArea
+  m_Name: DanceHallAreaLocation
   m_EditorClassIdentifier: 
   _friendlyName: The Dance Hall
   _description: 
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39651ed13a0e4faf8aad16af6c31f0ac, type: 3}
-  m_Name: PlacesData
+  m_Name: LocationsData
   m_EditorClassIdentifier: 
   _references:
   - {fileID: -622056154717205662}
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c0d85acfcf9494c8a19f0ea23f501d7, type: 3}
-  m_Name: LowerLanding
+  m_Name: LowerLandingLocation
   m_EditorClassIdentifier: 
   _friendlyName: Lower Landing
   _description: 

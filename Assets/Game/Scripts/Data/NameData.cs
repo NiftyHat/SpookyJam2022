@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using CsvHelper;
-using CsvHelper.Configuration;
 using CsvHelper.Configuration.Attributes;
-using NiftyFramework.Scripts;
 using UnityEngine;
 using UnityUtils;
 
