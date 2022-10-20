@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: Werewolf
   image: {fileID: 21300000, guid: 5daf3b369e177fe4f85fed9840578441, type: 3}
-  description: idk furries
+  description: People ask "where wolf?" but nobody ever ask "who wolf?" or "why wolf?"
   hint: yiff

@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8197789767231207570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9234873beb444d9080b9b5a49fee2728, type: 3}
+  m_Name: MonsterSuccubus
+  m_EditorClassIdentifier: 
+  _friendlyName: Succubus
+  _revealSprite: {fileID: 21300000, guid: 54d5f70e1d3d7a44f947485123b83522, type: 3}
+--- !u!114 &-7332454293359213735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9234873beb444d9080b9b5a49fee2728, type: 3}
+  m_Name: MonsterSlime
+  m_EditorClassIdentifier: 
+  _friendlyName: Slime Girl
+  _revealSprite: {fileID: 21300000, guid: f23ede950b4ad5149b895b6a2c80a78c, type: 3}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6031f688863a484bbcbbdf0643b57c65, type: 3}
+  m_Name: MonsterTypeDataSet
+  m_EditorClassIdentifier: 
+  _references:
+  - {fileID: -7332454293359213735}
+  - {fileID: 5411978165187354891}
+  - {fileID: 8339396799328357754}
+  - {fileID: 4483555083288365327}
+  - {fileID: -8197789767231207570}
+--- !u!114 &4483555083288365327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9234873beb444d9080b9b5a49fee2728, type: 3}
+  m_Name: MonsterMimic
+  m_EditorClassIdentifier: 
+  _friendlyName: Mimic
+  _revealSprite: {fileID: 0}
+--- !u!114 &5411978165187354891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9234873beb444d9080b9b5a49fee2728, type: 3}
+  m_Name: MonsterVampire
+  m_EditorClassIdentifier: 
+  _friendlyName: Vampire
+  _revealSprite: {fileID: 21300000, guid: 47359d426244a304894fa40e6ae87fae, type: 3}
+--- !u!114 &8339396799328357754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9234873beb444d9080b9b5a49fee2728, type: 3}
+  m_Name: MonsterWerewolf
+  m_EditorClassIdentifier: 
+  _friendlyName: Werewolf
+  _revealSprite: {fileID: 21300000, guid: d62ab26ab53ed514f861e13d6d4eacf2, type: 3}
