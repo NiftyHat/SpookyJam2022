@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Data.Trait
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(fileName = "TraitDataSet", menuName = "Game/TraitDataSet", order = 1)]
     public class TraitDataSet : ScriptableSet<TraitData>
     {
         
