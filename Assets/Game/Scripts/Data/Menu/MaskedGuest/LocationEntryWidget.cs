@@ -10,8 +10,8 @@ public class LocationEntryWidget : ToggleWidget<AreaData>
     public override void Initialize(AreaData data, bool value)
     {
         _data = data;
-        toggle.image.sprite = data.GetSprite();
-        label.text = data.GetFriendlyName();
+        toggle.image.sprite = data.Icon;
+        label.text = data.FriendlyName;
         toggle.SetIsOnWithoutNotify(value);
     }
 }

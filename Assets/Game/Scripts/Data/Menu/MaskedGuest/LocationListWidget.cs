@@ -61,7 +61,7 @@ public class LocationListWidget : MonoBehaviour
         List<AreaData> test = GetLocationData();
         foreach (AreaData loc in test)
         {
-            Debug.Log(" Location " + loc.GetFriendlyName());
+            Debug.Log(" Location " + loc.FriendlyName);
         }
     }
 
