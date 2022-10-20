@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: MonsterSuccubus
   m_EditorClassIdentifier: 
   _friendlyName: Succubus
-  _revealSprite: {fileID: 21300000, guid: 54d5f70e1d3d7a44f947485123b83522, type: 3}
+  _revealSprite: {fileID: 21300000, guid: 401ca7f691ff71a4583b8e137723493c, type: 3}
+  _preferredTraits:
+  - {fileID: 7801872093390142965, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
+  - {fileID: -8261361936468618248, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
 --- !u!114 &-7332454293359213735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,6 +31,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _friendlyName: Slime Girl
   _revealSprite: {fileID: 21300000, guid: f23ede950b4ad5149b895b6a2c80a78c, type: 3}
+  _preferredTraits:
+  - {fileID: -2805436319213069506, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
+  - {fileID: -8375821426753182368, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,8 +50,8 @@ MonoBehaviour:
   - {fileID: -7332454293359213735}
   - {fileID: 5411978165187354891}
   - {fileID: 8339396799328357754}
-  - {fileID: 4483555083288365327}
   - {fileID: -8197789767231207570}
+  - {fileID: 4483555083288365327}
 --- !u!114 &4483555083288365327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +66,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _friendlyName: Mimic
   _revealSprite: {fileID: 0}
+  _preferredTraits:
+  - {fileID: 8104443354933046619, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
+  - {fileID: -5386215674631098638, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
 --- !u!114 &5411978165187354891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,6 +83,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _friendlyName: Vampire
   _revealSprite: {fileID: 21300000, guid: 47359d426244a304894fa40e6ae87fae, type: 3}
+  _preferredTraits:
+  - {fileID: -5725889087623111918, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
+  - {fileID: 5929050957276257929, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
 --- !u!114 &8339396799328357754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,3 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _friendlyName: Werewolf
   _revealSprite: {fileID: 21300000, guid: d62ab26ab53ed514f861e13d6d4eacf2, type: 3}
+  _preferredTraits:
+  - {fileID: -3720208353616562387, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
+  - {fileID: -2975150411840568887, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
