@@ -40,7 +40,7 @@ public class LocationListWidget : MonoBehaviour
 
         foreach (LocationEntryWidget loc in locationButtons)
         {
-            loc.SetValue(data.Contains(loc.LocationData));
+            loc.SetValue(data.Contains(loc.Data));
         }
     }
 
@@ -50,7 +50,7 @@ public class LocationListWidget : MonoBehaviour
         foreach (LocationEntryWidget loc in locationButtons)
         {
             if (loc.Value)
-                results.Add(loc.LocationData);
+                results.Add(loc.Data);
         }
         return results;
     }
