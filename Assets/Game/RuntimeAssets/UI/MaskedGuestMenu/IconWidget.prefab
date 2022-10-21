@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3031013357272796602}
   - component: {fileID: 1543449415697043589}
+  - component: {fileID: 7730727583795263897}
   - component: {fileID: 7854762683112458166}
   m_Layer: 5
   m_Name: IconWidget
@@ -45,6 +46,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2733640243394070721}
   m_CullTransparentMesh: 1
+--- !u!114 &7730727583795263897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2733640243394070721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f565634e75b076745a9a5a45c1867e5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 7854762683112458166}
 --- !u!114 &7854762683112458166
 MonoBehaviour:
   m_ObjectHideFlags: 0
