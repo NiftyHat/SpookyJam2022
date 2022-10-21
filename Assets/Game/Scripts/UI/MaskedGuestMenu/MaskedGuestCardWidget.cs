@@ -20,7 +20,7 @@ public class MaskedGuestCardWidget : MonoBehaviour
         {
             if (_iconPool == null)
             {
-                GameObject poolContainer = new GameObject("UI ObjectPool - IconWidgets");
+                poolContainer = new GameObject("UI ObjectPool - IconWidgets").transform;
                 _iconPool = new ObjectPool<IconWidget>(CreateIcon, actionOnGet: (obj) => obj.gameObject.SetActive(true), OnReleaseIcon, actionOnDestroy: (obj) => Destroy(obj), false, 6, 12);
             }
             return _iconPool;
