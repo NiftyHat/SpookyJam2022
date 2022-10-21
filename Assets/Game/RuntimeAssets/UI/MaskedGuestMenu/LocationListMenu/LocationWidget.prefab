@@ -51,11 +51,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 4603395904018703984}
-  locationEntryPrefab: {fileID: 293561850481388329, guid: beeefb5c68ea78042b64d08755bf97d2,
-    type: 3}
+  entryPrefab: {fileID: 0}
   locationData: {fileID: 11400000, guid: db16e20483aefeb478a5e74ab8a4da3f, type: 2}
   noneToggle: {fileID: 2487386932681335605}
-  locationButtons: []
+  buttons: []
 --- !u!1 &6734496475678187211
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,41 +202,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsOn
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 240809704399200937, guid: beeefb5c68ea78042b64d08755bf97d2,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 240809704399200937, guid: beeefb5c68ea78042b64d08755bf97d2,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 240809704399200937, guid: beeefb5c68ea78042b64d08755bf97d2,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 6529822288059645201}
-    - target: {fileID: 240809704399200937, guid: beeefb5c68ea78042b64d08755bf97d2,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 240809704399200937, guid: beeefb5c68ea78042b64d08755bf97d2,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ClearEntries
-      objectReference: {fileID: 0}
-    - target: {fileID: 240809704399200937, guid: beeefb5c68ea78042b64d08755bf97d2,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LocationListWidget, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 240809704399200937, guid: beeefb5c68ea78042b64d08755bf97d2,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 293561850481388329, guid: beeefb5c68ea78042b64d08755bf97d2,
         type: 3}

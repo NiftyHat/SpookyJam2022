@@ -1,4 +1,5 @@
 using Data.Area;
+using Data.Trait;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,6 @@ using UnityEngine;
 public class MaskedGuestCardData
 {
     public string name;
-    public List<AreaData> locationsSeen;
-    public string tags;
+    public List<AreaData> locationData;
+    public List<TraitData> traitData;
 }
