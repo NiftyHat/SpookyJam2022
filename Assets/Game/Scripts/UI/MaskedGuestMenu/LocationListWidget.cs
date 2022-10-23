@@ -58,11 +58,17 @@ public class LocationListWidget : MonoBehaviour
 
     public void OnEnable()
     {
+        //Debug Stuff
         List<AreaData> test = GetLocationData();
         foreach (AreaData data in test)
         {
             Debug.Log(" Location " + data.FriendlyName);
         }
+    }
+
+    public void OnDisable()
+    {
+        transform.SetParent(MaskedGuestCardWidget.SubmenuContainer);
     }
 
 

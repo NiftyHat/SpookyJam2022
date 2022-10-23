@@ -23,6 +23,12 @@ public class NameListWidget : MonoBehaviour
         }
     }
 
+    public void OnDisable()
+    {
+        transform.SetParent(MaskedGuestCardWidget.SubmenuContainer);
+    }
+
+
     public void OnNameSelected(string nameValue)
     {
         Debug.Log("YOYOI selected Name " + nameValue);

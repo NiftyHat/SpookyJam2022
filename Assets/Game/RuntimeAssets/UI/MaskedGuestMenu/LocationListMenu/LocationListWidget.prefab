@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1193769220141386460}
   - component: {fileID: 6529822288059645201}
   m_Layer: 5
-  m_Name: LocationWidget
+  m_Name: LocationListWidget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

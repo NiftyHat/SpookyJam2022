@@ -66,6 +66,10 @@ public class TraitListWidget : MonoBehaviour
         }
     }
 
+    public void OnDisable()
+    {
+        transform.SetParent(MaskedGuestCardWidget.SubmenuContainer);
+    }
 
 
     public void OnNonNullEntrySelected()

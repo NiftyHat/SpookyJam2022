@@ -55,6 +55,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconPrefab: {fileID: 7730727583795263897, guid: d4c8d4b5038c3b14eba2ada6f07987cf,
     type: 3}
+  nameListWidgetPrefab: {fileID: 8929328319691739431, guid: 6adc2f675235b7d42a9810b9ea098961,
+    type: 3}
+  locationListPrefab: {fileID: 6529822288059645201, guid: 6cc8076ceaf3d3e45ab6375f02e7f044,
+    type: 3}
+  traitListPrefab: {fileID: 1914715173016959865, guid: fefb2766f6ac0d44eb02864c91159a0b,
+    type: 3}
   data:
     mask: {fileID: 0}
     maskColor: {fileID: 0}

@@ -37,6 +37,63 @@ public class MaskedGuestCardWidget : MonoBehaviour
     }
     #endregion
 
+    #region Sub Menu References 
+    private static Transform _submenuContainer;
+    public static Transform SubmenuContainer
+    {
+        get
+        {
+            if (_submenuContainer == null)
+            {
+                _submenuContainer = new GameObject("MaskedGuestCard - Submenus").transform;
+            }
+            return _submenuContainer;
+        }
+    }
+
+    [SerializeField] private NameListWidget nameListWidgetPrefab;
+    private static NameListWidget _nameListWidget;
+    public NameListWidget NameListWidget
+    {
+        get
+        {
+            if (_nameListWidget == null)
+            {
+                _nameListWidget = GameObject.Instantiate<NameListWidget>(nameListWidgetPrefab, SubmenuContainer);
+            }
+            return _nameListWidget;
+        }
+    }
+
+    [SerializeField] private LocationListWidget locationListPrefab;
+    private static LocationListWidget _locationListWidget;
+    public LocationListWidget LocationListWidget
+    {
+        get
+        {
+            if (_locationListWidget == null)
+            {
+                _locationListWidget = GameObject.Instantiate<LocationListWidget>(locationListPrefab, SubmenuContainer);
+            }
+            return _locationListWidget;
+        }
+    }
+
+    [SerializeField] private TraitListWidget traitListPrefab;
+    private static TraitListWidget _traitListWidget;
+    public TraitListWidget TraitListWidget
+    {
+        get
+        {
+            if (_traitListWidget == null)
+            {
+                _traitListWidget = GameObject.Instantiate<TraitListWidget>(traitListPrefab, SubmenuContainer);
+            }
+            return _traitListWidget;
+        }
+    }
+    #endregion
+
     [SerializeField]
     private MaskedGuestCardData data;
 
