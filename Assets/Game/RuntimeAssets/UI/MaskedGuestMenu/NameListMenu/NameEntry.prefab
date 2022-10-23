@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 8362051197178609474}
+  nameValue: 
   button: {fileID: 805915069316304829}
 --- !u!1 &2239975421529358307
 GameObject:
@@ -251,8 +252,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Jackie Daytona
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e212535bd06be764fa7f4cbe2b161faf, type: 2}
+  m_sharedMaterial: {fileID: 2585747943802721860, guid: e212535bd06be764fa7f4cbe2b161faf,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -276,7 +278,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9.2
+  m_fontSize: 8
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1

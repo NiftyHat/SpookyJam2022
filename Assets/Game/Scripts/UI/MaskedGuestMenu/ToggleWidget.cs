@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using TMPro;
 
 public abstract class ToggleWidget<T> : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public abstract class ToggleWidget<T> : MonoBehaviour
     [SerializeField]
     protected Toggle toggle;
     [SerializeField]
-    protected Text label;
+    protected TextMeshProUGUI label;
 
     public UnityEvent onSetTrue;
 
