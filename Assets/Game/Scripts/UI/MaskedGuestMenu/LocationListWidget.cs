@@ -11,26 +11,26 @@ public class LocationListWidget : MonoBehaviour
 
     [SerializeField]
     [Tooltip("List of location entry buttons except \'None\'")]
-    private LocationEntryWidget locationEntryPrefab;
+    private LocationEntryWidget entryPrefab;
     [SerializeField]
     private AreaDataSet locationData; 
 
     [SerializeField]
     private LocationEntryWidget noneToggle = null;
     [SerializeField]
-    private List<LocationEntryWidget> locationButtons = new List<LocationEntryWidget>();
+    private List<LocationEntryWidget> buttons = new List<LocationEntryWidget>();
 
 
     //Generate Buttons for Menu
     public void Start()
     {
-        locationButtons.Clear();
-        foreach (AreaData location in locationData.References)
+        buttons.Clear();
+        foreach (AreaData data in locationData.References)
         {
-            LocationEntryWidget locEntry = GameObject.Instantiate<LocationEntryWidget>(locationEntryPrefab, container);
-            locEntry.Initialize(location, false);
-            locationButtons.Add(locEntry);
-            locEntry.onSetTrue.AddListener(OnNonNullEntrySelected);
+            LocationEntryWidget button = GameObject.Instantiate<LocationEntryWidget>(entryPrefab, container);
+            button.Initialize(data, false);
+            buttons.Add(button);
+            button.onSetTrue.AddListener(OnNonNullEntrySelected);
         }
     }
 
@@ -38,19 +38,19 @@ public class LocationListWidget : MonoBehaviour
     {
         noneToggle.SetValue(data.Count == 0);
 
-        foreach (LocationEntryWidget loc in locationButtons)
+        foreach (LocationEntryWidget button in buttons)
         {
-            loc.SetValue(data.Contains(loc.LocationData));
+            button.SetValue(data.Contains(button.Data));
         }
     }
 
     public List<AreaData> GetLocationData()
     {
         List<AreaData> results = new List<AreaData>();
-        foreach (LocationEntryWidget loc in locationButtons)
+        foreach (LocationEntryWidget button in buttons)
         {
-            if (loc.Value)
-                results.Add(loc.LocationData);
+            if (button.Value)
+                results.Add(button.Data);
         }
         return results;
     }
@@ -59,9 +59,9 @@ public class LocationListWidget : MonoBehaviour
     public void OnEnable()
     {
         List<AreaData> test = GetLocationData();
-        foreach (AreaData loc in test)
+        foreach (AreaData data in test)
         {
-            Debug.Log(" Location " + loc.GetFriendlyName());
+            Debug.Log(" Location " + data.FriendlyName);
         }
     }
 
@@ -79,7 +79,7 @@ public class LocationListWidget : MonoBehaviour
     {
         if (noneToggle.Value) //'None' set true
         {
-            foreach (LocationEntryWidget location in locationButtons)
+            foreach (LocationEntryWidget location in buttons)
             {
                 location.SetValue(false);
             }
