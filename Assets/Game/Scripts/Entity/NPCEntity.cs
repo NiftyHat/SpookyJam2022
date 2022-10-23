@@ -1,19 +1,25 @@
-using Data;
-using Data.Monsters;
+using System.Collections.Generic;
+using Data.Trait;
 
 namespace Entity
 {
     public class NPCEntity
     {
-        private NameData.Entry _name;
+        private CharacterName _name;
         private MaskEntity _mask;
-        private NameData.ImpliedGender _impliedGender;
-        private MonsterTypeData _monsterTypeData;
+        private CharacterName.ImpliedGender _impliedGender;
+        private List<TraitData> _traitList;
 
-        public NPCEntity(MaskEntity mask, MonsterTypeData monsterTypeData, NameData.Entry nameData)
+        public MaskEntity Mask => _mask;
+        public CharacterName Name => _name;
+
+        public CharacterName.ImpliedGender ImpliedGender => _impliedGender;
+        
+        public NPCEntity(MaskEntity mask, CharacterName nameData, List<TraitData> traitList)
         {
             _mask = mask;
-            _monsterTypeData = monsterTypeData;
+            _name = nameData;
+            _traitList = traitList;
         }
     }
 }

@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.aboudoux.fluentcsv": {
+      "version": "https://github.com/NiftyHat/FluentCSVUnity.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "8c2c38174effeb855060d4054a53e282f0183fc2"
+    },
     "com.niftyhat.editormenu": {
       "version": "https://github.com/NiftyHat/NiftyEditorMenu.git",
       "depth": 0,

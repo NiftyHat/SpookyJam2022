@@ -1,0 +1,847 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9e59f85b7a4ebdac0758e040f12349, type: 3}
+  m_Name: NameTableFirstFemme
+  m_EditorClassIdentifier: 
+  _textAsset: {fileID: 4900000, guid: 1012162b6b64ce04dbca04ad91e69ced, type: 3}
+  _data:
+  - _copy: Abi
+    _weight: 1
+  - _copy: Abigail
+    _weight: 1
+  - _copy: Adelaide
+    _weight: 1
+  - _copy: Adeline
+    _weight: 1
+  - _copy: Agnes
+    _weight: 2
+  - _copy: Agness
+    _weight: 1
+  - _copy: Alathea
+    _weight: 1
+  - _copy: Albertina
+    _weight: 1
+  - _copy: Albinia
+    _weight: 6
+  - _copy: Alethea
+    _weight: 1
+  - _copy: Aletheia
+    _weight: 1
+  - _copy: Alexandra
+    _weight: 1
+  - _copy: Alexandrina
+    _weight: 2
+  - _copy: Alexandrine
+    _weight: 1
+  - _copy: Alice
+    _weight: 1
+  - _copy: Alicia
+    _weight: 2
+  - _copy: Alida
+    _weight: 1
+  - _copy: Almeria
+    _weight: 2
+  - _copy: Alured
+    _weight: 1
+  - _copy: Amabel
+    _weight: 2
+  - _copy: Amelia
+    _weight: 5
+  - _copy: Amy
+    _weight: 1
+  - _copy: Anabella
+    _weight: 1
+  - _copy: Anastacia
+    _weight: 1
+  - _copy: Anastasia
+    _weight: 4
+  - _copy: Anastatia
+    _weight: 1
+  - _copy: Anchoretta
+    _weight: 1
+  - _copy: Angel
+    _weight: 1
+  - _copy: Angela
+    _weight: 3
+  - _copy: Angelica
+    _weight: 2
+  - _copy: Angelina
+    _weight: 4
+  - _copy: Angelique
+    _weight: 1
+  - _copy: Ann
+    _weight: 1
+  - _copy: Anna
+    _weight: 9
+  - _copy: Annabella
+    _weight: 1
+  - _copy: Anne
+    _weight: 6
+  - _copy: Annette
+    _weight: 1
+  - _copy: Annice
+    _weight: 1
+  - _copy: Annsi
+    _weight: 1
+  - _copy: Anstace
+    _weight: 1
+  - _copy: Antoinette
+    _weight: 3
+  - _copy: Apollonia
+    _weight: 2
+  - _copy: Apolonia
+    _weight: 1
+  - _copy: Arabella
+    _weight: 9
+  - _copy: Araminta
+    _weight: 1
+  - _copy: Ariana
+    _weight: 1
+  - _copy: Armandine
+    _weight: 1
+  - _copy: Arnolda
+    _weight: 1
+  - _copy: Arundel
+    _weight: 1
+  - _copy: Aseneth
+    _weight: 1
+  - _copy: Atholl
+    _weight: 1
+  - _copy: Aubrey
+    _weight: 2
+  - _copy: Audrey
+    _weight: 1
+  - _copy: Augusta
+    _weight: 4
+  - _copy: Aurea
+    _weight: 1
+  - _copy: Barbara
+    _weight: 2
+  - _copy: Basetta
+    _weight: 1
+  - _copy: Basilia
+    _weight: 1
+  - _copy: Bathsua
+    _weight: 1
+  - _copy: Beatrice
+    _weight: 2
+  - _copy: Beatrix
+    _weight: 2
+  - _copy: Belinda
+    _weight: 3
+  - _copy: Bella
+    _weight: 1
+  - _copy: Bethia
+    _weight: 1
+  - _copy: Betsey
+    _weight: 1
+  - _copy: Betsy
+    _weight: 1
+  - _copy: Bettia
+    _weight: 1
+  - _copy: Betty
+    _weight: 1
+  - _copy: Beulah
+    _weight: 1
+  - _copy: Bigoe
+    _weight: 1
+  - _copy: Bridget
+    _weight: 4
+  - _copy: Byzantia
+    _weight: 1
+  - _copy: Camerona
+    _weight: 1
+  - _copy: Camilla
+    _weight: 5
+  - _copy: Cara
+    _weight: 1
+  - _copy: Carolina
+    _weight: 4
+  - _copy: Caroline
+    _weight: 6
+  - _copy: Carteret
+    _weight: 1
+  - _copy: Cassandra
+    _weight: 6
+  - _copy: Catharina
+    _weight: 2
+  - _copy: Catharine
+    _weight: 2
+  - _copy: Catherine
+    _weight: 3
+  - _copy: Cecilia
+    _weight: 1
+  - _copy: Celia
+    _weight: 1
+  - _copy: Charity
+    _weight: 4
+  - _copy: Charlotte
+    _weight: 12
+  - _copy: Charlotte-Florentia
+    _weight: 1
+  - _copy: Chatwynd
+    _weight: 1
+  - _copy: Christabella
+    _weight: 1
+  - _copy: Christian
+    _weight: 2
+  - _copy: Christiana
+    _weight: 1
+  - _copy: Christina
+    _weight: 1
+  - _copy: Christobella
+    _weight: 1
+  - _copy: Clara
+    _weight: 2
+  - _copy: Clare
+    _weight: 1
+  - _copy: Clarinda
+    _weight: 1
+  - _copy: Clarisa
+    _weight: 1
+  - _copy: Clarissa
+    _weight: 3
+  - _copy: Claudia
+    _weight: 1
+  - _copy: Clementina
+    _weight: 3
+  - _copy: Clotilda
+    _weight: 1
+  - _copy: Colina
+    _weight: 1
+  - _copy: Constantia
+    _weight: 3
+  - _copy: Corantine
+    _weight: 1
+  - _copy: Corbetta
+    _weight: 1
+  - _copy: Cordelia
+    _weight: 3
+  - _copy: Corisande
+    _weight: 1
+  - _copy: Cornelia
+    _weight: 5
+  - _copy: Corry
+    _weight: 1
+  - _copy: Dalilah
+    _weight: 1
+  - _copy: Darkess
+    _weight: 1
+  - _copy: Deborah
+    _weight: 5
+  - _copy: Delphine
+    _weight: 1
+  - _copy: Diana
+    _weight: 3
+  - _copy: Dianna
+    _weight: 2
+  - _copy: Dina
+    _weight: 1
+  - _copy: Dinah
+    _weight: 2
+  - _copy: Dionysia
+    _weight: 1
+  - _copy: Dolly
+    _weight: 1
+  - _copy: Dora
+    _weight: 3
+  - _copy: Dorcas
+    _weight: 1
+  - _copy: Dorothea
+    _weight: 2
+  - _copy: Dorothy
+    _weight: 2
+  - _copy: Dorriel
+    _weight: 1
+  - _copy: Dulcibella
+    _weight: 2
+  - _copy: Dymphna
+    _weight: 2
+  - _copy: Edwina
+    _weight: 1
+  - _copy: Eglantine
+    _weight: 1
+  - _copy: Ela
+    _weight: 1
+  - _copy: Eleanor
+    _weight: 2
+  - _copy: Eleanora
+    _weight: 3
+  - _copy: Eleonora
+    _weight: 2
+  - _copy: Elisa
+    _weight: 1
+  - _copy: Elisabeth
+    _weight: 1
+  - _copy: Eliza
+    _weight: 3
+  - _copy: Elizabeth
+    _weight: 17
+  - _copy: Ellen
+    _weight: 2
+  - _copy: Ellinor
+    _weight: 1
+  - _copy: Eloisa
+    _weight: 1
+  - _copy: Emelia
+    _weight: 1
+  - _copy: Emilia
+    _weight: 1
+  - _copy: Emily
+    _weight: 8
+  - _copy: Emma
+    _weight: 5
+  - _copy: Emmeline
+    _weight: 1
+  - _copy: Esau
+    _weight: 1
+  - _copy: Ester
+    _weight: 1
+  - _copy: Esther
+    _weight: 6
+  - _copy: Eudoxia
+    _weight: 1
+  - _copy: Euphan
+    _weight: 1
+  - _copy: Euphemia
+    _weight: 1
+  - _copy: Euphmia
+    _weight: 1
+  - _copy: Euphonia
+    _weight: 1
+  - _copy: Eustacia
+    _weight: 1
+  - _copy: Fanny
+    _weight: 4
+  - _copy: Felicia
+    _weight: 3
+  - _copy: Felicite
+    _weight: 3
+  - _copy: Felizarda
+    _weight: 1
+  - _copy: Fiducia
+    _weight: 1
+  - _copy: Flora
+    _weight: 2
+  - _copy: Florence
+    _weight: 1
+  - _copy: Florentina
+    _weight: 1
+  - _copy: Floretta
+    _weight: 1
+  - _copy: Florinda
+    _weight: 2
+  - _copy: Francelina
+    _weight: 2
+  - _copy: Frances
+    _weight: 10
+  - _copy: Francina
+    _weight: 1
+  - _copy: Francisca
+    _weight: 1
+  - _copy: Frederica
+    _weight: 2
+  - _copy: Gabriella
+    _weight: 1
+  - _copy: Georgiana
+    _weight: 3
+  - _copy: Georgina
+    _weight: 1
+  - _copy: Georgine
+    _weight: 1
+  - _copy: Geraldina
+    _weight: 1
+  - _copy: Geraldine
+    _weight: 1
+  - _copy: Gertrude
+    _weight: 2
+  - _copy: Gloriana
+    _weight: 1
+  - _copy: Glynne
+    _weight: 1
+  - _copy: Grace
+    _weight: 2
+  - _copy: Griselda
+    _weight: 1
+  - _copy: Gwenllian
+    _weight: 1
+  - _copy: Hamilla
+    _weight: 1
+  - _copy: Hannah
+    _weight: 7
+  - _copy: Harriet
+    _weight: 3
+  - _copy: Harriett
+    _weight: 1
+  - _copy: Harriette
+    _weight: 1
+  - _copy: Harriot
+    _weight: 3
+  - _copy: Harriott
+    _weight: 1
+  - _copy: Helena
+    _weight: 3
+  - _copy: Helenora
+    _weight: 2
+  - _copy: Heneage
+    _weight: 1
+  - _copy: Hennora
+    _weight: 1
+  - _copy: Henrietta
+    _weight: 8
+  - _copy: Henriette
+    _weight: 1
+  - _copy: Hersey
+    _weight: 1
+  - _copy: Hester
+    _weight: 2
+  - _copy: Honora
+    _weight: 1
+  - _copy: Honoria
+    _weight: 3
+  - _copy: Horace
+    _weight: 1
+  - _copy: Horatia
+    _weight: 1
+  - _copy: Hugh
+    _weight: 1
+  - _copy: Hyacinth
+    _weight: 1
+  - _copy: Hyacinthe
+    _weight: 2
+  - _copy: Ianthe
+    _weight: 1
+  - _copy: Indiana
+    _weight: 1
+  - _copy: Irene
+    _weight: 1
+  - _copy: Isabella
+    _weight: 2
+  - _copy: Isabilla
+    _weight: 1
+  - _copy: Isett
+    _weight: 1
+  - _copy: Issobelle
+    _weight: 1
+  - _copy: Izett
+    _weight: 1
+  - _copy: Jacintha
+    _weight: 2
+  - _copy: Jacobina
+    _weight: 3
+  - _copy: Jacomina
+    _weight: 1
+  - _copy: Jacquetta
+    _weight: 3
+  - _copy: Jamima
+    _weight: 1
+  - _copy: Jane
+    _weight: 3
+  - _copy: Janet
+    _weight: 3
+  - _copy: Jannette
+    _weight: 1
+  - _copy: Jean
+    _weight: 1
+  - _copy: Jeannette
+    _weight: 1
+  - _copy: Jemima
+    _weight: 3
+  - _copy: Jennet
+    _weight: 1
+  - _copy: Jenny
+    _weight: 1
+  - _copy: Jessie
+    _weight: 1
+  - _copy: Jessy
+    _weight: 2
+  - _copy: Jestina
+    _weight: 1
+  - _copy: Joanna
+    _weight: 3
+  - _copy: Johanna
+    _weight: 1
+  - _copy: Jordan
+    _weight: 1
+  - _copy: Josceline
+    _weight: 1
+  - _copy: Josephina
+    _weight: 1
+  - _copy: Josette
+    _weight: 1
+  - _copy: Joyce
+    _weight: 1
+  - _copy: Judith
+    _weight: 2
+  - _copy: Julia
+    _weight: 1
+  - _copy: Julian
+    _weight: 2
+  - _copy: Julian
+    _weight: 1
+  - _copy: Juliana
+    _weight: 2
+  - _copy: Juliet
+    _weight: 1
+  - _copy: Julines
+    _weight: 1
+  - _copy: Justina
+    _weight: 1
+  - _copy: Karenhappuch
+    _weight: 1
+  - _copy: Katharine
+    _weight: 2
+  - _copy: Katherine
+    _weight: 5
+  - _copy: Kezia
+    _weight: 1
+  - _copy: Kimbery
+    _weight: 1
+  - _copy: Kythe
+    _weight: 1
+  - _copy: Laetitia
+    _weight: 3
+  - _copy: Laura
+    _weight: 7
+  - _copy: Laure
+    _weight: 1
+  - _copy: Lavinia
+    _weight: 6
+  - _copy: Lelia
+    _weight: 1
+  - _copy: Lena
+    _weight: 1
+  - _copy: Leonora
+    _weight: 1
+  - _copy: Leontina
+    _weight: 1
+  - _copy: Letitia
+    _weight: 1
+  - _copy: Lilias
+    _weight: 2
+  - _copy: Lindsay
+    _weight: 1
+  - _copy: Livia
+    _weight: 1
+  - _copy: Lora
+    _weight: 1
+  - _copy: Louisa
+    _weight: 8
+  - _copy: Love
+    _weight: 1
+  - _copy: Loveday
+    _weight: 1
+  - _copy: Lucia
+    _weight: 1
+  - _copy: Lucie
+    _weight: 1
+  - _copy: Lucinda
+    _weight: 7
+  - _copy: Lucrectia
+    _weight: 1
+  - _copy: Lucretia
+    _weight: 1
+  - _copy: Lucy
+    _weight: 5
+  - _copy: Ludivina
+    _weight: 1
+  - _copy: Lydia
+    _weight: 4
+  - _copy: Mabella
+    _weight: 2
+  - _copy: Madeleine
+    _weight: 1
+  - _copy: Madelina
+    _weight: 2
+  - _copy: Madeline
+    _weight: 3
+  - _copy: Magdalen
+    _weight: 1
+  - _copy: Mallet
+    _weight: 3
+  - _copy: Malvina
+    _weight: 1
+  - _copy: Mangalina
+    _weight: 1
+  - _copy: Marcella
+    _weight: 3
+  - _copy: Marcia
+    _weight: 5
+  - _copy: Margaret
+    _weight: 3
+  - _copy: Margaretta
+    _weight: 3
+  - _copy: Marguerite
+    _weight: 1
+  - _copy: Maria
+    _weight: 12
+  - _copy: Mariana
+    _weight: 1
+  - _copy: Marianna
+    _weight: 3
+  - _copy: Marianne
+    _weight: 3
+  - _copy: Marie
+    _weight: 2
+  - _copy: Marie Alexandrine
+    _weight: 1
+  - _copy: Marinda
+    _weight: 1
+  - _copy: Martha
+    _weight: 6
+  - _copy: Mary
+    _weight: 24
+  - _copy: Mary Anne
+    _weight: 1
+  - _copy: Marya
+    _weight: 1
+  - _copy: Mathew
+    _weight: 1
+  - _copy: Mathewana
+    _weight: 1
+  - _copy: Matilda
+    _weight: 4
+  - _copy: Matty
+    _weight: 1
+  - _copy: Melesina
+    _weight: 2
+  - _copy: Melina
+    _weight: 1
+  - _copy: Meliora
+    _weight: 2
+  - _copy: Melosina
+    _weight: 1
+  - _copy: Meltiah
+    _weight: 1
+  - _copy: Mercia
+    _weight: 1
+  - _copy: Meredith
+    _weight: 1
+  - _copy: Meriah
+    _weight: 1
+  - _copy: Meryel
+    _weight: 1
+  - _copy: Millicent
+    _weight: 3
+  - _copy: Mirabella
+    _weight: 1
+  - _copy: Miranda
+    _weight: 1
+  - _copy: Monica
+    _weight: 3
+  - _copy: Nanny
+    _weight: 2
+  - _copy: Naria/Marena
+    _weight: 1
+  - _copy: Nichola
+    _weight: 1
+  - _copy: Nicola
+    _weight: 1
+  - _copy: Octavia
+    _weight: 2
+  - _copy: Olive
+    _weight: 1
+  - _copy: Olivia
+    _weight: 3
+  - _copy: Olympia
+    _weight: 1
+  - _copy: Pamela
+    _weight: 1
+  - _copy: Patience
+    _weight: 5
+  - _copy: Patricia
+    _weight: 2
+  - _copy: Paulina
+    _weight: 2
+  - _copy: Penelope
+    _weight: 2
+  - _copy: Peniel
+    _weight: 1
+  - _copy: Persiana
+    _weight: 1
+  - _copy: Phebe
+    _weight: 1
+  - _copy: Phila
+    _weight: 1
+  - _copy: Philadelphia
+    _weight: 2
+  - _copy: Philippa
+    _weight: 1
+  - _copy: Phillippa
+    _weight: 1
+  - _copy: Phillis
+    _weight: 2
+  - _copy: Phoebe
+    _weight: 4
+  - _copy: Pissillo
+    _weight: 1
+  - _copy: Pleasance
+    _weight: 2
+  - _copy: Polyjena
+    _weight: 1
+  - _copy: Polyxene
+    _weight: 1
+  - _copy: Popley
+    _weight: 1
+  - _copy: Primrose
+    _weight: 2
+  - _copy: Priscilla
+    _weight: 3
+  - _copy: Prudence
+    _weight: 3
+  - _copy: Prudentia
+    _weight: 1
+  - _copy: Pyne
+    _weight: 1
+  - _copy: Rabinett
+    _weight: 1
+  - _copy: Rachael
+    _weight: 1
+  - _copy: Rafela
+    _weight: 1
+  - _copy: Rebeckah
+    _weight: 1
+  - _copy: Renea
+    _weight: 1
+  - _copy: Reynoldia
+    _weight: 1
+  - _copy: Rhoda
+    _weight: 3
+  - _copy: Richarda
+    _weight: 1
+  - _copy: Robiniana
+    _weight: 1
+  - _copy: Rosa
+    _weight: 2
+  - _copy: Rosabelle
+    _weight: 1
+  - _copy: Rosalinda
+    _weight: 2
+  - _copy: Rosamond
+    _weight: 1
+  - _copy: Rosamund
+    _weight: 3
+  - _copy: Rosanna
+    _weight: 2
+  - _copy: Rosannah
+    _weight: 2
+  - _copy: Rose
+    _weight: 2
+  - _copy: Rosetta
+    _weight: 2
+  - _copy: Rosina
+    _weight: 1
+  - _copy: Rowena
+    _weight: 2
+  - _copy: Rowenia
+    _weight: 1
+  - _copy: Sabine
+    _weight: 2
+  - _copy: Salisbury
+    _weight: 1
+  - _copy: Salome
+    _weight: 2
+  - _copy: Samia
+    _weight: 1
+  - _copy: Sara
+    _weight: 2
+  - _copy: Sarah
+    _weight: 7
+  - _copy: Saunders
+    _weight: 1
+  - _copy: Scanina
+    _weight: 1
+  - _copy: Scepter
+    _weight: 1
+  - _copy: Selah
+    _weight: 1
+  - _copy: Selina
+    _weight: 6
+  - _copy: Semira
+    _weight: 1
+  - _copy: Sevilla
+    _weight: 1
+  - _copy: Sewallis
+    _weight: 1
+  - _copy: Shirley
+    _weight: 1
+  - _copy: Shubal
+    _weight: 1
+  - _copy: Sibella
+    _weight: 2
+  - _copy: Sidney
+    _weight: 1
+  - _copy: Sophia
+    _weight: 3
+  - _copy: Sophie
+    _weight: 1
+  - _copy: Steuarta
+    _weight: 1
+  - _copy: Susan
+    _weight: 3
+  - _copy: Susanna
+    _weight: 3
+  - _copy: Susannah
+    _weight: 2
+  - _copy: Sydney
+    _weight: 1
+  - _copy: Sylvania
+    _weight: 2
+  - _copy: Teresa
+    _weight: 2
+  - _copy: Thedosia
+    _weight: 1
+  - _copy: Theodora
+    _weight: 2
+  - _copy: Theodosia
+    _weight: 1
+  - _copy: Theresa
+    _weight: 1
+  - _copy: Theresia
+    _weight: 1
+  - _copy: Thirza
+    _weight: 1
+  - _copy: Trasea
+    _weight: 1
+  - _copy: Tryphena
+    _weight: 2
+  - _copy: Una
+    _weight: 1
+  - _copy: Urania
+    _weight: 2
+  - _copy: Urith
+    _weight: 1
+  - _copy: Vashti
+    _weight: 1
+  - _copy: Victoria
+    _weight: 1
+  - _copy: Virginia
+    _weight: 2
+  - _copy: Virginius
+    _weight: 1
+  - _copy: Virtue
+    _weight: 2
+  - _copy: Wendela
+    _weight: 1
+  - _copy: Wendelina
+    _weight: 1
+  - _copy: Wilhelmina
+    _weight: 4
+  - _copy: Williamina
+    _weight: 1
+  - _copy: Winifred
+    _weight: 3
+  - _copy: Wortley
+    _weight: 1
+  - _copy: Zoe
+    _weight: 1
+  _totalWeight: 817

@@ -40,16 +40,25 @@ namespace TouchInput.UnitControl
 
         public void EndMovement()
         {
-            Vector3 endLocation = _moveLocation.Value;
-            _moveLocation = null;
-            _moveDirection = Vector3.one;
-            OnMoveComplete?.Invoke(endLocation);
+            if (_moveLocation.HasValue)
+            {
+                Vector3 endLocation = _moveLocation.Value;
+                _moveLocation = null;
+                _moveDirection = Vector3.zero;
+                OnMoveComplete?.Invoke(endLocation);
+            }
+            else
+            {
+                _moveDirection = Vector3.zero;
+                OnMoveComplete?.Invoke(transform.position);
+            }
+            
         }
         
         public void MoveTo(Vector3 raycastPoint, Action<Vector3> onComplete = null)
         {
             var position = transform.position;
-            Vector3 moveLocation = new Vector3(raycastPoint.x, position.y, raycastPoint.z);
+            Vector3 moveLocation = new Vector3(raycastPoint.x, raycastPoint.y, raycastPoint.z);
             _moveLocation = moveLocation;
             _moveDirection = (_moveLocation.Value - position).normalized;
             if (onComplete != null)

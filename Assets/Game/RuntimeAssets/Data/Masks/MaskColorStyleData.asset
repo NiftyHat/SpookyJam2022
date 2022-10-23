@@ -72,4 +72,4 @@ MonoBehaviour:
   m_Name: BlueMask
   m_EditorClassIdentifier: 
   _color: {r: 0.30113026, g: 0.49410725, b: 0.9528302, a: 1}
-  _friendlyName: 
+  _friendlyName: Blue

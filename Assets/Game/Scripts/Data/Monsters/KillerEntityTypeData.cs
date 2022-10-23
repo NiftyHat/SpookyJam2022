@@ -1,19 +1,16 @@
-using Data.Trait;
 using Entity;
+using UnityEditor.U2D.Path;
 using UnityEngine;
 
 namespace Data.Monsters
 {
-    
-    public class MonsterTypeData : ScriptableObject, IRevealProvider
+    [CreateAssetMenu(fileName = "KillerData", menuName = "Game/NPCS/KillerData", order =9)]
+    public class KillerEntityTypeData : ScriptableObject, IRevealProvider, IUniqueEntityType
     {
         [SerializeField] private string _friendlyName;
         [SerializeField] private Sprite _revealSprite;
-        [SerializeField] private TraitData[] _preferredTraits;
 
         public Sprite RevealSprite => _revealSprite;
         public string FriendlyName => _friendlyName;
-
-        public TraitData[] PreferredTraits => _preferredTraits;
     }
 }
