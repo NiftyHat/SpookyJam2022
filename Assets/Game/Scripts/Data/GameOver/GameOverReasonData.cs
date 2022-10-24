@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Data
+namespace Data.GameOver
 {
     public class GameOverReasonData : ScriptableObject
     {

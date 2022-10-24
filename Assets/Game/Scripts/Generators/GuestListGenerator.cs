@@ -7,9 +7,9 @@ using UnityEngine;
 
 namespace Generators
 {
+    [CreateAssetMenu(fileName = "GuestListGenerator", menuName = "Game/GuestListGenerator", order = 6)]
     public class GuestListGenerator : ScriptableObject
     {
-
         /// <summary>
         /// Limited list off stuff the guest generation can pick from. The masks/names/traits they can pick from
         /// during the generation step.
@@ -41,11 +41,10 @@ namespace Generators
         [SerializeField] protected TraitDataSet _traitData;
 
         [SerializeField] protected MonsterGenerator _monsterGenerator;
+        [SerializeField] protected CharacterEntitySet _characterEntitySet;
         
-        
-
         protected List<MaskEntity> _maskList;
-        protected List<NPCEntity> _npcList;
+        protected List<CharacterEntity> _npcList;
 
         public GuestListGenerator()
         {
@@ -69,6 +68,7 @@ namespace Generators
             //_maskList = GenerateMasks(totalCount, _maskData.References, _maskColorData.References,random);
             //_npcList = new List<NPCEntity>(totalCount);
             //var monsters = GenerateMonster(random);
+            _characterEntitySet.Add(monster);
         }
 
         public void GenerateMonster(MonsterEntityTypeData monsterTypeData, GuestItemPool itemPool)

@@ -1,5 +1,6 @@
 using Context;
 using Data;
+using Data.Interactions;
 using GameStats;
 using Interactions;
 using NiftyFramework.Core.Context;

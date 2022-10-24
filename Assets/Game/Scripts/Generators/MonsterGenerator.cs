@@ -8,16 +8,17 @@ using UnityEngine;
 
 namespace Generators
 {
+    [CreateAssetMenu(fileName = "MonsterGenerator", menuName = "Game/NPCs/MonsterGenerator", order = 1)]
     public class MonsterGenerator : ScriptableObject
     {
         [SerializeField, Range(0,2)] private int _maxPreferredTraits;
-        [SerializeField] public MonsterTypeDataSet _monsterTypeDataSet;
+        [SerializeField] public MonsterEntityTypeDataSet _monsterEntityTypeDataSet;
         [SerializeField] public TraitData _forcedTrait;
 
         public MonsterEntity Generate(System.Random random, GuestListGenerator.GuestItemPool itemPool)
         {
-            var type = _monsterTypeDataSet.References.RandomItem(random);
-            return Generate(random, itemPool);
+            var type = _monsterEntityTypeDataSet.References.RandomItem(random);
+            return Generate(random, type, itemPool);
         }
 
         public MonsterEntity Generate(System.Random random, MonsterEntityTypeData entityTypeData, GuestListGenerator.GuestItemPool itemPool)
@@ -29,7 +30,8 @@ namespace Generators
             switch (_maxPreferredTraits)
             {
                 case 0:
-                    
+                    traits = new List<TraitData>() { };
+                    break;
                 case 1:
                     traits = new List<TraitData>() { entityTypeData.PreferredTraits[random.Next(0, 1)] };
                     break;

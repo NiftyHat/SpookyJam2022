@@ -2,10 +2,11 @@ using System;
 using Data.Menu;
 using Entity;
 using GameStats;
+using Interactions;
 using UI.Targeting;
 using UnityEngine;
 
-namespace Interactions
+namespace Data.Interactions
 {
     public abstract class InteractionData : ScriptableObject, IInteraction, ISerializationCallbackReceiver
     {
@@ -121,6 +122,17 @@ namespace Interactions
             {
                 return _source != null;
             }
+            return false;
+        }
+
+        public bool TryGetTargetEntity<TEntity>(out TEntity entity)
+        {
+            if (_target is IEntityView<TEntity> entityView && entityView.Entity != null)
+            {
+                entity = entityView.Entity;
+                return true;
+            }
+            entity = default;
             return false;
         }
 

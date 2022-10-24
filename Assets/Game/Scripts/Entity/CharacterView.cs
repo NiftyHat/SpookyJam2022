@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Entity
 {
-    public class CharacterView : MonoBehaviour, ITargetable
+    public class CharacterView : MonoBehaviour, ITargetable, IEntityView<CharacterEntity>
     {
         [SerializeField][NonNull] protected UnitInputHandler _unitInputHandler;
         [SerializeField] protected GameObject _goSelectedIndicator;
@@ -16,6 +16,8 @@ namespace Entity
 
         private object _handleContextMenuRequest;
         private IContextMenuOptions _contextMenuOptions;
+        
+        private CharacterEntity _entity;
 
         public virtual void Start()
         {
@@ -77,6 +79,7 @@ namespace Entity
         {
             return transform.position;
         }
-        
+
+        public CharacterEntity Entity => _entity;
     }
 }

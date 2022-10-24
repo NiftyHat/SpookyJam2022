@@ -1,4 +1,5 @@
 using System;
+using Data.GameOver;
 using GameStats;
 using NiftyFramework.Core;
 using UnityEngine;

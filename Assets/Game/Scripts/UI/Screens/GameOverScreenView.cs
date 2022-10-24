@@ -1,5 +1,6 @@
 using Context;
 using Data;
+using Data.GameOver;
 using NiftyFramework.Core.Context;
 using NiftyFramework.UI;
 using TMPro;

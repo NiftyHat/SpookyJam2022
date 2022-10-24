@@ -1,8 +1,9 @@
 using System;
 using Data;
+using Data.GameOver;
+using Data.Interactions;
 using Entity;
 using GameStats;
-using Interactions;
 using NiftyFramework.Core;
 using NiftyFramework.Core.Context;
 using UnityEngine.SceneManagement;

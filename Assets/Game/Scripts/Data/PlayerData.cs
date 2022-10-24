@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Data.Interactions;
 using GameStats;
 using Interactions;
 using NiftyFramework.Core.Utils;

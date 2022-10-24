@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Entity
 {
-    public class NPCEntityView : MonoBehaviour, IView<NPCEntity>
+    public class NPCEntityView : MonoBehaviour, IView<CharacterEntity>
     {
         [SerializeField] protected Sprite _spriteMasc;
         [SerializeField] protected Sprite _spriteFemme;
@@ -13,9 +13,9 @@ namespace Entity
         [SerializeField][NonNull] protected MaskEntityView _maskView;
         [SerializeField] protected SpriteRenderer _characterSpriteRender;
 
-        protected NPCEntity _entity;
+        protected CharacterEntity _entity;
         
-        public void Set(NPCEntity entity)
+        public void Set(CharacterEntity entity)
         {
             _entity = entity;
 

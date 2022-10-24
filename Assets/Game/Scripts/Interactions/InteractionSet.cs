@@ -1,3 +1,4 @@
+using Data.Interactions;
 using NiftyScriptableSet;
 using UnityEngine;
 

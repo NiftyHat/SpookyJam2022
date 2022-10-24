@@ -1,8 +1,9 @@
 using GameStats;
+using Interactions;
 using TouchInput.UnitControl;
 using UnityEngine;
 
-namespace Interactions
+namespace Data.Interactions
 {
     public class MoveInteractionData : InteractionData
     {

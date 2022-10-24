@@ -1,10 +1,9 @@
 using Entity;
-using UnityEditor.U2D.Path;
 using UnityEngine;
 
 namespace Data.Monsters
 {
-    [CreateAssetMenu(fileName = "KillerData", menuName = "Game/NPCS/KillerData", order =9)]
+    [CreateAssetMenu(fileName = "KillerData", menuName = "Game/Characters/KillerData", order =9)]
     public class KillerEntityTypeData : ScriptableObject, IRevealProvider, IUniqueEntityType
     {
         [SerializeField] private string _friendlyName;

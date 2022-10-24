@@ -3,7 +3,7 @@ using Data.Trait;
 
 namespace Entity
 {
-    public class NPCEntity
+    public class CharacterEntity
     {
         private CharacterName _name;
         private MaskEntity _mask;
@@ -15,7 +15,7 @@ namespace Entity
 
         public CharacterName.ImpliedGender ImpliedGender => _impliedGender;
         
-        public NPCEntity(MaskEntity mask, CharacterName nameData, List<TraitData> traitList)
+        public CharacterEntity(MaskEntity mask, CharacterName nameData, List<TraitData> traitList)
         {
             _mask = mask;
             _name = nameData;
