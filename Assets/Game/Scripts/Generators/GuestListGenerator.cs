@@ -63,9 +63,9 @@ namespace Generators
             
         }
 
-        public List<CharacterEntity> Generate(int personCount, int monsterCount = 1, int killerCount = 1)
+        public List<CharacterEntity> Generate(int personCount, int monsterCount = 1, int killerCount = 1, Int32 seed = 0)
         {
-            System.Random random = new  System.Random();
+            System.Random random = new System.Random(seed);
             List<CharacterEntity> generatedCharacters = new List<CharacterEntity>();
             
             //calculate how many entities we need to make for the Guest list
@@ -147,15 +147,23 @@ namespace Generators
         [ContextMenu("Test")]
         public void Test()
         {
-            var generatedCharacters = Generate(personCount:8,monsterCount:1,killerCount:1);
-            StringBuilder sb = new StringBuilder();
-            foreach (var item in generatedCharacters)
+            System.Random random = new System.Random();
+            for (int i = 0; i < 100; i++)
             {
-                sb.Append(item.PrintDebug());
-                sb.AppendLine();
+                int seed = random.Next(Int32.MaxValue);
+               
+                var generatedCharacters = Generate(personCount:8,monsterCount:1,killerCount:1, seed);
+                StringBuilder sb = new StringBuilder();
+                foreach (var item in generatedCharacters)
+                {
+                    sb.Append(item.PrintDebug());
+                    sb.AppendLine();
                 
+                }
+                Debug.Log(sb.ToString());
+                random = new System.Random(seed);
             }
-            Debug.Log(sb.ToString());
+           
         }
 
     }

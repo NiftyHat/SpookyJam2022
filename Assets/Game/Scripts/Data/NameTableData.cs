@@ -137,7 +137,11 @@ namespace Data
                 }
                 weightCount += data.Weight;
             }
-            return null;
+            if (weightCount > _totalWeight)
+            {
+                Debug.LogError($"{nameof(NameTableData)}GetItem() over ran total item weight of {_totalWeight} with a count of {weightCount}");
+            }
+            return _data[_data.Capacity - 1];
         }
     }
 }
