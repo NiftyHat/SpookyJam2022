@@ -43,7 +43,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6031f688863a484bbcbbdf0643b57c65, type: 3}
+  m_Script: {fileID: 11500000, guid: 9dc9bab4227a3904ca1bd0220b2f6fe6, type: 3}
   m_Name: MonsterTypeDataSet
   m_EditorClassIdentifier: 
   _references:

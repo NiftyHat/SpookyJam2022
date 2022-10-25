@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9011595398303614976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c8cb525f7a4d38a9f2dfa0b2ad984c, type: 3}
+  m_Name: KindTrait
+  m_EditorClassIdentifier: 
+  _friendlyName: Kind
+  _icon: {fileID: 0}
+  _description: They are know for their genteel spirit
+  _isEnabled: 0
 --- !u!114 &-8375821426753182368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,6 +31,7 @@ MonoBehaviour:
   _friendlyName: Reclusive
   _icon: {fileID: 21300000, guid: 7bab939e68648a84f98ffb3cc2f04d21, type: 3}
   _description: Hard to pin down.
+  _isEnabled: 0
 --- !u!114 &-8261361936468618248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30,6 +47,7 @@ MonoBehaviour:
   _friendlyName: Socialite
   _icon: {fileID: 21300000, guid: 374850c1efea11d439342e6aaadb696a, type: 3}
   _description: Socially connected and well liked by peers
+  _isEnabled: 0
 --- !u!114 &-5725889087623111918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,6 +63,7 @@ MonoBehaviour:
   _friendlyName: Heir
   _icon: {fileID: 21300000, guid: 15d2b0b440f589242a7eb2f474e715d6, type: 3}
   _description: In line to inherit an important title.
+  _isEnabled: 0
 --- !u!114 &-5386215674631098638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +79,7 @@ MonoBehaviour:
   _friendlyName: Debutant
   _icon: {fileID: 21300000, guid: 9f675ab3d7bf4254d9d25ef3e848febd, type: 3}
   _description: Making the Debut into society at this event.
+  _isEnabled: 0
 --- !u!114 &-3720208353616562387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +95,7 @@ MonoBehaviour:
   _friendlyName: Forcefull
   _icon: {fileID: 21300000, guid: 48a3643d20524e847a311c2058c79af9, type: 3}
   _description: Makes other uncomfortable with how direct they are
+  _isEnabled: 0
 --- !u!114 &-3506821359892045406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,6 +111,7 @@ MonoBehaviour:
   _friendlyName: Old Money
   _icon: {fileID: 21300000, guid: ce13fc1658426bd48b0f8d0806132aed, type: 3}
   _description: From a wealth family with an old business
+  _isEnabled: 0
 --- !u!114 &-2975150411840568887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,6 +127,23 @@ MonoBehaviour:
   _friendlyName: Disgraced
   _icon: {fileID: 21300000, guid: 00366583aba1f9046990719f56701b1b, type: 3}
   _description: Living with the shame of some past offence
+  _isEnabled: 0
+--- !u!114 &-2957416666321953555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c8cb525f7a4d38a9f2dfa0b2ad984c, type: 3}
+  m_Name: YouthfulTrait
+  m_EditorClassIdentifier: 
+  _friendlyName: Youthful
+  _icon: {fileID: 21300000, guid: 478bdc09d79f69c45934554618dde2ae, type: 3}
+  _description: Glowing with youthful vigour
+  _isEnabled: 0
 --- !u!114 &-2805436319213069506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +159,71 @@ MonoBehaviour:
   _friendlyName: Refined
   _icon: {fileID: 21300000, guid: a5716b168b08f714d82159445344b6d4, type: 3}
   _description: Amazing grace and poise
+  _isEnabled: 0
+--- !u!114 &-1807388649760525262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c8cb525f7a4d38a9f2dfa0b2ad984c, type: 3}
+  m_Name: FirstbornTrait
+  m_EditorClassIdentifier: 
+  _friendlyName: First Born
+  _icon: {fileID: 21300000, guid: 1af280ca3cb69144497f5ddfcb540bd7, type: 3}
+  _description: The oldest of their siblings
+  _isEnabled: 0
+--- !u!114 &-1646269247474937957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c8cb525f7a4d38a9f2dfa0b2ad984c, type: 3}
+  m_Name: MeddlerTrait
+  m_EditorClassIdentifier: 
+  _friendlyName: Meddler
+  _icon: {fileID: 21300000, guid: 2a45049b67e4a9149bf9021cefd76c33, type: 3}
+  _description: Constantly interfearing with the affairs of others.
+  _isEnabled: 0
+--- !u!114 &-1181826743665912276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c8cb525f7a4d38a9f2dfa0b2ad984c, type: 3}
+  m_Name: AwkwardTrait
+  m_EditorClassIdentifier: 
+  _friendlyName: Awkward
+  _icon: {fileID: 21300000, guid: 65e953a7c039183439b609dc1271ef3a, type: 3}
+  _description: Lacking in ease and grace
+  _isEnabled: 0
+--- !u!114 &-398209533686741646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c8cb525f7a4d38a9f2dfa0b2ad984c, type: 3}
+  m_Name: ModestTrait
+  m_EditorClassIdentifier: 
+  _friendlyName: Modest
+  _icon: {fileID: 0}
+  _description: Unassuming or moderate in their own means.
+  _isEnabled: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +250,14 @@ MonoBehaviour:
   - {fileID: -3506821359892045406}
   - {fileID: 5266141609781198474}
   - {fileID: 139733867517572793}
+  - {fileID: -1181826743665912276}
+  - {fileID: -2957416666321953555}
+  - {fileID: -1646269247474937957}
+  - {fileID: 845699232844125756}
+  - {fileID: -398209533686741646}
+  - {fileID: 1325118420802432654}
+  - {fileID: -1807388649760525262}
+  - {fileID: -9011595398303614976}
 --- !u!114 &139733867517572793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +273,39 @@ MonoBehaviour:
   _friendlyName: Eligable
   _icon: {fileID: 21300000, guid: 9665c2e20ab477f4db36172d2786adb9, type: 3}
   _description: A candidate for marriage to a good family.
+  _isEnabled: 0
+--- !u!114 &845699232844125756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c8cb525f7a4d38a9f2dfa0b2ad984c, type: 3}
+  m_Name: ImpulsiveTrait
+  m_EditorClassIdentifier: 
+  _friendlyName: Impulsive
+  _icon: {fileID: 21300000, guid: 8ee89d2b3efba014eaadd72ef2dd4925, type: 3}
+  _description: Has poor impulse control
+  _isEnabled: 0
+--- !u!114 &1325118420802432654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c8cb525f7a4d38a9f2dfa0b2ad984c, type: 3}
+  m_Name: GorgeousTrait
+  m_EditorClassIdentifier: 
+  _friendlyName: Gorgeous
+  _icon: {fileID: 21300000, guid: c43ce3d3a07052b4dad6a2bae48ede17, type: 3}
+  _description: The plutonic idea of attactive
+  _isEnabled: 0
 --- !u!114 &5266141609781198474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +321,7 @@ MonoBehaviour:
   _friendlyName: Educated
   _icon: {fileID: 21300000, guid: bd221b4fcd27cb84e964b0e770495003, type: 3}
   _description: Well schooled and read
+  _isEnabled: 0
 --- !u!114 &5929050957276257929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +337,7 @@ MonoBehaviour:
   _friendlyName: Affluent
   _icon: {fileID: 21300000, guid: bc3578aedab7aff43a0d49a0de54e773, type: 3}
   _description: Owns great wealth
+  _isEnabled: 0
 --- !u!114 &7801872093390142965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +353,7 @@ MonoBehaviour:
   _friendlyName: Shameless
   _icon: {fileID: 21300000, guid: b05b9af1b6a476f4aa81b79b3b5076e3, type: 3}
   _description: Ignores social conventions
+  _isEnabled: 0
 --- !u!114 &8104443354933046619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,3 +369,4 @@ MonoBehaviour:
   _friendlyName: Fasionable
   _icon: {fileID: 21300000, guid: 301c1f9b8c8836845af99312b7e03044, type: 3}
   _description: Always the best dressed at every location
+  _isEnabled: 0

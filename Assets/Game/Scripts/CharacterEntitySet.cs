@@ -10,7 +10,7 @@ public class CharacterEntitySet : RuntimeSet<CharacterEntity>
 
     public event OnAssigned OnAssign;
     
-    public void Assigned(IList<CharacterEntity> items)
+    public void Assign(IList<CharacterEntity> items)
     {
         if (_itemList == null)
         {

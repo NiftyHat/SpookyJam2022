@@ -14,7 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nameGenerator: {fileID: 11400000, guid: 2e7bcf5443cbf2645ab878c55bf328e4, type: 2}
   _maskGenerator: {fileID: 11400000, guid: 8e674634b8765284abf92aa79cf85d01, type: 2}
-  _traitData: {fileID: 11400000, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
-  _monsterGenerator: {fileID: 0}
+  _traitPoolGenerator: {fileID: 11400000, guid: 7fcdb91cd05e0db48a9dcc5b54c2feb4,
+    type: 2}
+  _monsterGenerator: {fileID: 11400000, guid: 360b7c95e1832b24696a8adf44d2f313, type: 2}
+  _killerGenerator: {fileID: 11400000, guid: ed6eb19a9bc94244eb5f95c176915c9f, type: 2}
+  _personGenerator: {fileID: 11400000, guid: 5bd2ff73082c1e2478b9801859456d2d, type: 2}
   _characterEntitySet: {fileID: 11400000, guid: 0e4d9375ef4af3f498dd33c0e80ffa5a,
     type: 2}
+  _possibleMonsterTypes: 5
+  _peopleWithMonsterTraits:
+    _min: 3
+    _max: 7

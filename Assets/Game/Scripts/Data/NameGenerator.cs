@@ -115,20 +115,18 @@ namespace Data
             if (firstNameTable != null)
             {
                 firstNameList = firstNameTable.GetRandom(random, count);
-                Debug.Log(firstNameList);
             }
 
             if (_lastNameTable != null)
             {
                 lastNameList  = _lastNameTable.GetRandom(random, count);
-                Debug.Log(lastNameList);
             }
 
             for (int i = 0; i < count; i++)
             {
                 if (firstNameList != null && lastNameList != null)
                 {
-                    CharacterName characterName = new CharacterName(firstNameList[i], lastNameList[i]);
+                    CharacterName characterName = new CharacterName(firstNameList[i], lastNameList[i], gender);
                     characterNames.Add(characterName);
                 }
             }
@@ -145,16 +143,18 @@ namespace Data
 
         public static CharacterName.ImpliedGender GetRandomGender(System.Random random)
         {
-            int genderInt = random.Next(3);
-            switch (genderInt)
+            int genderInt = random.Next(10);
+            if (genderInt == 0)
             {
-                case 0:
-                default:
-                    return  CharacterName.ImpliedGender.Neutral;
-                case 1:
-                    return  CharacterName.ImpliedGender.Femme;
-                case 2:
-                    return  CharacterName.ImpliedGender.Masc;
+                return  CharacterName.ImpliedGender.Neutral;
+            }
+            else if (genderInt <= 6)
+            {
+                return  CharacterName.ImpliedGender.Femme;
+            }
+            else
+            {
+                return  CharacterName.ImpliedGender.Masc;
             }
         }
     }

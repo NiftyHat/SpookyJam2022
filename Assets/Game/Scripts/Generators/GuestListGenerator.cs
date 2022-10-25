@@ -1,8 +1,13 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Data;
 using Data.Monsters;
 using Data.Trait;
 using Entity;
+using NiftyFramework.Core;
+using NiftyFramework.Scripts;
 using UnityEngine;
 
 namespace Generators
@@ -18,30 +23,37 @@ namespace Generators
         /// </summary>
         public class GuestItemPool
         {
-            public GuestItemPool(MaskGenerator.MaskPool maskPool, NameGenerator.NamePool namePool, List<TraitData> traits)
+            public GuestItemPool(MaskGenerator.MaskPool maskPool, NameGenerator.NamePool namePool, TraitPoolGenerator.TraitPool traitPool)
             {
                 _maskPool = maskPool;
                 _namePool = namePool;
-                _traits = traits;
+                _traitPool = traitPool;
             }
             
             protected readonly MaskGenerator.MaskPool _maskPool;
             protected readonly NameGenerator.NamePool _namePool;
-            protected readonly List<TraitData> _traits;
+            protected readonly TraitPoolGenerator.TraitPool _traitPool;
 
             public MaskGenerator.MaskPool Masks => _maskPool;
             public NameGenerator.NamePool Names => _namePool;
-
-            public List<TraitData> Traits => _traits;
+            public TraitPoolGenerator.TraitPool Traits => _traitPool;
         }
-
 
         [SerializeField] protected NameGenerator _nameGenerator;
         [SerializeField] protected MaskGenerator _maskGenerator;
-        [SerializeField] protected TraitDataSet _traitData;
+        [SerializeField] protected TraitPoolGenerator _traitPoolGenerator;
 
         [SerializeField] protected MonsterGenerator _monsterGenerator;
+        [SerializeField] protected KillerGenerator _killerGenerator;
+        [SerializeField] protected PersonGenerator _personGenerator;
         [SerializeField] protected CharacterEntitySet _characterEntitySet;
+
+        [SerializeField, UnityEngine.Range(0, 5)]
+        protected int _possibleMonsterTypes;
+
+        [SerializeField] protected IntRange _peopleWithMonsterTraits;
+        
+        
         
         protected List<MaskEntity> _maskList;
         protected List<CharacterEntity> _npcList;
@@ -51,31 +63,100 @@ namespace Generators
             
         }
 
-        public void Generate(int guestCount, int monsterCount = 1, int killerCount = 1)
+        public List<CharacterEntity> Generate(int personCount, int monsterCount = 1, int killerCount = 1)
         {
             System.Random random = new  System.Random();
-            int totalCount = guestCount + monsterCount + killerCount;
+            List<CharacterEntity> generatedCharacters = new List<CharacterEntity>();
+            
+            //calculate how many entities we need to make for the Guest list
+            int totalCount = personCount + monsterCount + killerCount;
+            
+            //Fill out a pool of masks.
             MaskGenerator.MaskPool maskPool = _maskGenerator.GetPool();
             int maskCount = maskPool.Count;
+            //if we have more people to make remove person entities until theres enough masks to go around.
             if (totalCount > maskCount)
             {
+                Debug.LogWarning($"{totalCount} guest list was bigger than mask pool of {maskCount}. People will be removed to make space for Monsters/Killers");
                 totalCount = maskCount;
-                guestCount = maskCount - monsterCount - killerCount;
+                personCount = maskCount - monsterCount - killerCount;
+                if (personCount <= 0)
+                {
+                    throw new ArgumentException(
+                        $"{monsterCount} Monsters and {killerCount} Killers is more than the total number of mask {maskCount}");
+                }
             }
+            //name pool
             NameGenerator.NamePool namePool = _nameGenerator.GetPool(random, totalCount * 2);
-            GuestItemPool itemPool = new GuestItemPool(maskPool, namePool, _traitData.References);
-            var monster = _monsterGenerator.Generate(random, itemPool);
-            //_maskList = GenerateMasks(totalCount, _maskData.References, _maskColorData.References,random);
-            //_npcList = new List<NPCEntity>(totalCount);
-            //var monsters = GenerateMonster(random);
-            _characterEntitySet.Add(monster);
-        }
-
-        public void GenerateMonster(MonsterEntityTypeData monsterTypeData, GuestItemPool itemPool)
-        {
+            //trait pool
+            TraitPoolGenerator.TraitPool traitPool = _traitPoolGenerator.GetPool(random, totalCount);
+            //guest item pool shares everything that needs to be distributed across the entire guest list;
+            GuestItemPool itemPool = new GuestItemPool(maskPool, namePool, traitPool);
+            //Monster Generation
+            HashSet<MonsterEntityTypeData> monsterTypeSet = new HashSet<MonsterEntityTypeData>();
+            List<MonsterEntity> monsterEntities = new List<MonsterEntity>();
+            for (int i = 0; i < monsterCount; i++)
+            {
+                MonsterEntity monster = _monsterGenerator.Generate(random, itemPool, out var monsterType);
+                monsterEntities.Add(monster);
+                generatedCharacters.Add(monster);
+                if (!monsterTypeSet.Contains(monsterType))
+                {
+                    monsterTypeSet.Add(monsterType);
+                }
+            }
+            //Create a pool of possible monster traits. These get added to other guests to increase difficulty.
+            HashSet<TraitData> monsterTraitPool = new HashSet<TraitData>();
+            foreach (var item in monsterTypeSet)
+            {
+                monsterTraitPool.UnionWith(item.PreferredTraits);
+            }
+            List<TraitData> monsterTraitList = new List<TraitData>(monsterTraitPool);
             
+            //pick a number of people who will get the monster trait added.
+            int peopleWithMonsterTraitCount = _peopleWithMonsterTraits.GetRandom(random);
+            traitPool.WithRandom(peopleWithMonsterTraitCount, AddMonsterTrait);
+            void AddMonsterTrait(HashSet<TraitData> traitList)
+            {
+                var first = traitList.ElementAt(0);
+                traitList.Remove(first);
+                traitList.Add(monsterTraitList.RandomItem(random));
+            }
+
+            //People generation
+            for (int i = 0; i < personCount; i++)
+            {
+                var person = _personGenerator.Generate(random, itemPool);
+                generatedCharacters.Add(person);
+            }
+            
+            _characterEntitySet.Assign(generatedCharacters);
+
+            if (monsterEntities.Count > 0)
+            {
+                for (int i = 0; i < killerCount; i++)
+                {
+                    MonsterEntity targetMonster = monsterEntities[i % monsterEntities.Count];
+                    var killer = _killerGenerator.Generate(random, itemPool, targetMonster);
+                    generatedCharacters.Add(killer);
+                }
+            }
+            return generatedCharacters;
         }
 
+        [ContextMenu("Test")]
+        public void Test()
+        {
+            var generatedCharacters = Generate(personCount:8,monsterCount:1,killerCount:1);
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in generatedCharacters)
+            {
+                sb.Append(item.PrintDebug());
+                sb.AppendLine();
+                
+            }
+            Debug.Log(sb.ToString());
+        }
 
     }
 }
