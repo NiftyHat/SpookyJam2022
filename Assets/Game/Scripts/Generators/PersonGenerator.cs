@@ -1,4 +1,5 @@
 using Data;
+using Data.Character;
 using Entity;
 using UnityEngine;
 
@@ -14,7 +15,8 @@ namespace Generators
             itemPool.Masks.TryGet(out var maskEntity, random);
             itemPool.Names.TryGet(out var nameEntity, impliedGender);
             itemPool.Traits.TryGet(out var poolTraitItems);
-            return new CharacterEntity(maskEntity, nameEntity, poolTraitItems);
+            CharacterViewData viewData = itemPool.ViewData.GetGendered(impliedGender, random);
+            return new CharacterEntity(maskEntity, nameEntity, poolTraitItems, viewData);
         }
     }
 }

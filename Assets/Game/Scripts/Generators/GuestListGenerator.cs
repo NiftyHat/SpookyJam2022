@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Data;
+using Data.Character;
 using Data.Monsters;
 using Data.Trait;
 using Entity;
@@ -23,20 +24,23 @@ namespace Generators
         /// </summary>
         public class GuestItemPool
         {
-            public GuestItemPool(MaskGenerator.MaskPool maskPool, NameGenerator.NamePool namePool, TraitPoolGenerator.TraitPool traitPool)
+            public GuestItemPool(MaskGenerator.MaskPool maskPool, NameGenerator.NamePool namePool, TraitPoolGenerator.TraitPool traitPool, CharacterViewDataSet viewDataSet)
             {
                 _maskPool = maskPool;
                 _namePool = namePool;
                 _traitPool = traitPool;
+                _viewDataSet = viewDataSet;
             }
             
             protected readonly MaskGenerator.MaskPool _maskPool;
             protected readonly NameGenerator.NamePool _namePool;
             protected readonly TraitPoolGenerator.TraitPool _traitPool;
+            protected readonly CharacterViewDataSet _viewDataSet;
 
             public MaskGenerator.MaskPool Masks => _maskPool;
             public NameGenerator.NamePool Names => _namePool;
             public TraitPoolGenerator.TraitPool Traits => _traitPool;
+            public CharacterViewDataSet ViewData => _viewDataSet;
         }
 
         [SerializeField] protected NameGenerator _nameGenerator;
@@ -48,11 +52,8 @@ namespace Generators
         [SerializeField] protected PersonGenerator _personGenerator;
         [SerializeField] protected CharacterEntitySet _characterEntitySet;
 
-        [SerializeField, UnityEngine.Range(0, 5)]
-        protected int _possibleMonsterTypes;
-
         [SerializeField] protected IntRange _peopleWithMonsterTraits;
-        
+        [SerializeField] protected CharacterViewDataSet _viewDataSet;
         
         
         protected List<MaskEntity> _maskList;
@@ -91,7 +92,7 @@ namespace Generators
             //trait pool
             TraitPoolGenerator.TraitPool traitPool = _traitPoolGenerator.GetPool(random, totalCount);
             //guest item pool shares everything that needs to be distributed across the entire guest list;
-            GuestItemPool itemPool = new GuestItemPool(maskPool, namePool, traitPool);
+            GuestItemPool itemPool = new GuestItemPool(maskPool, namePool, traitPool, _viewDataSet);
             //Monster Generation
             HashSet<MonsterEntityTypeData> monsterTypeSet = new HashSet<MonsterEntityTypeData>();
             List<MonsterEntity> monsterEntities = new List<MonsterEntity>();

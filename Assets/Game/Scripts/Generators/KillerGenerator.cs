@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Data;
+using Data.Character;
 using Data.Monsters;
 using Data.Trait;
 using Entity;
@@ -31,7 +32,8 @@ namespace Generators
                 killerTraits.RemoveRange(totalTraitCount, killerTraits.Count - totalTraitCount);
             }
             HashSet<TraitData> killerTraitSet = new HashSet<TraitData>(killerTraits);
-            return new KillerEntity(targetMonster, _killerEntityType, maskEntity, nameEntity, killerTraitSet);
+            CharacterViewData viewData = itemPool.ViewData.GetGendered(impliedGender, random);
+            return new KillerEntity(targetMonster, _killerEntityType, maskEntity, nameEntity, killerTraitSet, viewData);
         }
 
         public List<TraitData> GenerateOtherTraits(HashSet<TraitData> randomTraitSet, HashSet<TraitData> monsterOtherTraits, System.Random random)

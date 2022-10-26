@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Data;
+using Data.Character;
 using Data.Monsters;
 using Data.Trait;
 
@@ -9,7 +11,7 @@ namespace Entity
         protected KillerEntityTypeData _typeData;
         public override string TypeFriendlyName => _typeData.FriendlyName;
 
-        public KillerEntity(MonsterEntity monsterToCopy, KillerEntityTypeData killerEntityTypeData, MaskEntity mask, CharacterName nameData, HashSet<TraitData> traitList) : base(mask, nameData, traitList)
+        public KillerEntity(MonsterEntity monsterToCopy, KillerEntityTypeData killerEntityTypeData, MaskEntity mask, CharacterName nameData, HashSet<TraitData> traitList, CharacterViewData viewData) : base(mask, nameData, traitList, viewData)
         {
             _typeData = killerEntityTypeData;
         }

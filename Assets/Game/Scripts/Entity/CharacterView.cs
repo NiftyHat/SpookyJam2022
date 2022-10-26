@@ -1,18 +1,19 @@
-using GameStats;
 using Interactions;
 using NiftyFramework.Core.Utils;
+using NiftyFramework.DataView;
 using TouchInput.UnitControl;
 using UI.ContextMenu;
 using UnityEngine;
 
 namespace Entity
 {
-    public class CharacterView : MonoBehaviour, ITargetable, IEntityView<CharacterEntity>
+    public class CharacterView : MonoBehaviour, ITargetable, IEntityView<CharacterEntity>, IDataView<CharacterEntity>
     {
         [SerializeField][NonNull] protected UnitInputHandler _unitInputHandler;
         [SerializeField] protected GameObject _goSelectedIndicator;
         [SerializeField] protected SpriteRenderer _spriteRenderer;
         [SerializeField] protected UnitMovementHandler _movementHandler;
+        [SerializeField] protected FacingDirectionView _facingDirectionView;
 
         private object _handleContextMenuRequest;
         private IContextMenuOptions _contextMenuOptions;
@@ -42,25 +43,10 @@ namespace Entity
         {
             if (_movementHandler != null)
             {
-                SetDirection(_movementHandler.MoveDirection);
+                _facingDirectionView.Set(_movementHandler.MoveDirection);
             }
         }
-
-        private void SetDirection(Vector3 direction)
-        {
-            if (_spriteRenderer != null)
-            {
-                if (direction.x > 0)
-                {
-                    _spriteRenderer.flipX = false;
-                }
-                if (direction.x < 0)
-                {
-                    _spriteRenderer.flipX = true;
-                }
-            }
-        }
-
+        
         private bool HandleContextMenuRequest(out IContextMenuOptions contextMenuOptions)
         {
             contextMenuOptions = _contextMenuOptions;
@@ -81,5 +67,16 @@ namespace Entity
         }
 
         public CharacterEntity Entity => _entity;
+        public void Clear()
+        {
+            _entity = null;
+            gameObject.SetActive(false);
+        }
+
+        public void Set(CharacterEntity entity)
+        {
+            _entity = entity;
+            _spriteRenderer.sprite = _entity.ViewData.Sprite;
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Data;
+using Data.Character;
 using Data.Monsters;
 using Data.Trait;
 using Entity;
@@ -51,8 +52,8 @@ namespace Generators
             {
                 monsterTraits.Add(enumerator.Current);
             }
-            
-            return new MonsterEntity(entityTypeData, maskEntity, nameEntity, monsterTraits);
+            CharacterViewData viewData = itemPool.ViewData.GetGendered(impliedGender, random);
+            return new MonsterEntity(entityTypeData, maskEntity, nameEntity, monsterTraits, viewData);
         }
     }
 }

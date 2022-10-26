@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using System.Text;
+using Data;
+using Data.Character;
 using Data.Trait;
+using UnityEngine;
 
 namespace Entity
 {
@@ -10,6 +13,7 @@ namespace Entity
         private MaskEntity _mask;
         private CharacterName.ImpliedGender _impliedGender;
         private HashSet<TraitData> _traitList;
+        private CharacterViewData _viewData;
 
         public MaskEntity Mask => _mask;
         public CharacterName Name => _name;
@@ -17,14 +21,17 @@ namespace Entity
         public CharacterName.ImpliedGender ImpliedGender => _impliedGender;
         public HashSet<TraitData> Traits => _traitList;
 
+        public CharacterViewData ViewData => _viewData;
+
         public virtual string TypeFriendlyName => "Character";
         
-        public CharacterEntity(MaskEntity mask, CharacterName nameData, HashSet<TraitData> traitList)
+        public CharacterEntity(MaskEntity mask, CharacterName nameData, HashSet<TraitData> traitList, CharacterViewData viewData)
         {
             _mask = mask;
             _name = nameData;
             _traitList = traitList;
             _impliedGender = nameData.Gender;
+            _viewData = viewData;
         }
 
         public string PrintDebug()
