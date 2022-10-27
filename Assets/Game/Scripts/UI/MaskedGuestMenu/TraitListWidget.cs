@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TraitListWidget : MonoBehaviour
 {
-
+    //@TODO Limit the total number of icons you can select
     [SerializeField]
     private Transform container;
 
@@ -19,6 +19,8 @@ public class TraitListWidget : MonoBehaviour
     private TraitEntryWidget noneToggle = null;
     [SerializeField]
     private List<TraitEntryWidget> buttons = new List<TraitEntryWidget>();
+
+    private MaskedGuestCardWidget parentMenuReference;
 
 
     //Generate Buttons for Menu
@@ -34,8 +36,10 @@ public class TraitListWidget : MonoBehaviour
         }
     }
 
-    public void Init(List<TraitData> data)
+    public void Init(List<TraitData> data, MaskedGuestCardWidget parentMenu = null)
     {
+        parentMenuReference = parentMenu;
+
         noneToggle.SetValue(data.Count == 0);
 
         foreach (TraitEntryWidget button in buttons)
@@ -68,7 +72,7 @@ public class TraitListWidget : MonoBehaviour
 
     public void OnDisable()
     {
-        transform.SetParent(MaskedGuestCardWidget.SubmenuContainer);
+        parentMenuReference = null;
     }
 
 
@@ -89,5 +93,11 @@ public class TraitListWidget : MonoBehaviour
                 button.SetValue(false);
             }
         }
+    }
+
+    public void OnConfirmButtonPressed()
+    {
+        //Fuckin take the data bro and disable this menu dog
+        parentMenuReference.ConfirmTraitSubmenu();
     }
 }

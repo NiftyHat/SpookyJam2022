@@ -53,7 +53,7 @@ public class MaskedGuestCardWidget : MonoBehaviour
 
     [SerializeField] private NameListWidget nameListWidgetPrefab;
     private static NameListWidget _nameListWidget;
-    public NameListWidget NameListWidget
+    public NameListWidget NameListSubmenu
     {
         get
         {
@@ -67,7 +67,7 @@ public class MaskedGuestCardWidget : MonoBehaviour
 
     [SerializeField] private LocationListWidget locationListPrefab;
     private static LocationListWidget _locationListWidget;
-    public LocationListWidget LocationListWidget
+    public LocationListWidget LocationListSubmenu
     {
         get
         {
@@ -81,7 +81,7 @@ public class MaskedGuestCardWidget : MonoBehaviour
 
     [SerializeField] private TraitListWidget traitListPrefab;
     private static TraitListWidget _traitListWidget;
-    public TraitListWidget TraitListWidget
+    public TraitListWidget TraitListSubmenu
     {
         get
         {
@@ -117,8 +117,8 @@ public class MaskedGuestCardWidget : MonoBehaviour
     public void Initialize(MaskedGuestCardData data)
     {
         this.data = data;
-        maskPortrait.sprite = data.mask.CardSprite;
-        maskPortrait.color = data.maskColor.Color;
+        maskPortrait.sprite = data.mask.MaskData.CardSprite;
+        maskPortrait.color = data.mask.Color;
         UpdateNameDisplay();
         UpdateLocationDisplay();
         UpdateTraitDisplay();
@@ -131,22 +131,6 @@ public class MaskedGuestCardWidget : MonoBehaviour
 
     public void UpdateLocationDisplay()
     {
-        foreach (IconWidget icon in traitIcons)
-        {
-            IconPool.Release(icon);
-        }
-        traitIcons.Clear();
-        foreach (TraitData trt in data.traitData)
-        {
-            IconWidget icon = IconPool.Get();
-            icon.transform.SetParent(traitContainer);
-            icon.SetSprite(trt.Icon);
-            traitIcons.Add(icon);
-        }
-    }
-
-    public void UpdateTraitDisplay()
-    {
         foreach (IconWidget icon in locationIcons)
         {
             IconPool.Release(icon);
@@ -158,6 +142,22 @@ public class MaskedGuestCardWidget : MonoBehaviour
             icon.transform.SetParent(locationContainer);
             icon.SetSprite(loc.Icon);
             locationIcons.Add(icon);
+        }
+    }
+
+    public void UpdateTraitDisplay()
+    {
+        foreach (IconWidget icon in traitIcons)
+        {
+            IconPool.Release(icon);
+        }
+        traitIcons.Clear();
+        foreach (TraitData trt in data.traitData)
+        {
+            IconWidget icon = IconPool.Get();
+            icon.transform.SetParent(traitContainer);
+            icon.SetSprite(trt.Icon);
+            traitIcons.Add(icon);
         }
     }
 
@@ -180,4 +180,59 @@ public class MaskedGuestCardWidget : MonoBehaviour
         locationDisplay.SetActive(show);
         traitDisplay.SetActive(show);
     }
+
+    #region Submenu Handling
+
+    public void ShowNameSubmenu()
+    {
+        Debug.Log("Show Name Menu");
+        NameListSubmenu.gameObject.SetActive(true);
+        NameListSubmenu.transform.SetParent(this.transform);
+        NameListSubmenu.transform.position = this.transform.position;
+        string[] testData = { "Called", "By", "Widget" };
+        NameListSubmenu.Init(testData, this);
+    }
+
+    public void ShowTraitSubmenu()
+    {
+        Debug.Log("Show Trait Menu");
+        TraitListSubmenu.gameObject.SetActive(true);
+        TraitListSubmenu.transform.SetParent(this.transform);
+        TraitListSubmenu.transform.position = this.transform.position;
+        TraitListSubmenu.Init(data.traitData, this);
+    }
+
+    public void ShowLocationSubmenu()
+    {
+        Debug.Log("Show Location Menu");
+        LocationListSubmenu.gameObject.SetActive(true);
+        LocationListSubmenu.transform.SetParent(this.transform);
+        LocationListSubmenu.transform.position = this.transform.position;
+        LocationListSubmenu.Init(data.locationData, this);
+    }
+
+    public void ConfirmTraitSubmenu()
+    {
+        data.traitData = TraitListSubmenu.GetData();
+        TraitListSubmenu.gameObject.SetActive(false);
+        TraitListSubmenu.transform.SetParent(SubmenuContainer);
+        UpdateTraitDisplay();
+    }
+
+    public void ConfirmLocationSubmenu()
+    {
+        data.locationData = LocationListSubmenu.GetData();
+        LocationListSubmenu.gameObject.SetActive(false);
+        LocationListSubmenu.transform.SetParent(SubmenuContainer);
+        UpdateLocationDisplay();
+    }
+
+    public void ConfirmNameSubmenu()
+    {
+        //data.name = NameListSubmenu.GetData();
+        NameListSubmenu.gameObject.SetActive(false);
+        NameListSubmenu.transform.SetParent(SubmenuContainer);
+    }
+
+    #endregion
 }

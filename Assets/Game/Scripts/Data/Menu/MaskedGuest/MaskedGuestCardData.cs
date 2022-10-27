@@ -6,24 +6,24 @@ using System.Collections;
 using System.Collections.Generic;
 using Data.Location;
 using UnityEngine;
+using Entity;
 
 //Data object for Player's notes on masked guests
 [Serializable]
 public class MaskedGuestCardData
 {
-    public MaskData mask;
-    public ColorStyleData maskColor;
+    public MaskEntity mask;
     public string DisplayName
     {
         get 
         {
-            if (string.IsNullOrEmpty(name))
-                return String.Format("{0} {1}", maskColor.FriendlyName, mask.FriendlyName);
+            if (name == null)
+                return mask.FriendlyName;
             else
-                return name;
+                return name.Full;
         }
     }
-    public string name;
+    public Entity.CharacterName name;
     public List<LocationData> locationData;
     public List<TraitData> traitData;
 }

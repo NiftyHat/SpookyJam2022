@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class LocationListWidget : MonoBehaviour
 {
+    //@TODO Limit the total number of icons you can select
     [SerializeField]
     private Transform container;
 
@@ -19,6 +20,8 @@ public class LocationListWidget : MonoBehaviour
     private LocationEntryWidget noneToggle = null;
     [SerializeField]
     private List<LocationEntryWidget> buttons = new List<LocationEntryWidget>();
+
+    private MaskedGuestCardWidget parentMenuReference;
 
 
     //Generate Buttons for Menu
@@ -34,8 +37,10 @@ public class LocationListWidget : MonoBehaviour
         }
     }
 
-    public void Init(List<LocationData> data)
+    public void Init(List<LocationData> data, MaskedGuestCardWidget parentMenu = null)
     {
+        parentMenuReference = parentMenu;
+
         noneToggle.SetValue(data.Count == 0);
 
         foreach (LocationEntryWidget button in buttons)
@@ -44,7 +49,7 @@ public class LocationListWidget : MonoBehaviour
         }
     }
 
-    public List<LocationData> GetLocationData()
+    public List<LocationData> GetData()
     {
         List<LocationData> results = new List<LocationData>();
         foreach (LocationEntryWidget button in buttons)
@@ -59,7 +64,7 @@ public class LocationListWidget : MonoBehaviour
     public void OnEnable()
     {
         //Debug Stuff
-        List<LocationData> test = GetLocationData();
+        List<LocationData> test = GetData();
         foreach (LocationData data in test)
         {
             Debug.Log(" Location " + data.FriendlyName);
@@ -68,7 +73,7 @@ public class LocationListWidget : MonoBehaviour
 
     public void OnDisable()
     {
-        transform.SetParent(MaskedGuestCardWidget.SubmenuContainer);
+        parentMenuReference = null;
     }
 
 
@@ -90,5 +95,11 @@ public class LocationListWidget : MonoBehaviour
                 location.SetValue(false);
             }
         }
+    }
+
+    public void OnConfirmButtonPressed()
+    {
+        //Fuckin take the data bro and disable this menu dog
+        parentMenuReference.ConfirmLocationSubmenu();
     }
 }
