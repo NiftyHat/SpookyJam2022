@@ -24,7 +24,7 @@ namespace Entity
         public CharacterViewData ViewData => _viewData;
 
         public virtual string TypeFriendlyName => "Character";
-        
+
         public CharacterEntity(MaskEntity mask, CharacterName nameData, HashSet<TraitData> traitList, CharacterViewData viewData)
         {
             _mask = mask;

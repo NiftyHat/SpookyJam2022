@@ -1,13 +1,13 @@
-using Data.Area;
 using System.Collections;
 using System.Collections.Generic;
+using Data.Location;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class LocationEntryWidget : ToggleWidget<AreaData>
+public class LocationEntryWidget : ToggleWidget<LocationData>
 {
-    public override void Initialize(AreaData data, bool value)
+    public override void Initialize(LocationData data, bool value)
     {
         _data = data;
         toggle.image.sprite = data.Icon;

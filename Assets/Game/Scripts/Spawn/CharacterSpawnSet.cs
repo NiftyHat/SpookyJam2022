@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Data.Area;
 using Entity;
 using NiftyFramework.Core;
 using NiftyFramework.Scripts;
@@ -9,28 +8,34 @@ namespace Spawn
 {
     public class CharacterSpawnSet : MonoBehaviour, ISerializationCallbackReceiver
     {
-        [SerializeField] private AreaData _areaData;
-        [SerializeField] [ReadOnly] private List<CharacterSpawnLocation> _locations;
-        private HashSet<CharacterSpawnLocation> _set;
+        [SerializeField] [ReadOnly] private LocationView _locationView;
+        [SerializeField] [ReadOnly] private List<CharacterSpawnPosition> _spawnPositions;
+        private HashSet<CharacterSpawnPosition> _set;
 
         public void Start()
         {
-            _areaData.SetSpawns(this);
+            _locationView.Register(this);
         }
 
-        public void Spawn(CharacterEntity entity, System.Random random)
+        public void Spawn(IReadOnlyList<CharacterEntity> entity, System.Random random)
         {
-            var randomSpawn = _locations.RandomItem(random);
-            randomSpawn.Set(entity);
-        }
-
-        public void Register(CharacterSpawnLocation spawnLocation)
-        {
-            _set ??= new HashSet<CharacterSpawnLocation>();
-            if (!_set.Contains(spawnLocation))
+            int[] indexList = ListUtils.GenerateInts(_spawnPositions.Count, random, 0 , _spawnPositions.Count);
+            indexList.Shuffle();
+            for (int i = 0; i < indexList.Length && i< entity.Count; i++)
             {
-                _locations.Add(spawnLocation);
-                _set.Add(spawnLocation);
+                int randomIndex = indexList[i];
+                CharacterSpawnPosition spawnPosition = _spawnPositions[randomIndex];
+                spawnPosition.Set(entity[i]);
+            }
+        }
+
+        public void Register(CharacterSpawnPosition spawnPosition)
+        {
+            _set ??= new HashSet<CharacterSpawnPosition>();
+            if (!_set.Contains(spawnPosition))
+            {
+                _spawnPositions.Add(spawnPosition);
+                _set.Add(spawnPosition);
             }
         }
 
@@ -41,7 +46,7 @@ namespace Spawn
 
         public void OnAfterDeserialize()
         {
-            _set = new HashSet<CharacterSpawnLocation>(_locations);
+            _set = new HashSet<CharacterSpawnPosition>(_spawnPositions);
         }
     }
 }

@@ -1,3 +1,4 @@
+using NiftyFramework.Core.Utils;
 using NiftyFramework.UI;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ namespace Entity
 {
     public class MaskEntityView : MonoBehaviour, IView<MaskEntity>
     {
-        [SerializeField] private SpriteRenderer _spriteRenderer;
+        [SerializeField][NonNull] private SpriteRenderer _spriteRenderer;
 
         public void Set(MaskEntity data)
         {

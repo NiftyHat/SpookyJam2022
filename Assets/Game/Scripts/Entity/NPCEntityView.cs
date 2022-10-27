@@ -7,9 +7,6 @@ namespace Entity
 {
     public class NPCEntityView : MonoBehaviour, IView<CharacterEntity>
     {
-        [SerializeField] protected Sprite _spriteMasc;
-        [SerializeField] protected Sprite _spriteFemme;
-        
         [SerializeField][NonNull] protected MaskEntityView _maskView;
         [SerializeField] protected SpriteRenderer _characterSpriteRender;
 
@@ -19,15 +16,7 @@ namespace Entity
         {
             _entity = entity;
 
-            switch (_entity.ImpliedGender)
-            {
-                case CharacterName.ImpliedGender.Femme:
-                    _characterSpriteRender.sprite = _spriteFemme;
-                    break;
-                case CharacterName.ImpliedGender.Masc:
-                    _characterSpriteRender.sprite = _spriteMasc;
-                    break;
-            }
+            _characterSpriteRender.sprite = _entity.ViewData.Sprite;
             
             if (entity.Name.Full != null)
             {

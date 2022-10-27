@@ -14,6 +14,7 @@ namespace Entity
         [SerializeField] protected SpriteRenderer _spriteRenderer;
         [SerializeField] protected UnitMovementHandler _movementHandler;
         [SerializeField] protected FacingDirectionView _facingDirectionView;
+        [SerializeField] protected MaskEntityView _maskView;
 
         private object _handleContextMenuRequest;
         private IContextMenuOptions _contextMenuOptions;
@@ -46,6 +47,11 @@ namespace Entity
                 _facingDirectionView.Set(_movementHandler.MoveDirection);
             }
         }
+
+        public void SetFacing(Vector3 direction)
+        {
+            _facingDirectionView.Set(direction);
+        }
         
         private bool HandleContextMenuRequest(out IContextMenuOptions contextMenuOptions)
         {
@@ -77,6 +83,7 @@ namespace Entity
         {
             _entity = entity;
             _spriteRenderer.sprite = _entity.ViewData.Sprite;
+            _maskView.Set(_entity.Mask);
         }
     }
 }

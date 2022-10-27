@@ -7,7 +7,6 @@ using Data.Character;
 using Data.Monsters;
 using Data.Trait;
 using Entity;
-using NiftyFramework.Core;
 using NiftyFramework.Scripts;
 using UnityEngine;
 
@@ -54,16 +53,9 @@ namespace Generators
 
         [SerializeField] protected IntRange _peopleWithMonsterTraits;
         [SerializeField] protected CharacterViewDataSet _viewDataSet;
-        
-        
-        protected List<MaskEntity> _maskList;
-        protected List<CharacterEntity> _npcList;
 
-        public GuestListGenerator()
-        {
-            
-        }
-
+        public CharacterEntitySet EntitySet => _characterEntitySet;
+        
         public List<CharacterEntity> Generate(int personCount, int monsterCount = 1, int killerCount = 1, Int32 seed = 0)
         {
             System.Random random = new System.Random(seed);

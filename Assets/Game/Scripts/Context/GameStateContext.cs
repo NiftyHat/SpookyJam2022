@@ -1,9 +1,12 @@
 using System;
+using System.Collections.Generic;
 using Data;
 using Data.GameOver;
 using Data.Interactions;
+using Data.Location;
 using Entity;
 using GameStats;
+using Generators;
 using NiftyFramework.Core;
 using NiftyFramework.Core.Context;
 using UnityEngine.SceneManagement;
@@ -29,16 +32,23 @@ namespace Context
         public event ValueProvider<int>.Changed OnPhaseChange;
         
         private readonly TimeData _timeData;
+        private readonly GuestListGenerator _guestListGenerator;
+        private readonly LocationDataSet _locationSet;
 
         private PlayerInputHandler _player;
         private GameOverReasonData _gameOverReason;
 
         private event Action<PlayerInputHandler> _onPlayerAssigned;
+        private List<CharacterEntity> _characterEntities;
+        public IReadOnlyList<CharacterEntity> CharacterEntities => _characterEntities;
 
-        public GameStateContext(TimeData timeData)
+        public GameStateContext(TimeData timeData, GuestListGenerator guestListGenerator, LocationDataSet locationSet)
         {
             _timeData = timeData;
+            _guestListGenerator = guestListGenerator;
+            _locationSet = locationSet;
             _currentTime = ConvertTurnsToTime(Turns.Value);
+            _characterEntities = _guestListGenerator.Generate(8, 1, 1);
             Phase.OnChanged += HandlePhaseChange;
         }
 
@@ -92,11 +102,12 @@ namespace Context
             OnTurnStarted?.Invoke(Turns.Value, Turns.Max, Phase.Value);
         }
 
-        public void StartGame(out AsyncOperation loadingOperation )
+        public void StartGame(out AsyncOperation loadingOperation)
         {
             Turns.Value = 0;
             Phase.Value = 0;
             _currentTime = ConvertTurnsToTime(Turns.Value);
+            _characterEntities = _guestListGenerator.Generate(8, 1, 1);
             loadingOperation = SceneManager.LoadSceneAsync(1);
         }
 

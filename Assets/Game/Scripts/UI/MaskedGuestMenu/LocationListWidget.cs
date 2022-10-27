@@ -1,6 +1,6 @@
-using Data.Area;
 using System.Collections;
 using System.Collections.Generic;
+using Data.Location;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +13,7 @@ public class LocationListWidget : MonoBehaviour
     [Tooltip("List of location entry buttons except \'None\'")]
     private LocationEntryWidget entryPrefab;
     [SerializeField]
-    private AreaDataSet locationData; 
+    private LocationDataSet locationData; 
 
     [SerializeField]
     private LocationEntryWidget noneToggle = null;
@@ -25,7 +25,7 @@ public class LocationListWidget : MonoBehaviour
     public void Start()
     {
         buttons.Clear();
-        foreach (AreaData data in locationData.References)
+        foreach (LocationData data in locationData.References)
         {
             LocationEntryWidget button = GameObject.Instantiate<LocationEntryWidget>(entryPrefab, container);
             button.Initialize(data, false);
@@ -34,7 +34,7 @@ public class LocationListWidget : MonoBehaviour
         }
     }
 
-    public void Init(List<AreaData> data)
+    public void Init(List<LocationData> data)
     {
         noneToggle.SetValue(data.Count == 0);
 
@@ -44,9 +44,9 @@ public class LocationListWidget : MonoBehaviour
         }
     }
 
-    public List<AreaData> GetLocationData()
+    public List<LocationData> GetLocationData()
     {
-        List<AreaData> results = new List<AreaData>();
+        List<LocationData> results = new List<LocationData>();
         foreach (LocationEntryWidget button in buttons)
         {
             if (button.Value)
@@ -59,8 +59,8 @@ public class LocationListWidget : MonoBehaviour
     public void OnEnable()
     {
         //Debug Stuff
-        List<AreaData> test = GetLocationData();
-        foreach (AreaData data in test)
+        List<LocationData> test = GetLocationData();
+        foreach (LocationData data in test)
         {
             Debug.Log(" Location " + data.FriendlyName);
         }

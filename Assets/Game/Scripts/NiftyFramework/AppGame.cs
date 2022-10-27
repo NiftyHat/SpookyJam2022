@@ -1,5 +1,7 @@
 using Context;
 using Data;
+using Data.Location;
+using Generators;
 using NiftyFramework.Core;
 using NiftyFramework.Core.Context;
 using NiftyFramework.Services;
@@ -35,7 +37,9 @@ namespace NiftyFramework
             _assetIndex.Init(() =>
             {
                 var timeData = _assetIndex.Get<TimeData>();
-                GameStateContext gameStateContext = new GameStateContext(timeData);
+                var guestListGenerator = _assetIndex.Get<GuestListGenerator>();
+                var areaDataSet = _assetIndex.Get<LocationDataSet>();
+                GameStateContext gameStateContext = new GameStateContext(timeData, guestListGenerator, areaDataSet);
                 _contextService.Register(gameStateContext);
             });
 

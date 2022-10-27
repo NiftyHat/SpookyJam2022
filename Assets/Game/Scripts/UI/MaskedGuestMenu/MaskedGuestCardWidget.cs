@@ -1,7 +1,7 @@
-using Data.Area;
 using Data.Trait;
 using System.Collections;
 using System.Collections.Generic;
+using Data.Location;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -152,7 +152,7 @@ public class MaskedGuestCardWidget : MonoBehaviour
             IconPool.Release(icon);
         }
         locationIcons.Clear();
-        foreach (AreaData loc in data.locationData)
+        foreach (LocationData loc in data.locationData)
         {
             IconWidget icon = IconPool.Get();
             icon.transform.SetParent(locationContainer);
