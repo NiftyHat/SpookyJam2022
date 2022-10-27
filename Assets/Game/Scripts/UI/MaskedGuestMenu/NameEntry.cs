@@ -22,6 +22,6 @@ public class NameEntry : MonoBehaviour
 
     public void SelectName()
     {
-        nameListReference.OnNameSelected(nameValue);
+        nameListReference.OnNameEntrySelected(nameValue);
     }
 }

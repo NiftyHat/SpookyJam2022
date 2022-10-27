@@ -33,10 +33,11 @@ public class NameListWidget : MonoBehaviour
     }
 
 
-    public void OnNameSelected(string nameValue)
+    public void OnNameEntrySelected(string nameValue)
     {
         Debug.Log("YOYOI selected Name " + nameValue);
         //Same as Confirm Button for other submenus
+        parentMenuReference.ConfirmNameSubmenu();
     }
 
 }
