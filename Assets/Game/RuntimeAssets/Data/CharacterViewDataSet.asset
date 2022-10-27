@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7eb7e0c97174b75a52a5041186db16b, type: 3}
   m_Name: CharactSuitView
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 203b0636cd2f2184cb341c2c41fa7111, type: 3}
+  _sprite: {fileID: 21300000, guid: e57fbfeeb8874fb48a1a5f3df123efbb, type: 3}
 --- !u!114 &-3820920086352674849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25,7 +25,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7eb7e0c97174b75a52a5041186db16b, type: 3}
   m_Name: CharacterDressView
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 69db0562c25091644a7b172fe4c460a1, type: 3}
+  _sprite: {fileID: 21300000, guid: 92b7ee6cf9e249645a50d0a54ebff640, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

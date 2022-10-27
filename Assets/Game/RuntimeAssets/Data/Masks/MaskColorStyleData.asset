@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e5ec79605c4bf18eadc9daefcdd224, type: 3}
   m_Name: YellowMask
   m_EditorClassIdentifier: 
-  _color: {r: 1, g: 0.83297265, b: 0, a: 1}
+  _color: {r: 0.745283, g: 0.6533979, b: 0.20038268, a: 1}
   _friendlyName: Yellow
 --- !u!114 &11400000
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e5ec79605c4bf18eadc9daefcdd224, type: 3}
   m_Name: WhiteMask
   m_EditorClassIdentifier: 
-  _color: {r: 1, g: 1, b: 1, a: 1}
+  _color: {r: 0.865, g: 0.865, b: 0.865, a: 1}
   _friendlyName: White
 --- !u!114 &5532107318250856858
 MonoBehaviour:
@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e5ec79605c4bf18eadc9daefcdd224, type: 3}
   m_Name: RedMask
   m_EditorClassIdentifier: 
-  _color: {r: 1, g: 0, b: 0, a: 1}
+  _color: {r: 0.74509805, g: 0.12156863, b: 0.23529412, a: 1}
   _friendlyName: Red
 --- !u!114 &7353603276203469712
 MonoBehaviour:
