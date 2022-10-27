@@ -7,6 +7,8 @@ public class NameListWidget : MonoBehaviour
     public NameEntry nameEntryPrefab;
     public Transform nameEntryContainer;
 
+    private MaskedGuestCardWidget parentMenuReference;
+
     public void Start()
     {
         string[] testData = { "Dinosaur", "Lettuce", "Cabbage" };
@@ -14,9 +16,11 @@ public class NameListWidget : MonoBehaviour
     }
 
     //Set up buttons
-    public void Init(string[] data)
+    public void Init(string[] data, MaskedGuestCardWidget parentMenu = null)
     {
-        foreach(string name in data)
+        parentMenuReference = parentMenu;
+
+        foreach (string name in data)
         {
             NameEntry nameEntry = GameObject.Instantiate<NameEntry>(nameEntryPrefab, nameEntryContainer);
             nameEntry.Init(name, this);
@@ -25,13 +29,14 @@ public class NameListWidget : MonoBehaviour
 
     public void OnDisable()
     {
-        transform.SetParent(MaskedGuestCardWidget.SubmenuContainer);
+        parentMenuReference = null;
     }
 
 
     public void OnNameSelected(string nameValue)
     {
         Debug.Log("YOYOI selected Name " + nameValue);
+        //Same as Confirm Button for other submenus
     }
 
 }
