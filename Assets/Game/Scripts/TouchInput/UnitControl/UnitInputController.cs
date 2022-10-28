@@ -20,9 +20,8 @@ namespace TouchInput.UnitControl
         
         [SerializeField] protected float _maxDistance = 100f;
         [SerializeField] protected bool _isDebugDraw;
-        [SerializeField] protected LayerMask _layer;
-        
-         private int _fingerID = -1;
+
+        private int _fingerID = -1;
         
         void Start()
         {

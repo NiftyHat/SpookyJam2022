@@ -1,13 +1,12 @@
 using Interactions;
 using NiftyFramework.Core.Utils;
-using NiftyFramework.DataView;
 using TouchInput.UnitControl;
 using UI.ContextMenu;
 using UnityEngine;
 
 namespace Entity
 {
-    public class CharacterView : MonoBehaviour, ITargetable, IEntityView<CharacterEntity>, IDataView<CharacterEntity>
+    public class CharacterView : MonoBehaviour, ITargetable, IEntityView<CharacterEntity>
     {
         [SerializeField][NonNull] protected UnitInputHandler _unitInputHandler;
         [SerializeField] protected GameObject _goSelectedIndicator;
