@@ -3,7 +3,7 @@ using Entity;
 using NiftyFramework;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CharacterEntitySet", menuName = "Game/NPCs/CharacterEntitySet", order = 2)]
+[CreateAssetMenu(fileName = "CharacterEntitySet", menuName = "Game/Characters/CharacterEntitySet", order = 2)]
 public class CharacterEntitySet : RuntimeSet<CharacterEntity>
 {
     public delegate void OnAssigned(IList<CharacterEntity> items);

@@ -52,6 +52,7 @@ namespace Data.Interactions
         
         [SerializeField] protected int _range;
         [SerializeField] protected int _apCost;
+        [SerializeField] protected int _radius;
         [SerializeField] protected TargetType _targetType;
         [SerializeField] public MenuItemData _menuItemData;
         protected ITargetable _source;

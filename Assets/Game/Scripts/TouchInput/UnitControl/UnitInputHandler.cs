@@ -1,4 +1,5 @@
 using Data.Interactions;
+using Entity;
 using Interactions;
 using UI.ContextMenu;
 using UnityEngine;
@@ -15,6 +16,8 @@ namespace TouchInput.UnitControl
         private bool _canInteract = true;
         private InteractionData.TargetType _targetType;
         protected IInteraction _activeInteraction;
+        
+        private CharacterEntity _entity;
 
         public event SelectStateChanged OnSelectChange;
         public event ContextMenuRequested OnContextMenuRequest;
@@ -27,6 +30,17 @@ namespace TouchInput.UnitControl
                 _isSelected = isSelected;
                 OnSelectChange?.Invoke(_isSelected);
             }
+        }
+
+        protected void Start()
+        {
+            var entityView = GetComponent<IEntityView<CharacterEntity>>();
+            _entity = entityView.Entity;
+        }
+
+        public CharacterEntity GetEntity()
+        {
+            return _entity;
         }
 
         public virtual bool SetInteraction(IInteraction interaction)

@@ -1,5 +1,47 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7946234956790623502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e1a6de6f814c7aa7314115ae6bfcf5, type: 3}
+  m_Name: FlirtTriggerAbility
+  m_EditorClassIdentifier: 
+  _range: 5
+  _apCost: 10
+  _radius: 0
+  _targetType: 2
+  _menuItemData:
+    _friendlyName: Flirt
+    _icon: {fileID: 21300000, guid: 86bcec5633322d74ba83a3e1eb703c5f, type: 3}
+    _description: Spend {apCost} and Flirt with the target. Effective on {traitsList}
+  _reactionTrigger:
+    _triggerList:
+    - _trait: {fileID: 7801872093390142965, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 4349075112016446601, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: -9011595398303614976, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 8380605986334348715, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: 845699232844125756, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 277367436992013977, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: -398209533686741646, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: -6433956699517619100, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: -3720208353616562387, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 4349075112016446601, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
 --- !u!114 &-4190080506035454281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,6 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _range: 0
   _apCost: 0
+  _radius: 0
   _targetType: 0
   _menuItemData:
     _friendlyName: End Turn
@@ -33,12 +76,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _range: 100
   _apCost: 10
+  _radius: 0
   _targetType: 3
   _menuItemData:
     _friendlyName: Walk
     _icon: {fileID: 21300000, guid: 18c94124ad517f0459608cae5fa4337e, type: 3}
     _description: Spend {apCost} to move up to {range}
   apCostPerUnit: 0.5
+--- !u!114 &-1671792078212301720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e1a6de6f814c7aa7314115ae6bfcf5, type: 3}
+  m_Name: ConspireTriggerAbility
+  m_EditorClassIdentifier: 
+  _range: 5
+  _apCost: 10
+  _radius: 0
+  _targetType: 2
+  _menuItemData:
+    _friendlyName: Conspire
+    _icon: {fileID: 21300000, guid: 2a45049b67e4a9149bf9021cefd76c33, type: 3}
+    _description: Spend {apCost} and Conspire with the target. Effective on {traitsList}
+  _reactionTrigger:
+    _triggerList:
+    - _trait: {fileID: -1646269247474937957, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: -6433956699517619100, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: -5725889087623111918, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 277367436992013977, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: -2975150411840568887, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: -6753986248370573308, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: -8375821426753182368, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 8380605986334348715, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: -5386215674631098638, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: -6149206598976904165, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
 --- !u!114 &-221668627621745594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _range: -1
   _apCost: 0
+  _radius: 0
   _targetType: 2
   _menuItemData:
     _friendlyName: Examine
@@ -75,6 +162,8 @@ MonoBehaviour:
   - {fileID: -221668627621745594}
   - {fileID: 4003674306322824952}
   - {fileID: -4190080506035454281}
+  - {fileID: -1671792078212301720}
+  - {fileID: -7946234956790623502}
 --- !u!114 &4003674306322824952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _range: 5
   _apCost: 5
+  _radius: 0
   _targetType: 2
   _menuItemData:
     _friendlyName: Introduce
