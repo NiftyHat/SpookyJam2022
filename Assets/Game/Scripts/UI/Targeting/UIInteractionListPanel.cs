@@ -10,29 +10,37 @@ namespace UI.Targeting
 {
     public class UIInteractionListPanel : MonoBehaviour, IDataView<IEnumerable<IInteraction>>
     {
-        private MonoPool<UIInteractionButton> _buttonPool;
+        private MonoPool<UIInteractionButton> _viewPool;
         [SerializeField][NonNull] private LayoutGroup _layout;
+        private readonly List<UIInteractionButton> _views = new List<UIInteractionButton>();
 
         private void Start()
         {
             var prototype = _layout.GetComponentInChildren<UIInteractionButton>();
-            _buttonPool = new MonoPool<UIInteractionButton>(prototype);
+            _viewPool = new MonoPool<UIInteractionButton>(prototype);
             Clear();
         }
 
         public void Clear()
         {
-            _buttonPool.Clear();
+            if (_views != null)
+            {
+                foreach (var item in _views)
+                {
+                    _viewPool.TryReturn(item);
+                }
+            }
         }
 
         public void Set(IEnumerable<IInteraction> data)
         {
-            _buttonPool.Clear();
+            Clear();
             foreach (var item in data)
             {
-                if (_buttonPool.TryGet(out var buttonView))
+                if (_viewPool.TryGet(out var buttonView))
                 {
                     buttonView.Set(item);
+                    _views.Add(buttonView);
                 }
             }
         }
