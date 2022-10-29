@@ -1,4 +1,5 @@
 using NiftyFramework.Core;
+using UI;
 using UnityEngine;
 
 namespace Data.Trait
@@ -14,5 +15,10 @@ namespace Data.Trait
         public Sprite Icon => _icon;
         public string Description => _description;
         public bool IsEnabled => _isEnabled;
+
+        public ITooltip GetTooltip()
+        {
+            return new TooltipSimple(_icon, _description);
+        }
     }
 }

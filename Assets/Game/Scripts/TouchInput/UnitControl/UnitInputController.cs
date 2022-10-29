@@ -88,7 +88,7 @@ namespace TouchInput.UnitControl
             RaycastHit hitInfo;
             bool isHit = Physics.Raycast(screenPointRay, out hitInfo, _maxDistance);
             UnitInputHandler unitInputHandler = GetComponentOnCollider<UnitInputHandler>(hitInfo.collider);
-
+            
             if (isHit)
             {
                 if (unitInputHandler != null)

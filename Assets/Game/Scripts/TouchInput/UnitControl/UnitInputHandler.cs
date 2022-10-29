@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace TouchInput.UnitControl
 {
-    public class UnitInputHandler : MonoBehaviour, ITargetable
+    public class UnitInputHandler : MonoBehaviour, ITargetable<CharacterEntity>
     {
         public delegate void SelectStateChanged(bool isSelected);
         public delegate bool ContextMenuRequested(out IContextMenuOptions contextMenuOptions);
@@ -22,6 +22,15 @@ namespace TouchInput.UnitControl
         public event SelectStateChanged OnSelectChange;
         public event ContextMenuRequested OnContextMenuRequest;
         public event InteractionChanged OnInteractionChange;
+
+        public void Start()
+        {
+            var entityView = GetComponent<IEntityView<CharacterEntity>>();
+            if (entityView != null)
+            {
+                _entity = entityView.Entity;
+            }
+        }
     
         public void SetSelected(bool isSelected)
         {
@@ -31,18 +40,6 @@ namespace TouchInput.UnitControl
                 OnSelectChange?.Invoke(_isSelected);
             }
         }
-
-        protected void Start()
-        {
-            var entityView = GetComponent<IEntityView<CharacterEntity>>();
-            _entity = entityView.Entity;
-        }
-
-        public CharacterEntity GetEntity()
-        {
-            return _entity;
-        }
-
         public virtual bool SetInteraction(IInteraction interaction)
         {
             IInteraction oldInteraction = _activeInteraction;
@@ -78,6 +75,11 @@ namespace TouchInput.UnitControl
         }
 
         public InteractionData.TargetType TargetType => _targetType;
+        public CharacterEntity GetTarget()
+        {
+            return _entity;
+        }
+
         public Vector3 GetWorldPosition()
         {
             return transform.position;

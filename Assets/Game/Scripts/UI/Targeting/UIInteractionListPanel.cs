@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Interactions;
+using NiftyFramework.Core.Utils;
 using NiftyFramework.DataView;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,12 +11,13 @@ namespace UI.Targeting
     public class UIInteractionListPanel : MonoBehaviour, IDataView<IEnumerable<IInteraction>>
     {
         private MonoPool<UIInteractionButton> _buttonPool;
-        private LayoutGroup _layout;
+        [SerializeField][NonNull] private LayoutGroup _layout;
 
         private void Start()
         {
             var prototype = _layout.GetComponentInChildren<UIInteractionButton>();
             _buttonPool = new MonoPool<UIInteractionButton>(prototype);
+            Clear();
         }
 
         public void Clear()

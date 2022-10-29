@@ -6,4 +6,9 @@ namespace Interactions
     {
         public Vector3 GetWorldPosition();
     }
+
+    public interface ITargetable<TTarget> : ITargetable
+    {
+        public TTarget GetTarget();
+    }
 }

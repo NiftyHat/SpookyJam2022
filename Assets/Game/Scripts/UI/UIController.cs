@@ -17,6 +17,7 @@ namespace UI
         private UnitInputHandler _mainTargetUnit;
         [SerializeField] private LocationIndicatorView _locationIndicatorView;
         [SerializeField] private UnitInputController _unitInputController;
+        [SerializeField][NonNull] private UISelectedTargetView _selectedTargetView;
         
         [SerializeField] [NonNull] private EndTurnButtonWidget _endTurnButton;
 
@@ -45,6 +46,10 @@ namespace UI
         public void SetSelectedUnit(UnitInputHandler unitInputHandler)
         {
             _mainTargetUnit = unitInputHandler;
+            if (_mainTargetUnit is ITargetable<CharacterEntity> targetableCharacter)
+            {
+                _selectedTargetView.Set(targetableCharacter.GetTarget());
+            }
             if (_mainTargetUnit == null || _mainTargetUnit.TryGetInteraction(out _) == false)
             {
                 if (_locationIndicatorView != null)

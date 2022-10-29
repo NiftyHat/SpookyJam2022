@@ -40,6 +40,7 @@ namespace NiftyFramework
                 var guestListGenerator = _assetIndex.Get<GuestListGenerator>();
                 var areaDataSet = _assetIndex.Get<LocationDataSet>();
                 GameStateContext gameStateContext = new GameStateContext(timeData, guestListGenerator, areaDataSet);
+                _contextService.Register<TooltipContext>();
                 _contextService.Register(gameStateContext);
             });
 
