@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Context;
 using Data;
 using Data.Interactions;
@@ -18,6 +19,8 @@ namespace Entity
 
         private IStatBlock _statBlock;
         public IStatBlock Stats => _statBlock;
+        private List<InteractionData> _interactionList;
+        public List<InteractionData> Interactions => _interactionList;
         
         public void Start()
         {
@@ -25,7 +28,7 @@ namespace Entity
             {
                 _statBlock = _playerData.Stats;
                 _actionPointsView.Set(_statBlock.ActionPoints);
-                
+                _interactionList = _playerData.InteractionList;
             }
             
             _actionPointsView.gameObject.SetActive(false);

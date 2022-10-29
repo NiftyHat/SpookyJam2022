@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Context;
 using Interactions;
 using NiftyFramework.Core.Utils;
 using NiftyFramework.DataView;
@@ -13,6 +14,7 @@ namespace UI.Targeting
         private MonoPool<UIInteractionButton> _viewPool;
         [SerializeField][NonNull] private LayoutGroup _layout;
         private readonly List<UIInteractionButton> _views = new List<UIInteractionButton>();
+        private GameStateContext _gameStateContext;
 
         private void Start()
         {
@@ -20,7 +22,7 @@ namespace UI.Targeting
             _viewPool = new MonoPool<UIInteractionButton>(prototype);
             Clear();
         }
-
+        
         public void Clear()
         {
             if (_views != null)

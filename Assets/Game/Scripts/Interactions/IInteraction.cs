@@ -27,5 +27,7 @@ namespace Interactions
         bool ConfirmInput(RaycastHit hitInfo);
 
         bool ValidateRange(float distance);
+
+        float GetMaxRange();
     }
 }

@@ -41,7 +41,6 @@ namespace UI.Screens
         
         private void HandleStateExit(Animator animator, AnimatorStateInfo stateinfo, int layerindex)
         {
-            Debug.Log($"HandleStateExit {animator.name} {stateinfo.shortNameHash} {layerindex}");
         }
 
         private void HandleTurnStarted(int turn, int turnMax, int phase)

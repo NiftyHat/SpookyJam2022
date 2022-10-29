@@ -190,6 +190,8 @@ namespace Data.Interactions
             return distance < _range;
         }
 
+        public abstract float GetMaxRange();
+
         public bool CanTarget(ITargetable target, ITargetable self)
         {
             switch (_targetType)
@@ -220,6 +222,11 @@ namespace Data.Interactions
         public void OnAfterDeserialize()
         {
             _menuItemData.UpdateDescription(this);
+        }
+
+        public bool IsTargetType(TargetType type)
+        {
+            return _targetType == type;
         }
     }
 }

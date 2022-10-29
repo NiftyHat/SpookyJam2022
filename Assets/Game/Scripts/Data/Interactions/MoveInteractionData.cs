@@ -55,6 +55,16 @@ namespace Data.Interactions
             return CanAfford();
         }
 
+        public override float GetMaxRange()
+        {
+            if (_parentStats != null)
+            {
+                return _parentStats.ActionPoints.Value * apCostPerUnit;
+            }
+
+            return 0;
+        }
+
         public int GetMoveAPCost(float distance)
         {
             float moveCost = (_range / _apCost) * apCostPerUnit * distance;

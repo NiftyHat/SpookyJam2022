@@ -30,6 +30,7 @@ namespace Context
 
         public event TurnStarted OnTurnStarted;
         public event ValueProvider<int>.Changed OnPhaseChange;
+        public event Action OnClearReactions; 
         
         private readonly TimeData _timeData;
         private readonly GuestListGenerator _guestListGenerator;
@@ -122,6 +123,15 @@ namespace Context
             int elapsedMinutes = turn * 30;
             TimeSpan elapsed = TimeSpan.FromMinutes(elapsedMinutes);
             return _timeData.StartTime + elapsed;
+        }
+
+        public List<InteractionData> GetInteractions(Predicate<InteractionData> filter)
+        {
+            if (_player != null)
+            {
+                return _player.Interactions.FindAll(filter);
+            }
+            return null;
         }
     }
 }

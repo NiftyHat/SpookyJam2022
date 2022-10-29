@@ -5,11 +5,13 @@ namespace Data.Reactions
 {
     public class ReactionData : ScriptableObject
     {
-        [SerializeField][SpritePreview] protected Texture2D _texture;
+        [SerializeField][SpritePreview] protected Sprite _sprite;
         [SerializeField] protected string _friendlyName;
         [SerializeField] protected string _animationName;
-
-        public Texture2D Texture => _texture;
+        [SerializeField] protected ReactionBubbleView _prefab;
+        
+        public Sprite Sprite => _sprite;
         public string FriendlyName => _friendlyName;
+        public ReactionBubbleView Prefab => _prefab;
     }
 }

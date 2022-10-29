@@ -1,3 +1,4 @@
+using Data.Reactions;
 using Interactions;
 using NiftyFramework.Core.Utils;
 using TouchInput.UnitControl;
@@ -14,10 +15,12 @@ namespace Entity
         [SerializeField] protected UnitMovementHandler _movementHandler;
         [SerializeField] protected FacingDirectionView _facingDirectionView;
         [SerializeField] protected MaskEntityView _maskView;
+        [SerializeField] protected Transform _reactionBubbleLocation;
 
         private object _handleContextMenuRequest;
         private IContextMenuOptions _contextMenuOptions;
-        
+
+        private ReactionBubbleView _reactionBubbleCache;
         private CharacterEntity _entity;
 
         public virtual void Start()
@@ -76,6 +79,21 @@ namespace Entity
         {
             _entity = null;
             gameObject.SetActive(false);
+            if (_reactionBubbleCache != null)
+            {
+                Destroy(_reactionBubbleCache);
+                _reactionBubbleCache = null;
+            }
+        }
+
+        public void ShowReaction(ReactionData reactionData)
+        {
+            if (_reactionBubbleCache != null)
+            {
+                Destroy(_reactionBubbleCache);
+            }
+            _reactionBubbleCache = Instantiate(reactionData.Prefab);
+            _reactionBubbleCache.Set(reactionData);
         }
 
         public void Set(CharacterEntity entity)
