@@ -13,8 +13,7 @@ namespace UI.Targeting
 
         public void Clear()
         {
-            _character.gameObject.SetActive(false);
-            _mask.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
 
         public void Set(CharacterEntity data)
@@ -27,6 +26,7 @@ namespace UI.Targeting
 
             if (data.ViewData != null)
             {
+                gameObject.SetActive(true);
                 _character.gameObject.SetActive(true);
                 _character.sprite = data.ViewData.Sprite;
                 if (data.Mask != null)
