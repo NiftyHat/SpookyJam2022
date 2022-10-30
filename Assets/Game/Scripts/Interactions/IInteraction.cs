@@ -23,11 +23,17 @@ namespace Interactions
         public event Action<int> OnApCostChange;
 
         IMenuItem MenuItem { get; }
+
+        bool PreviewInput(TargetingInfo targetingInfo);
         bool PreviewInput(RaycastHit hitInfo);
+
+        bool ConfirmInput(TargetingInfo targetingInfo);
         bool ConfirmInput(RaycastHit hitInfo);
 
         bool ValidateRange(float distance);
 
         float GetMaxRange();
+        string GetDescription();
+        void ClearSelect();
     }
 }

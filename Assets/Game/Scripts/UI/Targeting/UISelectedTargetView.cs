@@ -3,6 +3,7 @@ using System.Linq;
 using Context;
 using Data.Interactions;
 using Entity;
+using Interactions;
 using NiftyFramework.Core.Context;
 using NiftyFramework.Core.Utils;
 using NiftyFramework.DataView;
@@ -10,12 +11,13 @@ using UnityEngine;
 
 namespace UI.Targeting
 {
-    public class UISelectedTargetView : MonoBehaviour, IDataView<CharacterEntity>
+    public class UISelectedTargetView : MonoBehaviour, IDataView<ITargetable>
     {
         [SerializeField][NonNull] private UITargetPortraitPanel _targetPortrait;
         [SerializeField][NonNull] private UIInteractionListPanel _interactionList;
         [SerializeField][NonNull] private UIAssignedTraitsPanel _assignedTraitsPanel;
         private GameStateContext _gameStateContext;
+        private PlayerInputHandler _player;
 
         public void Start()
         {
@@ -26,6 +28,7 @@ namespace UI.Targeting
         private void HandleGameStateContext(GameStateContext gameStateContext)
         {
             _gameStateContext = gameStateContext;
+            _gameStateContext.GetPlayer(player => _player = player);
         }
 
         public void Clear()
@@ -35,23 +38,26 @@ namespace UI.Targeting
             _assignedTraitsPanel.Clear();
         }
 
-        public void Set(CharacterEntity entity)
+        public void Set(ITargetable target)
         {
-            if (entity == null)
+            if (target is ITargetable<CharacterEntity> selectableCharacter)
             {
-                Clear();
-                return;
+                var instance = selectableCharacter.GetInstance();
+                if (instance == null)
+                {
+                    Clear();
+                    return;
+                }
+                _targetPortrait.Set(instance);
+                if (instance.Traits != null)
+                {
+                    _assignedTraitsPanel.Set(instance.Traits.ToList());
+                }
+                else
+                {
+                    _assignedTraitsPanel.Clear();
+                }
             }
-            _targetPortrait.Set(entity);
-            if (entity.Traits != null)
-            {
-                _assignedTraitsPanel.Set(entity.Traits.ToList());
-            }
-            else
-            {
-                _assignedTraitsPanel.Clear();
-            }
-
             if (_gameStateContext != null)
             {
                 bool FilterInteractions(InteractionData interaction)
@@ -63,7 +69,8 @@ namespace UI.Targeting
                     return false;
                 }
                 var interactions = _gameStateContext.GetInteractions(FilterInteractions);
-                _interactionList.Set(interactions);
+                var targetingInfo = new TargetingInfo(_player, target);
+                _interactionList.Set(interactions, targetingInfo);
             }
         }
     }

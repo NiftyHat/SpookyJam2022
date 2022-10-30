@@ -63,7 +63,7 @@ namespace Entity
                 {
                     SetInteraction(_playerData.MoveInteraction);
                 }
-                _actionPointsView.gameObject.SetActive(_activeInteraction != null && _activeInteraction.IsState(InteractionData.State.Selected));
+                _actionPointsView.gameObject.SetActive(_activeInteraction != null && _activeInteraction.IsState(InteractionData.State.Preview));
             }
             else
             {
@@ -75,7 +75,7 @@ namespace Entity
         {
             if (TryGetInteraction(out var interaction))
             {
-                if (_actionPointsView != null && interaction.ApCost > 0 && interaction.IsState(InteractionData.State.Selected))
+                if (_actionPointsView != null && interaction.ApCost > 0 && interaction.IsState(InteractionData.State.Preview))
                 {
                     _actionPointsView.PreviewCost(interaction.ApCost);
                 }
@@ -90,6 +90,11 @@ namespace Entity
             }
             interaction = null;
             return false;
+        }
+
+        public void SetActiveInteraction(IInteraction interactionData)
+        {
+            _activeInteraction = interactionData;
         }
     }
 }

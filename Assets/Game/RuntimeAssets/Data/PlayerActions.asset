@@ -164,27 +164,7 @@ MonoBehaviour:
   - {fileID: -4190080506035454281}
   - {fileID: -1671792078212301720}
   - {fileID: -7946234956790623502}
-  - {fileID: 2695047399446152175}
---- !u!114 &2695047399446152175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: ConfessAbility
-  m_EditorClassIdentifier: Assembly-CSharp:Data.Interactions:ConfessionInteractionData
-  _range: 10
-  _apCost: 10
-  _radius: 0
-  _targetType: 2
-  _menuItemData:
-    _friendlyName: Confess
-    _icon: {fileID: 21300000, guid: 0b092ca6365e29f41968d7c608965d66, type: 3}
-    _description: Give your rose to the target. If it's the Monster you win the game.
+  - {fileID: 4128197612467975644}
 --- !u!114 &4003674306322824952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,3 +185,25 @@ MonoBehaviour:
     _friendlyName: Introduce
     _icon: {fileID: 21300000, guid: 878d745bc9741ba46ab9ae73c1efa1d6, type: 3}
     _description: Introduce yourself to a target
+--- !u!114 &4128197612467975644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d36c87eb204a508d579e56699b1d07, type: 3}
+  m_Name: ConfessionAbility
+  m_EditorClassIdentifier: 
+  _range: 10
+  _apCost: 10
+  _radius: 0
+  _targetType: 2
+  _menuItemData:
+    _friendlyName: Confess
+    _icon: {fileID: 21300000, guid: bb857c698ad558f41939eb22c497086a, type: 3}
+    _description: Spend {apCost} and Confess. Only target the monster with this ability!
+  _gameOverReason: {fileID: -7597645516445229309, guid: 0a1d5b9cddaf5794aae9e417cf1b6921,
+    type: 2}

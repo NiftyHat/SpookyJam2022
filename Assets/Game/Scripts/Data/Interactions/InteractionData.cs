@@ -43,7 +43,7 @@ namespace Data.Interactions
         public enum State
         {
             None,
-            Selected,
+            Preview,
             Running,
             Complete
         }
@@ -76,11 +76,30 @@ namespace Data.Interactions
 
         public virtual void SetParent(ITargetable parent)
         {
-            _state = State.Selected;
-            _source = parent;
-            if (parent is PlayerInputHandler playerInputHandler)
+            if (parent == null)
+            {
+                _state = State.None;
+                SetSource(null);
+            }
+            else
+            {
+                _state = State.Preview;
+                SetSource(parent);
+            }
+           
+        }
+
+        public void SetSource(ITargetable source)
+        {
+            _source =source;
+            if (_source is PlayerInputHandler playerInputHandler)
             {
                 _parentStats = playerInputHandler.Stats;
+                playerInputHandler.SetActiveInteraction(this);
+            }
+            else
+            {
+                _parentStats = null;
             }
         }
 
@@ -88,10 +107,33 @@ namespace Data.Interactions
         {
             return _state == testState;
         }
+
+        public virtual bool PreviewInput(TargetingInfo targetingInfo)
+        {
+            SetParent(targetingInfo.Source);
+            if (_targetType == TargetType.Other)
+            {
+                return targetingInfo.Source != targetingInfo.Target;
+                /*
+                if (targetGameObject.TryGetComponent<CharacterView>(out var character))
+                {
+                    if (character != null && character != (CharacterView)_source)
+                    {
+                        _target = character;
+                        return true;
+                    }
+                }*/
+            }
+            if (_targetType == TargetType.Self)
+            {
+                return _source != null;
+            }
+            return false;
+        }
         
         public virtual bool PreviewInput(RaycastHit hitInfo)
         {
-            if (_state != State.Selected)
+            if (_state != State.Preview)
             {
                 return false;
             }
@@ -145,6 +187,45 @@ namespace Data.Interactions
             }
             return false;
         }
+
+        public virtual bool ConfirmInput(TargetingInfo targetingInfo)
+        {
+            if (targetingInfo.Source != null)
+            {
+                SetSource(targetingInfo.Source);
+            }
+            if (!CanAfford())
+            {
+                return false;
+            }
+            GameObject targetGameObject = targetingInfo.Target.GetGameObject();
+            if (targetGameObject != null)
+            {
+                switch (_targetType)
+                {
+                    case TargetType.Other:
+                        if (targetGameObject.TryGetComponent<CharacterView>(out var character))
+                        {
+                            if (character != (CharacterView)_source)
+                            {
+                                _state = State.Running;
+                                _target = character;
+                                return true;
+                            }
+                        }
+                        break;
+                    case TargetType.Self:
+                        if (Source != null)
+                        {
+                            _state = State.Running;
+                            _target = Source;
+                            return true;
+                        }
+                        break;
+                }
+            }
+            return false;
+        }
         
         public virtual bool ConfirmInput(RaycastHit hitInfo)
         {
@@ -191,6 +272,15 @@ namespace Data.Interactions
         }
 
         public abstract float GetMaxRange();
+        public string GetDescription()
+        {
+            return _menuItemData.Description.Replace("{apCost}", ApCost.ToString()).Replace("{range}", Range.ToString());
+        }
+
+        public void ClearSelect()
+        {
+            SetParent(null);
+        }
 
         public bool CanTarget(ITargetable target, ITargetable self)
         {

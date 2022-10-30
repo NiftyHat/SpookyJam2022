@@ -74,6 +74,11 @@ namespace Entity
             return transform.position;
         }
 
+        public GameObject GetGameObject()
+        {
+            return gameObject;
+        }
+
         public CharacterEntity Entity => _entity;
         public void Clear()
         {

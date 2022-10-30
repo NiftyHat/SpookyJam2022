@@ -75,7 +75,7 @@ namespace TouchInput.UnitControl
         }
 
         public InteractionData.TargetType TargetType => _targetType;
-        public CharacterEntity GetTarget()
+        public CharacterEntity GetInstance()
         {
             return _entity;
         }
@@ -83,6 +83,11 @@ namespace TouchInput.UnitControl
         public Vector3 GetWorldPosition()
         {
             return transform.position;
+        }
+
+        public GameObject GetGameObject()
+        {
+            return gameObject;
         }
     }
 }

@@ -9,7 +9,7 @@ using UnityUtils;
 
 namespace UI.Targeting
 {
-    public class UIInteractionListPanel : MonoBehaviour, IDataView<IEnumerable<IInteraction>>
+    public class UIInteractionListPanel : MonoBehaviour, IDataView<IEnumerable<IInteraction>, TargetingInfo>
     {
         private MonoPool<UIInteractionButton> _viewPool;
         [SerializeField][NonNull] private LayoutGroup _layout;
@@ -34,14 +34,14 @@ namespace UI.Targeting
             }
         }
 
-        public void Set(IEnumerable<IInteraction> data)
+        public void Set(IEnumerable<IInteraction> data, TargetingInfo targetingInfo)
         {
             Clear();
             foreach (var item in data)
             {
                 if (_viewPool.TryGet(out var buttonView))
                 {
-                    buttonView.Set(item);
+                    buttonView.Set(item, targetingInfo);
                     _views.Add(buttonView);
                 }
             }

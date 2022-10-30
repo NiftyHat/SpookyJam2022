@@ -4,6 +4,7 @@ using Data;
 using Data.GameOver;
 using Data.Interactions;
 using Data.Location;
+using Data.Monsters;
 using Entity;
 using GameStats;
 using Generators;
@@ -17,6 +18,7 @@ namespace Context
     public class GameStateContext : IContext
     {
         public delegate void TurnStarted(int turn, int turnMax, int phase);
+        public delegate void ConfessionConfirmed(CharacterEntity entity, MonsterEntityTypeData monsterEntityTypeData, Action OnAnimationComplete);
 
         public readonly GameStat Turns = new GameStat("Turn", null, 12, 0);
         public readonly GameStat Phase = new GameStat("Phase", null, 3, 0);
@@ -38,7 +40,9 @@ namespace Context
 
         private PlayerInputHandler _player;
         private GameOverReasonData _gameOverReason;
+        private MonsterEntityTypeDataSet _monsterEntityTypeSet;
 
+        public event ConfessionConfirmed OnConfessionConfirmed;
         private event Action<PlayerInputHandler> _onPlayerAssigned;
         private List<CharacterEntity> _characterEntities;
         public IReadOnlyList<CharacterEntity> CharacterEntities => _characterEntities;
@@ -47,6 +51,7 @@ namespace Context
         {
             _timeData = timeData;
             _guestListGenerator = guestListGenerator;
+            _monsterEntityTypeSet = guestListGenerator.MonsterTypeSet;
             _locationSet = locationSet;
             _currentTime = ConvertTurnsToTime(Turns.Value);
             _characterEntities = _guestListGenerator.Generate(8, 1, 1);
@@ -116,6 +121,16 @@ namespace Context
         {
             _gameOverReason = gameOverReasonData;
             SceneManager.LoadScene(2);
+        }
+
+        public void EndGame(CharacterEntity targetEntity, GameOverReasonData gameOverReason)
+        {
+            var nearestMatchingMonster = _monsterEntityTypeSet.GetNearestMatchingTraits(targetEntity.Traits);
+            _gameOverReason = gameOverReason;
+            OnConfessionConfirmed?.Invoke(targetEntity, nearestMatchingMonster, () =>
+            {
+                EndGame(gameOverReason);
+            });
         }
 
         public TimeSpan ConvertTurnsToTime(int turn)

@@ -50,8 +50,7 @@ namespace UI
             _mainTargetUnit = selectedInputHandler;
             if (_mainTargetUnit is ITargetable<CharacterEntity> targetableCharacter)
             {
-                var target = targetableCharacter.GetTarget();
-                _selectedTargetView.Set(target);
+                _selectedTargetView.Set(targetableCharacter);
             }
             else
             {
@@ -88,7 +87,7 @@ namespace UI
                     _locationIndicatorView.ShowDistance(interaction.Source.GetWorldPosition(),
                         interaction.TargetPosition.Value, interaction.ValidateRange);
 
-                    if (interaction.IsState(InteractionData.State.Selected))
+                    if (interaction.IsState(InteractionData.State.Preview))
                     {
                         if (!_rangeIndicatorView.gameObject.activeSelf)
                         {
@@ -100,6 +99,20 @@ namespace UI
                             interaction.TargetPosition.Value, maxRange, interaction.ValidateRange);
                     }
                    
+                }
+                else if (interaction.Target != null && interaction.Range > 0)
+                {
+                    if (interaction.IsState(InteractionData.State.Preview))
+                    {
+                        if (!_rangeIndicatorView.gameObject.activeSelf)
+                        {
+                            _rangeIndicatorView.gameObject.SetActive(true);
+                        }
+
+                        float maxRange = interaction.GetMaxRange();
+                        _rangeIndicatorView.ShowDistance(interaction.Source.GetWorldPosition(),
+                            interaction.Target.GetWorldPosition(), maxRange, interaction.ValidateRange);
+                    }
                 }
                 else
                 {

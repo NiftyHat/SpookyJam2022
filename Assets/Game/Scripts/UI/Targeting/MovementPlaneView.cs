@@ -12,5 +12,10 @@ namespace UI.Targeting
         {
             return Vector3.zero;
         }
+
+        public GameObject GetGameObject()
+        {
+            return null;
+        }
     }
 }
