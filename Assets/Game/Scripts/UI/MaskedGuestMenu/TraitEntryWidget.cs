@@ -3,13 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TraitEntryWidget : ToggleWidget<TraitData>
+namespace CardUI
 {
-    public override void Initialize(TraitData data, bool value)
+    public class TraitEntryWidget : ToggleWidget<TraitData>
     {
-        _data = data;
-        toggle.image.sprite = data.Icon;
-        label.text = data.FriendlyName;
-        toggle.SetIsOnWithoutNotify(value);
+        public override void Initialize(TraitData data, bool value)
+        {
+            _data = data;
+            toggle.image.sprite = data.Icon;
+            label.text = data.FriendlyName;
+            toggle.SetIsOnWithoutNotify(value);
+        }
     }
 }

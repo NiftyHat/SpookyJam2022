@@ -1,11 +1,13 @@
-using Data.Trait;
-using System.Collections;
 using System.Collections.Generic;
 using Data.Location;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.UI;
+using CardUI;
+using Data.Trait;
+using Data;
+using Entity;
 
 public class MaskedGuestCardWidget : MonoBehaviour
 {
@@ -189,8 +191,8 @@ public class MaskedGuestCardWidget : MonoBehaviour
         NameListSubmenu.gameObject.SetActive(true);
         NameListSubmenu.transform.SetParent(this.transform);
         NameListSubmenu.transform.position = this.transform.position;
-        string[] testData = { "Called", "By", "Widget" };
-        NameListSubmenu.Init(testData, this);
+
+        NameListSubmenu.Initialize(this);
     }
 
     public void ShowTraitSubmenu()
@@ -199,7 +201,7 @@ public class MaskedGuestCardWidget : MonoBehaviour
         TraitListSubmenu.gameObject.SetActive(true);
         TraitListSubmenu.transform.SetParent(this.transform);
         TraitListSubmenu.transform.position = this.transform.position;
-        TraitListSubmenu.Init(data.traitData, this);
+        TraitListSubmenu.Initialize(data.traitData, this);
     }
 
     public void ShowLocationSubmenu()
@@ -208,7 +210,7 @@ public class MaskedGuestCardWidget : MonoBehaviour
         LocationListSubmenu.gameObject.SetActive(true);
         LocationListSubmenu.transform.SetParent(this.transform);
         LocationListSubmenu.transform.position = this.transform.position;
-        LocationListSubmenu.Init(data.locationData, this);
+        LocationListSubmenu.Initialize(data.locationData, this);
     }
 
     public void ConfirmTraitSubmenu()
@@ -229,9 +231,12 @@ public class MaskedGuestCardWidget : MonoBehaviour
 
     public void ConfirmNameSubmenu()
     {
-        //data.name = NameListSubmenu.GetData();
+        CharacterName name = NameListSubmenu.GetData();
+        if (name != null)
+            data.name = NameListSubmenu.GetData();
         NameListSubmenu.gameObject.SetActive(false);
         NameListSubmenu.transform.SetParent(SubmenuContainer);
+
     }
 
     #endregion

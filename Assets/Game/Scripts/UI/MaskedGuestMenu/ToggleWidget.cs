@@ -5,27 +5,30 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 
-public abstract class ToggleWidget<T> : MonoBehaviour
+namespace CardUI
 {
-
-    [SerializeField]
-    protected T _data;
-    public T Data => _data;
-
-    public bool Value => toggle.isOn;
-    [SerializeField]
-    protected Toggle toggle;
-    [SerializeField]
-    protected TextMeshProUGUI label;
-
-    public UnityEvent onSetTrue;
-
-    public abstract void Initialize(T data, bool value);
-
-    public void SetValue(bool value)
+    public abstract class ToggleWidget<T> : MonoBehaviour
     {
-        toggle.SetIsOnWithoutNotify(value);
-        if (value)
-            onSetTrue.Invoke();
+
+        [SerializeField]
+        protected T _data;
+        public T Data => _data;
+
+        public bool Value => toggle.isOn;
+        [SerializeField]
+        protected Toggle toggle;
+        [SerializeField]
+        protected TextMeshProUGUI label;
+
+        public UnityEvent onSetTrue;
+
+        public abstract void Initialize(T data, bool value);
+
+        public void SetValue(bool value)
+        {
+            toggle.SetIsOnWithoutNotify(value);
+            if (value)
+                onSetTrue.Invoke();
+        }
     }
 }

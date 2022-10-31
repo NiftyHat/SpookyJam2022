@@ -4,24 +4,28 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using Entity;
 
-public class NameEntry : MonoBehaviour
+namespace CardUI
 {
-    public TextMeshProUGUI nameText;
-    public string nameValue;
-    public Button button;
-    private NameListWidget nameListReference;
-
-
-    public void Init(string name, NameListWidget nameList)
+    public class NameEntry : MonoBehaviour
     {
-        nameText.SetText(name);
-        nameValue = name;
-        nameListReference = nameList;
-    }
+        public TextMeshProUGUI nameText;
+        public CharacterName nameValue;
+        public Button button;
+        private NameListWidget nameListReference;
 
-    public void SelectName()
-    {
-        nameListReference.OnNameEntrySelected(nameValue);
+
+        public void Init(CharacterName name, NameListWidget nameList)
+        {
+            nameText.SetText(name.Full);
+            nameValue = name;
+            nameListReference = nameList;
+        }
+
+        public void SelectName()
+        {
+            nameListReference.OnNameEntrySelected(nameValue);
+        }
     }
 }

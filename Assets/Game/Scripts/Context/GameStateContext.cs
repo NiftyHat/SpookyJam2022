@@ -41,6 +41,7 @@ namespace Context
 
         private event Action<PlayerInputHandler> _onPlayerAssigned;
         private List<CharacterEntity> _characterEntities;
+        private List<MaskedGuestCardData> _characterCards;
         public IReadOnlyList<CharacterEntity> CharacterEntities => _characterEntities;
 
         public GameStateContext(TimeData timeData, GuestListGenerator guestListGenerator, LocationDataSet locationSet)

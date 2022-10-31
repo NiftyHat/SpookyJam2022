@@ -5,13 +5,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class LocationEntryWidget : ToggleWidget<LocationData>
+namespace CardUI
 {
-    public override void Initialize(LocationData data, bool value)
+    public class LocationEntryWidget : ToggleWidget<LocationData>
     {
-        _data = data;
-        toggle.image.sprite = data.Icon;
-        label.text = data.FriendlyName;
-        toggle.SetIsOnWithoutNotify(value);
+        public override void Initialize(LocationData data, bool value)
+        {
+            _data = data;
+            toggle.image.sprite = data.Icon;
+            label.text = data.FriendlyName;
+            toggle.SetIsOnWithoutNotify(value);
+        }
     }
 }

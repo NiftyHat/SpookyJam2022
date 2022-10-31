@@ -8,22 +8,31 @@ using Data.Location;
 using UnityEngine;
 using Entity;
 
-//Data object for Player's notes on masked guests
-[Serializable]
-public class MaskedGuestCardData
+namespace Data
 {
-    public MaskEntity mask;
-    public string DisplayName
+    //Data object for Player's notes on masked guests
+    [Serializable]
+    public class MaskedGuestCardData
     {
-        get 
+        public MaskEntity mask;
+        public string DisplayName
         {
-            if (name == null)
-                return mask.FriendlyName;
-            else
-                return name.Full;
+            get
+            {
+                if (name == null)
+                    return mask.FriendlyName;
+                else
+                    return name.Full;
+            }
         }
+        public CharacterName name;
+        public List<LocationData> locationData;
+        public List<TraitData> traitData;
+
+        public MaskedGuestCardData(MaskEntity mask)
+        {
+            this.mask = mask;
+        }
+
     }
-    public Entity.CharacterName name;
-    public List<LocationData> locationData;
-    public List<TraitData> traitData;
 }

@@ -3,101 +3,104 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TraitListWidget : MonoBehaviour
+namespace CardUI
 {
-    //@TODO Limit the total number of icons you can select
-    [SerializeField]
-    private Transform container;
-
-    [SerializeField]
-    [Tooltip("List of location entry buttons except \'None\'")]
-    private TraitEntryWidget entryPrefab;
-    [SerializeField]
-    private TraitDataSet traitData;
-
-    [SerializeField]
-    private TraitEntryWidget noneToggle = null;
-    [SerializeField]
-    private List<TraitEntryWidget> buttons = new List<TraitEntryWidget>();
-
-    private MaskedGuestCardWidget parentMenuReference;
-
-
-    //Generate Buttons for Menu
-    public void Start()
+    public class TraitListWidget : MonoBehaviour
     {
-        buttons.Clear();
-        foreach (TraitData data in traitData.References)
+        //@TODO Limit the total number of icons you can select
+        [SerializeField]
+        private Transform _container;
+
+        [SerializeField]
+        [Tooltip("List of location entry buttons except \'None\'")]
+        private TraitEntryWidget _entryPrefab;
+        [SerializeField]
+        private TraitDataSet _traitData;
+
+        [SerializeField]
+        private TraitEntryWidget _noneToggle = null;
+        [SerializeField]
+        private List<TraitEntryWidget> _buttons = new List<TraitEntryWidget>();
+
+        private MaskedGuestCardWidget _parentMenuReference;
+
+
+        //Generate Buttons for Menu
+        public void Start()
         {
-            TraitEntryWidget button = GameObject.Instantiate<TraitEntryWidget>(entryPrefab, container);
-            button.Initialize(data, false);
-            buttons.Add(button);
-            button.onSetTrue.AddListener(OnNonNullEntrySelected);
-        }
-    }
-
-    public void Init(List<TraitData> data, MaskedGuestCardWidget parentMenu = null)
-    {
-        parentMenuReference = parentMenu;
-
-        noneToggle.SetValue(data.Count == 0);
-
-        foreach (TraitEntryWidget button in buttons)
-        {
-            button.SetValue(data.Contains(button.Data));
-        }
-    }
-
-    public List<TraitData> GetData()
-    {
-        List<TraitData> results = new List<TraitData>();
-        foreach (TraitEntryWidget button in buttons)
-        {
-            if (button.Value)
-                results.Add(button.Data);
-        }
-        return results;
-    }
-
-
-    public void OnEnable()
-    {
-        List<TraitData> test = GetData();
-        foreach (TraitData data in test)
-        {
-            Debug.Log(" Location " + data.FriendlyName);
-            Debug.Log(" Location " + data.FriendlyName);
-        }
-    }
-
-    public void OnDisable()
-    {
-        parentMenuReference = null;
-    }
-
-
-    public void OnNonNullEntrySelected()
-    {
-        //Set None Toggle to be accurate
-        if (noneToggle.Value)
-            noneToggle.SetValue(false);
-    }
-
-    //On selecting None, set all other location entries to false
-    public void ClearEntries()
-    {
-        if (noneToggle.Value) //'None' set true
-        {
-            foreach (TraitEntryWidget button in buttons)
+            _buttons.Clear();
+            foreach (TraitData data in _traitData.References)
             {
-                button.SetValue(false);
+                TraitEntryWidget button = GameObject.Instantiate<TraitEntryWidget>(_entryPrefab, _container);
+                button.Initialize(data, false);
+                _buttons.Add(button);
+                button.onSetTrue.AddListener(OnNonNullEntrySelected);
             }
         }
-    }
 
-    public void OnConfirmButtonPressed()
-    {
-        //Fuckin take the data bro and disable this menu dog
-        parentMenuReference.ConfirmTraitSubmenu();
+        public void Initialize(List<TraitData> data, MaskedGuestCardWidget parentMenu = null)
+        {
+            _parentMenuReference = parentMenu;
+
+            _noneToggle.SetValue(data.Count == 0);
+
+            foreach (TraitEntryWidget button in _buttons)
+            {
+                button.SetValue(data.Contains(button.Data));
+            }
+        }
+
+        public List<TraitData> GetData()
+        {
+            List<TraitData> results = new List<TraitData>();
+            foreach (TraitEntryWidget button in _buttons)
+            {
+                if (button.Value)
+                    results.Add(button.Data);
+            }
+            return results;
+        }
+
+
+        public void OnEnable()
+        {
+            List<TraitData> test = GetData();
+            foreach (TraitData data in test)
+            {
+                Debug.Log(" Location " + data.FriendlyName);
+                Debug.Log(" Location " + data.FriendlyName);
+            }
+        }
+
+        public void OnDisable()
+        {
+            _parentMenuReference = null;
+        }
+
+
+        public void OnNonNullEntrySelected()
+        {
+            //Set None Toggle to be accurate
+            if (_noneToggle.Value)
+                _noneToggle.SetValue(false);
+        }
+
+        //On selecting None, set all other location entries to false
+        public void ClearEntries()
+        {
+            if (_noneToggle.Value) //'None' set true
+            {
+                foreach (TraitEntryWidget button in _buttons)
+                {
+                    button.SetValue(false);
+                }
+            }
+        }
+
+        public void OnConfirmButtonPressed()
+        {
+            //Fuckin take the data and disable this menu
+            _parentMenuReference.ConfirmTraitSubmenu();
+        }
     }
 }
