@@ -11,9 +11,13 @@ using Entity;
 
 public class MaskedGuestCardWidget : MonoBehaviour
 {
-    [SerializeField]
-    private IconWidget iconPrefab;
-    #region Icon Pooling
+    #region Accessing this Widget
+
+    #endregion
+
+
+    #region Icon Pooling    
+    [SerializeField] private IconWidget iconPrefab;
     private static IObjectPool<IconWidget> _iconPool;
     private static Transform poolContainer;
     public IObjectPool<IconWidget> IconPool
