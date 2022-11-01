@@ -1,3 +1,4 @@
+using System;
 using Data.Interactions;
 using Entity;
 using Interactions;
@@ -23,6 +24,8 @@ namespace TouchInput.UnitControl
         public event ContextMenuRequested OnContextMenuRequest;
         public event InteractionChanged OnInteractionChange;
 
+        public event Action<Vector3> OnPositionUpdate;
+
         public void Start()
         {
             var entityView = GetComponent<IEntityView<CharacterEntity>>();
@@ -40,14 +43,15 @@ namespace TouchInput.UnitControl
                 OnSelectChange?.Invoke(_isSelected);
             }
         }
+        
+        /*
         public virtual bool SetInteraction(IInteraction interaction)
         {
             IInteraction oldInteraction = _activeInteraction;
-            interaction.SetParent(this);
             _activeInteraction = interaction;
             OnInteractionChange?.Invoke(interaction, oldInteraction);
             return true;
-        }
+        }*/
 
         public bool TryGetInteraction(out IInteraction interaction)
         {
@@ -80,7 +84,7 @@ namespace TouchInput.UnitControl
             return _entity;
         }
 
-        public Vector3 GetWorldPosition()
+        public Vector3 GetInteractionPosition()
         {
             return transform.position;
         }
@@ -88,6 +92,12 @@ namespace TouchInput.UnitControl
         public GameObject GetGameObject()
         {
             return gameObject;
+        }
+        
+        public bool TryGetGameObject(out GameObject go)
+        {
+            go = GetGameObject();
+            return go != null;
         }
     }
 }

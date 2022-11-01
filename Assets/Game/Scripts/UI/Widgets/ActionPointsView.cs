@@ -5,7 +5,7 @@ using NiftyFramework.UI;
 using TMPro;
 using UnityEngine;
 
-namespace UI
+namespace UI.Widgets
 {
     public class ActionPointsView : MonoBehaviour, IView<GameStat>, IView<GameStat, IInteraction>
     {
@@ -69,7 +69,7 @@ namespace UI
             Set(gameStat);
             if (interaction != null)
             {
-                PreviewCost(interaction.ApCost);
+                PreviewCost(interaction.CostAP);
                 interaction.OnApCostChange += HandleUpdatePreviewCost;
                 interaction.OnComplete += HandleInteractionComplete;
             }

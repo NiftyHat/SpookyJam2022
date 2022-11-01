@@ -1,7 +1,10 @@
+using System.Collections.Generic;
 using Context;
 using Data.GameOver;
 using Entity;
+using Interactions;
 using NiftyFramework.Core.Context;
+using UI.Targeting;
 using UnityEngine;
 
 namespace Data.Interactions
@@ -9,15 +12,15 @@ namespace Data.Interactions
     public class ConfessionInteractionData : TargetedInteractionData<CharacterView>
     {
         [SerializeField] private GameOverReasonData _gameOverReason;
-        
-        public override float GetMaxRange()
+
+        public override void Init()
         {
-            return Range;
+            
         }
 
-        public override bool ConfirmInput(RaycastHit hitInfo)
+        public override bool Validate(TargetingInfo targetInfo, ref IList<IValidationFailure> invalidators)
         {
-            if (base.ConfirmInput(hitInfo) && Target.Entity != null)
+            if (base.Validate(targetInfo, ref invalidators) && Target.Entity != null)
             {
                 ContextService.Get<GameStateContext>(context =>
                 {

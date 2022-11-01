@@ -1,3 +1,4 @@
+using System;
 using Data.Reactions;
 using Interactions;
 using NiftyFramework.Core.Utils;
@@ -23,6 +24,8 @@ namespace Entity
         private ReactionBubbleView _reactionBubbleCache;
         private CharacterEntity _entity;
 
+        public event Action<Vector3> OnPositionUpdate;
+
         public virtual void Start()
         {
             if (_unitInputHandler == null)
@@ -34,6 +37,11 @@ namespace Entity
             {
                 _unitInputHandler.OnSelectChange += HandleSelectedChanged;
                 _unitInputHandler.OnContextMenuRequest += HandleContextMenuRequest;
+            }
+
+            if (_movementHandler != null)
+            {
+                _movementHandler.OnMoveUpdate += OnPositionUpdate;
             }
 
             if (_goSelectedIndicator != null)
@@ -69,7 +77,7 @@ namespace Entity
             }
         }
 
-        public Vector3 GetWorldPosition()
+        public Vector3 GetInteractionPosition()
         {
             return transform.position;
         }
@@ -78,7 +86,13 @@ namespace Entity
         {
             return gameObject;
         }
-
+        
+        public bool TryGetGameObject(out GameObject go)
+        {
+            go = gameObject;
+            return go != null;
+        }
+        
         public CharacterEntity Entity => _entity;
         public void Clear()
         {

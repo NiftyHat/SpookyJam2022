@@ -15,8 +15,10 @@ namespace TouchInput.UnitControl
 
         protected Vector3 _lastMousePosition;
         public event ScreenInputController.InputUpdateHandler OnPointerMoved;
-        public Action<UnitInputHandler> OnUnitSelected;
-        public Action<MovementPlaneView, RaycastHit> OnGroundSelected;
+        public Action<UnitInputHandler> OnSelectUnit;
+        public Action<UnitInputHandler> OnOverUnit;
+        public Action<MovementPlaneView, RaycastHit> OnSelectGround;
+        public Action<MovementPlaneView, RaycastHit> OnOverGround;
         
         [SerializeField] protected float _maxDistance = 100f;
         [SerializeField] protected bool _isDebugDraw;
@@ -102,14 +104,14 @@ namespace TouchInput.UnitControl
                     }
                     unitInputHandler.SetSelected(true);
                     _selected = new[] { unitInputHandler };
-                    OnUnitSelected?.Invoke(unitInputHandler);
+                    OnSelectUnit?.Invoke(unitInputHandler);
                 }
                 else
                 {
                     MovementPlaneView movementPlaneView = GetComponentOnCollider<MovementPlaneView>(hitInfo.collider);
                     if (movementPlaneView != null)
                     {
-                        OnGroundSelected?.Invoke(movementPlaneView,hitInfo);
+                        OnSelectGround?.Invoke(movementPlaneView,hitInfo);
                     }
                 }
             }
@@ -167,15 +169,17 @@ namespace TouchInput.UnitControl
             var screenPointRay = _inputController.mainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(screenPointRay, out var hitInfo, _maxDistance))
             {
-                if (_selected.Any())
+                var groundPlane = GetComponentOnCollider<MovementPlaneView>(hitInfo.collider);
+                if (groundPlane != null)
                 {
-                    var first = _selected.FirstOrDefault();
-                    if (first != null)
+                    OnOverGround(groundPlane, hitInfo);
+                }
+                else
+                {
+                    var unit = GetComponentOnCollider<UnitInputHandler>(hitInfo.collider);
+                    if (unit != null)
                     {
-                        if (first.TryGetInteraction(out var interaction))
-                        {
-                            interaction.PreviewInput(hitInfo);
-                        }
+                        OnOverUnit?.Invoke(unit);
                     }
                 }
                 
@@ -195,7 +199,7 @@ namespace TouchInput.UnitControl
                     }
                 }
                 _selected = new List<UnitInputHandler>();
-                OnUnitSelected?.Invoke(null);
+                OnSelectUnit?.Invoke(null);
             }
         }
         
@@ -204,18 +208,6 @@ namespace TouchInput.UnitControl
         {
             if (EventSystem.current.IsPointerOverGameObject(_fingerID))    // is the touch on the GUI
             {
-                /*
-                PointerEventData pointerData = new PointerEventData(EventSystem.current) {
-                    pointerId = -1,
-                };
-                
-                
-                pointerData.position = Input.mousePosition;
-
-                var list  = new List<RaycastResult>();
-                EventSystem.current.RaycastAll(pointerData, list);*/
-                
-                // GUI Action
                 return true;
             }
 

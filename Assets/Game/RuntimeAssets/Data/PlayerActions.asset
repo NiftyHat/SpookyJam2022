@@ -12,14 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e1a6de6f814c7aa7314115ae6bfcf5, type: 3}
   m_Name: FlirtTriggerAbility
   m_EditorClassIdentifier: 
-  _range: 5
-  _apCost: 10
-  _radius: 0
-  _targetType: 2
-  _menuItemData:
-    _friendlyName: Flirt
-    _icon: {fileID: 21300000, guid: 86bcec5633322d74ba83a3e1eb703c5f, type: 3}
-    _description: Spend {apCost} and Flirt with the target. Effective on {traitsList}
+  _data:
+    _range:
+      _min: 0
+      _max: 12
+    _costAP: 15
+    _radius: 0
+    _targetType: 2
+    _menuItemData:
+      _friendlyName: Flirt
+      _icon: {fileID: 21300000, guid: c06228c0350d2b943a80d67f4f3c2df6, type: 3}
+      _description: 'Flirt with {target}. Hit on: {traitList}.'
   _reactionTrigger:
     _triggerList:
     - _trait: {fileID: 7801872093390142965, guid: 26f61f036fbd8a843af3f89912a03468,
@@ -54,14 +57,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c56a70dc9da445e9792f1684b8ed0c8, type: 3}
   m_Name: EndTurn
   m_EditorClassIdentifier: 
-  _range: 0
-  _apCost: 0
-  _radius: 0
-  _targetType: 0
-  _menuItemData:
-    _friendlyName: End Turn
-    _icon: {fileID: 21300000, guid: 4f11d93afd93a0a43b3506784bdc72f5, type: 3}
-    _description: Advance time 30 minutes and recover all Action Points.
+  _data:
+    _range:
+      _min: 0
+      _max: 0
+    _costAP: 0
+    _radius: 0
+    _targetType: 0
+    _menuItemData:
+      _friendlyName: End Turn
+      _icon: {fileID: 21300000, guid: 4f11d93afd93a0a43b3506784bdc72f5, type: 3}
+      _description: End your turn. Recover all AP.
 --- !u!114 &-3633477180647774105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,15 +80,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694271f34c8b44d981e136c04e07a707, type: 3}
   m_Name: Walk
   m_EditorClassIdentifier: 
-  _range: 100
-  _apCost: 10
-  _radius: 0
-  _targetType: 3
-  _menuItemData:
-    _friendlyName: Walk
-    _icon: {fileID: 21300000, guid: 18c94124ad517f0459608cae5fa4337e, type: 3}
-    _description: Spend {apCost} to move up to {range}
-  apCostPerUnit: 0.5
+  _data:
+    _range:
+      _min: 1
+      _max: 3
+    _costAP: 200
+    _radius: 0
+    _targetType: 3
+    _menuItemData:
+      _friendlyName: Walk
+      _icon: {fileID: 21300000, guid: 18c94124ad517f0459608cae5fa4337e, type: 3}
+      _description: Spend {apCost} to walk. Each movement of unity costs {costPerUnit}
 --- !u!114 &-1671792078212301720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,14 +103,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e1a6de6f814c7aa7314115ae6bfcf5, type: 3}
   m_Name: ConspireTriggerAbility
   m_EditorClassIdentifier: 
-  _range: 5
-  _apCost: 10
-  _radius: 0
-  _targetType: 2
-  _menuItemData:
-    _friendlyName: Conspire
-    _icon: {fileID: 21300000, guid: 2a45049b67e4a9149bf9021cefd76c33, type: 3}
-    _description: Spend {apCost} and Conspire with the target. Effective on {traitsList}
+  _data:
+    _range:
+      _min: 0
+      _max: 20
+    _costAP: 15
+    _radius: 0
+    _targetType: 2
+    _menuItemData:
+      _friendlyName: Conspire
+      _icon: {fileID: 21300000, guid: 2a45049b67e4a9149bf9021cefd76c33, type: 3}
+      _description: 'Conspire with {target}. Hit on: {traitList}.'
   _reactionTrigger:
     _triggerList:
     - _trait: {fileID: -1646269247474937957, guid: 26f61f036fbd8a843af3f89912a03468,
@@ -137,14 +148,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a298efb7f095412387fbf0eacd6677a7, type: 3}
   m_Name: Examine
   m_EditorClassIdentifier: 
-  _range: -1
-  _apCost: 0
-  _radius: 0
-  _targetType: 2
-  _menuItemData:
-    _friendlyName: Examine
-    _icon: {fileID: 21300000, guid: bd5c31fc9d2e8ed4381ef9b96dce1950, type: 3}
-    _description: Examine {target}
+  _data:
+    _range:
+      _min: 0
+      _max: 30
+    _costAP: 0
+    _radius: 0
+    _targetType: 2
+    _menuItemData:
+      _friendlyName: Examine
+      _icon: {fileID: 21300000, guid: bd5c31fc9d2e8ed4381ef9b96dce1950, type: 3}
+      _description: Examine {target}. Update what you know about them.
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,14 +191,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a298efb7f095412387fbf0eacd6677a7, type: 3}
   m_Name: Introduce
   m_EditorClassIdentifier: 
-  _range: 5
-  _apCost: 5
-  _radius: 0
-  _targetType: 2
-  _menuItemData:
-    _friendlyName: Introduce
-    _icon: {fileID: 21300000, guid: 878d745bc9741ba46ab9ae73c1efa1d6, type: 3}
-    _description: Introduce yourself to a target
+  _data:
+    _range:
+      _min: 0
+      _max: 20
+    _costAP: 10
+    _radius: 0
+    _targetType: 2
+    _menuItemData:
+      _friendlyName: Introduce
+      _icon: {fileID: 21300000, guid: 62c244337934d884a84c0d71e1a301a0, type: 3}
+      _description: Introduce yourself to a target
 --- !u!114 &4128197612467975644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,13 +214,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d36c87eb204a508d579e56699b1d07, type: 3}
   m_Name: ConfessionAbility
   m_EditorClassIdentifier: 
-  _range: 10
-  _apCost: 10
-  _radius: 0
-  _targetType: 2
-  _menuItemData:
-    _friendlyName: Confess
-    _icon: {fileID: 21300000, guid: bb857c698ad558f41939eb22c497086a, type: 3}
-    _description: Spend {apCost} and Confess. Only target the monster with this ability!
+  _data:
+    _range:
+      _min: 0
+      _max: 12
+    _costAP: 15
+    _radius: 0
+    _targetType: 2
+    _menuItemData:
+      _friendlyName: Confess
+      _icon: {fileID: 21300000, guid: bb857c698ad558f41939eb22c497086a, type: 3}
+      _description: Confess to {target}. Win if they are the monster.
   _gameOverReason: {fileID: -7597645516445229309, guid: 0a1d5b9cddaf5794aae9e417cf1b6921,
     type: 2}

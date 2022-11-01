@@ -7,7 +7,7 @@ using Interactions;
 using NiftyFramework.Core.Context;
 using NiftyFramework.Core.Utils;
 using TouchInput.UnitControl;
-using UI;
+using UI.Widgets;
 using UnityEngine;
 
 namespace Entity
@@ -17,24 +17,20 @@ namespace Entity
         [SerializeField][NonNull] private PlayerData _playerData;
         [SerializeField] private ActionPointsView _actionPointsView;
 
-        private IStatBlock _statBlock;
-        public IStatBlock Stats => _statBlock;
+        private GameStat _actionPoints;
         private List<InteractionData> _interactionList;
         public List<InteractionData> Interactions => _interactionList;
+        public GameStat ActionPoints => _actionPoints;
         
-        public void Start()
+        public new void Start()
         {
             if (_playerData != null)
             {
-                _statBlock = _playerData.Stats;
-                _actionPointsView.Set(_statBlock.ActionPoints);
+                _actionPoints = _playerData.ActionPoints;
+                _actionPointsView.Set(_actionPoints);
                 _interactionList = _playerData.InteractionList;
             }
-            
-            _actionPointsView.gameObject.SetActive(false);
-            
             ContextService.Get<GameStateContext>(HandleGameStateContext);
-
             OnSelectChange += HandleSelectedChanged;
         }
 
@@ -47,54 +43,35 @@ namespace Entity
 
         private void HandleTurnStarted(int turn, int turnMax, int phase)
         {
-            _statBlock.ActionPoints.Add(_statBlock.ActionPoints.Max);
+            _actionPoints.Add(_actionPoints.Max);
         }
 
-        private void HandlePhaseChange(int oldvalue, int newvalue)
+        private void HandlePhaseChange(int oldValue, int newValue)
         {
             
         }
 
         private void HandleSelectedChanged(bool isSelected)
         {
-            if (isSelected)
-            {
-                if (_activeInteraction == null || _activeInteraction.IsState(InteractionData.State.Complete))
-                {
-                    SetInteraction(_playerData.MoveInteraction);
-                }
-                _actionPointsView.gameObject.SetActive(_activeInteraction != null && _activeInteraction.IsState(InteractionData.State.Preview));
-            }
-            else
-            {
-                _actionPointsView.gameObject.SetActive(false);
-            }
         }
 
         public void Update()
         {
-            if (TryGetInteraction(out var interaction))
-            {
-                if (_actionPointsView != null && interaction.ApCost > 0 && interaction.IsState(InteractionData.State.Preview))
-                {
-                    _actionPointsView.PreviewCost(interaction.ApCost);
-                }
-            }
         }
 
         public bool IsInteracting(out IInteraction interaction)
         {
-            if (TryGetInteraction(out interaction) && interaction.IsState(InteractionData.State.Running))
+            if (TryGetInteraction(out interaction))
             {
                 return true;
             }
             interaction = null;
             return false;
         }
-
-        public void SetActiveInteraction(IInteraction interactionData)
+        
+        public MoveInteractionData GetDefaultInteraction()
         {
-            _activeInteraction = interactionData;
+            return _playerData.MoveInteraction;
         }
     }
 }

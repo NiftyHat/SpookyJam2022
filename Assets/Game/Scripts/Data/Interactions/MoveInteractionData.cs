@@ -1,74 +1,70 @@
-using GameStats;
+using System.Collections.Generic;
+using Entity;
 using Interactions;
 using TouchInput.UnitControl;
+using UI.Targeting;
 using UnityEngine;
 
 namespace Data.Interactions
 {
     public class MoveInteractionData : InteractionData
     {
-        [SerializeField] private float apCostPerUnit = 1.0f;
-        
+        private readonly float _oneUnit = 0.1f;
+        private float _apCostForOneMovementUnit = 0;
+        public override int RangeMax => _maxRangeFromAP;
+
+        public override int CostAP => _apCostFromDistance;
+
         private UnitMovementHandler _movementHandler;
-        private GameStat _actionPoints;
-        private float _distance;
+        private float _apRemainingDistance;
+        private int _maxRangeFromAP;
+        private int _apCostFromDistance;
 
-        public override int ApCost
+        public override void Init()
         {
-            get
+            _apCostForOneMovementUnit = _data.CostAP / (_data.RangeMax / _oneUnit);
+            //_movementUnitsPerAp = (_data.CostAP / _data.RangeMax) * _oneUnit;
+        }
+        
+        
+        public override string GetDescription()
+        {
+            return base.GetDescription().Replace("{costPerUnit}", _apCostFromDistance.ToString());
+        }
+
+        public override bool Validate(TargetingInfo targetingInfo, ref IList<IValidationFailure> invalidators)
+        {
+            if (targetingInfo.Source is PlayerInputHandler player)
             {
-                if (_source != null && _targetPosition != Vector3.zero)
+                _actionPoints = player.ActionPoints;
+            }
+            float distance = targetingInfo.GetDistance();
+            int ap = _actionPoints.Value;
+            _maxRangeFromAP = (int)(ap / _apCostForOneMovementUnit);
+            _apCostFromDistance = (int)(distance * _apCostForOneMovementUnit);
+            return base.Validate(targetingInfo, ref invalidators);
+        }
+        
+        public override bool Confirm(TargetingInfo targetInfo)
+        {
+            if (base.Confirm(targetInfo))
+            {
+                if (targetInfo.Source is UnitInputHandler unitInputHandler)
                 {
-                    return GetMoveAPCost(Vector3.Distance(_source.GetWorldPosition(), _targetPosition));
-                };
-                return _apCost;
-            }
-        }
-
-        public override void SetParent(ITargetable parent)
-        {
-            if (parent is UnitInputHandler unitInputHandler)
-            {
-                _movementHandler = unitInputHandler.gameObject.GetComponent<UnitMovementHandler>();
-            }
-            base.SetParent(parent);
-        }
-
-        public override bool ConfirmInput(RaycastHit hitInfo)
-        {
-            if (base.ConfirmInput(hitInfo))
-            {
-                _parentStats.ActionPoints.Subtract(ApCost);
-                _movementHandler.MoveTo(hitInfo.point, HandleMoveComplete);
-                return true;
+                    _movementHandler = unitInputHandler.gameObject.GetComponent<UnitMovementHandler>();
+                    if (_movementHandler != null)
+                    {
+                        _movementHandler.MoveTo(targetInfo.Target.GetInteractionPosition(), HandleMoveComplete);
+                        return true;
+                    }
+                }
             }
             return false;
         }
 
-        private void HandleMoveComplete(Vector3 location)
+        private void HandleMoveComplete(Vector3 obj)
         {
             InternalComplete();
-        }
-
-        public override bool ValidateRange(float distance)
-        {
-            return CanAfford();
-        }
-
-        public override float GetMaxRange()
-        {
-            if (_parentStats != null)
-            {
-                return _parentStats.ActionPoints.Value * apCostPerUnit;
-            }
-
-            return 0;
-        }
-
-        public int GetMoveAPCost(float distance)
-        {
-            float moveCost = (_range / _apCost) * apCostPerUnit * distance;
-            return Mathf.FloorToInt(moveCost);
         }
     }
 }

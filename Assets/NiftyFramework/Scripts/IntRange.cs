@@ -9,6 +9,9 @@ namespace NiftyFramework.Scripts
     {
         [SerializeField] private int _min;
         [SerializeField] private int _max;
+
+        public int Max => _max;
+        public int Min => _min;
         
         public Range<int> GetRange()
         {

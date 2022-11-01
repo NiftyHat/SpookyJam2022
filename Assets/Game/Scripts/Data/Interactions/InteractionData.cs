@@ -1,8 +1,11 @@
 using System;
+using System.Collections.Generic;
 using Data.Menu;
 using Entity;
 using GameStats;
 using Interactions;
+using NiftyFramework.Core;
+using NiftyFramework.Scripts;
 using UI.Targeting;
 using UnityEngine;
 
@@ -27,8 +30,8 @@ namespace Data.Interactions
             public void UpdateDescription(IInteraction interactionData)
             {
                 _cachedDescription = _description.
-                    Replace("{apCost}", interactionData.ApCost.ToString()).
-                    Replace("{range}", interactionData.Range.ToString());
+                    Replace("{apCost}", interactionData.CostAP.ToString()).
+                    Replace("{range}", interactionData.RangeMax.ToString());
             }
         }
         
@@ -39,249 +42,128 @@ namespace Data.Interactions
             Other,
             Floor,
         }
-        
-        public enum State
+
+        [Serializable]
+        public struct StaticData
         {
-            None,
-            Preview,
-            Running,
-            Complete
+            [SerializeField] private IntRange _range;
+            [SerializeField] private int _costAP;
+            [SerializeField] private int _radius;
+            [SerializeField] private TargetType _targetType;
+            [SerializeField] public MenuItemData _menuItemData;
+            
+            public int RangeMin => _range.Min;
+            public int RangeMax => _range.Max;
+            
+            public TargetType TargetType => _targetType;
+            
+            public IMenuItem MenuItem => _menuItemData;
+            public int CostAP => _costAP;
+
+            public void UpdateDescription(IInteraction interaction)
+            {
+                _menuItemData.UpdateDescription(interaction);
+            }
         }
 
-        public IMenuItem MenuItem => _menuItemData;
+        [SerializeField] protected StaticData _data;
+        public string FriendlyName => MenuItem != null ? MenuItem.FriendlyName : GetType().Name;
+        protected GameStat _actionPoints;
         
-        [SerializeField] protected int _range;
-        [SerializeField] protected int _apCost;
-        [SerializeField] protected int _radius;
-        [SerializeField] protected TargetType _targetType;
-        [SerializeField] public MenuItemData _menuItemData;
-        protected ITargetable _source;
-        protected ITargetable _target;
-        protected Vector3 _targetPosition;
+        public IMenuItem MenuItem => _data.MenuItem;
 
-        protected State _state = State.None;
+        public virtual int RangeMin => _data.RangeMin;
+        public virtual int RangeMax => _data.RangeMax;
 
-        public int Range => _range;
-        public virtual int ApCost => _apCost;
+        public virtual int CostAP => _data.CostAP;
 
-        public ITargetable Source => _source;
-        public ITargetable Target => _target;
+        //public TargetType TargetType => _data.TargetType;
 
-        public Vector3? TargetPosition => _targetPosition;
-        
         public event Action OnComplete;
         public event Action<int> OnApCostChange;
 
-        protected IStatBlock _parentStats;
+        public ITargetable _target;
 
-        public virtual void SetParent(ITargetable parent)
-        {
-            if (parent == null)
-            {
-                _state = State.None;
-                SetSource(null);
-            }
-            else
-            {
-                _state = State.Preview;
-                SetSource(parent);
-            }
-           
-        }
+        public abstract void Init();
 
-        public void SetSource(ITargetable source)
+        public virtual bool Validate(TargetingInfo targetingInfo, ref IList<IValidationFailure> invalidators)
         {
-            _source =source;
-            if (_source is PlayerInputHandler playerInputHandler)
+            _target = targetingInfo.Target;
+            if (!IsValidTarget(targetingInfo.Target))
             {
-                _parentStats = playerInputHandler.Stats;
-                playerInputHandler.SetActiveInteraction(this);
-            }
-            else
-            {
-                _parentStats = null;
-            }
-        }
-
-        public bool IsState(State testState)
-        {
-            return _state == testState;
-        }
-
-        public virtual bool PreviewInput(TargetingInfo targetingInfo)
-        {
-            SetParent(targetingInfo.Source);
-            if (_targetType == TargetType.Other)
-            {
-                return targetingInfo.Source != targetingInfo.Target;
-                /*
-                if (targetGameObject.TryGetComponent<CharacterView>(out var character))
-                {
-                    if (character != null && character != (CharacterView)_source)
-                    {
-                        _target = character;
-                        return true;
-                    }
-                }*/
-            }
-            if (_targetType == TargetType.Self)
-            {
-                return _source != null;
-            }
-            return false;
-        }
-        
-        public virtual bool PreviewInput(RaycastHit hitInfo)
-        {
-            if (_state != State.Preview)
-            {
+                invalidators?.Add(new InvalidTarget(FriendlyName, targetingInfo.Target, _data.TargetType));
                 return false;
             }
-            if (ApCost != _apCost)
+            float distance = targetingInfo.GetDistance();
+            if (distance < RangeMin)
             {
-                OnApCostChange?.Invoke(ApCost);
+                invalidators?.Add(new TooClose(FriendlyName, distance, RangeMin));
             }
-            if (_targetType == TargetType.Floor)
+            if (distance > RangeMax)
             {
-                if (hitInfo.transform.gameObject.TryGetComponent<MovementPlaneView>(out _))
+                invalidators?.Add(new OutOfRange(FriendlyName, distance, RangeMax));
+            }
+            if (CostAP > 0)
+            {
+                if (targetingInfo.Source is PlayerInputHandler player)
                 {
-                    //TODO - fix this to still clamp the pointer at the max valid range.
-                    _targetPosition = hitInfo.point;
+                    _actionPoints = player.ActionPoints;
+                }
+                else
+                {
+                    _actionPoints = null;
+                    invalidators.Add(new RequiresActionPoints());
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public virtual bool Confirm(TargetingInfo targetingInfo)
+        {
+            if (CostAP > 0)
+            {
+                if (_actionPoints != null && _actionPoints.Value - CostAP > 0)
+                {
+                    _actionPoints.Subtract(CostAP);
                     return true;
                 }
-            }
-            if (_targetType == TargetType.Other)
-            {
-                if (hitInfo.transform.gameObject.TryGetComponent<CharacterView>(out var character))
-                {
-                    if (character != (CharacterView)_source)
-                    {
-                        _target = character;
-                        return true;
-                    }
-                }
-            }
-            if (_targetType == TargetType.Self)
-            {
-                return _source != null;
-            }
-            return false;
-        }
-
-        public bool TryGetTargetEntity<TEntity>(out TEntity entity)
-        {
-            if (_target is IEntityView<TEntity> entityView && entityView.Entity != null)
-            {
-                entity = entityView.Entity;
-                return true;
-            }
-            entity = default;
-            return false;
-        }
-
-        public bool CanAfford()
-        {
-            if (_parentStats != null)
-            {
-                return _parentStats.ActionPoints.Value >= ApCost;
-            }
-            return false;
-        }
-
-        public virtual bool ConfirmInput(TargetingInfo targetingInfo)
-        {
-            if (targetingInfo.Source != null)
-            {
-                SetSource(targetingInfo.Source);
-            }
-            if (!CanAfford())
-            {
                 return false;
             }
-            GameObject targetGameObject = targetingInfo.Target.GetGameObject();
-            if (targetGameObject != null)
+            return true;
+        }
+
+        public virtual string GetDescription()
+        {
+            string description = MenuItem.Description;
+            description = description.Replace("{apCost}", CostAP.ToString()).Replace("{range}", RangeMax.ToString());
+            if (_target is CharacterView characterView)
             {
-                switch (_targetType)
-                {
-                    case TargetType.Other:
-                        if (targetGameObject.TryGetComponent<CharacterView>(out var character))
-                        {
-                            if (character != (CharacterView)_source)
-                            {
-                                _state = State.Running;
-                                _target = character;
-                                return true;
-                            }
-                        }
-                        break;
-                    case TargetType.Self:
-                        if (Source != null)
-                        {
-                            _state = State.Running;
-                            _target = Source;
-                            return true;
-                        }
-                        break;
-                }
+                description =  description.Replace("{target}", characterView.Entity.Mask.FriendlyName);
             }
-            return false;
+            else
+            {
+                description = description.Replace("{target}", "the Target");
+            }
+            return description;
         }
         
-        public virtual bool ConfirmInput(RaycastHit hitInfo)
+        public bool IsValidTarget(ITargetable target)
         {
-            if (!CanAfford())
-            {
-                return false;
-            }
-            switch (_targetType)
+            switch (_data.TargetType)
             {
                 case TargetType.Floor:
-                    if (hitInfo.transform.gameObject.TryGetComponent<MovementPlaneView>(out _))
-                    {
-                        _state = State.Running;
-                        _targetPosition = hitInfo.point;
-                        return true;
-                    }
-                    break;
+                    return target != null;
                 case TargetType.Other:
-                    if (hitInfo.transform.gameObject.TryGetComponent<CharacterView>(out var character))
-                    {
-                        if (character != (CharacterView)_source)
-                        {
-                            _state = State.Running;
-                            _target = character;
-                            return true;
-                        }
-                    }
-                    break;
                 case TargetType.Self:
-                    if (Source != null)
-                    {
-                        _state = State.Running;
-                        _target = Source;
-                        return true;
-                    }
-                    break;
+                    return target.GetGameObject() != null;
+                case TargetType.None:
+                    return target == null;
             }
             return false;
         }
 
-        public virtual bool ValidateRange(float distance)
-        {
-            return distance < _range;
-        }
-
-        public abstract float GetMaxRange();
-        public string GetDescription()
-        {
-            return _menuItemData.Description.Replace("{apCost}", ApCost.ToString()).Replace("{range}", Range.ToString());
-        }
-
-        public void ClearSelect()
-        {
-            SetParent(null);
-        }
-
+        /*
         public bool CanTarget(ITargetable target, ITargetable self)
         {
             switch (_targetType)
@@ -296,11 +178,10 @@ namespace Data.Interactions
                     throw new Exception("InteractionData - TargetType.None is invalid target type");
             }
             return false;
-        }
+        }*/
 
         protected void InternalComplete()
         {
-            _state = State.Complete;
             OnComplete?.Invoke();
         }
 
@@ -311,12 +192,8 @@ namespace Data.Interactions
 
         public void OnAfterDeserialize()
         {
-            _menuItemData.UpdateDescription(this);
-        }
-
-        public bool IsTargetType(TargetType type)
-        {
-            return _targetType == type;
+            Init();
+            _data.UpdateDescription(this);
         }
     }
 }

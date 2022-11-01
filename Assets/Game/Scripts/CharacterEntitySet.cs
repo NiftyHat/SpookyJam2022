@@ -9,7 +9,9 @@ public class CharacterEntitySet : RuntimeSet<CharacterEntity>
     public delegate void OnAssigned(IList<CharacterEntity> items);
 
     public event OnAssigned OnAssign;
-    
+
+    private IReadOnlyList<CharacterEntity> Items => _itemList;
+
     public void Assign(IList<CharacterEntity> items)
     {
         if (_itemList == null)

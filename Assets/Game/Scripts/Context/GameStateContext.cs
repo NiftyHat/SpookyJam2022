@@ -87,8 +87,7 @@ namespace Context
 
         public void NextTurn()
         {
-            if (_player != null && _player.IsInteracting(out var interaction) &&
-                interaction.IsState(InteractionData.State.Running))
+            if (_player != null && _player.IsInteracting(out var interaction))
             {
                 return;
             }

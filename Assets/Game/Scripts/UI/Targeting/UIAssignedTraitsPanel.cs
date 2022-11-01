@@ -24,12 +24,15 @@ namespace UI.Targeting
         public void Set(IList<TraitData> viewData)
         {
             Clear();
+            int index = 0;
             foreach (var item in viewData)
             {
                 if (_viewPool.TryGet(out var buttonView))
                 {
+                    buttonView.transform.SetSiblingIndex(index);
                     _views.Add(buttonView);
                     buttonView.Set(item);
+                    index++;
                 }
             }
         }

@@ -4,9 +4,9 @@ namespace Interactions
 {
     public class EndTurnActionData : InteractionData
     {
-        public override float GetMaxRange()
+        public override void Init()
         {
-            return 0;
+            //
         }
     }
 }

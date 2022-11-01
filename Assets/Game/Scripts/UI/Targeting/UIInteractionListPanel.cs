@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Context;
 using Interactions;
@@ -15,6 +16,8 @@ namespace UI.Targeting
         [SerializeField][NonNull] private LayoutGroup _layout;
         private readonly List<UIInteractionButton> _views = new List<UIInteractionButton>();
         private GameStateContext _gameStateContext;
+        
+        public event Action<InteractionState> OnPreviewInteraction;
 
         private void Start()
         {
@@ -27,9 +30,10 @@ namespace UI.Targeting
         {
             if (_views != null)
             {
-                foreach (var item in _views)
+                foreach (var buttonView in _views)
                 {
-                    _viewPool.TryReturn(item);
+                    buttonView.OnPreviewChange -= HandleButtonPreview;
+                    _viewPool.TryReturn(buttonView);
                 }
             }
         }
@@ -37,14 +41,23 @@ namespace UI.Targeting
         public void Set(IEnumerable<IInteraction> data, TargetingInfo targetingInfo)
         {
             Clear();
+            int index = 0;
             foreach (var item in data)
             {
                 if (_viewPool.TryGet(out var buttonView))
                 {
+                    buttonView.transform.SetSiblingIndex(index);
+                    buttonView.OnPreviewChange += HandleButtonPreview;
                     buttonView.Set(item, targetingInfo);
                     _views.Add(buttonView);
+                    index++;
                 }
             }
+        }
+
+        private void HandleButtonPreview(InteractionState interactionState)
+        {
+            OnPreviewInteraction?.Invoke(interactionState);
         }
     }
 }

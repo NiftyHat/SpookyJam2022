@@ -1,4 +1,4 @@
-using Data.Interactions;
+using System;
 using Interactions;
 using UnityEngine;
 
@@ -6,9 +6,7 @@ namespace UI.Targeting
 {
     public class MovementPlaneView : MonoBehaviour, ITargetable
     {
-        public InteractionData.TargetType TargetType => InteractionData.TargetType.Floor;
-
-        public Vector3 GetWorldPosition()
+        public Vector3 GetInteractionPosition()
         {
             return Vector3.zero;
         }
@@ -17,5 +15,13 @@ namespace UI.Targeting
         {
             return null;
         }
+
+        public bool TryGetGameObject(out GameObject go)
+        {
+            go = null;
+            return false;
+        }
+
+        public event Action<Vector3> OnPositionUpdate;
     }
 }

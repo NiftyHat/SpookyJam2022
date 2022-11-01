@@ -18,11 +18,18 @@ namespace UI.Targeting
         [SerializeField][NonNull] private UIAssignedTraitsPanel _assignedTraitsPanel;
         private GameStateContext _gameStateContext;
         private PlayerInputHandler _player;
+        public event Action<InteractionState> OnPreviewInteraction;
 
         public void Start()
         {
             ContextService.Get<GameStateContext>(HandleGameStateContext);
+            _interactionList.OnPreviewInteraction += HandlePreviewInteraction;
             Clear();
+        }
+
+        private void HandlePreviewInteraction(InteractionState interactionState)
+        {
+            OnPreviewInteraction?.Invoke(interactionState);
         }
 
         private void HandleGameStateContext(GameStateContext gameStateContext)
@@ -62,7 +69,7 @@ namespace UI.Targeting
             {
                 bool FilterInteractions(InteractionData interaction)
                 {
-                    if (interaction.IsTargetType(InteractionData.TargetType.Other))
+                    if (interaction.IsValidTarget(target))
                     {
                         return true;
                     }

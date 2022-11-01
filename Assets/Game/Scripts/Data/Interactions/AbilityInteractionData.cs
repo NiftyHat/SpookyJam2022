@@ -2,9 +2,9 @@ namespace Data.Interactions
 {
     public class AbilityInteractionData : InteractionData
     {
-        public override float GetMaxRange()
+        public override void Init()
         {
-            return Range;
+            
         }
     }
 }

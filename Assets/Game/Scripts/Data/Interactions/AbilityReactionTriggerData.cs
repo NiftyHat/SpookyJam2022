@@ -5,9 +5,21 @@ namespace Data.Interactions
     public class AbilityReactionTriggerData : InteractionData
     {
         [SerializeField] private ReactionTriggerSet _reactionTrigger;
-        public override float GetMaxRange()
+
+        protected string _traitListCopy = null;
+
+        public override string GetDescription()
         {
-            return Range;
+            if (string.IsNullOrEmpty(_traitListCopy))
+            {
+                _traitListCopy = _reactionTrigger.GetTraitList().ToString();
+            }
+            return base.GetDescription().Replace("{traitList}", _traitListCopy);
+        }
+
+        public override void Init()
+        {
+            
         }
     }
 }
