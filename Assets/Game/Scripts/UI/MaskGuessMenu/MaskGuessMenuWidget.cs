@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace CardUI 
 {
-    public class MaskedGuestMenuWidget : MonoBehaviour
+    public class MaskGuessMenuWidget : MonoBehaviour
     {
         [SerializeField]
-        private MaskedGuestCardWidget cardPrefab;
+        private MaskGuessCardWidget cardPrefab;
         [SerializeField] private Transform cardContainer;
         [SerializeField] private Transform selectedCardContainer;
         //Animation Hell

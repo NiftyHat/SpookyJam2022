@@ -13,14 +13,14 @@ namespace CardUI
         [SerializeField] private NameEntry _nameEntryPrefab;
         [SerializeField] private Transform _nameEntryContainer;
 
-        private MaskedGuestCardWidget _parentMenuReference;
+        private MaskGuessCardWidget _parentMenuReference;
 
         private CharacterName _selectedNameData;
 
         private bool _isInit = false;
 
         //Set up buttons
-        public void Initialize(MaskedGuestCardWidget parentMenu = null)
+        public void Initialize(MaskGuessCardWidget parentMenu = null)
         {
             _parentMenuReference = parentMenu;
 

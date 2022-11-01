@@ -9,7 +9,7 @@ using Data.Trait;
 using Data;
 using Entity;
 
-public class MaskedGuestCardWidget : MonoBehaviour
+public class MaskGuessCardWidget : MonoBehaviour
 {
     #region Accessing this Widget
 
@@ -101,7 +101,7 @@ public class MaskedGuestCardWidget : MonoBehaviour
     #endregion
 
     [SerializeField]
-    private MaskedGuestCardData data;
+    private MaskGuessCardData data;
 
     [Header("Display Data")]
     public Image guestPortrait;

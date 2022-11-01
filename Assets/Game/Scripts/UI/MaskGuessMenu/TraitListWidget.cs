@@ -1,57 +1,59 @@
+using Data.Trait;
+using System.Collections;
 using System.Collections.Generic;
-using Data.Location;
 using UnityEngine;
 
 namespace CardUI
 {
-    public class LocationListWidget : MonoBehaviour
+    public class TraitListWidget : MonoBehaviour
     {
         //@TODO Limit the total number of icons you can select
-        [SerializeField] private Transform _container;
+        [SerializeField]
+        private Transform _container;
 
         [SerializeField]
         [Tooltip("List of location entry buttons except \'None\'")]
-        private LocationEntryWidget _entryPrefab;
+        private TraitEntryWidget _entryPrefab;
         [SerializeField]
-        private LocationDataSet _locationData;
+        private TraitDataSet _traitData;
 
         [SerializeField]
-        private LocationEntryWidget _noneToggle = null;
+        private TraitEntryWidget _noneToggle = null;
         [SerializeField]
-        private List<LocationEntryWidget> _buttons = new List<LocationEntryWidget>();
+        private List<TraitEntryWidget> _buttons = new List<TraitEntryWidget>();
 
-        private MaskedGuestCardWidget _parentMenuReference;
+        private MaskGuessCardWidget _parentMenuReference;
 
 
         //Generate Buttons for Menu
         public void Start()
         {
             _buttons.Clear();
-            foreach (LocationData data in _locationData.References)
+            foreach (TraitData data in _traitData.References)
             {
-                LocationEntryWidget button = GameObject.Instantiate<LocationEntryWidget>(_entryPrefab, _container);
+                TraitEntryWidget button = GameObject.Instantiate<TraitEntryWidget>(_entryPrefab, _container);
                 button.Initialize(data, false);
                 _buttons.Add(button);
                 button.onSetTrue.AddListener(OnNonNullEntrySelected);
             }
         }
 
-        public void Initialize(List<LocationData> data, MaskedGuestCardWidget parentMenu = null)
+        public void Initialize(List<TraitData> data, MaskGuessCardWidget parentMenu = null)
         {
             _parentMenuReference = parentMenu;
 
             _noneToggle.SetValue(data.Count == 0);
 
-            foreach (LocationEntryWidget button in _buttons)
+            foreach (TraitEntryWidget button in _buttons)
             {
                 button.SetValue(data.Contains(button.Data));
             }
         }
 
-        public List<LocationData> GetData()
+        public List<TraitData> GetData()
         {
-            List<LocationData> results = new List<LocationData>();
-            foreach (LocationEntryWidget button in _buttons)
+            List<TraitData> results = new List<TraitData>();
+            foreach (TraitEntryWidget button in _buttons)
             {
                 if (button.Value)
                     results.Add(button.Data);
@@ -62,10 +64,10 @@ namespace CardUI
 
         public void OnEnable()
         {
-            //Debug Stuff
-            List<LocationData> test = GetData();
-            foreach (LocationData data in test)
+            List<TraitData> test = GetData();
+            foreach (TraitData data in test)
             {
+                Debug.Log(" Location " + data.FriendlyName);
                 Debug.Log(" Location " + data.FriendlyName);
             }
         }
@@ -74,7 +76,6 @@ namespace CardUI
         {
             _parentMenuReference = null;
         }
-
 
 
         public void OnNonNullEntrySelected()
@@ -89,17 +90,17 @@ namespace CardUI
         {
             if (_noneToggle.Value) //'None' set true
             {
-                foreach (LocationEntryWidget location in _buttons)
+                foreach (TraitEntryWidget button in _buttons)
                 {
-                    location.SetValue(false);
+                    button.SetValue(false);
                 }
             }
         }
 
         public void OnConfirmButtonPressed()
         {
-            //Fuckin take the data bro and disable this menu dog
-            _parentMenuReference.ConfirmLocationSubmenu();
+            //Fuckin take the data and disable this menu
+            _parentMenuReference.ConfirmTraitSubmenu();
         }
     }
 }

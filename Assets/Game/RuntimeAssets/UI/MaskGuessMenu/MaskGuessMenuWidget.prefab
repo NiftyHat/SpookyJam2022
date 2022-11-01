@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 7193811308373416052}
   - component: {fileID: 2880902737810735904}
   m_Layer: 5
-  m_Name: MaskedGuestMenuWidget
+  m_Name: MaskGuessMenuWidget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

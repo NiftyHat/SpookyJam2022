@@ -12,7 +12,7 @@ namespace Data
 {
     //Data object for Player's notes on masked guests
     [Serializable]
-    public class MaskedGuestCardData
+    public class MaskGuessCardData
     {
         public MaskEntity mask;
         public string DisplayName
@@ -29,7 +29,7 @@ namespace Data
         public List<LocationData> locationData;
         public List<TraitData> traitData;
 
-        public MaskedGuestCardData(MaskEntity mask)
+        public MaskGuessCardData(MaskEntity mask)
         {
             this.mask = mask;
         }
