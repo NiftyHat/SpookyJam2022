@@ -16,8 +16,7 @@ namespace TouchInput.UnitControl
         private bool _isSelected;
         private bool _canInteract = true;
         private InteractionData.TargetType _targetType;
-        protected IInteraction _activeInteraction;
-        
+
         private CharacterEntity _entity;
 
         public event SelectStateChanged OnSelectChange;
@@ -42,30 +41,6 @@ namespace TouchInput.UnitControl
                 _isSelected = isSelected;
                 OnSelectChange?.Invoke(_isSelected);
             }
-        }
-        
-        /*
-        public virtual bool SetInteraction(IInteraction interaction)
-        {
-            IInteraction oldInteraction = _activeInteraction;
-            _activeInteraction = interaction;
-            OnInteractionChange?.Invoke(interaction, oldInteraction);
-            return true;
-        }*/
-
-        public bool TryGetInteraction(out IInteraction interaction)
-        {
-            if (!_canInteract)
-            {
-                interaction = null;
-                return false;
-            }
-            interaction = _activeInteraction;
-            if (interaction != null)
-            {
-                return true;
-            }
-            return false;
         }
 
         public bool TryGetContextMenu(out IContextMenuOptions contextMenuOptions)

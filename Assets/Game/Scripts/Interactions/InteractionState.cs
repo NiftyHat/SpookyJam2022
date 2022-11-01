@@ -15,6 +15,8 @@ namespace Interactions
         public TargetingInfo _targetingInfo;
         public TargetingInfo TargetInfo => _targetingInfo;
 
+        public IInteraction Interaction => _interaction;
+
         public event OnTargetChanged OnTargetChange;
 
         public string GetInteractionName()
@@ -76,6 +78,11 @@ namespace Interactions
         public float GetMinRange()
         {
             return _interaction.RangeMin;
+        }
+
+        public int GetCostAP()
+        {
+            return _interaction.CostAP;
         }
 
         public bool IsValidTarget(ITargetable target)

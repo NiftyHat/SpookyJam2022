@@ -86,7 +86,7 @@ namespace UI
             }
             if (_previewInteraction != null)
             {
-
+                
                 float rangeMax = _previewInteraction.GetMaxRange();
                 float rangeMin = _previewInteraction.GetMinRange();
                 Vector3 direction = _previewInteraction.TargetInfo.DirectionToTarget();
@@ -244,6 +244,10 @@ namespace UI
         {
             if (_previewInteraction != null)
             {
+                if (_player != null)
+                {
+                    _player.PreviewAPCost(_previewInteraction);
+                }
                 _previewInteraction.Update();
                 TargetingInfo targetInfo = _previewInteraction.TargetInfo;
                 if (targetInfo.Target != null)

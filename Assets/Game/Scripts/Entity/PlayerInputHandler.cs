@@ -46,6 +46,11 @@ namespace Entity
             _actionPoints.Add(_actionPoints.Max);
         }
 
+        public void PreviewAPCost(InteractionState interactionState)
+        {
+            _actionPointsView.Set(_actionPoints, interactionState.Interaction);
+        }
+
         private void HandlePhaseChange(int oldValue, int newValue)
         {
             
@@ -57,16 +62,6 @@ namespace Entity
 
         public void Update()
         {
-        }
-
-        public bool IsInteracting(out IInteraction interaction)
-        {
-            if (TryGetInteraction(out interaction))
-            {
-                return true;
-            }
-            interaction = null;
-            return false;
         }
         
         public MoveInteractionData GetDefaultInteraction()

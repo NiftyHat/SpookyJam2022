@@ -87,7 +87,7 @@ namespace Context
 
         public void NextTurn()
         {
-            if (_player != null && _player.IsInteracting(out var interaction))
+            if (_player != null)
             {
                 return;
             }
