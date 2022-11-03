@@ -251,7 +251,7 @@ MonoBehaviour:
   _movementHandler: {fileID: 0}
   _facingDirectionView: {fileID: 8609622899304291346}
   _maskView: {fileID: 2408543634773052177}
-  _reactionBubbleLocation: {fileID: 0}
+  _reactionBubbleLocation: {fileID: 1738315203490173433}
 --- !u!114 &883632062638424266
 MonoBehaviour:
   m_ObjectHideFlags: 0

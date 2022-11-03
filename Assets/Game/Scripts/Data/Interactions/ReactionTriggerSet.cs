@@ -5,7 +5,9 @@ using System.Text;
 using Data.Reactions;
 using Data.Trait;
 using FluentCsv;
+using NiftyFramework.Scripts;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Data.Interactions
 {
@@ -23,6 +25,7 @@ namespace Data.Interactions
         }
 
         [SerializeField] private Item[] _triggerList;
+        [SerializeField] private List<ReactionData> _failList;
 
         public StringBuilder GetTraitList()
         {
@@ -35,6 +38,11 @@ namespace Data.Interactions
                     separator = ",";
                 });
             return builder;
+        }
+
+        public ReactionData GetFail()
+        {
+            return _failList.RandomItem();
         }
 
         public List<ReactionData> TryGetReaction(HashSet<TraitData> targetTraits)

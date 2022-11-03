@@ -4,6 +4,7 @@ using Data;
 using Data.Interactions;
 using GameStats;
 using Interactions;
+using Interactions.Commands;
 using NiftyFramework.Core.Context;
 using NiftyFramework.Core.Utils;
 using TouchInput.UnitControl;
@@ -21,6 +22,8 @@ namespace Entity
         private List<InteractionData> _interactionList;
         public List<InteractionData> Interactions => _interactionList;
         public GameStat ActionPoints => _actionPoints;
+
+        private InteractionCommand _moveCommend;
         
         public new void Start()
         {
@@ -29,6 +32,7 @@ namespace Entity
                 _actionPoints = _playerData.ActionPoints;
                 _actionPointsView.Set(_actionPoints);
                 _interactionList = _playerData.InteractionList;
+                _moveCommend = _playerData.MoveInteraction.GetCommand(this);
             }
             ContextService.Get<GameStateContext>(HandleGameStateContext);
             OnSelectChange += HandleSelectedChanged;
@@ -46,9 +50,9 @@ namespace Entity
             _actionPoints.Add(_actionPoints.Max);
         }
 
-        public void PreviewAPCost(InteractionState interactionState)
+        public void PreviewAPCost(InteractionCommand command)
         {
-            _actionPointsView.Set(_actionPoints, interactionState.Interaction);
+            _actionPointsView.Set(_actionPoints, command);
         }
 
         private void HandlePhaseChange(int oldValue, int newValue)
@@ -60,13 +64,9 @@ namespace Entity
         {
         }
 
-        public void Update()
+        public InteractionCommand GetDefaultCommand()
         {
-        }
-        
-        public MoveInteractionData GetDefaultInteraction()
-        {
-            return _playerData.MoveInteraction;
+            return _playerData.MoveInteraction.GetCommand(this);
         }
     }
 }

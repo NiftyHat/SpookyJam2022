@@ -2,6 +2,7 @@ using System;
 using Data.Interactions;
 using Entity;
 using Interactions;
+using Interactions.Commands;
 using UI.ContextMenu;
 using UnityEngine;
 
@@ -11,19 +12,19 @@ namespace TouchInput.UnitControl
     {
         public delegate void SelectStateChanged(bool isSelected);
         public delegate bool ContextMenuRequested(out IContextMenuOptions contextMenuOptions);
-        public delegate IInteraction InteractionChanged(IInteraction newInteraction, IInteraction oldInteraction);
 
         private bool _isSelected;
         private bool _canInteract = true;
-        private InteractionData.TargetType _targetType;
+        private TargetType _targetType;
 
         private CharacterEntity _entity;
 
         public event SelectStateChanged OnSelectChange;
         public event ContextMenuRequested OnContextMenuRequest;
-        public event InteractionChanged OnInteractionChange;
 
         public event Action<Vector3> OnPositionUpdate;
+
+        public InteractionCommand _runningCommand;
 
         public void Start()
         {
@@ -53,7 +54,7 @@ namespace TouchInput.UnitControl
             return false;
         }
 
-        public InteractionData.TargetType TargetType => _targetType;
+        public TargetType TargetType => _targetType;
         public CharacterEntity GetInstance()
         {
             return _entity;

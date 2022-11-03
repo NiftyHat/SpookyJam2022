@@ -1,3 +1,4 @@
+using Entity;
 using UnityEngine;
 
 namespace Interactions
@@ -14,6 +15,26 @@ namespace Interactions
         {
             _source = source;
             _target = target;
+        }
+
+        public bool TryGetTargetEntity<TEntity>(out TEntity entity)
+        {
+            if (_target != null)
+            {
+                if (_target is IEntityView<TEntity> entityView)
+                {
+                    entity = entityView.Entity;
+                    return true;
+                }
+                if (_target.TryGetGameObject(out var go))
+                {
+                    var entityViewComponent = go.GetComponent<IEntityView<TEntity>>();
+                    entity = entityViewComponent.Entity;
+                    return true;
+                }
+            }
+            entity = default;
+            return false;
         }
 
         public float GetDistance()

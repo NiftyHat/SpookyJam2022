@@ -111,13 +111,14 @@ namespace Entity
             {
                 Destroy(_reactionBubbleCache);
             }
-            _reactionBubbleCache = Instantiate(reactionData.Prefab);
+            _reactionBubbleCache = Instantiate(reactionData.Prefab, _reactionBubbleLocation.transform.position, Quaternion.identity);
             _reactionBubbleCache.Set(reactionData);
         }
 
         public void Set(CharacterEntity entity)
         {
             _entity = entity;
+            _entity.OnReaction += ShowReaction;
             _spriteRenderer.sprite = _entity.ViewData.Sprite;
             _maskView.Set(_entity.Mask);
         }

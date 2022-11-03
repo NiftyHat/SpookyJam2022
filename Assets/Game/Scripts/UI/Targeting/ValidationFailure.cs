@@ -11,7 +11,7 @@ namespace UI.Targeting
     public struct InvalidTarget : IValidationFailure
     {
         public string Copy { get; }
-        public InvalidTarget(string title, ITargetable target, InteractionData.TargetType type)
+        public InvalidTarget(string title, ITargetable target, TargetType type)
         {
             if (target.TryGetGameObject(out var gameObject))
             {

@@ -1,5 +1,5 @@
 using GameStats;
-using Interactions;
+using Interactions.Commands;
 using NiftyFramework.Core.Utils;
 using NiftyFramework.UI;
 using TMPro;
@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace UI.Widgets
 {
-    public class ActionPointsView : MonoBehaviour, IView<GameStat>, IView<GameStat, IInteraction>
+    public class ActionPointsView : MonoBehaviour, IView<GameStat>, IView<GameStat, InteractionCommand>
     {
         [SerializeField][NonNull] private TextMeshPro _textValueDisplay;
         [SerializeField] protected Color _previewNegativeValue;
@@ -17,7 +17,7 @@ namespace UI.Widgets
 
         public void Start()
         {
-            //_defaultColor = _textValueDisplay.color;
+            _defaultColor = _textValueDisplay.color;
         }
 
         public void Set(GameStat gameStat)
@@ -64,25 +64,19 @@ namespace UI.Widgets
             _textValueDisplay.text = newValue + " " + _gameStat.Abbreviation;
         }
 
-        public void Set(GameStat gameStat, IInteraction interaction)
+        public void Set(GameStat gameStat, InteractionCommand command)
         {
             Set(gameStat);
-            if (interaction != null)
+            if (command != null)
             {
-                PreviewCost(interaction.CostAP);
-                interaction.OnApCostChange += HandleUpdatePreviewCost;
-                interaction.OnComplete += HandleInteractionComplete;
+                PreviewCost(command.APCostProvider.Value);
+                command.APCostProvider.OnChanged += HandleUpdatePreviewCost;
             }
         }
 
-        private void HandleInteractionComplete()
+        private void HandleUpdatePreviewCost(int oldValue, int newValue)
         {
-            Clear();
-        }
-
-        private void HandleUpdatePreviewCost(int apCost)
-        {
-            PreviewCost(apCost);
+            PreviewCost(newValue);
         }
 
         public void Clear()

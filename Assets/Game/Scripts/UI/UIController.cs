@@ -1,8 +1,8 @@
 using System;
 using Context;
-using Data.Interactions;
 using Entity;
 using Interactions;
+using Interactions.Commands;
 using NiftyFramework.Core.Context;
 using NiftyFramework.Core.Utils;
 using TouchInput.UnitControl;
@@ -54,11 +54,15 @@ namespace UI
         [SerializeField] [NonNull] private RangeIndicatorView _rangeIndicatorView;
         [SerializeField] [NonNull] private UISelectedTargetView _selectedTargetView;
         
-        private InteractionState _previewInteraction;
         private FloorLocation _floorLocation;
         
         //TODO - make this generic.
         private PlayerInputHandler _player;
+        private GameStateContext _gameStateContext;
+        
+        protected InteractionCommand _previewCommand;
+        public InteractionCommand PreviewCommand => _previewCommand;
+
 
         public void Start()
         {
@@ -69,13 +73,13 @@ namespace UI
             _unitInputController.OnSelectUnit += HandleInputUnitSelect;
             _unitInputController.OnSelectGround += HandleInputSelectGround;
             _unitInputController.OnOverGround += HandleInputOverGround;
-            _selectedTargetView.OnPreviewInteraction += HandlePreviewInteraction;
+            _selectedTargetView.OnPreviewCommand += HandlePreviewCommand;
             ContextService.Get<GameStateContext>(HandleGameState);
         }
 
-        private void HandlePreviewInteraction(InteractionState interactionState)
+        private void HandlePreviewCommand(InteractionCommand command)
         {
-            SetPreview(interactionState);
+            _previewCommand = command;
         }
 
         private void HandleInputOverGround(MovementPlaneView movementPlane, RaycastHit raycastHit)
@@ -84,22 +88,23 @@ namespace UI
             {
                 _floorLocation = new FloorLocation(raycastHit.point);
             }
-            if (_previewInteraction != null)
+            
+            if (_previewCommand != null)
             {
-                
-                float rangeMax = _previewInteraction.GetMaxRange();
-                float rangeMin = _previewInteraction.GetMinRange();
-                Vector3 direction = _previewInteraction.TargetInfo.DirectionToTarget();
-                float distanceToTarget = _previewInteraction.TargetInfo.GetDistance();
+                Vector3 sourcePosition = _previewCommand.Targets.Source.GetInteractionPosition();
+                float rangeMax = _previewCommand.Range.Max;
+                float rangeMin = _previewCommand.Range.Min;
+                Vector3 direction = _previewCommand.Targets.DirectionToTarget();
+                float distanceToTarget = _previewCommand.Targets.GetDistance();
                 if (distanceToTarget > rangeMax)
                 {
                     Vector3 maxPossibleDistance = direction * rangeMax;
-                    _floorLocation.Set(_previewInteraction.TargetInfo.Source.GetInteractionPosition() + maxPossibleDistance);
+                    _floorLocation.Set(sourcePosition + maxPossibleDistance);
                 }
                 else if (distanceToTarget < rangeMin)
                 {
                     Vector3 minPossibleDistance = direction * rangeMax;
-                    _floorLocation.Set(_previewInteraction.TargetInfo.Source.GetInteractionPosition() + minPossibleDistance);
+                    _floorLocation.Set(sourcePosition + minPossibleDistance);
                 }
                 else
                 {
@@ -112,123 +117,72 @@ namespace UI
                 _floorLocation.Set(raycastHit.point);
             }
             
-            if (_previewInteraction != null)
+            if (_previewCommand != null)
             {
-                if (_previewInteraction.IsValidTarget(_floorLocation))
+                if (_previewCommand.IsValidTarget(_floorLocation))
                 {
-                    _previewInteraction.SetTarget(_floorLocation);
+                    _previewCommand.SetTarget(_floorLocation);
                 }
             }
         }
 
         private void HandleGameState(GameStateContext service)
         {
-            service.GetPlayer((player) =>
-            {
-                _player = player;
-                if (_previewInteraction == null)
-                {
-                    var defaultInteraction = _player.GetDefaultInteraction();
-                    SetInteraction(defaultInteraction, player);
-                }
-            });
-        }
-
-        public void SetInteraction(InteractionData interactionData, ITargetable source)
-        {
-            if (_selectedUnit != null && interactionData.IsValidTarget(_selectedUnit))
-            {
-                _previewInteraction = new InteractionState(interactionData, source, _selectedUnit);
-                return;
-            }
-            if (_floorLocation != null && interactionData.IsValidTarget(_floorLocation))
-            {
-                _previewInteraction = new InteractionState(interactionData, source, _floorLocation);
-                return;
-            }
-            _previewInteraction = new InteractionState(interactionData, source);
-        }
-
-        public void SetPreview(InteractionState interactionState)
-        {
-            if (interactionState != null)
-            {
-                Debug.Log($"SetPreview({interactionState.GetInteractionName()})");
-                _previewInteraction = interactionState;
-            }
-            else
-            {
-                Debug.Log($"SetPreview(null)");
-                PreviewDefaultAction();
-            }
+            _gameStateContext = service;
+            service.GetPlayer(player => _player = player);
         }
 
 
         private void HandleInputSelectGround(MovementPlaneView groundPlane, RaycastHit raycastHit)
         {
-            _floorLocation.Set(raycastHit.point);
-            if (_previewInteraction != null && _previewInteraction.IsValidTarget(_floorLocation))
+            if (_previewCommand != null)
             {
-                _previewInteraction.Run(HandleActionRun, HandleActionComplete, HandleActionFail);
-            }
-        }
-
-        private void HandleActionComplete()
-        {
-            if (_previewInteraction == null)
-            {
-                PreviewDefaultAction();
-            }
-        }
-
-        private void PreviewDefaultAction()
-        {
-            if (_player != null)
-            {
-                var defaultInteraction = _player.GetDefaultInteraction();
-                if (defaultInteraction != null)
+                if (_previewCommand.IsValidTarget(_floorLocation))
                 {
-                    SetInteraction(defaultInteraction, _player);
+                    _previewCommand.SetTarget(_floorLocation);
+                    _gameStateContext.RunCommand(_previewCommand);
+                    _rangeIndicatorView.Clear();
+                    _locationIndicatorView.Clear();
+                    _selectedTargetView.Clear();
+                    _previewCommand = null;
                 }
             }
         }
-
-        private void HandleActionFail(InteractionState arg1, string arg2)
-        {
-            Debug.LogError(arg2);
-        }
-
-        private void HandleActionRun(InteractionState interactionState)
-        {
-            _previewInteraction = null;
-            if (_rangeIndicatorView != null)
-            {
-                _rangeIndicatorView.Clear();
-            }
-            if (_locationIndicatorView != null)
-            {
-                _locationIndicatorView.Clear();
-            }
-        }
-
+        
         private void HandleInputUnitSelect(UnitInputHandler unit)
         {
             SetSelectedUnit(unit);
+        }
+        
+        public void SetPreview(InteractionCommand command)
+        {
+            _previewCommand = command;
+        }
+
+        public void RemovePreview(InteractionCommand command)
+        {
+            if (_previewCommand == command)
+            {
+                _previewCommand = null;
+            }
         }
 
         public void SetSelectedUnit(UnitInputHandler selectedInputHandler)
         {
             _selectedUnit = selectedInputHandler;
-            if (_selectedUnit == _player)
+            if (_selectedUnit is PlayerInputHandler playerInputHandler)
             {
-                SetInteraction(_player.GetDefaultInteraction(), _player);
+                if (_previewCommand == null)
+                {
+                    SetPreview(playerInputHandler.GetDefaultCommand());
+                }
             }
             else if (_selectedUnit is ITargetable<CharacterEntity> targetCharacter)
             {
                 _selectedTargetView.Set(targetCharacter);
-                if (_previewInteraction != null)
+                if (_previewCommand != null)
                 {
-                    _previewInteraction.SetTarget(targetCharacter);
+                    _previewCommand.SetTarget(targetCharacter);
                 }
             }
             else
@@ -236,35 +190,35 @@ namespace UI
                 _rangeIndicatorView.Clear();
                 _locationIndicatorView.Clear();
                 _selectedTargetView.Clear();
-                _previewInteraction = null;
+                _previewCommand = null;
             }
         }
 
         protected void Update()
         {
-            if (_previewInteraction != null)
+            if (_previewCommand != null)
             {
                 if (_player != null)
                 {
-                    _player.PreviewAPCost(_previewInteraction);
+                    _player.PreviewAPCost(_previewCommand);
                 }
-                _previewInteraction.Update();
-                TargetingInfo targetInfo = _previewInteraction.TargetInfo;
+                _previewCommand.Validate();
+                TargetingInfo targetInfo = _previewCommand.Targets;
                 if (targetInfo.Target != null)
                 {
                     Vector3 sourcePos = targetInfo.Source.GetInteractionPosition();
                     Vector3 targetPos = targetInfo.Target.GetInteractionPosition();
-                    if (_previewInteraction.ShowRangeCircle)
+                    if (_previewCommand.ShowRangeCircle)
                     {
                         if (!_rangeIndicatorView.gameObject.activeSelf)
                         {
                             _rangeIndicatorView.gameObject.SetActive(true);
                         }
-                        float maxRange = _previewInteraction.GetMaxRange();
-                        _rangeIndicatorView.ShowDistance(sourcePos, maxRange, _previewInteraction.ValidateRange);
+                        float maxRange = _previewCommand.Interaction.RangeMax;
+                        _rangeIndicatorView.ShowDistance(sourcePos, maxRange, _previewCommand.ValidateRange);
                     }
 
-                    if (_previewInteraction.ShowTargetLine)
+                    if (_previewCommand.ShowTargetLine)
                     {
                         if (!_locationIndicatorView.gameObject.activeSelf)
                         {
@@ -272,7 +226,7 @@ namespace UI
                         }
 
                         _locationIndicatorView.Set(sourcePos,
-                            targetPos, _previewInteraction.ValidateRange);
+                            targetPos, _previewCommand.ValidateRange);
                     }
                 }
             }

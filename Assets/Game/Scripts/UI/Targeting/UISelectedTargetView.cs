@@ -4,6 +4,7 @@ using Context;
 using Data.Interactions;
 using Entity;
 using Interactions;
+using Interactions.Commands;
 using NiftyFramework.Core.Context;
 using NiftyFramework.Core.Utils;
 using NiftyFramework.DataView;
@@ -18,18 +19,18 @@ namespace UI.Targeting
         [SerializeField][NonNull] private UIAssignedTraitsPanel _assignedTraitsPanel;
         private GameStateContext _gameStateContext;
         private PlayerInputHandler _player;
-        public event Action<InteractionState> OnPreviewInteraction;
+        public event Action<InteractionCommand> OnPreviewCommand;
 
         public void Start()
         {
             ContextService.Get<GameStateContext>(HandleGameStateContext);
-            _interactionList.OnPreviewInteraction += HandlePreviewInteraction;
+            _interactionList.OnPreviewCommand += HandlePreviewCommand;
             Clear();
         }
 
-        private void HandlePreviewInteraction(InteractionState interactionState)
+        private void HandlePreviewCommand(InteractionCommand command)
         {
-            OnPreviewInteraction?.Invoke(interactionState);
+            OnPreviewCommand?.Invoke(command);
         }
 
         private void HandleGameStateContext(GameStateContext gameStateContext)

@@ -18,6 +18,12 @@ namespace NiftyFramework.Scripts
             return new Range<int>(_min, _max);
         }
 
+        public IntRange(int min, int max)
+        {
+            _min = min;
+            _max = max;
+        }
+
         public int GetRandom(System.Random random)
         {
             return random.Next(_min, _max);

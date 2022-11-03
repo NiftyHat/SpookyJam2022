@@ -29,32 +29,42 @@ namespace Data.Monsters
             int highestScore = 0;
             foreach (var trait in traitData)
             {
+                
                 foreach (var item in References)
                 {
-                    if (item.PreferredTraits.Contains(trait))
+                    int newScore = 0;
+                    bool hasTrait = item.PreferredTraits.Contains(trait);
+                    if (hasTrait)
                     {
-                        int newScore = 0;
                         if (score.TryGetValue(item, out int currentScore))
                         {
-                            score.Add(item, 1);
                             newScore = currentScore + 1;
+                            score[item] = newScore;
                         }
                         else
                         {
                             score[item] = 1;
                             newScore = 1;
                         }
-
-                        if (newScore > highestScore)
+                    }
+                    else
+                    {
+                        if (!score.TryGetValue(item, out int currentScore))
                         {
-                            highestScore = newScore;
+                            score[item] = 0;
+                            newScore = 0;
                         }
+                    }
+                    if (newScore > highestScore)
+                    {
+                        highestScore = newScore;
                     }
                 }
             }
             var filterableList = score.ToList();
-            var allHighest = filterableList.Where(item => item.Value > highestScore).ToList();
-            return allHighest.RandomItem().Key;
+            var allHighest = filterableList.Where(item => item.Value >= highestScore);
+            var highestList = allHighest.ToList();
+            return highestList.RandomItem().Key;
         }
     }
 }

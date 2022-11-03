@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Context;
 using Interactions;
+using Interactions.Commands;
 using NiftyFramework.Core.Utils;
 using NiftyFramework.DataView;
 using UnityEngine;
@@ -17,7 +18,7 @@ namespace UI.Targeting
         private readonly List<UIInteractionButton> _views = new List<UIInteractionButton>();
         private GameStateContext _gameStateContext;
         
-        public event Action<InteractionState> OnPreviewInteraction;
+        public event Action<InteractionCommand> OnPreviewCommand;
 
         private void Start()
         {
@@ -55,9 +56,9 @@ namespace UI.Targeting
             }
         }
 
-        private void HandleButtonPreview(InteractionState interactionState)
+        private void HandleButtonPreview(InteractionCommand command)
         {
-            OnPreviewInteraction?.Invoke(interactionState);
+            OnPreviewCommand?.Invoke(command);
         }
     }
 }

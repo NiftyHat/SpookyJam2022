@@ -1,7 +1,6 @@
-using System;
-using System.Collections.Generic;
 using Data.Menu;
-using UI.Targeting;
+using Interactions.Commands;
+
 
 namespace Interactions
 {
@@ -10,14 +9,11 @@ namespace Interactions
         public int RangeMax { get; }
         public int RangeMin { get; }
         public int CostAP { get; }
-        
-        public event Action OnComplete;
-        public event Action<int> OnApCostChange;
-
         IMenuItem MenuItem { get; }
-        bool Validate(TargetingInfo targetingInfo, ref IList<IValidationFailure> invalidators);
-        bool Confirm(TargetingInfo targetingInfo);
+        bool isFloorTarget { get; }
         string GetDescription();
+        string GetFriendlyName();
         public bool IsValidTarget(ITargetable target);
+        public InteractionCommand GetCommand(TargetingInfo targetingInfo);
     }
 }
