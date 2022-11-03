@@ -120,7 +120,7 @@ public class MaskGuessCardWidget : MonoBehaviour
         Initialize(data);
     }
 
-    public void Initialize(MaskedGuestCardData data)
+    public void Initialize(MaskGuessCardData data)
     {
         this.data = data;
         maskPortrait.sprite = data.mask.MaskData.CardSprite;
