@@ -11,7 +11,7 @@ namespace GameStats
         public int Max => _max;
 
         public event Changed MaxChanged;
-        
+
         public GameStat(string friendlyName, string abbreviation, int max)
         {
             FriendlyName = friendlyName;

@@ -19,16 +19,16 @@ namespace UI.Targeting
     
         [SerializeField][NonNull] protected SpriteRenderer _outlineSprite;
         [SerializeField][NonNull] protected SpriteRenderer _fillSprite;
-        [SerializeField][NonNull] protected Transform _ringTranform;
+        [SerializeField][NonNull] protected Transform _ringTransform;
 
         protected float _defaultRingFillAlpha;
     
-        void Start()
+        protected void Start()
         {
             _defaultRingFillAlpha = _fillSprite.color.a;
         }
 
-        void SetColour(Color color)
+        protected void SetColour(Color color)
         {
             _outlineSprite.color = color;
             _fillSprite.color = new Color(color.r, color.g, color.b, _defaultRingFillAlpha);
@@ -61,18 +61,17 @@ namespace UI.Targeting
 
         public void SetScale(float distance)
         {
-           
-            _ringTranform.localScale = Vector3.one * distance * 0.1f;
+            _ringTransform.localScale = Vector3.one * distance * 0.1f * 2f;
         }
 
-        public void ShowDistance(Vector3 sourcePosition, Vector3 targetPosition, float range, Func<float, bool> validateRange)
+        public void ShowDistance(Vector3 sourcePosition, float range, Func<bool> validateRange)
         {
+            sourcePosition = new Vector3(sourcePosition.x, 0.2f, sourcePosition.z);
             transform.position = sourcePosition;
             SetScale(range);
             if (validateRange != null)
             {
-                float distance = Vector3.Distance(sourcePosition,targetPosition);
-                if (validateRange(distance))
+                if (validateRange())
                 {
                     SetColour(_inRangeColour);
                 }

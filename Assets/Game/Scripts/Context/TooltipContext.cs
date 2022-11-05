@@ -15,6 +15,7 @@ namespace Context
 
         public void Dispose()
         {
+            OnChange = null;
         }
 
         public void Set(ITooltip tip)
@@ -48,7 +49,6 @@ namespace Context
                 Debug.LogWarning($"{nameof(TooltipContext)} {nameof(Clear)}({nameof(deltaClear)}) {nameof(deltaClear)} cannot be null");
                 return;
             }
-
             if (deltaClear(_currentTip))
             {
                 Remove(_currentTip);

@@ -1,74 +1,91 @@
+using System;
+using System.Collections.Generic;
+using Commands;
+using Entity;
 using GameStats;
 using Interactions;
+using Interactions.Commands;
 using TouchInput.UnitControl;
+using UI.Targeting;
 using UnityEngine;
 
 namespace Data.Interactions
 {
     public class MoveInteractionData : InteractionData
     {
-        [SerializeField] private float apCostPerUnit = 1.0f;
-        
-        private UnitMovementHandler _movementHandler;
-        private GameStat _actionPoints;
-        private float _distance;
-
-        public override int ApCost
+        private class Command : InteractionCommand
         {
-            get
+            private readonly float _oneUnit = 0.1f;
+            private float _apCostForOneMovementUnit;
+            
+            private int _maxRangeFromAP;
+            private int _apCostFromDistance;
+            
+            private UnitMovementHandler _movementHandler;
+            private float _apRemainingDistance;
+            
+            private string _description;
+            public Command(IInteraction interaction, TargetingInfo targets, GameStat actionPoints) : base(interaction, targets, actionPoints)
             {
-                if (_source != null && _targetPosition != Vector3.zero)
+                _apCostForOneMovementUnit = interaction.CostAP / (interaction.RangeMax / _oneUnit);
+            }
+
+            public override string GetDescription()
+            {
+                return _interaction.GetDescription().Replace("{apCost}", APCostProvider.Value.ToString())
+                    .Replace("{distance}", _targets.GetDistance().ToString());
+            }
+
+            public override void Execute(Completed OnDone)
+            {
+                if (!Validate())
                 {
-                    return GetMoveAPCost(Vector3.Distance(_source.GetWorldPosition(), _targetPosition));
-                };
-                return _apCost;
+                    OnDone(this,false);
+                    return;
+                }
+                if (_targets.Source is UnitInputHandler unitInputHandler)
+                {
+                    var movementHandler = unitInputHandler.gameObject.GetComponent<UnitMovementHandler>();
+                    if (movementHandler != null)
+                    {
+                        movementHandler.MoveTo(_targets.Target.GetInteractionPosition(), endPosition => { OnDone(this, true);;});
+                    }
+                }
             }
-        }
-
-        public override void SetParent(ITargetable parent)
-        {
-            if (parent is UnitInputHandler unitInputHandler)
+            
+            public override bool Validate()
             {
-                _movementHandler = unitInputHandler.gameObject.GetComponent<UnitMovementHandler>();
+                float distance = _targets.GetDistance();
+                int ap = _actionPoints.Value;
+                _maxRangeFromAP = (int)(ap / _apCostForOneMovementUnit);
+                _apCostFromDistance = (int)(distance / _apCostForOneMovementUnit);
+                APCostProvider.Value = _apCostFromDistance;
+                if (distance > _maxRangeFromAP)
+                {
+                    return false;
+                }
+                return base.Validate();
             }
-            base.SetParent(parent);
+        }
+        
+        public override void Init()
+        {
+            //_movementUnitsPerAp = (_data.CostAP / _data.RangeMax) * _oneUnit;
         }
 
-        public override bool ConfirmInput(RaycastHit hitInfo)
+        public override InteractionCommand GetCommand(TargetingInfo targetingInfo)
         {
-            if (base.ConfirmInput(hitInfo))
+            if (targetingInfo.Source is PlayerInputHandler playerInputHandler)
             {
-                _parentStats.ActionPoints.Subtract(ApCost);
-                _movementHandler.MoveTo(hitInfo.point, HandleMoveComplete);
-                return true;
+                return new Command(this, targetingInfo, playerInputHandler.ActionPoints);
             }
-            return false;
+            return null;
         }
-
-        private void HandleMoveComplete(Vector3 location)
+        
+        public InteractionCommand GetCommand(PlayerInputHandler player)
         {
-            InternalComplete();
-        }
-
-        public override bool ValidateRange(float distance)
-        {
-            return CanAfford();
-        }
-
-        public override float GetMaxRange()
-        {
-            if (_parentStats != null)
-            {
-                return _parentStats.ActionPoints.Value * apCostPerUnit;
-            }
-
-            return 0;
-        }
-
-        public int GetMoveAPCost(float distance)
-        {
-            float moveCost = (_range / _apCost) * apCostPerUnit * distance;
-            return Mathf.FloorToInt(moveCost);
+            TargetingInfo targetingInfo = new TargetingInfo(player, null);
+            return new Command(this, targetingInfo, player.ActionPoints);
         }
     }
 }

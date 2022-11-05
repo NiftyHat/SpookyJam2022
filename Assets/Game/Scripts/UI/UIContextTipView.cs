@@ -28,7 +28,6 @@ namespace UI
             Set(tip);
         }
 
-
         public void Set(string copy, IIconViewData iconViewData)
         {
             if (copy != null)

@@ -13,8 +13,10 @@ namespace Generators
     public class MonsterGenerator : ScriptableObject
     {
         [SerializeField, Range(0,2)] private int _maxPreferredTraits;
-        [SerializeField] public MonsterEntityTypeDataSet _monsterEntityTypeDataSet;
-        [SerializeField] public TraitData _forcedTrait;
+        [SerializeField] private MonsterEntityTypeDataSet _monsterEntityTypeDataSet;
+        [SerializeField] private TraitData _forcedTrait;
+
+        public MonsterEntityTypeDataSet MonsterTypeDate => _monsterEntityTypeDataSet;
 
         public MonsterEntity Generate(System.Random random, GuestListGenerator.GuestItemPool itemPool, out MonsterEntityTypeData monsterEntityTypeData)
         {

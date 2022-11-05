@@ -1,6 +1,8 @@
+using System;
 using Data.Interactions;
 using Entity;
 using Interactions;
+using Interactions.Commands;
 using UI.ContextMenu;
 using UnityEngine;
 
@@ -10,18 +12,19 @@ namespace TouchInput.UnitControl
     {
         public delegate void SelectStateChanged(bool isSelected);
         public delegate bool ContextMenuRequested(out IContextMenuOptions contextMenuOptions);
-        public delegate IInteraction InteractionChanged(IInteraction newInteraction, IInteraction oldInteraction);
 
         private bool _isSelected;
         private bool _canInteract = true;
-        private InteractionData.TargetType _targetType;
-        protected IInteraction _activeInteraction;
-        
+        private TargetType _targetType;
+
         private CharacterEntity _entity;
 
         public event SelectStateChanged OnSelectChange;
         public event ContextMenuRequested OnContextMenuRequest;
-        public event InteractionChanged OnInteractionChange;
+
+        public event Action<Vector3> OnPositionUpdate;
+
+        public InteractionCommand _runningCommand;
 
         public void Start()
         {
@@ -40,29 +43,6 @@ namespace TouchInput.UnitControl
                 OnSelectChange?.Invoke(_isSelected);
             }
         }
-        public virtual bool SetInteraction(IInteraction interaction)
-        {
-            IInteraction oldInteraction = _activeInteraction;
-            interaction.SetParent(this);
-            _activeInteraction = interaction;
-            OnInteractionChange?.Invoke(interaction, oldInteraction);
-            return true;
-        }
-
-        public bool TryGetInteraction(out IInteraction interaction)
-        {
-            if (!_canInteract)
-            {
-                interaction = null;
-                return false;
-            }
-            interaction = _activeInteraction;
-            if (interaction != null)
-            {
-                return true;
-            }
-            return false;
-        }
 
         public bool TryGetContextMenu(out IContextMenuOptions contextMenuOptions)
         {
@@ -74,15 +54,26 @@ namespace TouchInput.UnitControl
             return false;
         }
 
-        public InteractionData.TargetType TargetType => _targetType;
-        public CharacterEntity GetTarget()
+        public TargetType TargetType => _targetType;
+        public CharacterEntity GetInstance()
         {
             return _entity;
         }
 
-        public Vector3 GetWorldPosition()
+        public Vector3 GetInteractionPosition()
         {
             return transform.position;
+        }
+
+        public GameObject GetGameObject()
+        {
+            return gameObject;
+        }
+        
+        public bool TryGetGameObject(out GameObject go)
+        {
+            go = GetGameObject();
+            return go != null;
         }
     }
 }

@@ -13,6 +13,19 @@ MonoBehaviour:
   m_Name: OutOfTime
   m_EditorClassIdentifier: 
   _description: You ran out of time and gave up
+--- !u!114 &-7597645516445229309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c8e7dd1515e674c873b2abe16e53e0, type: 3}
+  m_Name: Picked
+  m_EditorClassIdentifier: 
+  _description: You picked {entityName} and they where the {entityType}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,6 +41,7 @@ MonoBehaviour:
   _references:
   - {fileID: 6469808393797696858}
   - {fileID: -8187825875754293677}
+  - {fileID: -7597645516445229309}
 --- !u!114 &6469808393797696858
 MonoBehaviour:
   m_ObjectHideFlags: 0

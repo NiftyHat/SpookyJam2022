@@ -3,6 +3,8 @@ using System.Linq;
 using Context;
 using Data.Interactions;
 using Entity;
+using Interactions;
+using Interactions.Commands;
 using NiftyFramework.Core.Context;
 using NiftyFramework.Core.Utils;
 using NiftyFramework.DataView;
@@ -10,22 +12,31 @@ using UnityEngine;
 
 namespace UI.Targeting
 {
-    public class UISelectedTargetView : MonoBehaviour, IDataView<CharacterEntity>
+    public class UISelectedTargetView : MonoBehaviour, IDataView<ITargetable>
     {
         [SerializeField][NonNull] private UITargetPortraitPanel _targetPortrait;
         [SerializeField][NonNull] private UIInteractionListPanel _interactionList;
         [SerializeField][NonNull] private UIAssignedTraitsPanel _assignedTraitsPanel;
         private GameStateContext _gameStateContext;
+        private PlayerInputHandler _player;
+        public event Action<InteractionCommand> OnPreviewCommand;
 
         public void Start()
         {
             ContextService.Get<GameStateContext>(HandleGameStateContext);
+            _interactionList.OnPreviewCommand += HandlePreviewCommand;
             Clear();
+        }
+
+        private void HandlePreviewCommand(InteractionCommand command)
+        {
+            OnPreviewCommand?.Invoke(command);
         }
 
         private void HandleGameStateContext(GameStateContext gameStateContext)
         {
             _gameStateContext = gameStateContext;
+            _gameStateContext.GetPlayer(player => _player = player);
         }
 
         public void Clear()
@@ -35,35 +46,39 @@ namespace UI.Targeting
             _assignedTraitsPanel.Clear();
         }
 
-        public void Set(CharacterEntity entity)
+        public void Set(ITargetable target)
         {
-            if (entity == null)
-            {
-                Clear();
-                return;
-            }
-            _targetPortrait.Set(entity);
-            if (entity.Traits != null)
-            {
-                _assignedTraitsPanel.Set(entity.Traits.ToList());
-            }
-            else
-            {
-                _assignedTraitsPanel.Clear();
-            }
-
+            _interactionList.Clear();
             if (_gameStateContext != null)
             {
+                var targetingInfo = new TargetingInfo(_player, target);
                 bool FilterInteractions(InteractionData interaction)
                 {
-                    if (interaction.IsTargetType(InteractionData.TargetType.Other))
+                    if (interaction.IsValidTarget(targetingInfo))
                     {
                         return true;
                     }
                     return false;
                 }
                 var interactions = _gameStateContext.GetInteractions(FilterInteractions);
-                _interactionList.Set(interactions);
+                _interactionList.Set(interactions, targetingInfo);
+            }
+            if (target is ITargetable<CharacterEntity> selectableCharacter)
+            {
+                var instance = selectableCharacter.GetInstance();
+                if (instance == null)
+                {
+                    return;
+                }
+                _targetPortrait.Set(instance);
+                if (instance.Traits != null)
+                {
+                    _assignedTraitsPanel.Set(instance.Traits.ToList());
+                }
+                else
+                {
+                    _assignedTraitsPanel.Clear();
+                }
             }
         }
     }

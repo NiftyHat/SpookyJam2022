@@ -21,7 +21,7 @@ namespace UI.Widgets
 
         private void HandlePlayer(PlayerInputHandler player)
         {
-            _segmentedBar.Set(player.Stats.Scandal);
+            //_segmentedBar.Set(player.Stats.Scandal);
         }
     }
 }

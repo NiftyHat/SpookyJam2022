@@ -19,6 +19,7 @@ namespace TouchInput.UnitControl
         private Vector3 _lastVelocity;
 
         public event Action<Vector3> OnMoveComplete;
+        public event Action<Vector3> OnMoveUpdate;
 
         public void Update()
         {
@@ -32,9 +33,10 @@ namespace TouchInput.UnitControl
                 else
                 {
                     transform.position = _moveLocation.Value;
-                    
                     EndMovement();
                 }
+
+                OnMoveUpdate?.Invoke(transform.position);
             }
         }
 

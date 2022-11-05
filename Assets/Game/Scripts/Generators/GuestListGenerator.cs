@@ -55,6 +55,7 @@ namespace Generators
         [SerializeField] protected CharacterViewDataSet _viewDataSet;
 
         public CharacterEntitySet EntitySet => _characterEntitySet;
+        public MonsterEntityTypeDataSet MonsterTypeSet => _monsterGenerator?.MonsterTypeDate;
         
         public List<CharacterEntity> Generate(int personCount, int monsterCount = 1, int killerCount = 1, Int32 seed = 0)
         {

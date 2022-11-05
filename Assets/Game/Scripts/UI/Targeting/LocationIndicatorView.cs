@@ -1,15 +1,17 @@
 using System;
 using NiftyFramework.Core.Utils;
+using NiftyFramework.UI;
 using UnityEngine;
 
 namespace UI.Targeting
 {
-    public class LocationIndicatorView : MonoBehaviour
+    public class LocationIndicatorView : MonoBehaviour, IView<Vector3, Vector3, Func<bool>>
     {
         [SerializeField][NonNull] private DistanceLineView _distanceLineView;
 
-        public void ShowDistance(Vector3 start, Vector3 end, Func<float, bool> validateRange)
+        public void Set(Vector3 start, Vector3 end, Func<bool> validateRange)
         {
+            gameObject.SetActive(true);
             transform.position = end;
             _distanceLineView.transform.localPosition = Vector3.zero;
             if (_distanceLineView != null)
@@ -19,8 +21,7 @@ namespace UI.Targeting
 
             if (validateRange != null)
             {
-                float distance = Vector3.Distance(start,end);
-                if (validateRange(distance))
+                if (validateRange())
                 {
                     _distanceLineView.SetColor(Color.white);
                 }
@@ -29,6 +30,11 @@ namespace UI.Targeting
                     _distanceLineView.SetColor(Color.red);
                 }
             }
+        }
+
+        public void Clear()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

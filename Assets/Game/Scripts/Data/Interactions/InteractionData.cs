@@ -1,13 +1,20 @@
 using System;
 using Data.Menu;
-using Entity;
-using GameStats;
 using Interactions;
-using UI.Targeting;
+using Interactions.Commands;
+using NiftyFramework.Scripts;
 using UnityEngine;
 
 namespace Data.Interactions
 {
+    public enum TargetType
+    {
+        None,
+        Self,
+        Other,
+        Floor,
+    }
+    
     public abstract class InteractionData : ScriptableObject, IInteraction, ISerializationCallbackReceiver
     {
         [Serializable]
@@ -20,199 +27,74 @@ namespace Data.Interactions
             public string FriendlyName => _friendlyName;
             public Sprite Icon => _icon;
             
-            private string _cachedDescription;
-
-            public string Description => _cachedDescription;
-
-            public void UpdateDescription(IInteraction interactionData)
-            {
-                _cachedDescription = _description.
-                    Replace("{apCost}", interactionData.ApCost.ToString()).
-                    Replace("{range}", interactionData.Range.ToString());
-            }
-        }
-        
-        public enum TargetType
-        {
-            None,
-            Self,
-            Other,
-            Floor,
-        }
-        
-        public enum State
-        {
-            None,
-            Selected,
-            Running,
-            Complete
+            public string Description => _description;
+            
         }
 
-        public IMenuItem MenuItem => _menuItemData;
-        
-        [SerializeField] protected int _range;
-        [SerializeField] protected int _apCost;
-        [SerializeField] protected int _radius;
-        [SerializeField] protected TargetType _targetType;
+        [SerializeField] private IntRange _range = new IntRange(1, 5);
+        [SerializeField] private int _costAP = 10;
+        [SerializeField] private int _radius = 0;
+        [SerializeField] private int _minTargets = 0;
+        [SerializeField] private TargetType _targetType;
         [SerializeField] public MenuItemData _menuItemData;
-        protected ITargetable _source;
-        protected ITargetable _target;
-        protected Vector3 _targetPosition;
+            
+        public int RangeMin => _range.Min;
+        public int RangeMax => _range.Max;
 
-        protected State _state = State.None;
+        public float Radius => _radius;
 
-        public int Range => _range;
-        public virtual int ApCost => _apCost;
+        public int MinTargets => _minTargets;
 
-        public ITargetable Source => _source;
-        public ITargetable Target => _target;
+        public TargetType TargetType => _targetType;
+            
+        public IMenuItem MenuItem => _menuItemData;
 
-        public Vector3? TargetPosition => _targetPosition;
+        public bool isFloorTarget => _targetType == TargetType.Floor;
+
+        public bool isSelfTarget => _targetType == TargetType.Self;
+
+        public int CostAP => _costAP;
         
-        public event Action OnComplete;
-        public event Action<int> OnApCostChange;
+        public string FriendlyName => MenuItem != null ? MenuItem.FriendlyName : GetType().Name;
 
-        protected IStatBlock _parentStats;
+        private bool _isFloorTarget;
+        private bool _isSelfTarget;
 
-        public virtual void SetParent(ITargetable parent)
-        {
-            _state = State.Selected;
-            _source = parent;
-            if (parent is PlayerInputHandler playerInputHandler)
-            {
-                _parentStats = playerInputHandler.Stats;
-            }
-        }
-
-        public bool IsState(State testState)
-        {
-            return _state == testState;
-        }
+        public abstract void Init();
         
-        public virtual bool PreviewInput(RaycastHit hitInfo)
+        public virtual string GetDescription()
         {
-            if (_state != State.Selected)
-            {
-                return false;
-            }
-            if (ApCost != _apCost)
-            {
-                OnApCostChange?.Invoke(ApCost);
-            }
-            if (_targetType == TargetType.Floor)
-            {
-                if (hitInfo.transform.gameObject.TryGetComponent<MovementPlaneView>(out _))
-                {
-                    //TODO - fix this to still clamp the pointer at the max valid range.
-                    _targetPosition = hitInfo.point;
-                    return true;
-                }
-            }
-            if (_targetType == TargetType.Other)
-            {
-                if (hitInfo.transform.gameObject.TryGetComponent<CharacterView>(out var character))
-                {
-                    if (character != (CharacterView)_source)
-                    {
-                        _target = character;
-                        return true;
-                    }
-                }
-            }
-            if (_targetType == TargetType.Self)
-            {
-                return _source != null;
-            }
-            return false;
+            return MenuItem.Description.
+                Replace("{abilityName}", GetFriendlyName()).
+                Replace("{radius}", _radius.ToString());
         }
 
-        public bool TryGetTargetEntity<TEntity>(out TEntity entity)
+        public string GetFriendlyName()
         {
-            if (_target is IEntityView<TEntity> entityView && entityView.Entity != null)
+            if (MenuItem != null)
             {
-                entity = entityView.Entity;
-                return true;
+                return MenuItem.FriendlyName;
             }
-            entity = default;
-            return false;
+            return "Interaction";
         }
 
-        public bool CanAfford()
+        public bool IsValidTarget(TargetingInfo targets)
         {
-            if (_parentStats != null)
-            {
-                return _parentStats.ActionPoints.Value >= ApCost;
-            }
-            return false;
-        }
-        
-        public virtual bool ConfirmInput(RaycastHit hitInfo)
-        {
-            if (!CanAfford())
-            {
-                return false;
-            }
-            switch (_targetType)
+            switch (this.TargetType)
             {
                 case TargetType.Floor:
-                    if (hitInfo.transform.gameObject.TryGetComponent<MovementPlaneView>(out _))
-                    {
-                        _state = State.Running;
-                        _targetPosition = hitInfo.point;
-                        return true;
-                    }
-                    break;
+                    return targets.Target != null;
                 case TargetType.Other:
-                    if (hitInfo.transform.gameObject.TryGetComponent<CharacterView>(out var character))
-                    {
-                        if (character != (CharacterView)_source)
-                        {
-                            _state = State.Running;
-                            _target = character;
-                            return true;
-                        }
-                    }
-                    break;
+                    return targets.Target != targets.Source;
                 case TargetType.Self:
-                    if (Source != null)
-                    {
-                        _state = State.Running;
-                        _target = Source;
-                        return true;
-                    }
-                    break;
-            }
-            return false;
-        }
-
-        public virtual bool ValidateRange(float distance)
-        {
-            return distance < _range;
-        }
-
-        public abstract float GetMaxRange();
-
-        public bool CanTarget(ITargetable target, ITargetable self)
-        {
-            switch (_targetType)
-            {
-                case TargetType.Floor:
-                    return target == null;
-                case TargetType.Other:
-                    return target != null && target != self;
-                case TargetType.Self:
-                    return target != null && target == self;
+                    return targets.Target == targets.Source;
                 case TargetType.None:
-                    throw new Exception("InteractionData - TargetType.None is invalid target type");
+                    return targets.Source == null && targets.Target == null;
             }
             return false;
         }
 
-        protected void InternalComplete()
-        {
-            _state = State.Complete;
-            OnComplete?.Invoke();
-        }
+        public abstract InteractionCommand GetCommand(TargetingInfo targetingInfo);
 
         public void OnBeforeSerialize()
         {
@@ -221,12 +103,7 @@ namespace Data.Interactions
 
         public void OnAfterDeserialize()
         {
-            _menuItemData.UpdateDescription(this);
-        }
-
-        public bool IsTargetType(TargetType type)
-        {
-            return _targetType == type;
+            Init();
         }
     }
 }
