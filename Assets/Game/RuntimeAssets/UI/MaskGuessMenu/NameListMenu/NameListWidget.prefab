@@ -260,9 +260,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b337925418e3d642b8a3626b95af2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameEntryPrefab: {fileID: 8910791951825079813, guid: eea58abc5b406624a8dba59ebfb07d74,
+  GuestsData: {fileID: 11400000, guid: 0e4d9375ef4af3f498dd33c0e80ffa5a, type: 2}
+  _nameEntryPrefab: {fileID: 8910791951825079813, guid: eea58abc5b406624a8dba59ebfb07d74,
     type: 3}
-  nameEntryContainer: {fileID: 6762152149316881292}
+  _nameEntryContainer: {fileID: 6762152149316881292}
 --- !u!1 &4301233469051141205
 GameObject:
   m_ObjectHideFlags: 0

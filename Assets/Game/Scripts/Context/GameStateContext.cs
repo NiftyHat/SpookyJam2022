@@ -153,7 +153,7 @@ namespace Context
             }
             return null;
         }
-        
+
         public void RunCommand(InteractionCommand command)
         {
             if (command.Targets.Source is PlayerInputHandler playerInputHandler)
@@ -163,5 +163,6 @@ namespace Context
             _commandRunner.Add(command);
             _commandRunner.Process();
         }
+        
     }
 }

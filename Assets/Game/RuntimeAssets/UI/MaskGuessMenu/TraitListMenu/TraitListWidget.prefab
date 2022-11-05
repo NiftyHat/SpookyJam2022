@@ -185,12 +185,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03fa7205918627b4c827855711a5fc88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  container: {fileID: 4118527222600609133}
-  entryPrefab: {fileID: 4972887047772909697, guid: 1d1cabc06950f2b46a01ff801906faf7,
+  _container: {fileID: 4118527222600609133}
+  _entryPrefab: {fileID: 4972887047772909697, guid: 1d1cabc06950f2b46a01ff801906faf7,
     type: 3}
-  traitData: {fileID: 11400000, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
-  noneToggle: {fileID: 6193501430832850383}
-  buttons: []
+  _traitData: {fileID: 11400000, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
+  _noneToggle: {fileID: 6193501430832850383}
+  _buttons: []
 --- !u!1 &6606994243863729622
 GameObject:
   m_ObjectHideFlags: 0
