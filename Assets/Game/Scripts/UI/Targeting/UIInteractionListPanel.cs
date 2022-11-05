@@ -5,6 +5,7 @@ using Interactions;
 using Interactions.Commands;
 using NiftyFramework.Core.Utils;
 using NiftyFramework.DataView;
+using NiftyFramework.UnityUtils;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityUtils;
@@ -34,7 +35,11 @@ namespace UI.Targeting
                 foreach (var buttonView in _views)
                 {
                     buttonView.OnPreviewChange -= HandleButtonPreview;
-                    _viewPool.TryReturn(buttonView);
+                    if (buttonView.gameObject != null)
+                    {
+                        _viewPool.TryReturn(buttonView);
+                    }
+                   
                 }
             }
         }

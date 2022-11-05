@@ -1,6 +1,5 @@
 using System;
 using Data.Menu;
-using GameStats;
 using Interactions;
 using Interactions.Commands;
 using NiftyFramework.Scripts;
@@ -42,7 +41,7 @@ namespace Data.Interactions
         public int RangeMin => _range.Min;
         public int RangeMax => _range.Max;
 
-        public int Radius => _radius;
+        public float Radius => _radius;
 
         public int MinTargets => _minTargets;
 
@@ -52,18 +51,22 @@ namespace Data.Interactions
 
         public bool isFloorTarget => _targetType == TargetType.Floor;
 
+        public bool isSelfTarget => _targetType == TargetType.Self;
+
         public int CostAP => _costAP;
         
         public string FriendlyName => MenuItem != null ? MenuItem.FriendlyName : GetType().Name;
-        protected GameStat _actionPoints;
-        
+
         private bool _isFloorTarget;
+        private bool _isSelfTarget;
 
         public abstract void Init();
         
         public virtual string GetDescription()
         {
-            return MenuItem.Description;
+            return MenuItem.Description.
+                Replace("{abilityName}", GetFriendlyName()).
+                Replace("{radius}", _radius.ToString());
         }
 
         public string GetFriendlyName()
@@ -75,17 +78,18 @@ namespace Data.Interactions
             return "Interaction";
         }
 
-        public bool IsValidTarget(ITargetable target)
+        public bool IsValidTarget(TargetingInfo targets)
         {
             switch (this.TargetType)
             {
                 case TargetType.Floor:
-                    return target != null;
+                    return targets.Target != null;
                 case TargetType.Other:
+                    return targets.Target != targets.Source;
                 case TargetType.Self:
-                    return target.GetGameObject() != null;
+                    return targets.Target == targets.Source;
                 case TargetType.None:
-                    return target == null;
+                    return targets.Source == null && targets.Target == null;
             }
             return false;
         }

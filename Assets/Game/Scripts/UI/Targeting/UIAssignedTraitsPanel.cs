@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Data.Trait;
 using NiftyFramework.Core.Utils;
 using NiftyFramework.UI;
+using NiftyFramework.UnityUtils;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityUtils;

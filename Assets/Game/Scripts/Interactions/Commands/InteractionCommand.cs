@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using Commands;
 using Entity;
 using GameStats;
 using NiftyFramework.Core;
+using TouchInput.UnitControl;
 using UI;
 
 namespace Interactions.Commands
@@ -25,7 +27,8 @@ namespace Interactions.Commands
         public IInteraction Interaction => _interaction;
         public TargetingInfo Targets => _targets;
 
-        public bool ShowRangeCircle => true;
+        public bool ShowRangeCircle => _interaction.RangeMax > 0;
+        public bool ShowRadiusCircle => _interaction.Radius > 0;
         public bool ShowTargetLine => _interaction != null && _interaction.isFloorTarget;
 
         protected float _distance = 0;
@@ -63,17 +66,20 @@ namespace Interactions.Commands
             {
                 return false;
             }
-            if (!_interaction.IsValidTarget(_targets.Target))
+            if (!_interaction.IsValidTarget(_targets))
             {
                 return false;
             }
-            if (distance < _interaction.RangeMin)
+            if (_interaction.Radius <= 0)
             {
-                return false;
-            }
-            if (distance > _interaction.RangeMax)
-            {
-                return false;
+                if (distance < _interaction.RangeMin)
+                {
+                    return false;
+                }
+                if (distance > _interaction.RangeMax)
+                {
+                    return false;
+                }
             }
             return true;
         }
@@ -82,6 +88,13 @@ namespace Interactions.Commands
         {
             _distance = _targets.GetDistance();
             return _distance < _interaction.RangeMax && _distance > _interaction.RangeMin;
+        }
+
+        public int ValidateRadiusTargets()
+        {
+            TargetingInfo.GetTargetsInRange(_targets.Target, _interaction.Radius, out var targets);
+            targets.Remove(Targets.Target as UnitInputHandler);
+            return targets.Count;
         }
 
         public void Update()
@@ -97,11 +110,11 @@ namespace Interactions.Commands
             throw new NotImplementedException();
         }
 
-        public virtual void Execute(Completed OnDone)
+        public virtual void Execute(Completed onDone)
         {
             if (!Validate())
             {
-                OnDone(this, false);
+                onDone(this, false);
             }
         }
 
@@ -112,7 +125,8 @@ namespace Interactions.Commands
 
         public bool IsValidTarget(UIController.FloorLocation floorLocation)
         {
-            return _interaction.IsValidTarget(floorLocation);
+            var targetInfo = new TargetingInfo(_targets.Source, floorLocation);
+            return _interaction.IsValidTarget(targetInfo);
         }
     }
 }

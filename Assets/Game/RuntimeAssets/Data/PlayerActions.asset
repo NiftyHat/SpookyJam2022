@@ -17,11 +17,12 @@ MonoBehaviour:
     _max: 8
   _costAP: 10
   _radius: 0
+  _minTargets: 0
   _targetType: 2
   _menuItemData:
     _friendlyName: Flirt
     _icon: {fileID: 21300000, guid: c06228c0350d2b943a80d67f4f3c2df6, type: 3}
-    _description: '{abilityName} with {targetEntity} - Hit on {traitList}'
+    _description: '{abilityName} with {targetName} - Hit on {traitList}'
   _reactionTrigger:
     _triggerList:
     - _trait: {fileID: 7801872093390142965, guid: 26f61f036fbd8a843af3f89912a03468,
@@ -64,6 +65,7 @@ MonoBehaviour:
     _max: 0
   _costAP: 0
   _radius: 0
+  _minTargets: 0
   _targetType: 0
   _menuItemData:
     _friendlyName: 
@@ -86,6 +88,7 @@ MonoBehaviour:
     _max: 50
   _costAP: 100
   _radius: 0
+  _minTargets: 0
   _targetType: 3
   _menuItemData:
     _friendlyName: Walk
@@ -108,11 +111,12 @@ MonoBehaviour:
     _max: 8
   _costAP: 10
   _radius: 0
+  _minTargets: 0
   _targetType: 2
   _menuItemData:
     _friendlyName: Conspire
     _icon: {fileID: 21300000, guid: 2a45049b67e4a9149bf9021cefd76c33, type: 3}
-    _description: '{abilityName} with {targetEntity} - Hit on {traitList}'
+    _description: '{abilityName} with {targetName} - Hit on {traitList}'
   _reactionTrigger:
     _triggerList:
     - _trait: {fileID: -1646269247474937957, guid: 26f61f036fbd8a843af3f89912a03468,
@@ -155,11 +159,38 @@ MonoBehaviour:
     _max: 0
   _costAP: 0
   _radius: 0
+  _minTargets: 0
   _targetType: 0
   _menuItemData:
     _friendlyName: 
     _icon: {fileID: 0}
     _description: 
+--- !u!114 &-188742047455454632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e1a6de6f814c7aa7314115ae6bfcf5, type: 3}
+  m_Name: BragTriggerAbilitiy
+  m_EditorClassIdentifier: 
+  _range:
+    _min: 0
+    _max: 0
+  _costAP: 60
+  _radius: 15
+  _minTargets: 0
+  _targetType: 1
+  _menuItemData:
+    _friendlyName: Brag
+    _icon: {fileID: 21300000, guid: d7b3301f321f2bd46a9143c0b0921261, type: 3}
+    _description: 
+  _reactionTrigger:
+    _triggerList: []
+    _failList: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +212,7 @@ MonoBehaviour:
   - {fileID: -1671792078212301720}
   - {fileID: -7946234956790623502}
   - {fileID: 8888680982059933768}
+  - {fileID: -188742047455454632}
 --- !u!114 &4003674306322824952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +230,7 @@ MonoBehaviour:
     _max: 0
   _costAP: 0
   _radius: 0
+  _minTargets: 0
   _targetType: 0
   _menuItemData:
     _friendlyName: 
@@ -220,6 +253,7 @@ MonoBehaviour:
     _max: 10
   _costAP: 20
   _radius: 0
+  _minTargets: 0
   _targetType: 2
   _menuItemData:
     _friendlyName: Confess
@@ -237,18 +271,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97e1a6de6f814c7aa7314115ae6bfcf5, type: 3}
-  m_Name: AbilityReactionTriggerData
+  m_Name: MingleAbilityData
   m_EditorClassIdentifier: 
   _range:
     _min: 0
     _max: 0
-  _costAP: 0
-  _radius: 0
-  _targetType: 0
+  _costAP: 50
+  _radius: 12
+  _minTargets: 0
+  _targetType: 1
   _menuItemData:
-    _friendlyName: 
-    _icon: {fileID: 0}
-    _description: 
+    _friendlyName: Mingle
+    _icon: {fileID: 21300000, guid: e64e38e0d6ed892478f31144d309a66f, type: 3}
+    _description: '{abilityName} with everyone within {radius}. Hit on {traitList}'
   _reactionTrigger:
-    _triggerList: []
-    _failList: []
+    _triggerList:
+    - _trait: {fileID: -8261361936468618248, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 277367436992013977, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: 5929050957276257929, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 1943571472787848707, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: 845699232844125756, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 8380605986334348715, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: -398209533686741646, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: -6433956699517619100, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: 8104443354933046619, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 277367436992013977, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    _failList:
+    - {fileID: -6149206598976904165, guid: e32084423b1cd6646889c10d75f87b73, type: 2}
+    - {fileID: -3605238400349697620, guid: e32084423b1cd6646889c10d75f87b73, type: 2}

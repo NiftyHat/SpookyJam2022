@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Commands;
 using Data.Reactions;
@@ -21,19 +22,27 @@ namespace Data.Interactions
 
             public override string GetDescription()
             {
-                return _interaction.GetDescription();
+                if (_interaction != null)
+                {
+                    if (_targets.TryGetTargetEntity(out CharacterEntity entity) && entity != null)
+                    {
+                        return _interaction.GetDescription().Replace("{targetName}", entity.Mask.FriendlyName);
+                    }
+                    return _interaction.GetDescription().Replace("{targetName}", "Target");
+                }
+
+                return null;
             }
 
-            public override void Execute(Completed OnDone)
+            private void TriggerReaction(CharacterEntity entity, Completed onDone)
             {
-                base.Execute(OnDone);
-                if (_targets.TryGetTargetEntity(out CharacterEntity entity))
+                if (entity == null || entity.Traits != null)
                 {
                     var triggerReactions = ReactionTriggerSet.TryGetReaction(entity.Traits);
                     if (triggerReactions != null && triggerReactions.Count > 0)
                     {
                         entity.DisplayReaction(triggerReactions.First());
-                        OnDone(this);
+                        onDone?.Invoke(this);
                     }
                     else
                     {
@@ -41,9 +50,31 @@ namespace Data.Interactions
                         if (failReact != null)
                         {
                             entity.DisplayReaction(failReact);
-                            OnDone(this);
+                            onDone?.Invoke(this);
                         }
                     }
+                }
+                else
+                {
+                    onDone?.Invoke(this, false);
+                }
+            }
+
+            public override void Execute(Completed onDone)
+            {
+                base.Execute(onDone);
+                if (_interaction.Radius > 0)
+                {
+                    _targets.TryGetEntitiesInRange(out HashSet<CharacterEntity> entityList, _interaction.Radius);
+                    foreach (var character in entityList)
+                    {
+                        TriggerReaction(character, null);
+                    }
+                    onDone(this);
+                }
+                else if (_targets.TryGetTargetEntity(out CharacterEntity entity))
+                {
+                    TriggerReaction(entity, onDone);
                 }
             }
         }
@@ -63,7 +94,11 @@ namespace Data.Interactions
 
         public override InteractionCommand GetCommand(TargetingInfo targetingInfo)
         {
-            return new Command(this, targetingInfo, _actionPoints, _reactionTrigger);
+            if (targetingInfo.Source is PlayerInputHandler playerInputHandler)
+            {
+                return new Command(this, targetingInfo, playerInputHandler.ActionPoints, _reactionTrigger);
+            }
+            return null;
         }
 
         public override void Init()

@@ -1,4 +1,5 @@
 using NiftyFramework.Core.Commands;
+using NiftyFramework;
 
 namespace Commands
 {

@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using GameStats;
 using NiftyFramework.Core.Utils;
 using NiftyFramework.UI;
+using NiftyFramework.UnityUtils;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityUtils;
 
 namespace UI.Widgets
 {

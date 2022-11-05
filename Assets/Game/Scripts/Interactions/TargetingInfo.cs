@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Entity;
+using TouchInput.UnitControl;
 using UnityEngine;
 
 namespace Interactions
@@ -29,12 +31,58 @@ namespace Interactions
                 if (_target.TryGetGameObject(out var go))
                 {
                     var entityViewComponent = go.GetComponent<IEntityView<TEntity>>();
-                    entity = entityViewComponent.Entity;
-                    return true;
+                    if (entityViewComponent != null)
+                    {
+                        entity = entityViewComponent.Entity;
+                        return true;
+                    }
                 }
             }
             entity = default;
             return false;
+        }
+        
+        public bool TryGetEntitiesInRange<TEntity>(out HashSet<TEntity> targetEntities, float range)
+        {
+            GetTargetsInRange(range, out var targets);
+            targetEntities = new HashSet<TEntity>();
+            foreach (var target in targets)
+            {
+                /*
+                if (target is IEntityView<TEntity> entityView)
+                {
+                    if (entityView.Entity != null)
+                    {
+                        targetEntities.Add(entityView.Entity);
+                    }
+                   
+                    return true;
+                }*/
+                if (target.TryGetGameObject(out var go))
+                {
+                    var entityViewComponent = go.GetComponent<IEntityView<TEntity>>();
+                    if (entityViewComponent != null)
+                    {
+                        if (entityViewComponent.Entity != null)
+                        {
+                            targetEntities.Add(entityViewComponent.Entity);
+                        }
+                    }
+                }
+            }
+            return targetEntities.Count > 0;
+        }
+
+        //TODO - this needs to hit all targets and not just UnitInputHandler
+        public static bool GetTargetsInRange(ITargetable target, float radius, out List<UnitInputHandler> targets)
+        {
+            Vector3 targetPosition = target.GetInteractionPosition();
+            return UnitInputController.GetTargetsInRadius(targetPosition, radius, out targets);
+        }
+        
+        public bool GetTargetsInRange(float radius, out List<UnitInputHandler> targets)
+        {
+            return GetTargetsInRange(_target, radius, out targets);
         }
 
         public float GetDistance()

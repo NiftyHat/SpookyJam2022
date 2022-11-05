@@ -48,12 +48,26 @@ namespace UI.Targeting
 
         public void Set(ITargetable target)
         {
+            _interactionList.Clear();
+            if (_gameStateContext != null)
+            {
+                var targetingInfo = new TargetingInfo(_player, target);
+                bool FilterInteractions(InteractionData interaction)
+                {
+                    if (interaction.IsValidTarget(targetingInfo))
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+                var interactions = _gameStateContext.GetInteractions(FilterInteractions);
+                _interactionList.Set(interactions, targetingInfo);
+            }
             if (target is ITargetable<CharacterEntity> selectableCharacter)
             {
                 var instance = selectableCharacter.GetInstance();
                 if (instance == null)
                 {
-                    Clear();
                     return;
                 }
                 _targetPortrait.Set(instance);
@@ -65,20 +79,6 @@ namespace UI.Targeting
                 {
                     _assignedTraitsPanel.Clear();
                 }
-            }
-            if (_gameStateContext != null)
-            {
-                bool FilterInteractions(InteractionData interaction)
-                {
-                    if (interaction.IsValidTarget(target))
-                    {
-                        return true;
-                    }
-                    return false;
-                }
-                var interactions = _gameStateContext.GetInteractions(FilterInteractions);
-                var targetingInfo = new TargetingInfo(_player, target);
-                _interactionList.Set(interactions, targetingInfo);
             }
         }
     }

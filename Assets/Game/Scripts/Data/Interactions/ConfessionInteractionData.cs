@@ -23,9 +23,12 @@ namespace Data.Interactions
 
             public override string GetDescription()
             {
-                return _interaction.GetDescription();
+                if (_targets.TryGetTargetEntity(out CharacterEntity entity))
+                {
+                    return _interaction.GetDescription().Replace("{targetName}", entity.Mask.FriendlyName);
+                }
+                return _interaction.GetDescription().Replace("{targetName}", "Target");
             }
-
             public override void Execute(Completed OnDone)
             {
                 base.Execute(OnDone);
@@ -48,7 +51,11 @@ namespace Data.Interactions
 
         public override InteractionCommand GetCommand(TargetingInfo targetingInfo)
         {
-            return new Command(this, targetingInfo, _actionPoints, _gameOverReason);
+            if (targetingInfo.Source is PlayerInputHandler playerInputHandler)
+            {
+                return new Command(this, targetingInfo, playerInputHandler.ActionPoints, _gameOverReason);
+            }
+            return null;
         }
     }
 }

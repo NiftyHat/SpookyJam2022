@@ -1,5 +1,4 @@
 using System;
-using GameStats;
 using UnityEngine;
 
 namespace Interactions

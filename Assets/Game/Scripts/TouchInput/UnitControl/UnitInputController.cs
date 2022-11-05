@@ -51,7 +51,7 @@ namespace TouchInput.UnitControl
             //throw new System.NotImplementedException();
         }
         
-        private TComponent GetComponentOnCollider<TComponent>(Collider collider) where TComponent : MonoBehaviour
+        private static TComponent GetComponentOnCollider<TComponent>(Collider collider) where TComponent : MonoBehaviour
         {
             if (collider != null)
             {
@@ -166,7 +166,7 @@ namespace TouchInput.UnitControl
                 return;
             }
             _lastMousePosition = Input.mousePosition;
-            var screenPointRay = _inputController.mainCamera.ScreenPointToRay(Input.mousePosition);
+            Ray screenPointRay = _inputController.mainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(screenPointRay, out var hitInfo, _maxDistance))
             {
                 var groundPlane = GetComponentOnCollider<MovementPlaneView>(hitInfo.collider);
@@ -212,6 +212,30 @@ namespace TouchInput.UnitControl
             }
 
             return false;
+        }
+        
+        public static bool GetTargetsInRadius<TTarget>(Vector3 origin, float radius, out List<TTarget> targets, Func<TTarget, bool> filter = null) where TTarget : MonoBehaviour
+        {
+            targets = new List<TTarget>();
+            Collider[] results = new Collider[50];
+            var size = Physics.OverlapSphereNonAlloc(origin, radius, results);
+            for (int i = 0; i < size; i++)
+            {
+                Collider collider = results[i];
+                var unit = GetComponentOnCollider<TTarget>(collider);
+                if (unit != null)
+                {
+                    if (filter == null)
+                    {
+                        targets.Add(unit);
+                    }
+                    else if (filter(unit))
+                    {
+                        targets.Add(unit);
+                    }
+                };
+            }
+            return targets.Count > 0;
         }
     }
 }

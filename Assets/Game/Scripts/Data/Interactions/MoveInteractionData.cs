@@ -75,13 +75,17 @@ namespace Data.Interactions
 
         public override InteractionCommand GetCommand(TargetingInfo targetingInfo)
         {
-            return new Command(this, targetingInfo, _actionPoints);
+            if (targetingInfo.Source is PlayerInputHandler playerInputHandler)
+            {
+                return new Command(this, targetingInfo, playerInputHandler.ActionPoints);
+            }
+            return null;
         }
         
         public InteractionCommand GetCommand(PlayerInputHandler player)
         {
             TargetingInfo targetingInfo = new TargetingInfo(player, null);
-            return new Command(this, targetingInfo, _actionPoints);
+            return new Command(this, targetingInfo, player.ActionPoints);
         }
     }
 }

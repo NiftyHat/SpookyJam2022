@@ -53,6 +53,7 @@ namespace UI
         [SerializeField] private UnitInputController _unitInputController;
         [SerializeField] [NonNull] private RangeIndicatorView _rangeIndicatorView;
         [SerializeField] [NonNull] private UISelectedTargetView _selectedTargetView;
+        [SerializeField] [NonNull] private RadiusIndicatorView _radiusIndicatorView;
         
         private FloorLocation _floorLocation;
         
@@ -141,10 +142,7 @@ namespace UI
                 {
                     _previewCommand.SetTarget(_floorLocation);
                     _gameStateContext.RunCommand(_previewCommand);
-                    _rangeIndicatorView.Clear();
-                    _locationIndicatorView.Clear();
-                    _selectedTargetView.Clear();
-                    _previewCommand = null;
+                    ClearPreview();
                 }
             }
         }
@@ -172,6 +170,7 @@ namespace UI
             _selectedUnit = selectedInputHandler;
             if (_selectedUnit is PlayerInputHandler playerInputHandler)
             {
+                _selectedTargetView.Set(playerInputHandler);
                 if (_previewCommand == null)
                 {
                     SetPreview(playerInputHandler.GetDefaultCommand());
@@ -187,11 +186,17 @@ namespace UI
             }
             else
             {
-                _rangeIndicatorView.Clear();
-                _locationIndicatorView.Clear();
-                _selectedTargetView.Clear();
-                _previewCommand = null;
+                ClearPreview();
             }
+        }
+
+        private void ClearPreview()
+        {
+            _rangeIndicatorView.Clear();
+            _locationIndicatorView.Clear();
+            _selectedTargetView.Clear();
+            _radiusIndicatorView.Clear();
+            _previewCommand = null;
         }
 
         protected void Update()
@@ -217,6 +222,13 @@ namespace UI
                         float maxRange = _previewCommand.Interaction.RangeMax;
                         _rangeIndicatorView.ShowDistance(sourcePos, maxRange, _previewCommand.ValidateRange);
                     }
+                    else
+                    {
+                        if (_rangeIndicatorView.gameObject.activeSelf)
+                        {
+                            _rangeIndicatorView.Clear();
+                        }
+                    }
 
                     if (_previewCommand.ShowTargetLine)
                     {
@@ -227,6 +239,32 @@ namespace UI
 
                         _locationIndicatorView.Set(sourcePos,
                             targetPos, _previewCommand.ValidateRange);
+                    }
+                    else
+                    {
+                        if (_locationIndicatorView.gameObject.activeSelf)
+                        {
+                            _locationIndicatorView.Clear();
+                        }
+
+                    }
+
+                    if (_previewCommand.ShowRadiusCircle)
+                    {
+                        if (!_radiusIndicatorView.gameObject.activeSelf)
+                        {
+                            _radiusIndicatorView.gameObject.SetActive(true);
+                        }
+
+                        float radius = _previewCommand.Interaction.Radius;
+                        _radiusIndicatorView.ShowRadius(sourcePos, radius, _previewCommand.ValidateRadiusTargets);
+                    }
+                    else
+                    {
+                        if (_radiusIndicatorView.gameObject.activeSelf)
+                        {
+                            _radiusIndicatorView.Clear();
+                        }
                     }
                 }
             }

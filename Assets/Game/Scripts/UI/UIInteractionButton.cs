@@ -52,7 +52,7 @@ namespace UI
 
         public void Clear()
         {
-           gameObject.SetActive(false);
+          // gameObject.SetActive(false);
         }
 
         public void Set(IInteraction data, TargetingInfo targetingInfo)
@@ -65,10 +65,10 @@ namespace UI
             gameObject.SetActive(true);
             _label.SetText(data.MenuItem.FriendlyName);
             _icon.SetSprite(data.MenuItem.Icon);
-            string description = data.GetDescription();
-            _tooltip = new TooltipSimple(data.MenuItem.Icon, description);
             _command = data.GetCommand(targetingInfo);
             _button.enabled = _command.Validate();
+            string description = _command.GetDescription();
+            _tooltip = new TooltipSimple(data.MenuItem.Icon, description);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
