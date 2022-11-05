@@ -5,7 +5,6 @@ using NiftyFramework.UI;
 using NiftyFramework.UnityUtils;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityUtils;
 
 namespace UI.Targeting
 {
