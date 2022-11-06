@@ -19,7 +19,17 @@ public class MonsterGuideMenuWidget : MonoBehaviour
         DisplayPages();
     }
 
-    public void DisplayPages()
+    public void ShowGuide()
+    {
+        this.gameObject.SetActive(true);
+    }
+
+    public void CloseGuide()
+    {
+        this.gameObject.SetActive(false);
+    }
+
+    private void DisplayPages()
     {
         //if (currentPage == 0)
         //{
