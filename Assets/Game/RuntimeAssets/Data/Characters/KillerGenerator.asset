@@ -14,8 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _killerEntityType: {fileID: 11400000, guid: ae2ee95e0b9215c4ca03be725a3f15cc, type: 2}
   _preferredTraitsToCopy:
-    _min: 1
-    _max: 2
-  _otherTraitsToReplace:
-    _min: 1
-    _max: 2
+    _min: 2
+    _max: 3

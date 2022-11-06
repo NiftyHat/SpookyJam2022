@@ -257,7 +257,7 @@ namespace UI
                         }
 
                         float radius = _previewCommand.Interaction.Radius;
-                        _radiusIndicatorView.ShowRadius(sourcePos, radius, _previewCommand.ValidateRadiusTargets);
+                        _radiusIndicatorView.ShowRadius(targetPos, radius, _previewCommand.ValidateRadiusTargets);
                     }
                     else
                     {
