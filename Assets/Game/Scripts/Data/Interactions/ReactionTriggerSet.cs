@@ -40,6 +40,11 @@ namespace Data.Interactions
             return builder;
         }
 
+        public IReadOnlyList<TraitData> GetAllTraits()
+        {
+            return _triggerList.Select(item => item.Trait).ToList();
+        }
+
         public ReactionData GetFail()
         {
             return _failList.RandomItem();

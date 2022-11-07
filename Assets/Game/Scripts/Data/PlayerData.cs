@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Data.Interactions;
 using GameStats;
@@ -21,5 +22,28 @@ namespace Data
         public List<InteractionData> InteractionList => _abilityInteractionList;
 
         public GameStat ActionPoints => _actionPoints;
+
+        public List<TData> GetInteractionDataList<TData>(Func<TData, bool> filter = null) where TData : InteractionData
+        {
+            List<TData> output = new List<TData>();
+            foreach (var item in _abilityInteractionList)
+            {
+                if (item is TData typed)
+                {
+                    if (filter == null)
+                    {
+                        output.Add(typed);
+                    }
+                    else
+                    {
+                        if (filter(typed))
+                        {
+                            output.Add(typed);
+                        }
+                    }
+                }
+            }
+            return output;
+        }
     }
 }

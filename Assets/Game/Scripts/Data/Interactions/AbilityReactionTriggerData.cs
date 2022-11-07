@@ -80,6 +80,7 @@ namespace Data.Interactions
         }
 
         [SerializeField] private ReactionTriggerSet _reactionTrigger;
+        public ReactionTriggerSet ReactionTrigger => _reactionTrigger;
 
         protected string _traitListCopy = null;
 

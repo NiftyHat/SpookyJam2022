@@ -18,3 +18,4 @@ MonoBehaviour:
     _max: 5
   _monsterEntityTypeDataSet: {fileID: 11400000, guid: 2f70a2809fb634f40b710badb9c345b1,
     type: 2}
+  _playerData: {fileID: 11400000, guid: 605f1c9d867a45b409cad0b00743782b, type: 2}

@@ -147,17 +147,22 @@ namespace Generators
                 int seed = random.Next(Int32.MaxValue);
                
                 var generatedCharacters = Generate(personCount:8,monsterCount:1,killerCount:1, seed);
-                StringBuilder sb = new StringBuilder();
-                foreach (var item in generatedCharacters)
-                {
-                    sb.Append(item.PrintDebug());
-                    sb.AppendLine();
-                
-                }
-                Debug.Log(sb.ToString());
+                Debug.Log(PrintDebug(generatedCharacters));
                 random = new System.Random(seed);
             }
            
+        }
+
+        public static string PrintDebug(List<CharacterEntity> characterEntities)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in characterEntities)
+            {
+                sb.Append(item.PrintDebug());
+                sb.AppendLine();
+                
+            }
+            return sb.ToString();
         }
 
     }

@@ -1593,7 +1593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &243085979
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1652,6 +1652,7 @@ MonoBehaviour:
   _characterView: {fileID: 1220301288}
   _animationDispatcher: {fileID: 1527718443}
   _inputPrompt: {fileID: 776073734}
+  _panel: {fileID: 1767749987}
 --- !u!1001 &274174164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7624,7 +7625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1767749985
 RectTransform:
   m_ObjectHideFlags: 0

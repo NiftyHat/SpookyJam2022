@@ -22,6 +22,16 @@ namespace Data.Monsters
             }
             return set;
         }
+        
+        public List<HashSet<TraitData>> GetMonsterTraitLists()
+        {
+            List<HashSet<TraitData>> output = new List<HashSet<TraitData>>();
+            foreach (var item in _references)
+            {
+                output.Add(new HashSet<TraitData>(item.PreferredTraits));
+            }
+            return output;
+        }
 
         public MonsterEntityTypeData GetNearestMatchingTraits(IEnumerable<TraitData> traitData)
         {
@@ -29,7 +39,6 @@ namespace Data.Monsters
             int highestScore = 0;
             foreach (var trait in traitData)
             {
-                
                 foreach (var item in References)
                 {
                     int newScore = 0;

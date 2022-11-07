@@ -23,6 +23,30 @@ namespace NiftyFramework.Scripts
             return list[randomIndex];
         }
         
+        public static T RandomItem<T>(this HashSet<T> hashSet)
+        {
+            var random = new Random();
+            return RandomItem(hashSet, random);
+        }
+        
+        public static T RandomItem<T>(this HashSet<T> hashSet, Random random)
+        {
+            int randomIndex = random.Next(0, hashSet.Count);
+            T randomItem = default(T);
+            HashSet<T>.Enumerator enumerator = hashSet.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                if (randomIndex == 0)
+                {
+                    randomItem = enumerator.Current;
+                    return randomItem;
+                }
+                randomIndex--;
+            }
+            enumerator.Dispose();
+            return randomItem;
+        }
+        
         private static readonly object sync = new object();
         
         public static int[] GenerateInts(int count, Random random, int min, int max)

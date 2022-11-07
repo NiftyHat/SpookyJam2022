@@ -12,7 +12,6 @@ namespace Generators
     [CreateAssetMenu(fileName = "MonsterGenerator", menuName = "Game/Characters/MonsterGenerator", order = 1)]
     public class MonsterGenerator : ScriptableObject
     {
-        [SerializeField, Range(0,2)] private int _maxPreferredTraits;
         [SerializeField] private MonsterEntityTypeDataSet _monsterEntityTypeDataSet;
         [SerializeField] private TraitData _forcedTrait;
 
@@ -29,31 +28,7 @@ namespace Generators
             CharacterName.ImpliedGender impliedGender = NameGenerator.GetRandomGender(random);
             itemPool.Masks.TryGet(out var maskEntity, random);
             itemPool.Names.TryGet(out var nameEntity, impliedGender);
-            HashSet<TraitData> monsterTraits = new HashSet<TraitData>();
-            switch (_maxPreferredTraits)
-            {
-                case 0:
-                    monsterTraits = new HashSet<TraitData>() { };
-                    break;
-                case 1:
-                    monsterTraits = new HashSet<TraitData>() { entityTypeData.PreferredTraits[random.Next(0, 1)] };
-                    break;
-                case 2:
-                    monsterTraits = new HashSet<TraitData>(entityTypeData.PreferredTraits);
-                    break;
-            }
-
-            if (_forcedTrait != null)
-            {
-                monsterTraits.Add(_forcedTrait);
-            }
-
-            itemPool.Traits.TryGet(out var poolTraitItems);
-            var enumerator = poolTraitItems.GetEnumerator();
-            while (monsterTraits.Count < poolTraitItems.Count && enumerator.MoveNext())
-            {
-                monsterTraits.Add(enumerator.Current);
-            }
+            HashSet<TraitData> monsterTraits = new HashSet<TraitData>(entityTypeData.PreferredTraits);
             CharacterViewData viewData = itemPool.ViewData.GetGendered(impliedGender, random);
             return new MonsterEntity(entityTypeData, maskEntity, nameEntity, monsterTraits, viewData);
         }

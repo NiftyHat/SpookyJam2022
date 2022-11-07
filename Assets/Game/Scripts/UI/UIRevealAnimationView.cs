@@ -18,6 +18,7 @@ namespace UI
         
         [SerializeField][NonNull] private AnimationDispatcher _animationDispatcher;
         [SerializeField][NonNull] private GameObject _inputPrompt;
+        [SerializeField] [NonNull] private CanvasRenderer _panel;
 
         private static readonly int RevealState = Animator.StringToHash("RevealState");
         private static readonly int Exit = Animator.StringToHash("Exit");
@@ -37,9 +38,9 @@ namespace UI
             PickKiller = 3
         }
 
-        public void Start()
+        public void Awake()
         {
-            gameObject.SetActive(false);
+            _panel.gameObject.SetActive(false);
             _animator.enabled = false;
             ContextService.Get<GameStateContext>(HandleGameStateContext);
         }
@@ -58,12 +59,13 @@ namespace UI
 
         public void Clear()
         {
+            _panel.gameObject.SetActive(false);
             _animator.SetTrigger(Exit);
         }
 
         public void Set(CharacterEntity targetCharacter, MonsterEntityTypeData monsterType)
         {  
-            gameObject.SetActive(true);
+            _panel.gameObject.SetActive(true);
             _animator.enabled = true;
             if (_monsterView != null)
             {

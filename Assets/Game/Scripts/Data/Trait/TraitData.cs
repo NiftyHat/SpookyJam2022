@@ -18,7 +18,7 @@ namespace Data.Trait
 
         public ITooltip GetTooltip()
         {
-            return new TooltipSimple(_icon, _description);
+            return new TooltipSimple(_icon, $"{_friendlyName} - {_description}");
         }
     }
 }
