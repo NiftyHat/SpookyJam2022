@@ -65,16 +65,16 @@ MonoBehaviour:
   m_Name: InciteTriggerAbility
   m_EditorClassIdentifier: 
   _range:
-    _min: 1
-    _max: 5
-  _costAP: 10
+    _min: 3
+    _max: 12
+  _costAP: 40
   _radius: 16
   _minTargets: 0
   _targetType: 2
   _menuItemData:
     _friendlyName: Incite
     _icon: {fileID: 21300000, guid: 4640b9f1e2156a742a929235c1cf3413, type: 3}
-    _description: Give a {abilityName} to everyone within {radius}. Hit on {traitList}
+    _description: Incite everyone near {targetName}. Hit on {traitList}
   _reactionTrigger:
     _triggerList:
     - _trait: {fileID: -1646269247474937957, guid: 26f61f036fbd8a843af3f89912a03468,
@@ -138,9 +138,9 @@ MonoBehaviour:
   m_Name: Walk
   m_EditorClassIdentifier: 
   _range:
-    _min: 1
-    _max: 50
-  _costAP: 100
+    _min: 2
+    _max: 150
+  _costAP: 50
   _radius: 0
   _minTargets: 0
   _targetType: 3
@@ -325,8 +325,8 @@ MonoBehaviour:
   m_Name: JokeTriggerAbility
   m_EditorClassIdentifier: 
   _range:
-    _min: 1
-    _max: 5
+    _min: 4
+    _max: 10
   _costAP: 50
   _radius: 15
   _minTargets: 0
@@ -381,12 +381,12 @@ MonoBehaviour:
   m_Name: SpeechTriggerAbility
   m_EditorClassIdentifier: 
   _range:
-    _min: 1
-    _max: 5
+    _min: 0
+    _max: 0
   _costAP: 10
   _radius: 15
   _minTargets: 0
-  _targetType: 0
+  _targetType: 1
   _menuItemData:
     _friendlyName: Speech
     _icon: {fileID: 21300000, guid: 878d745bc9741ba46ab9ae73c1efa1d6, type: 3}

@@ -88,7 +88,7 @@ namespace Interactions.Commands
         public bool ValidateRange()
         {
             _distance = _targets.GetDistance();
-            return _distance < _interaction.RangeMax && _distance > _interaction.RangeMin;
+            return _distance <= _interaction.RangeMax && _distance >= _interaction.RangeMin;
         }
 
         public int ValidateRadiusTargets()

@@ -108,18 +108,6 @@ namespace UI.Widgets
             gameObject.SetActive(true);
             Tween tween = DOTween.To(TweenUpdate, oldValue, newValue, animDuration).SetEase(Ease.OutCubic);
             tween.onComplete += Clear;
-            /*
-            float value = oldValue;
-            float animDuration = 0.5f;
-            gameObject.SetActive(true);
-            Tween tween = DOTween.To(() => value, x =>
-            {
-                HandleActionPointsChanged(oldValue, newValue);
-            }, newValue, animDuration);
-            tween.onComplete += () =>
-            {
-                Clear();
-            };*/
         }
     }
 }
