@@ -83,7 +83,8 @@ namespace Interactions.Commands
             }
             return true;
         }
-        
+
+
         public bool ValidateRange()
         {
             _distance = _targets.GetDistance();
@@ -92,6 +93,10 @@ namespace Interactions.Commands
 
         public int ValidateRadiusTargets()
         {
+            if (!ValidateRange())
+            {
+                return 0;
+            }
             TargetingInfo.GetTargetsInRange(_targets.Target, _interaction.Radius, out var targets);
             targets.Remove(Targets.Target as UnitInputHandler);
             return targets.Count;

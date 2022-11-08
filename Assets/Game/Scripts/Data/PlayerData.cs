@@ -10,7 +10,7 @@ namespace Data
     [CreateAssetMenu(fileName = "PlayerData", menuName = "Game/PlayerData", order = 1)]
     public class PlayerData : ScriptableObject
     {
-        private GameStat _actionPoints = new GameStat("ActionPoints","AP", 200,200);
+        private GameStat _actionPoints = new GameStat("ActionPoints","AP", 100,100);
         [SerializeField] private Sprite _sprite;
         [SerializeField] private string _name;
         [SerializeField,Tooltip("Set this separately because movement interactions have special rules")] 

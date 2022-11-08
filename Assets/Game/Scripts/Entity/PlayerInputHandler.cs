@@ -47,12 +47,18 @@ namespace Entity
 
         private void HandleTurnStarted(int turn, int turnMax, int phase)
         {
+            _actionPoints.OnChanged += _actionPointsView.AnimateChange;
             _actionPoints.Add(_actionPoints.Max);
         }
 
         public void PreviewAPCost(InteractionCommand command)
         {
             _actionPointsView.Set(_actionPoints, command);
+        }
+
+        public void HideAPDisplay()
+        {
+            _actionPointsView.Clear();
         }
 
         private void HandlePhaseChange(int oldValue, int newValue)

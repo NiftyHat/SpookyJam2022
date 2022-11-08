@@ -1,3 +1,4 @@
+using DG.Tweening;
 using GameStats;
 using Interactions.Commands;
 using NiftyFramework.Core.Utils;
@@ -93,6 +94,32 @@ namespace UI.Widgets
             }
 
             gameObject.SetActive(false);
+        }
+
+        public void AnimateChange(int newValue, int oldValue)
+        {
+            float animDuration = 2.0f;
+            void TweenUpdate(float value)
+            {
+                int displayValue = Mathf.Min(100, (int)value + 1);
+                HandleActionPointsChanged(oldValue, displayValue);
+            }
+
+            gameObject.SetActive(true);
+            Tween tween = DOTween.To(TweenUpdate, oldValue, newValue, animDuration).SetEase(Ease.OutCubic);
+            tween.onComplete += Clear;
+            /*
+            float value = oldValue;
+            float animDuration = 0.5f;
+            gameObject.SetActive(true);
+            Tween tween = DOTween.To(() => value, x =>
+            {
+                HandleActionPointsChanged(oldValue, newValue);
+            }, newValue, animDuration);
+            tween.onComplete += () =>
+            {
+                Clear();
+            };*/
         }
     }
 }

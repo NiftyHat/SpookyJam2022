@@ -1,4 +1,5 @@
 using System;
+using NiftyFramework.Core;
 using NiftyFramework.Core.Utils;
 using NiftyFramework.UI;
 using UnityEngine;
@@ -69,6 +70,28 @@ namespace UI.Targeting
             sourcePosition = new Vector3(sourcePosition.x, 0.2f, sourcePosition.z);
             transform.position = sourcePosition;
             SetScale(range);
+            if (validateRange != null)
+            {
+                if (validateRange())
+                {
+                    SetColour(_inRangeColour);
+                }
+                else
+                {
+                    SetColour(_outOfRangeColor);
+                }
+            }
+            else
+            {
+                SetColour(_defaultColour);
+            }
+        }
+        
+        public void ShowDistance(Vector3 sourcePosition, Range<int> range, Func<bool> validateRange)
+        {
+            sourcePosition = new Vector3(sourcePosition.x, 0.2f, sourcePosition.z);
+            transform.position = sourcePosition;
+            SetScale(range.Max);
             if (validateRange != null)
             {
                 if (validateRange())

@@ -95,12 +95,32 @@ namespace Interactions
             }
             return 0;
         }
+        
+        public float GetDistance(Vector3 targetPosition)
+        {
+            if (_source != null && _target != null)
+            {
+                Vector3 sourcePos = _source.GetInteractionPosition();
+                Vector3 targetPos = targetPosition;
+                return Vector3.Distance(sourcePos, targetPos);
+            }
+            return 0;
+        }
 
         public Vector3 DirectionToTarget()
         {
             if (_target != null)
             {
-                return (_source.GetInteractionPosition() - _target.GetInteractionPosition()).normalized;
+                return (_target.GetInteractionPosition() - _source.GetInteractionPosition()).normalized;
+            }
+            return Vector3.zero;
+        }
+        
+        public Vector3 DirectionTo(Vector3 position)
+        {
+            if (_target != null)
+            {
+                return (position - _source.GetInteractionPosition()).normalized;
             }
             return Vector3.zero;
         }
