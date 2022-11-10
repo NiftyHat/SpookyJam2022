@@ -125,8 +125,11 @@ public class MaskGuessCardWidget : MonoBehaviour
         _selectedMask = selectedMask;
     }
 
-    public void ShowSingleWidget(MaskGuessCardData data)
+    public void ShowSingleWidget()
     {
+        if (_selectedMask == null)
+            return;
+
         Initialize(data);
         closeButton.SetActive(true);
         this.gameObject.SetActive(true);
