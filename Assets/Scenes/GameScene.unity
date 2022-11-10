@@ -541,7 +541,7 @@ Transform:
   - {fileID: 1438618773}
   - {fileID: 186910624}
   m_Father: {fileID: 1385950077}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &74029084
 MonoBehaviour:
@@ -2825,75 +2825,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &519528504
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1385950077}
-    m_Modifications:
-    - target: {fileID: 2408543635016947783, guid: 294b9048c1230364ea1b70939062562b,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2408543635016947783, guid: 294b9048c1230364ea1b70939062562b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 19.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 2408543635016947783, guid: 294b9048c1230364ea1b70939062562b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2408543635016947783, guid: 294b9048c1230364ea1b70939062562b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2408543635016947783, guid: 294b9048c1230364ea1b70939062562b,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2408543635016947783, guid: 294b9048c1230364ea1b70939062562b,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2408543635016947783, guid: 294b9048c1230364ea1b70939062562b,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2408543635016947783, guid: 294b9048c1230364ea1b70939062562b,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2408543635016947783, guid: 294b9048c1230364ea1b70939062562b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2408543635016947783, guid: 294b9048c1230364ea1b70939062562b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2408543635016947783, guid: 294b9048c1230364ea1b70939062562b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2408543635016947832, guid: 294b9048c1230364ea1b70939062562b,
-        type: 3}
-      propertyPath: m_Name
-      value: CharacterNPC
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 294b9048c1230364ea1b70939062562b, type: 3}
 --- !u!1 &540955083
 GameObject:
   m_ObjectHideFlags: 0
@@ -3395,12 +3326,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3637532863047618023, guid: b7ae236ed9e31cc47b5c974f5de2bc14,
     type: 3}
   m_PrefabInstance: {fileID: 3637532863782235622}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &773676699 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2408543635016947783, guid: 294b9048c1230364ea1b70939062562b,
-    type: 3}
-  m_PrefabInstance: {fileID: 519528504}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &776073734
 GameObject:
@@ -5861,7 +5786,6 @@ Transform:
   - {fileID: 426786490}
   - {fileID: 1475426919}
   - {fileID: 1112973508}
-  - {fileID: 773676699}
   - {fileID: 74029083}
   m_Father: {fileID: 1278946878}
   m_RootOrder: 0
@@ -6098,7 +6022,7 @@ GameObject:
   - component: {fileID: 1412129714}
   - component: {fileID: 1412129715}
   m_Layer: 0
-  m_Name: UnitInputController
+  m_Name: PointerSelectController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6897,7 +6821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _locationIndicatorView: {fileID: 2079911843}
-  _pointerSelectInputController: {fileID: 0}
+  _pointerSelectInputController: {fileID: 1412129714}
   _rangeIndicatorView: {fileID: 887929453}
   _selectedTargetView: {fileID: 628098016}
   _radiusIndicatorView: {fileID: 636172032}

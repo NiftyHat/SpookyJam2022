@@ -139,8 +139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _range:
     _min: 2
-    _max: 150
-  _costAP: 50
+    _max: 50
+  _costAP: 20
   _radius: 0
   _minTargets: 0
   _targetType: 3
