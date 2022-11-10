@@ -98,7 +98,7 @@ namespace Interactions.Commands
                 return 0;
             }
             TargetingInfo.GetTargetsInRange(_targets.Target, _interaction.Radius, out var targets);
-            targets.Remove(Targets.Target as UnitInputHandler);
+            //targets.Remove(Targets.Target as PointerSelectionHandler);
             return targets.Count;
         }
 

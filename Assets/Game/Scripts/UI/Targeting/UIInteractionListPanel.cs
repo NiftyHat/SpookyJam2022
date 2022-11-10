@@ -39,7 +39,6 @@ namespace UI.Targeting
                     {
                         _viewPool.TryReturn(buttonView);
                     }
-                   
                 }
             }
         }

@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Context;
 using Data.Location;
 using Entity;
 using NiftyFramework.Core.Context;
+using NiftyFramework.Core.Utils;
 using NiftyFramework.UI;
 using Spawn;
 using UnityEditor;
@@ -12,6 +14,7 @@ using UnityEngine;
 public class LocationView : MonoBehaviour, IView<LocationData>
 {
     [SerializeField] private LocationData _locationData;
+    [SerializeField][NonNull] private List<TransitionZoneView> _transitionZoneViews;
 
     private GameStateContext _gameStateService;
     private CharacterSpawnSet _spawnSet;
@@ -30,10 +33,7 @@ public class LocationView : MonoBehaviour, IView<LocationData>
     private void HandleGameState(GameStateContext gameStateService)
     {
         _gameStateService = gameStateService;
-        if (_gameStateService.CharacterEntities != null)
-        {
-            SpawnCharacters(_gameStateService.CharacterEntities, new System.Random(_locationData.SpawnSeed));
-        }
+        Init();
     }
 
     void SpawnCharacters(IReadOnlyList<CharacterEntity> entities, System.Random random)
@@ -42,6 +42,43 @@ public class LocationView : MonoBehaviour, IView<LocationData>
         {
             _spawnSet.Spawn(entities, random);
             _canSpawn = false;
+        }
+    }
+
+    private void Init()
+    {
+        if (_gameStateService.CharacterEntities != null)
+        {
+            SpawnCharacters(_gameStateService.CharacterEntities, new System.Random(_locationData.SpawnSeed));
+        }
+    }
+
+    public void Load()
+    {
+        Init();
+    }
+
+    public void Unload()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void SpawnPlayer(PlayerInputHandler player, LocationData fromLocation)
+    {
+        Transform playerTransform = player.transform;
+        playerTransform.parent = transform;
+        TransitionZoneView spawnZone = _transitionZoneViews.FirstOrDefault(item => item.LinkedLocation == fromLocation);
+        if (spawnZone == null && _transitionZoneViews.Count > 0)
+        {
+            spawnZone = _transitionZoneViews[0];
+        }
+        if (spawnZone != null)
+        {
+            spawnZone.SpawnPlayer(player);
+        }
+        else
+        {
+            playerTransform.position = transform.position;
         }
     }
 

@@ -48,9 +48,9 @@ namespace UI
             public event Action<Vector3> OnPositionUpdate;
         }
         
-        private UnitInputHandler _selectedUnit;
+        private PointerSelectionHandler _selectedUnit;
         [SerializeField] private LocationIndicatorView _locationIndicatorView;
-        [SerializeField] private UnitInputController _unitInputController;
+        [SerializeField] private PointerSelectInputController _pointerSelectInputController;
         [SerializeField] [NonNull] private RangeIndicatorView _rangeIndicatorView;
         [SerializeField] [NonNull] private UISelectedTargetView _selectedTargetView;
         [SerializeField] [NonNull] private RadiusIndicatorView _radiusIndicatorView;
@@ -71,9 +71,9 @@ namespace UI
             {
                 gameObject.SetActive(true);
             }
-            _unitInputController.OnSelectUnit += HandleInputUnitSelect;
-            _unitInputController.OnSelectGround += HandleInputSelectGround;
-            _unitInputController.OnOverGround += HandleInputOverGround;
+            _pointerSelectInputController.OnSelectionChanged += HandleInputSelection;
+            _pointerSelectInputController.OnSelectGround += HandleInputSelectGround;
+            _pointerSelectInputController.OnOverGround += HandleInputOverGround;
             _selectedTargetView.OnPreviewCommand += HandlePreviewCommand;
             ContextService.Get<GameStateContext>(HandleGameState);
         }
@@ -145,7 +145,7 @@ namespace UI
             }
         }
         
-        private void HandleInputUnitSelect(UnitInputHandler unit)
+        private void HandleInputSelection(PointerSelectionHandler unit)
         {
             SetSelectedUnit(unit);
         }
@@ -163,28 +163,28 @@ namespace UI
             }
         }
 
-        public void SetSelectedUnit(UnitInputHandler selectedInputHandler)
+        public void SetSelectedUnit(PointerSelectionHandler selectedInputHandler)
         {
             _selectedUnit = selectedInputHandler;
-            if (_selectedUnit is PlayerInputHandler playerInputHandler)
+            _selectedTargetView.Set(selectedInputHandler);
+            if (_selectedUnit == null || _selectedUnit.Target == null)
             {
-                _selectedTargetView.Set(playerInputHandler);
+                ClearPreview();
+                return;
+            }
+            if (_selectedUnit.Target is PlayerInputHandler playerInputHandler)
+            {
                 if (_previewCommand == null)
                 {
                     SetPreview(playerInputHandler.GetDefaultCommand());
                 }
             }
-            else if (_selectedUnit is ITargetable<CharacterEntity> targetCharacter)
-            {
-                _selectedTargetView.Set(targetCharacter);
-                if (_previewCommand != null)
-                {
-                    _previewCommand.SetTarget(targetCharacter);
-                }
-            }
             else
             {
-                ClearPreview();
+                if (_previewCommand != null)
+                {
+                    _previewCommand.SetTarget(_selectedUnit.Target);
+                }
             }
         }
 

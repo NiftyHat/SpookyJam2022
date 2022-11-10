@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Data;
 using Data.Character;
+using Data.Location;
 using Data.Reactions;
 using Data.Trait;
 using UnityEngine;
@@ -17,6 +18,8 @@ namespace Entity
         private HashSet<TraitData> _traitList;
         private CharacterViewData _viewData;
 
+        private LocationData _currentLocation;
+
         public MaskEntity Mask => _mask;
         public CharacterName Name => _name;
 
@@ -24,6 +27,8 @@ namespace Entity
         public HashSet<TraitData> Traits => _traitList;
 
         public CharacterViewData ViewData => _viewData;
+
+        public LocationData CurrentLocation => _currentLocation;
 
         public virtual string TypeFriendlyName => "Character";
 
@@ -61,6 +66,11 @@ namespace Entity
         public void DisplayReaction(ReactionData first)
         {
             OnReaction?.Invoke(first);
+        }
+
+        public bool AtLocation(LocationData locationData)
+        {
+            throw new NotImplementedException();
         }
     }
 }

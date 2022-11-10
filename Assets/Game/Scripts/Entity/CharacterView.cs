@@ -1,16 +1,15 @@
-using System;
 using Data.Reactions;
-using Interactions;
 using NiftyFramework.Core.Utils;
 using TouchInput.UnitControl;
+using UI;
 using UI.ContextMenu;
 using UnityEngine;
 
 namespace Entity
 {
-    public class CharacterView : MonoBehaviour, ITargetable, IEntityView<CharacterEntity>
+    public class CharacterView : InputTargetView, IEntityView<CharacterEntity>
     {
-        [SerializeField][NonNull] protected UnitInputHandler _unitInputHandler;
+        [SerializeField][NonNull] protected PointerSelectionHandler _pointerSelectionHandler;
         [SerializeField] protected GameObject _goSelectedIndicator;
         [SerializeField] protected SpriteRenderer _spriteRenderer;
         [SerializeField] protected UnitMovementHandler _movementHandler;
@@ -24,24 +23,21 @@ namespace Entity
         private ReactionBubbleView _reactionBubbleCache;
         private CharacterEntity _entity;
 
-        public event Action<Vector3> OnPositionUpdate;
-
         public virtual void Start()
         {
-            if (_unitInputHandler == null)
+            if (_pointerSelectionHandler == null)
             {
-                _unitInputHandler = GetComponent<UnitInputHandler>();
+                _pointerSelectionHandler = GetComponent<PointerSelectionHandler>();
             }
 
-            if (_unitInputHandler != null)
+            if (_pointerSelectionHandler != null)
             {
-                _unitInputHandler.OnSelectChange += HandleSelectedChanged;
-                _unitInputHandler.OnContextMenuRequest += HandleContextMenuRequest;
+                _pointerSelectionHandler.OnSelectChange += HandleSelectedChanged;
             }
 
             if (_movementHandler != null)
             {
-                _movementHandler.OnMoveUpdate += OnPositionUpdate;
+                //_movementHandler.OnMoveUpdate += () => { OnPositionUpdate?()}
             }
 
             if (_goSelectedIndicator != null)
@@ -75,22 +71,6 @@ namespace Entity
             {
                 _goSelectedIndicator.SetActive(isSelected);
             }
-        }
-
-        public Vector3 GetInteractionPosition()
-        {
-            return transform.position;
-        }
-
-        public GameObject GetGameObject()
-        {
-            return gameObject;
-        }
-        
-        public bool TryGetGameObject(out GameObject go)
-        {
-            go = gameObject;
-            return go != null;
         }
         
         public CharacterEntity Entity => _entity;

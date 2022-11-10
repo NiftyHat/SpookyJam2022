@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Context;
 using Data.Interactions;
@@ -8,11 +9,12 @@ using Interactions.Commands;
 using NiftyFramework.Core.Context;
 using NiftyFramework.Core.Utils;
 using NiftyFramework.DataView;
+using TouchInput.UnitControl;
 using UnityEngine;
 
 namespace UI.Targeting
 {
-    public class UISelectedTargetView : MonoBehaviour, IDataView<ITargetable>
+    public class UISelectedTargetView : MonoBehaviour, IDataView<PointerSelectionHandler>
     {
         [SerializeField][NonNull] private UITargetPortraitPanel _targetPortrait;
         [SerializeField][NonNull] private UIInteractionListPanel _interactionList;
@@ -46,9 +48,19 @@ namespace UI.Targeting
             _assignedTraitsPanel.Clear();
         }
 
-        public void Set(ITargetable target)
+        public void Set(List<IInteraction> interactions, TargetingInfo targetingInfo)
+        {
+            _interactionList.Set(interactions, targetingInfo);
+        }
+
+        public void Set(PointerSelectionHandler pointerSelection)
         {
             _interactionList.Clear();
+            if (pointerSelection == null)
+            {
+                return;
+            }
+            var target = pointerSelection.Target;
             if (_gameStateContext != null)
             {
                 var targetingInfo = new TargetingInfo(_player, target);

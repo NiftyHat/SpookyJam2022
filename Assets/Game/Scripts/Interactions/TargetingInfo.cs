@@ -46,19 +46,16 @@ namespace Interactions
         {
             GetTargetsInRange(range, out var targets);
             targetEntities = new HashSet<TEntity>();
-            foreach (var target in targets)
+            foreach (var selectable in targets)
             {
-                /*
-                if (target is IEntityView<TEntity> entityView)
+                if (selectable.Target is IEntityView<TEntity> entityView)
                 {
                     if (entityView.Entity != null)
                     {
                         targetEntities.Add(entityView.Entity);
                     }
-                   
-                    return true;
-                }*/
-                if (target.TryGetGameObject(out var go))
+                }
+                if (selectable.Target.TryGetGameObject(out var go))
                 {
                     var entityViewComponent = go.GetComponent<IEntityView<TEntity>>();
                     if (entityViewComponent != null)
@@ -74,13 +71,13 @@ namespace Interactions
         }
 
         //TODO - this needs to hit all targets and not just UnitInputHandler
-        public static bool GetTargetsInRange(ITargetable target, float radius, out List<UnitInputHandler> targets)
+        public static bool GetTargetsInRange(ITargetable target, float radius, out List<PointerSelectionHandler> targets)
         {
             Vector3 targetPosition = target.GetInteractionPosition();
-            return UnitInputController.GetTargetsInRadius(targetPosition, radius, out targets);
+            return PointerSelectInputController.GetTargetsInRadius(targetPosition, radius, out targets);
         }
         
-        public bool GetTargetsInRange(float radius, out List<UnitInputHandler> targets)
+        public bool GetTargetsInRange(float radius, out List<PointerSelectionHandler> targets)
         {
             return GetTargetsInRange(_target, radius, out targets);
         }

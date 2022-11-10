@@ -70,11 +70,13 @@ namespace Data.Interactions
                     {
                         TriggerReaction(character, null);
                     }
+                    _actionPoints.Subtract(_interaction.CostAP);
                     onDone(this);
                 }
                 else if (_targets.TryGetTargetEntity(out CharacterEntity entity))
                 {
                     TriggerReaction(entity, onDone);
+                    _actionPoints.Subtract(_interaction.CostAP);
                 }
             }
         }

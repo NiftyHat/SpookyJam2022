@@ -2,18 +2,18 @@ using System.Collections.Generic;
 using Context;
 using Data;
 using Data.Interactions;
+using Data.Location;
 using GameStats;
-using Interactions;
 using Interactions.Commands;
 using NiftyFramework.Core.Context;
 using NiftyFramework.Core.Utils;
-using TouchInput.UnitControl;
+using UI;
 using UI.Widgets;
 using UnityEngine;
 
 namespace Entity
 {
-    public class PlayerInputHandler : UnitInputHandler
+    public class PlayerInputHandler : InputTargetView
     {
         [SerializeField][NonNull] private PlayerData _playerData;
         [SerializeField] private ActionPointsView _actionPointsView;
@@ -23,8 +23,6 @@ namespace Entity
         public List<InteractionData> Interactions => _interactionList;
         public GameStat ActionPoints => _actionPoints;
 
-        private InteractionCommand _moveCommend;
-        
         public new void Start()
         {
             if (_playerData != null)
@@ -32,10 +30,8 @@ namespace Entity
                 _actionPoints = _playerData.ActionPoints;
                 _actionPointsView.Set(_actionPoints);
                 _interactionList = _playerData.InteractionList;
-                _moveCommend = _playerData.MoveInteraction.GetCommand(this);
             }
             ContextService.Get<GameStateContext>(HandleGameStateContext);
-            OnSelectChange += HandleSelectedChanged;
         }
 
         private void HandleGameStateContext(GameStateContext gameStateContext)
@@ -51,6 +47,11 @@ namespace Entity
             _actionPoints.Add(_actionPoints.Max);
         }
 
+        public void TravelToLocation(LocationData locationData)
+        {
+            
+        }
+
         public void PreviewAPCost(InteractionCommand command)
         {
             _actionPointsView.Set(_actionPoints, command);
@@ -64,10 +65,6 @@ namespace Entity
         private void HandlePhaseChange(int oldValue, int newValue)
         {
             
-        }
-
-        private void HandleSelectedChanged(bool isSelected)
-        {
         }
 
         public InteractionCommand GetDefaultCommand()

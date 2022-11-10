@@ -2,21 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NiftyFramework.ScreenInput;
+using UI;
 using UI.Targeting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace TouchInput.UnitControl
 {
-    public class UnitInputController : MonoBehaviour
+    public class PointerSelectInputController : MonoBehaviour
     {
-        protected IEnumerable<UnitInputHandler> _selected;
+        protected IEnumerable<PointerSelectionHandler> _selected;
         protected ScreenInputController _inputController;
 
         protected Vector3 _lastMousePosition;
         public event ScreenInputController.InputUpdateHandler OnPointerMoved;
-        public Action<UnitInputHandler> OnSelectUnit;
-        public Action<UnitInputHandler> OnOverUnit;
+        public Action<PointerSelectionHandler> OnSelectionChanged;
+        public Action<InputTargetView> OnOverTarget;
         public Action<MovementPlaneView, RaycastHit> OnSelectGround;
         public Action<MovementPlaneView, RaycastHit> OnOverGround;
         
@@ -27,7 +28,7 @@ namespace TouchInput.UnitControl
         
         void Start()
         {
-            _selected = new List<UnitInputHandler>();
+            _selected = new List<PointerSelectionHandler>();
             _inputController = ScreenInputController.instance;
             _inputController.OnInputStart += HandleInputStart;
             _inputController.OnInputMoved += HandleInputUpdate;
@@ -49,6 +50,21 @@ namespace TouchInput.UnitControl
         private void HandleInputEnd(Vector2 position, Vector2 delta, Ray screenPointRay, float time)
         {
             //throw new System.NotImplementedException();
+        }
+        
+        private static bool TryGetComponentOnCollider<TComponent>(Collider collider, out TComponent component) where TComponent : MonoBehaviour
+        {
+            if (collider != null)
+            {
+                component = collider.gameObject.GetComponent<TComponent>();
+                if (component == null)
+                {
+                    component = collider.gameObject.GetComponentInParent<TComponent>();
+                }
+                return component != null;
+            }
+            component = null;
+            return false;
         }
         
         private static TComponent GetComponentOnCollider<TComponent>(Collider collider) where TComponent : MonoBehaviour
@@ -89,11 +105,10 @@ namespace TouchInput.UnitControl
             //_heldItemList.Clear();
             RaycastHit hitInfo;
             bool isHit = Physics.Raycast(screenPointRay, out hitInfo, _maxDistance);
-            UnitInputHandler unitInputHandler = GetComponentOnCollider<UnitInputHandler>(hitInfo.collider);
-            
+           
             if (isHit)
             {
-                if (unitInputHandler != null)
+                if (TryGetComponentOnCollider(hitInfo.collider, out PointerSelectionHandler selectableItem))
                 {
                     if (_selected.Any())
                     {
@@ -102,9 +117,9 @@ namespace TouchInput.UnitControl
                             inputHandler.SetSelected(false);
                         }
                     }
-                    unitInputHandler.SetSelected(true);
-                    _selected = new[] { unitInputHandler };
-                    OnSelectUnit?.Invoke(unitInputHandler);
+                    selectableItem.SetSelected(true);
+                    _selected = new[] { selectableItem };
+                    OnSelectionChanged?.Invoke(selectableItem);
                 }
                 else
                 {
@@ -133,8 +148,8 @@ namespace TouchInput.UnitControl
             Vector3 rayEnd;
             if (hitInfo != null && hitInfo.Value.collider)
             {
-                UnitInputHandler unitInputHandler = GetComponentOnCollider<UnitInputHandler>(hitInfo.Value.collider);
-                if (unitInputHandler == null)
+                PointerSelectionHandler pointerSelectionHandler = GetComponentOnCollider<PointerSelectionHandler>(hitInfo.Value.collider);
+                if (pointerSelectionHandler == null)
                 {
                     if (GetComponentOnCollider<MovementPlaneView>(hitInfo.Value.collider))
                     {
@@ -172,15 +187,12 @@ namespace TouchInput.UnitControl
                 var groundPlane = GetComponentOnCollider<MovementPlaneView>(hitInfo.collider);
                 if (groundPlane != null)
                 {
-                    OnOverGround(groundPlane, hitInfo);
+                    OnOverGround?.Invoke(groundPlane, hitInfo);
                 }
                 else
                 {
-                    var unit = GetComponentOnCollider<UnitInputHandler>(hitInfo.collider);
-                    if (unit != null)
-                    {
-                        OnOverUnit?.Invoke(unit);
-                    }
+                    var targetable = GetComponentOnCollider<InputTargetView>(hitInfo.collider);
+                    OnOverTarget?.Invoke(targetable);
                 }
                 
                 if (_isDebugDraw)
@@ -198,8 +210,8 @@ namespace TouchInput.UnitControl
                         inputHandler.SetSelected(false);
                     }
                 }
-                _selected = new List<UnitInputHandler>();
-                OnSelectUnit?.Invoke(null);
+                _selected = new List<PointerSelectionHandler>();
+                OnSelectionChanged?.Invoke(null);
             }
         }
         

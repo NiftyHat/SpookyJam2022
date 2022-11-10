@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b518dad7b17ef174881686545fce8bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inputTarget: {fileID: 2408543635016947833}
 --- !u!114 &2408543635016947833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6275f264c41b446093cc0894715a00c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitInputHandler: {fileID: 2408543635016947782}
+  _pointerSelectionHandler: {fileID: 2408543635016947782}
   _goSelectedIndicator: {fileID: 2408543635375553658}
   _spriteRenderer: {fileID: 2408543635502280253}
   _movementHandler: {fileID: 0}

@@ -1,4 +1,3 @@
-
 using Commands;
 using Entity;
 using GameStats;
@@ -13,7 +12,7 @@ namespace Data.Interactions
     {
         private class Command : InteractionCommand
         {
-            private readonly float _oneUnit = 0.1f;
+            private readonly float _oneUnit = 0.5f;
             private float _apCostForOneMovementUnit;
             
             private int _maxRangeFromAP;
@@ -42,13 +41,30 @@ namespace Data.Interactions
                     return;
                 }
                 
-                if (_targets.Source is UnitInputHandler unitInputHandler)
+                if (_targets.Source.TryGetGameObject(out var go))
                 {
-                    var movementHandler = unitInputHandler.gameObject.GetComponent<UnitMovementHandler>();
+                    var movementHandler = go.GetComponent<UnitMovementHandler>();
                     if (movementHandler != null)
                     {
                         _actionPoints.Subtract(APCostProvider.Value);
-                        movementHandler.MoveTo(_targets.Target.GetInteractionPosition(), endPosition => { OnDone(this, true);;});
+                        movementHandler.MoveTo(_targets.Target.GetInteractionPosition(), endPosition =>
+                        {
+                            if (_targets.Source is PlayerInputHandler player)
+                            {
+                                if (_targets.Target is TransitionZoneView transitionZoneView)
+                                {
+                                    transitionZoneView.DespawnPlayer(player);
+                                }
+                                else
+                                {
+                                    OnDone(this, true);
+                                }
+                            }
+                            else
+                            {
+                                OnDone(this, true);
+                            }
+                        });
                     }
                 }
             }
@@ -61,7 +77,8 @@ namespace Data.Interactions
                 _maxRangeFromAP = (int)(ap * _apCostForOneMovementUnit);
                 _apCostFromDistance = (int)(distance / _apCostForOneMovementUnit);
                 APCostProvider.Value = _apCostFromDistance;
-                int maxRange = Mathf.Max(abilityRange.Min, _maxRangeFromAP);
+                //int maxRange = Mathf.Max(abilityRange.Min, _maxRangeFromAP);
+                int maxRange = Mathf.Min(_interaction.RangeMax, _maxRangeFromAP);
                 abilityRange.Max = maxRange;
                 if (distance > _maxRangeFromAP)
                 {

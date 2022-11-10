@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Commands;
 using Data;
 using Data.GameOver;
@@ -9,6 +10,7 @@ using Data.Monsters;
 using Entity;
 using GameStats;
 using Generators;
+using Interactions;
 using Interactions.Commands;
 using NiftyFramework.Core;
 using NiftyFramework.Core.Context;
@@ -65,6 +67,16 @@ namespace Context
             Phase.OnChanged += HandlePhaseChange;
         }
 
+        public List<CharacterEntity> GetCharactersInLocation(LocationData locationData)
+        {
+            if (locationData != null)
+            {
+                var list = _characterEntities.Where(item => item.AtLocation(locationData)).ToList();
+                return list;
+            }
+            return null;
+        }
+
         public void SetPlayer(PlayerInputHandler playerInputHandler)
         {
             _player = playerInputHandler;
@@ -112,6 +124,7 @@ namespace Context
                 Phase.Value = newPhase;
             }
             OnTurnStarted?.Invoke(Turns.Value, Turns.Max, Phase.Value);
+            OnClearReactions?.Invoke();
         }
 
         public void StartGame(out AsyncOperation loadingOperation)
