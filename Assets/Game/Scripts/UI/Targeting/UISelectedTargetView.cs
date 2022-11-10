@@ -19,6 +19,8 @@ namespace UI.Targeting
         [SerializeField][NonNull] private UITargetPortraitPanel _targetPortrait;
         [SerializeField][NonNull] private UIInteractionListPanel _interactionList;
         [SerializeField][NonNull] private UIAssignedTraitsPanel _assignedTraitsPanel;
+        [SerializeField] [NonNull] private MaskGuessCardWidget _maskedGuessCardWidget;
+        [SerializeField] [NonNull] private GameObject _maskedGuessCardWidgetButton;
         private GameStateContext _gameStateContext;
         private PlayerInputHandler _player;
         public event Action<InteractionCommand> OnPreviewCommand;
@@ -90,6 +92,17 @@ namespace UI.Targeting
                 else
                 {
                     _assignedTraitsPanel.Clear();
+                }
+
+                if (instance.Mask != null)
+                {
+                    _maskedGuessCardWidgetButton.SetActive(true);
+                    _maskedGuessCardWidget.SetData(instance.Mask);
+                }
+                else
+                {
+                    _maskedGuessCardWidgetButton.SetActive(false);
+                    _maskedGuessCardWidget.SetData(null);
                 }
             }
         }
