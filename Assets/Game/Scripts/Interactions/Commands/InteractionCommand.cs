@@ -83,15 +83,20 @@ namespace Interactions.Commands
             }
             return true;
         }
-        
+
+
         public bool ValidateRange()
         {
             _distance = _targets.GetDistance();
-            return _distance < _interaction.RangeMax && _distance > _interaction.RangeMin;
+            return _distance <= _interaction.RangeMax && _distance >= _interaction.RangeMin;
         }
 
         public int ValidateRadiusTargets()
         {
+            if (!ValidateRange())
+            {
+                return 0;
+            }
             TargetingInfo.GetTargetsInRange(_targets.Target, _interaction.Radius, out var targets);
             targets.Remove(Targets.Target as UnitInputHandler);
             return targets.Count;

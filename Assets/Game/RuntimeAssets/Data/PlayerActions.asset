@@ -45,9 +45,63 @@ MonoBehaviour:
         type: 2}
       _reaction: {fileID: 4349075112016446601, guid: e32084423b1cd6646889c10d75f87b73,
         type: 2}
+    - _trait: {fileID: 139733867517572793, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: -6433956699517619100, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
     _failList:
     - {fileID: -6149206598976904165, guid: e32084423b1cd6646889c10d75f87b73, type: 2}
     - {fileID: -3605238400349697620, guid: e32084423b1cd6646889c10d75f87b73, type: 2}
+--- !u!114 &-5256964978547721330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e1a6de6f814c7aa7314115ae6bfcf5, type: 3}
+  m_Name: InciteTriggerAbility
+  m_EditorClassIdentifier: 
+  _range:
+    _min: 3
+    _max: 12
+  _costAP: 40
+  _radius: 16
+  _minTargets: 0
+  _targetType: 2
+  _menuItemData:
+    _friendlyName: Incite
+    _icon: {fileID: 21300000, guid: 4640b9f1e2156a742a929235c1cf3413, type: 3}
+    _description: Incite everyone near {targetName}. Hit on {traitList}
+  _reactionTrigger:
+    _triggerList:
+    - _trait: {fileID: -1646269247474937957, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 4349075112016446601, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: -5725889087623111918, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 3959208671623290579, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: 845699232844125756, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 277367436992013977, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: -398209533686741646, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: -6433956699517619100, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: -3720208353616562387, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 3959208671623290579, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: -3506821359892045406, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 8380605986334348715, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    _failList: []
 --- !u!114 &-4190080506035454281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,9 +138,9 @@ MonoBehaviour:
   m_Name: Walk
   m_EditorClassIdentifier: 
   _range:
-    _min: 1
-    _max: 50
-  _costAP: 100
+    _min: 2
+    _max: 150
+  _costAP: 50
   _radius: 0
   _minTargets: 0
   _targetType: 3
@@ -138,6 +192,14 @@ MonoBehaviour:
     - _trait: {fileID: -5386215674631098638, guid: 26f61f036fbd8a843af3f89912a03468,
         type: 2}
       _reaction: {fileID: -6149206598976904165, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: 139733867517572793, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 3959208671623290579, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: -1181826743665912276, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: -6753986248370573308, guid: e32084423b1cd6646889c10d75f87b73,
         type: 2}
     _failList:
     - {fileID: -6149206598976904165, guid: e32084423b1cd6646889c10d75f87b73, type: 2}
@@ -210,6 +272,18 @@ MonoBehaviour:
         type: 2}
       _reaction: {fileID: 3959208671623290579, guid: e32084423b1cd6646889c10d75f87b73,
         type: 2}
+    - _trait: {fileID: -3506821359892045406, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 1943571472787848707, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: 5266141609781198474, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 8380605986334348715, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: -1181826743665912276, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: -6753986248370573308, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
     _failList:
     - {fileID: -6149206598976904165, guid: e32084423b1cd6646889c10d75f87b73, type: 2}
     - {fileID: -3605238400349697620, guid: e32084423b1cd6646889c10d75f87b73, type: 2}
@@ -237,6 +311,7 @@ MonoBehaviour:
   - {fileID: -188742047455454632}
   - {fileID: 205923538751195980}
   - {fileID: 2991345944667089571}
+  - {fileID: -5256964978547721330}
 --- !u!114 &205923538751195980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,12 +325,12 @@ MonoBehaviour:
   m_Name: JokeTriggerAbility
   m_EditorClassIdentifier: 
   _range:
-    _min: 1
-    _max: 5
+    _min: 4
+    _max: 10
   _costAP: 50
-  _radius: 10
+  _radius: 15
   _minTargets: 0
-  _targetType: 1
+  _targetType: 2
   _menuItemData:
     _friendlyName: Joke
     _icon: {fileID: 21300000, guid: 39a1d1f28424e9f4283ae02092ed1ecf, type: 3}
@@ -282,6 +357,14 @@ MonoBehaviour:
         type: 2}
       _reaction: {fileID: 2558676309207384288, guid: e32084423b1cd6646889c10d75f87b73,
         type: 2}
+    - _trait: {fileID: 139733867517572793, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 2558676309207384288, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: -1181826743665912276, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: -6753986248370573308, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
     _failList:
     - {fileID: -6149206598976904165, guid: e32084423b1cd6646889c10d75f87b73, type: 2}
     - {fileID: -3605238400349697620, guid: e32084423b1cd6646889c10d75f87b73, type: 2}
@@ -298,16 +381,16 @@ MonoBehaviour:
   m_Name: SpeechTriggerAbility
   m_EditorClassIdentifier: 
   _range:
-    _min: 1
-    _max: 5
+    _min: 0
+    _max: 0
   _costAP: 10
   _radius: 15
   _minTargets: 0
-  _targetType: 0
+  _targetType: 1
   _menuItemData:
     _friendlyName: Speech
     _icon: {fileID: 21300000, guid: 878d745bc9741ba46ab9ae73c1efa1d6, type: 3}
-    _description: 
+    _description: Give a {abilityName} to everyone within {radius}. Hit on {traitList}
   _reactionTrigger:
     _triggerList:
     - _trait: {fileID: -8261361936468618248, guid: 26f61f036fbd8a843af3f89912a03468,
@@ -329,6 +412,14 @@ MonoBehaviour:
     - _trait: {fileID: -5386215674631098638, guid: 26f61f036fbd8a843af3f89912a03468,
         type: 2}
       _reaction: {fileID: 3959208671623290579, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: 5266141609781198474, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 277367436992013977, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: -1181826743665912276, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: -6753986248370573308, guid: e32084423b1cd6646889c10d75f87b73,
         type: 2}
     _failList:
     - {fileID: -6149206598976904165, guid: e32084423b1cd6646889c10d75f87b73, type: 2}
@@ -423,6 +514,10 @@ MonoBehaviour:
       _reaction: {fileID: -6433956699517619100, guid: e32084423b1cd6646889c10d75f87b73,
         type: 2}
     - _trait: {fileID: 8104443354933046619, guid: 26f61f036fbd8a843af3f89912a03468,
+        type: 2}
+      _reaction: {fileID: 277367436992013977, guid: e32084423b1cd6646889c10d75f87b73,
+        type: 2}
+    - _trait: {fileID: 5266141609781198474, guid: 26f61f036fbd8a843af3f89912a03468,
         type: 2}
       _reaction: {fileID: 277367436992013977, guid: e32084423b1cd6646889c10d75f87b73,
         type: 2}

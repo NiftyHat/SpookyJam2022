@@ -92,11 +92,18 @@ namespace UI
             
             if (_previewCommand != null)
             {
+                if (_previewCommand.IsValidTarget(_floorLocation) && _previewCommand.Targets.Target != _floorLocation)
+                {
+                    _floorLocation.Set(raycastHit.point);
+                    _previewCommand.SetTarget(_floorLocation);
+                }
+                
                 Vector3 sourcePosition = _previewCommand.Targets.Source.GetInteractionPosition();
                 float rangeMax = _previewCommand.Range.Max;
                 float rangeMin = _previewCommand.Range.Min;
-                Vector3 direction = _previewCommand.Targets.DirectionToTarget();
-                float distanceToTarget = _previewCommand.Targets.GetDistance();
+                Vector3 direction = _previewCommand.Targets.DirectionTo(raycastHit.point);
+                float distanceToTarget = _previewCommand.Targets.GetDistance(raycastHit.point);
+               
                 if (distanceToTarget > rangeMax)
                 {
                     Vector3 maxPossibleDistance = direction * rangeMax;
@@ -104,26 +111,17 @@ namespace UI
                 }
                 else if (distanceToTarget < rangeMin)
                 {
-                    Vector3 minPossibleDistance = direction * rangeMax;
+                    Vector3 minPossibleDistance = direction * rangeMin;
                     _floorLocation.Set(sourcePosition + minPossibleDistance);
                 }
                 else
                 {
                     _floorLocation.Set(raycastHit.point);
                 }
-                _floorLocation.Set(raycastHit.point);
             }
             else
             {
                 _floorLocation.Set(raycastHit.point);
-            }
-            
-            if (_previewCommand != null)
-            {
-                if (_previewCommand.IsValidTarget(_floorLocation))
-                {
-                    _previewCommand.SetTarget(_floorLocation);
-                }
             }
         }
 
@@ -196,6 +194,10 @@ namespace UI
             _locationIndicatorView.Clear();
             _selectedTargetView.Clear();
             _radiusIndicatorView.Clear();
+            if (_player != null)
+            {
+                _player.HideAPDisplay();
+            }
             _previewCommand = null;
         }
 
@@ -219,8 +221,7 @@ namespace UI
                         {
                             _rangeIndicatorView.gameObject.SetActive(true);
                         }
-                        float maxRange = _previewCommand.Interaction.RangeMax;
-                        _rangeIndicatorView.ShowDistance(sourcePos, maxRange, _previewCommand.ValidateRange);
+                        _rangeIndicatorView.ShowDistance(sourcePos, _previewCommand.Range, _previewCommand.ValidateRange);
                     }
                     else
                     {

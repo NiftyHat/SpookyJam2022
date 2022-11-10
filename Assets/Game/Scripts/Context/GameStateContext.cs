@@ -60,6 +60,7 @@ namespace Context
             _locationSet = locationSet;
             _currentTime = ConvertTurnsToTime(Turns.Value);
             _characterEntities = _guestListGenerator.Generate(8, 1, 1);
+            Debug.Log(GuestListGenerator.PrintDebug(_characterEntities));
             _commandRunner = new CommandRunner();
             Phase.OnChanged += HandlePhaseChange;
         }
@@ -119,6 +120,7 @@ namespace Context
             Phase.Value = 0;
             _currentTime = ConvertTurnsToTime(Turns.Value);
             _characterEntities = _guestListGenerator.Generate(8, 1, 1);
+
             loadingOperation = SceneManager.LoadSceneAsync(1);
         }
 

@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
+
 using Commands;
 using Entity;
 using GameStats;
 using Interactions;
 using Interactions.Commands;
 using TouchInput.UnitControl;
-using UI.Targeting;
 using UnityEngine;
 
 namespace Data.Interactions
@@ -27,7 +25,7 @@ namespace Data.Interactions
             private string _description;
             public Command(IInteraction interaction, TargetingInfo targets, GameStat actionPoints) : base(interaction, targets, actionPoints)
             {
-                _apCostForOneMovementUnit = interaction.CostAP / (interaction.RangeMax / _oneUnit);
+                _apCostForOneMovementUnit = (interaction.RangeMax / interaction.CostAP) * _oneUnit;
             }
 
             public override string GetDescription()
@@ -43,11 +41,13 @@ namespace Data.Interactions
                     OnDone(this,false);
                     return;
                 }
+                
                 if (_targets.Source is UnitInputHandler unitInputHandler)
                 {
                     var movementHandler = unitInputHandler.gameObject.GetComponent<UnitMovementHandler>();
                     if (movementHandler != null)
                     {
+                        _actionPoints.Subtract(APCostProvider.Value);
                         movementHandler.MoveTo(_targets.Target.GetInteractionPosition(), endPosition => { OnDone(this, true);;});
                     }
                 }
@@ -56,10 +56,13 @@ namespace Data.Interactions
             public override bool Validate()
             {
                 float distance = _targets.GetDistance();
+                var abilityRange = Range;
                 int ap = _actionPoints.Value;
-                _maxRangeFromAP = (int)(ap / _apCostForOneMovementUnit);
+                _maxRangeFromAP = (int)(ap * _apCostForOneMovementUnit);
                 _apCostFromDistance = (int)(distance / _apCostForOneMovementUnit);
                 APCostProvider.Value = _apCostFromDistance;
+                int maxRange = Mathf.Max(abilityRange.Min, _maxRangeFromAP);
+                abilityRange.Max = maxRange;
                 if (distance > _maxRangeFromAP)
                 {
                     return false;

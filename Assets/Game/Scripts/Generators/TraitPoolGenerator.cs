@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Data;
+using Data.Interactions;
 using Data.Monsters;
+using Data.Reactions;
 using Data.Trait;
 using NiftyFramework.Core;
 using NiftyFramework.Scripts;
@@ -21,19 +24,30 @@ namespace Generators
         /// </summary>
         public class TraitPool
         {
-            public readonly Range<int> TraitsPerEntity;
             protected List<HashSet<TraitData>> _traitSets;
-            
-            public TraitPool(HashSet<TraitData> traits, Range<int> traitsPerEntity, int entityCount, System.Random random)
+            protected readonly List<TraitData> _possibleTraits;
+            protected readonly List<HashSet<TraitData>> _bannedTraitSets;
+            protected readonly List<ReactionTriggerSet> _reactionTriggerSets;
+
+            public List<TraitData> PossibleTraits => _possibleTraits;
+
+            public TraitPool(HashSet<TraitData> traits, Range<int> traitsPerEntity, int entityCount,
+                List<HashSet<TraitData>> monsterTraits, List<AbilityReactionTriggerData> reactionTriggerAbilityDataList, Random random)
             {
-                TraitsPerEntity = traitsPerEntity;
                 _traitSets = new List<HashSet<TraitData>>(entityCount);
-                List<TraitData> possibleTraitList = new List<TraitData>(traits);
-               
+                _possibleTraits = new List<TraitData>(traits);
+                _bannedTraitSets = monsterTraits;
+                
+                _reactionTriggerSets = new List<ReactionTriggerSet>();
+                foreach (var item in reactionTriggerAbilityDataList)
+                {
+                    _reactionTriggerSets.Add(item.ReactionTrigger);
+                }
+                
                 for (int i = 0; i < entityCount; i++)
                 {
                     int traitsToGenerate = random.Next(traitsPerEntity.Min, traitsPerEntity.Max);
-                    HashSet<TraitData> randomTraits = GetRandomTraits(possibleTraitList, traitsToGenerate, random);
+                    HashSet<TraitData> randomTraits = GetRandomTraits(_reactionTriggerSets, traitsToGenerate, random);
                     _traitSets.Add(randomTraits);
                 }
             }
@@ -43,20 +57,64 @@ namespace Generators
             /// repeatedly. If we add weight to traits this function will be very not compatible with that :(
             /// </summary>
             /// <param name="sourceTraitList"></param>
+            /// <param name="reactionTriggerAbilities"></param>
             /// <param name="count"></param>
+            /// <param name="random"></param>
             /// <returns></returns>
-            public HashSet<TraitData> GetRandomTraits(List<TraitData> sourceTraitList, int count, Random random)
+            public HashSet<TraitData> GetRandomTraits(List<ReactionTriggerSet> reactionTriggerAbilities, int count, Random random)
             {
-                HashSet<TraitData> outputTraits = new HashSet<TraitData>();
-                List<int> traitIndexList = Enumerable.Range(0, sourceTraitList.Count).ToList();
-                traitIndexList.Shuffle(random);
-                for (int i = 0; i < count && i < traitIndexList.Count; i++)
+                HashSet<TraitData> possibleTraits = new HashSet<TraitData>(_possibleTraits);
+                TraitData firstTrait = _possibleTraits.RandomItem(random);
+                possibleTraits.Remove(firstTrait);
+                HashSet<TraitData> outputTraits = new HashSet<TraitData>() { firstTrait };
+                for (int i = 0; i < count; i++)
                 {
-                    int randomIndex = traitIndexList[i];
-                    var traitData = sourceTraitList[randomIndex];
-                    outputTraits.Add(traitData);
+                    HashSet<TraitData> nextTraitOptions = GetNonOverlappingTrait(outputTraits, possibleTraits);
+                    if (outputTraits.Count >= 3)
+                    {
+                        foreach (var bannedTraitSet in _bannedTraitSets)
+                        {
+                            //if we are completely overlapping a monster, trash one trait at random and remove it from the possible list.
+                            if (outputTraits.IsSubsetOf(bannedTraitSet))
+                            {
+                                TraitData randomMonsterTrait = outputTraits.RandomItem(random);
+                                outputTraits.Remove(randomMonsterTrait);
+                                if (possibleTraits.Contains(randomMonsterTrait))
+                                {
+                                    possibleTraits.Remove(randomMonsterTrait);
+                                }
+                            }
+                        }
+                    }
+                    if (nextTraitOptions.Count > 0)
+                    {
+                        TraitData randomNewTrait = nextTraitOptions.RandomItem(random);
+                        outputTraits.Add(randomNewTrait);
+                        if (possibleTraits.Contains(randomNewTrait))
+                        {
+                            possibleTraits.Remove(randomNewTrait);
+                        }
+                        
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
                 return outputTraits;
+            }
+            
+            public HashSet<TraitData> GetNonOverlappingTrait(HashSet<TraitData> currentTraits, HashSet<TraitData> possibleTraits)
+            {
+                foreach (var reactionTrigger in _reactionTriggerSets)
+                {
+                    List<ReactionData> reactions = reactionTrigger.TryGetReaction(currentTraits);
+                    if (reactions.Count > 0)
+                    {
+                        possibleTraits.ExceptWith(reactionTrigger.GetAllTraits());
+                    }
+                }
+                return possibleTraits;
             }
             
             public string PrintDebug()
@@ -69,7 +127,7 @@ namespace Generators
                     sb.Append("[");
                     foreach (var item in generatedSet)
                     {
-                        sb.Append($"'{item.FriendlyName}'");
+                        sb.Append($"'{(item != null ? item.FriendlyName : "null")}'");
                         sb.Append(",");
                     }
                     sb.Remove(sb.Length -1, 1);
@@ -137,16 +195,15 @@ namespace Generators
         [SerializeField] private TraitDataSet _traitData;
         [SerializeField] private TraitsPerEntityRange _traitsPerEntityRange;
         [SerializeField] private MonsterEntityTypeDataSet _monsterEntityTypeDataSet;
+        [SerializeField] private PlayerData _playerData;
 
-        public TraitPool GetPool(System.Random random, int entityCount = 10)
+        public TraitPool GetPool(System.Random random, int entityCount = 10) 
         {
-            Range<int> traitsPerEntityRange = _traitsPerEntityRange.GetRange();
-            HashSet<TraitData> traitPool = new HashSet<TraitData>(_traitData.References);
-            HashSet<TraitData> monsterTraits = _monsterEntityTypeDataSet.GetAllPreferredTraits();
-            int totalTraitCount = entityCount * traitsPerEntityRange.Max;
-            //the initial trait pool contains NO monster traits. We add them again later once the monster is selected.
-            traitPool.ExceptWith(monsterTraits);
-            return new TraitPool(traitPool, traitsPerEntityRange, entityCount, random);
+            Range<int> traitsPerEntityRange = _traitsPerEntityRange.GetRange(); 
+            HashSet<TraitData> traitPool = new HashSet<TraitData>(_traitData.References.FindAll(trait => trait.IsEnabled));
+            var monsterTraitLists = _monsterEntityTypeDataSet.GetMonsterTraitLists();
+            List<AbilityReactionTriggerData> reactionTriggerDataList = _playerData.GetInteractionDataList<AbilityReactionTriggerData>();
+            return new TraitPool(traitPool, traitsPerEntityRange, entityCount, monsterTraitLists, reactionTriggerDataList, random);
         }
 
         [ContextMenu("Test")]

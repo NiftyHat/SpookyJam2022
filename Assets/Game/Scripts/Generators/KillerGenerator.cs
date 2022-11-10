@@ -14,43 +14,44 @@ namespace Generators
     {
         [SerializeField] private KillerEntityTypeData _killerEntityType;
         [SerializeField] private IntRange _preferredTraitsToCopy;
-        [SerializeField] private IntRange _otherTraitsToReplace;
+        //[SerializeField] private IntRange _otherTraitsToReplace;
         public KillerEntity Generate(System.Random random, GuestListGenerator.GuestItemPool itemPool, MonsterEntity targetMonster)
         {
             CharacterName.ImpliedGender impliedGender = NameGenerator.GetRandomGender(random);
             itemPool.Masks.TryGet(out var maskEntity, random);
             itemPool.Names.TryGet(out var nameEntity, impliedGender);
-            itemPool.Traits.TryGet(out HashSet<TraitData> randomTraitSet);
-            int totalTraitCount = randomTraitSet.Count;
-            targetMonster.GetActiveTraits(out HashSet<TraitData> monsterPreferred, out HashSet<TraitData> monsterOther);
-            List<TraitData> preferredTraits = GeneratePreferredTraits(monsterPreferred, random);
-            List<TraitData> otherTraits = GenerateOtherTraits(randomTraitSet, monsterOther, random);
+
+            targetMonster.GetActiveTraits(out HashSet<TraitData> monsterPreferred);
+            HashSet<TraitData> possibleKillerTraits = new HashSet<TraitData>(itemPool.Traits.PossibleTraits);
+            possibleKillerTraits.ExceptWith(monsterPreferred);
+            TraitData randomTrait = monsterPreferred.RandomItem(random);
+            monsterPreferred.Remove(randomTrait);
+
+            HashSet<TraitData> randomTraitList = itemPool.Traits.GetNonOverlappingTrait(monsterPreferred, possibleKillerTraits);
+            if (randomTraitList.Count > 0)
+            {
+                TraitData randomAdditionalTrait = randomTraitList.RandomItem(random);
+                monsterPreferred.Add(randomAdditionalTrait);
+            }
+            
+            //List<TraitData> killerTraits = new List<TraitData>(preferredTraits);
+            /*
+            if (preferredTraits.Count > totalTraitCount)
+            {
+                preferredTraits.RemoveRange(totalTraitCount, preferredTraits.Count);
+            }
+            //List<TraitData> otherTraits = GenerateOtherTraits(randomTraitSet, monsterOther, random);
             List<TraitData> killerTraits = new List<TraitData>(preferredTraits);
-            killerTraits.AddRange(otherTraits);
+            //killerTraits.AddRange(otherTraits);
             if (killerTraits.Count > totalTraitCount)
             {
                 killerTraits.RemoveRange(totalTraitCount, killerTraits.Count - totalTraitCount);
-            }
-            HashSet<TraitData> killerTraitSet = new HashSet<TraitData>(killerTraits);
+            }*/
+            HashSet<TraitData> killerTraitSet = new HashSet<TraitData>(monsterPreferred);
             CharacterViewData viewData = itemPool.ViewData.GetGendered(impliedGender, random);
             return new KillerEntity(targetMonster, _killerEntityType, maskEntity, nameEntity, killerTraitSet, viewData);
         }
 
-        public List<TraitData> GenerateOtherTraits(HashSet<TraitData> randomTraitSet, HashSet<TraitData> monsterOtherTraits, System.Random random)
-        {
-            List<TraitData> otherTraits = new List<TraitData>();
-            int otherTraitsToReplace = _otherTraitsToReplace.GetRandom(random);
-            if (otherTraitsToReplace > 0)
-            {
-                randomTraitSet.ExceptWith(monsterOtherTraits);
-                if (randomTraitSet.Count > 0)
-                {
-                    otherTraits.AddRange(randomTraitSet);
-                }
-            }
-            return otherTraits;
-        }
-        
         public List<TraitData> GeneratePreferredTraits(HashSet<TraitData> monsterPreferredTraits, System.Random random)
         {
             List<TraitData> outputTraits = new List<TraitData>();

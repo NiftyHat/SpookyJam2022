@@ -23,11 +23,9 @@ namespace Entity
         /// </summary>
         /// <param name="preferred"></param>
         /// <param name="other"></param>
-        public void GetActiveTraits(out HashSet<TraitData> preferred, out HashSet<TraitData> other)
+        public void GetActiveTraits(out HashSet<TraitData> preferred)
         {
             preferred = new HashSet<TraitData>(_typeData.PreferredTraits);
-            other = new HashSet<TraitData>(Traits);
-            other.ExceptWith(preferred);
             preferred.IntersectWith(Traits);
         }
     }
