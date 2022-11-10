@@ -51,25 +51,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e94dd26413bc42f418713927999499af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closeButton: {fileID: 5023847313312529540}
-  iconPrefab: {fileID: 7730727583795263897, guid: d4c8d4b5038c3b14eba2ada6f07987cf,
+  _closeButton: {fileID: 5023847313312529540}
+  _iconPrefab: {fileID: 7730727583795263897, guid: d4c8d4b5038c3b14eba2ada6f07987cf,
     type: 3}
-  nameListWidgetPrefab: {fileID: 8929328319691739431, guid: 6adc2f675235b7d42a9810b9ea098961,
-    type: 3}
-  locationListPrefab: {fileID: 6529822288059645201, guid: 6cc8076ceaf3d3e45ab6375f02e7f044,
-    type: 3}
-  traitListPrefab: {fileID: 1914715173016959865, guid: fefb2766f6ac0d44eb02864c91159a0b,
-    type: 3}
+  _nameListWidget: {fileID: 0}
+  _locationListWidget: {fileID: 0}
+  _traitListWidget: {fileID: 0}
   data:
     locationData: []
     traitData: []
-  guestPortrait: {fileID: 0}
-  maskPortrait: {fileID: 5654060717097884102}
-  nameDisplayText: {fileID: 7265523324126285754}
-  locationDisplay: {fileID: 5943805401475765569}
-  traitDisplay: {fileID: 6666783632111542906}
-  locationContainer: {fileID: 5037699329938023587}
-  traitContainer: {fileID: 2290947954315115091}
+  _maskPortrait: {fileID: 5654060717097884102}
+  _nameDisplayText: {fileID: 7265523324126285754}
+  _locationDisplay: {fileID: 5943805401475765569}
+  _traitDisplay: {fileID: 6666783632111542906}
+  _locationContainer: {fileID: 5037699329938023587}
+  _traitContainer: {fileID: 2290947954315115091}
 --- !u!1 &1913590429236991238
 GameObject:
   m_ObjectHideFlags: 0

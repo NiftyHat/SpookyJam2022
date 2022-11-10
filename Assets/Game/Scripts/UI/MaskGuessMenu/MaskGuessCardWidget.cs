@@ -15,21 +15,21 @@ namespace CardUI //NFT Hat no more yell at me
     public class MaskGuessCardWidget : MonoBehaviour
     {
         #region UI controls
-        [SerializeField] private GameObject closeButton;
+        [SerializeField] private GameObject _closeButton;
         #endregion
 
 
         #region Icon Pooling    
-        [SerializeField] private IconWidget iconPrefab;
+        [SerializeField] private IconWidget _iconPrefab;
         private static IObjectPool<IconWidget> _iconPool;
-        private static Transform poolContainer;
+        private static Transform _poolContainer;
         public IObjectPool<IconWidget> IconPool
         {
             get
             {
                 if (_iconPool == null)
                 {
-                    poolContainer = new GameObject("UI ObjectPool - IconWidgets").transform;
+                    _poolContainer = new GameObject("UI ObjectPool - IconWidgets").transform;
                     _iconPool = new ObjectPool<IconWidget>(CreateIcon, actionOnGet: (obj) => obj.gameObject.SetActive(true), OnReleaseIcon, actionOnDestroy: (obj) => Destroy(obj), false, 6, 12);
                 }
                 return _iconPool;
@@ -37,12 +37,12 @@ namespace CardUI //NFT Hat no more yell at me
         }
         private IconWidget CreateIcon()
         {
-            return GameObject.Instantiate<IconWidget>(iconPrefab);
+            return GameObject.Instantiate<IconWidget>(_iconPrefab);
         }
         private void OnReleaseIcon(IconWidget obj)
         {
             obj.gameObject.SetActive(false);
-            obj.transform.SetParent(poolContainer);
+            obj.transform.SetParent(_poolContainer);
         }
         #endregion
 
@@ -61,16 +61,15 @@ namespace CardUI //NFT Hat no more yell at me
         private MaskEntity _selectedMask;
 
         [Header("Display Data")]
-        public Image guestPortrait;
-        public Image maskPortrait;
+        public Image _maskPortrait;
 
-        public TextMeshProUGUI nameDisplayText;
+        public TextMeshProUGUI _nameDisplayText;
 
-        public GameObject locationDisplay, traitDisplay;
-        public Transform locationContainer, traitContainer;
+        public GameObject _locationDisplay, _traitDisplay;
+        public Transform _locationContainer, _traitContainer;
 
-        private List<IconWidget> locationIcons = new List<IconWidget>();
-        private List<IconWidget> traitIcons = new List<IconWidget>();
+        private List<IconWidget> _locationIcons = new List<IconWidget>();
+        private List<IconWidget> _traitIcons = new List<IconWidget>();
 
         public void SetData(MaskEntity selectedMask)
         {
@@ -83,13 +82,13 @@ namespace CardUI //NFT Hat no more yell at me
                 return;
 
             Initialize(data);
-            closeButton.SetActive(true);
+            _closeButton.SetActive(true);
             this.gameObject.SetActive(true);
         }
 
         public void CloseSingleWidget()
         {
-            closeButton.SetActive(false);
+            _closeButton.SetActive(false);
             this.gameObject.SetActive(false);
         }
 
@@ -101,8 +100,8 @@ namespace CardUI //NFT Hat no more yell at me
         public void Initialize(MaskGuessCardData data)
         {
             this.data = data;
-            maskPortrait.sprite = data.mask.MaskData.CardSprite;
-            maskPortrait.color = data.mask.Color;
+            _maskPortrait.sprite = data.mask.MaskData.CardSprite;
+            _maskPortrait.color = data.mask.Color;
             UpdateNameDisplay();
             UpdateLocationDisplay();
             UpdateTraitDisplay();
@@ -110,60 +109,60 @@ namespace CardUI //NFT Hat no more yell at me
 
         public void UpdateNameDisplay()
         {
-            nameDisplayText.SetText(data.DisplayName);
+            _nameDisplayText.SetText(data.DisplayName);
         }
 
         public void UpdateLocationDisplay()
         {
-            foreach (IconWidget icon in locationIcons)
+            foreach (IconWidget icon in _locationIcons)
             {
                 IconPool.Release(icon);
             }
-            locationIcons.Clear();
+            _locationIcons.Clear();
             foreach (LocationData loc in data.locationData)
             {
                 IconWidget icon = IconPool.Get();
-                icon.transform.SetParent(locationContainer);
+                icon.transform.SetParent(_locationContainer);
                 icon.SetSprite(loc.Icon);
-                locationIcons.Add(icon);
+                _locationIcons.Add(icon);
             }
         }
 
         public void UpdateTraitDisplay()
         {
-            foreach (IconWidget icon in traitIcons)
+            foreach (IconWidget icon in _traitIcons)
             {
                 IconPool.Release(icon);
             }
-            traitIcons.Clear();
+            _traitIcons.Clear();
             foreach (TraitData trt in data.traitData)
             {
                 IconWidget icon = IconPool.Get();
-                icon.transform.SetParent(traitContainer);
+                icon.transform.SetParent(_traitContainer);
                 icon.SetSprite(trt.Icon);
-                traitIcons.Add(icon);
+                _traitIcons.Add(icon);
             }
         }
 
 
         public void ClearDisplay()
         {
-            foreach (IconWidget icon in traitIcons)
+            foreach (IconWidget icon in _traitIcons)
             {
                 IconPool.Release(icon);
             }
-            traitIcons.Clear();
-            foreach (IconWidget icon in locationIcons)
+            _traitIcons.Clear();
+            foreach (IconWidget icon in _locationIcons)
             {
                 IconPool.Release(icon);
             }
-            locationIcons.Clear();
+            _locationIcons.Clear();
         }
 
         public void ShowDetailedData(bool show)
         {
-            locationDisplay.SetActive(show);
-            traitDisplay.SetActive(show);
+            _locationDisplay.SetActive(show);
+            _traitDisplay.SetActive(show);
         }
 
         #region Submenu Handling
