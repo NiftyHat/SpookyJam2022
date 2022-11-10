@@ -17,6 +17,8 @@ namespace UI.Targeting
         protected TooltipContext _tooltipContext;
         protected ITooltip _tooltip;
 
+        
+
         public void Start()
         {
             ContextService.Get<TooltipContext>(HandleTooltipContext);

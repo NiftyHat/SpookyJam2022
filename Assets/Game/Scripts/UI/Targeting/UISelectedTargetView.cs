@@ -20,16 +20,22 @@ namespace UI.Targeting
         [SerializeField][NonNull] private UIInteractionListPanel _interactionList;
         [SerializeField][NonNull] private UIAssignedTraitsPanel _assignedTraitsPanel;
         [SerializeField] [NonNull] private MaskGuessCardWidget _maskedGuessCardWidget;
-        [SerializeField] [NonNull] private GameObject _maskedGuessCardWidgetButton;
-        private GameStateContext _gameStateContext;
+        private GameStateContext _gameStateContext; 
+        private MaskGuessContext _maskGuessContext;
         private PlayerInputHandler _player;
         public event Action<InteractionCommand> OnPreviewCommand;
 
         public void Start()
         {
             ContextService.Get<GameStateContext>(HandleGameStateContext);
+            ContextService.Get<MaskGuessContext>(HandleMaskGuessContext);
             _interactionList.OnPreviewCommand += HandlePreviewCommand;
             Clear();
+        }
+
+        private void HandleMaskGuessContext(MaskGuessContext maskGuessContext)
+        {
+            _maskGuessContext = maskGuessContext;
         }
 
         private void HandlePreviewCommand(InteractionCommand command)
@@ -92,17 +98,6 @@ namespace UI.Targeting
                 else
                 {
                     _assignedTraitsPanel.Clear();
-                }
-
-                if (instance.Mask != null)
-                {
-                    _maskedGuessCardWidgetButton.SetActive(true);
-                    _maskedGuessCardWidget.SetData(instance.Mask);
-                }
-                else
-                {
-                    _maskedGuessCardWidgetButton.SetActive(false);
-                    _maskedGuessCardWidget.SetData(null);
                 }
             }
         }
