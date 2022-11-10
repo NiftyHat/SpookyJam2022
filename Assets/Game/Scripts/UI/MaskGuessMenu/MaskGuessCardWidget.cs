@@ -61,12 +61,12 @@ namespace CardUI //NFT Hat no more yell at me
         private MaskEntity _selectedMask;
 
         [Header("Display Data")]
-        public Image _maskPortrait;
+        [SerializeField] [NonNull] private Image _maskPortrait;
 
-        public TextMeshProUGUI _nameDisplayText;
+        [SerializeField] [NonNull] private TextMeshProUGUI _nameDisplayText;
 
-        public GameObject _locationDisplay, _traitDisplay;
-        public Transform _locationContainer, _traitContainer;
+        [SerializeField] [NonNull] private GameObject _locationDisplay, _traitDisplay;
+        [SerializeField] [NonNull] private Transform _locationContainer, _traitContainer;
 
         private List<IconWidget> _locationIcons = new List<IconWidget>();
         private List<IconWidget> _traitIcons = new List<IconWidget>();
