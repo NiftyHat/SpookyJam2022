@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Data.Location;
 using UnityEngine;
@@ -20,8 +21,7 @@ namespace CardUI
         [SerializeField]
         private List<LocationEntryWidget> _buttons = new List<LocationEntryWidget>();
 
-        private MaskGuessCardWidget _parentMenuReference;
-
+        public event Action<List<LocationData>> OnSelected;
 
         //Generate Buttons for Menu
         public void Start()
@@ -36,10 +36,8 @@ namespace CardUI
             }
         }
 
-        public void Initialize(List<LocationData> data, MaskGuessCardWidget parentMenu = null)
+        public void Initialize(List<LocationData> data)
         {
-            _parentMenuReference = parentMenu;
-
             _noneToggle.SetValue(data.Count == 0);
 
             foreach (LocationEntryWidget button in _buttons)
@@ -70,12 +68,6 @@ namespace CardUI
             }
         }
 
-        public void OnDisable()
-        {
-            _parentMenuReference = null;
-        }
-
-
 
         public void OnNonNullEntrySelected()
         {
@@ -98,8 +90,14 @@ namespace CardUI
 
         public void OnConfirmButtonPressed()
         {
-            //Fuckin take the data bro and disable this menu dog
-            _parentMenuReference.ConfirmLocationSubmenu();
+            var data = GetData();
+            OnSelected?.Invoke(data);
+            Close();
+        }
+
+        public void Close()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

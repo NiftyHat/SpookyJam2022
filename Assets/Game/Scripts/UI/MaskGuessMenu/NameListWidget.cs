@@ -1,6 +1,7 @@
 using Context;
 using Entity;
 using NiftyFramework.Core.Context;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,47 +14,48 @@ namespace CardUI
         [SerializeField] private NameEntry _nameEntryPrefab;
         [SerializeField] private Transform _nameEntryContainer;
 
-        private MaskGuessCardWidget _parentMenuReference;
-
         private CharacterName _selectedNameData;
 
-        private bool _isInit = false;
+        public event Action<CharacterName> OnSelected;
 
-        //Set up buttons
-        public void Initialize(MaskGuessCardWidget parentMenu = null)
+        private void Start()
         {
-            _parentMenuReference = parentMenu;
+            //Set up buttons with Guest List data
+            List<CharacterName> data = new List<CharacterName>();
+            GuestsData.With(characterEntity => data.Add(characterEntity.Name));
 
-            if (!_isInit)
+            foreach (CharacterName name in data)
             {
-                List<CharacterName> data = new List<CharacterName>();
-                GuestsData.With(characterEntity => data.Add(characterEntity.Name));
-
-                foreach (CharacterName name in data)
-                {
-                    NameEntry nameEntry = GameObject.Instantiate<NameEntry>(_nameEntryPrefab, _nameEntryContainer);
-                    nameEntry.Init(name, this);
-                }
-                _isInit = true;
+                NameEntry nameEntry = GameObject.Instantiate<NameEntry>(_nameEntryPrefab, _nameEntryContainer);
+                nameEntry.Init(name, this);
             }
         }
 
-        public void OnDisable()
+        //Set up buttons
+        public void Initialize(MaskGuessCardWidget maskGuessCardWidget)
         {
-            _parentMenuReference = null;
-        }
-
-
-        public void OnNameEntrySelected(CharacterName nameValue)
-        {
-            Debug.Log("YOYOI selected Name " + nameValue);
-            //Same as Confirm Button for other submenus
-            _parentMenuReference.ConfirmNameSubmenu();
+            //@TODO Highlight selected button 
         }
 
         public CharacterName GetData()
         {
             return _selectedNameData;
         }
+
+        public void OnNameEntrySelected(CharacterName nameValue)
+        {
+            Debug.Log("YOYOI selected Name " + nameValue);
+            //Same as Confirm Button for other submenus
+
+            var data = GetData();
+            OnSelected?.Invoke(data);
+            Close();
+        }
+
+        public void Close()
+        {
+            gameObject.SetActive(false);
+        }
+
     }
 }

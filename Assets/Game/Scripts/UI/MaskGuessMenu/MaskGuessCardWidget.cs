@@ -8,6 +8,7 @@ using CardUI;
 using Data.Trait;
 using Data;
 using Entity;
+using NiftyFramework.Core.Utils;
 
 namespace CardUI //NFT Hat no more yell at me
 {
@@ -15,10 +16,6 @@ namespace CardUI //NFT Hat no more yell at me
     {
         #region UI controls
         [SerializeField] private GameObject closeButton;
-        #endregion
-
-        #region Accessing this Widget
-
         #endregion
 
 
@@ -49,62 +46,12 @@ namespace CardUI //NFT Hat no more yell at me
         }
         #endregion
 
+
         #region Sub Menu References 
-        private static Transform _submenuContainer;
-        public static Transform SubmenuContainer
-        {
-            get
-            {
-                if (_submenuContainer == null)
-                {
-                    _submenuContainer = new GameObject("MaskedGuestCard - Submenus").transform;
-                }
-                return _submenuContainer;
-            }
-        }
 
-        [SerializeField] private NameListWidget nameListWidgetPrefab;
-        private static NameListWidget _nameListWidget;
-        public NameListWidget NameListSubmenu
-        {
-            get
-            {
-                if (_nameListWidget == null)
-                {
-                    _nameListWidget = GameObject.Instantiate<NameListWidget>(nameListWidgetPrefab, SubmenuContainer);
-                }
-                return _nameListWidget;
-            }
-        }
-
-        [SerializeField] private LocationListWidget locationListPrefab;
-        private static LocationListWidget _locationListWidget;
-        public LocationListWidget LocationListSubmenu
-        {
-            get
-            {
-                if (_locationListWidget == null)
-                {
-                    _locationListWidget = GameObject.Instantiate<LocationListWidget>(locationListPrefab, SubmenuContainer);
-                }
-                return _locationListWidget;
-            }
-        }
-
-        [SerializeField] private TraitListWidget traitListPrefab;
-        private static TraitListWidget _traitListWidget;
-        public TraitListWidget TraitListSubmenu
-        {
-            get
-            {
-                if (_traitListWidget == null)
-                {
-                    _traitListWidget = GameObject.Instantiate<TraitListWidget>(traitListPrefab, SubmenuContainer);
-                    _traitListWidget.OnSelected += HandleTraitsSelected;
-                }
-                return _traitListWidget;
-            }
-        }
+        [SerializeField] [NonNull] private NameListWidget _nameListWidget;
+        [SerializeField] [NonNull] private LocationListWidget _locationListWidget;
+        [SerializeField] [NonNull] private TraitListWidget _traitListWidget;
 
         #endregion
 
@@ -198,12 +145,6 @@ namespace CardUI //NFT Hat no more yell at me
             }
         }
 
-        private void HandleTraitsSelected(List<TraitData> traitsSelected)
-        {
-            data.traitData = traitsSelected;
-            UpdateTraitDisplay();
-        }
-
 
         public void ClearDisplay()
         {
@@ -229,49 +170,59 @@ namespace CardUI //NFT Hat no more yell at me
 
         public void ShowNameSubmenu()
         {
-            Debug.Log("Show Name Menu");
-            NameListSubmenu.gameObject.SetActive(true);
-            NameListSubmenu.transform.SetParent(this.transform);
-            NameListSubmenu.transform.position = this.transform.position;
+            if (_nameListWidget.isActiveAndEnabled)
+                return;
 
-            NameListSubmenu.Initialize(this);
+            Debug.Log("Show Name Menu");
+            _nameListWidget.transform.position = this.transform.position;
+            _nameListWidget.gameObject.SetActive(true);
+            _nameListWidget.Initialize(this);
+            _nameListWidget.OnSelected += HandleNameSelected;
+        }
+
+        public void HandleNameSelected(CharacterName nameSelected)
+        {
+            data.name = nameSelected;
+            UpdateTraitDisplay();
+            _nameListWidget.OnSelected -= HandleNameSelected;
         }
 
         public void ShowTraitSubmenu()
         {
+            if (_traitListWidget.isActiveAndEnabled)
+                return;
+
             Debug.Log("Show Trait Menu");
-            TraitListSubmenu.gameObject.SetActive(true);
-            TraitListSubmenu.transform.SetParent(this.transform);
-            TraitListSubmenu.transform.position = this.transform.position;
-            TraitListSubmenu.Initialize(data.traitData, this);
+            _traitListWidget.transform.position = this.transform.position;
+            _traitListWidget.gameObject.SetActive(true);
+            _traitListWidget.Initialize(data.traitData);
+            _traitListWidget.OnSelected += HandleTraitsSelected;
+        }
+
+        private void HandleTraitsSelected(List<TraitData> traitsSelected)
+        {
+            data.traitData = traitsSelected;
+            UpdateTraitDisplay();
+            _traitListWidget.OnSelected -= HandleTraitsSelected;
         }
 
         public void ShowLocationSubmenu()
         {
             Debug.Log("Show Location Menu");
-            LocationListSubmenu.gameObject.SetActive(true);
-            LocationListSubmenu.transform.SetParent(this.transform);
-            LocationListSubmenu.transform.position = this.transform.position;
-            LocationListSubmenu.Initialize(data.locationData, this);
+            _locationListWidget.transform.position = this.transform.position;
+            _locationListWidget.gameObject.SetActive(true);
+            _locationListWidget.Initialize(data.locationData);
+            _locationListWidget.OnSelected += HandleLocationsSelected;
         }
 
 
-        public void ConfirmLocationSubmenu()
+        public void HandleLocationsSelected(List<LocationData> locationsSelected)
         {
-            data.locationData = LocationListSubmenu.GetData();
-            LocationListSubmenu.gameObject.SetActive(false);
-            LocationListSubmenu.transform.SetParent(SubmenuContainer);
+            data.locationData = locationsSelected;
             UpdateLocationDisplay();
+            _locationListWidget.OnSelected -= HandleLocationsSelected;
         }
 
-        public void ConfirmNameSubmenu()
-        {
-            CharacterName name = NameListSubmenu.GetData();
-            if (name != null)
-                data.name = NameListSubmenu.GetData();
-            NameListSubmenu.gameObject.SetActive(false);
-            NameListSubmenu.transform.SetParent(SubmenuContainer);
-        }
 
         #endregion
     }

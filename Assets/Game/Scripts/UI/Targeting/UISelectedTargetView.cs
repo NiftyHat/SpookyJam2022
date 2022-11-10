@@ -19,7 +19,7 @@ namespace UI.Targeting
         [SerializeField][NonNull] private UITargetPortraitPanel _targetPortrait;
         [SerializeField][NonNull] private UIInteractionListPanel _interactionList;
         [SerializeField][NonNull] private UIAssignedTraitsPanel _assignedTraitsPanel;
-        [SerializeField] [NonNull] private MaskGuessCardWidget _maskedGuessCardWidget;
+        [SerializeField] [NonNull] private CardUI.MaskGuessCardWidget _maskedGuessCardWidget;
         private GameStateContext _gameStateContext; 
         private MaskGuessContext _maskGuessContext;
         private PlayerInputHandler _player;

@@ -23,8 +23,6 @@ namespace CardUI
         [SerializeField]
         private List<TraitEntryWidget> _buttons = new List<TraitEntryWidget>();
 
-        private MaskGuessCardWidget _parentMenuReference;
-
         public event Action<List<TraitData>> OnSelected;
 
         //Generate Buttons for Menu
@@ -40,10 +38,8 @@ namespace CardUI
             }
         }
 
-        public void Initialize(List<TraitData> data, MaskGuessCardWidget parentMenu = null)
+        public void Initialize(List<TraitData> data)
         {
-            _parentMenuReference = parentMenu;
-
             _noneToggle.SetValue(data.Count == 0);
 
             foreach (TraitEntryWidget button in _buttons)
@@ -76,12 +72,6 @@ namespace CardUI
             }
         }
 
-        public void OnDisable()
-        {
-            _parentMenuReference = null;
-        }
-
-
         public void OnNonNullEntrySelected()
         {
             //Set None Toggle to be accurate
@@ -108,12 +98,10 @@ namespace CardUI
 
         public void OnConfirmButtonPressed()
         {
-            
             var data = GetData();
             OnSelected?.Invoke(data);
             Close();
             //Fuckin take the data and disable this menu
-            //_parentMenuReference.ConfirmTraitSubmenu();
         }
     }
 }
