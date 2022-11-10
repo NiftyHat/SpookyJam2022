@@ -83,9 +83,9 @@ namespace UI.Targeting
                 var interactions = _gameStateContext.GetInteractions(FilterInteractions);
                 _interactionList.Set(interactions, targetingInfo);
             }
-            if (target is ITargetable<CharacterEntity> selectableCharacter)
+            if (target is IEntityView<CharacterEntity> selectableCharacter)
             {
-                var instance = selectableCharacter.GetInstance();
+                var instance = selectableCharacter.Entity;
                 if (instance == null)
                 {
                     return;
