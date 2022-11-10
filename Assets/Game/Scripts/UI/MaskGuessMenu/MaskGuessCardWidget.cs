@@ -98,11 +98,14 @@ public class MaskGuessCardWidget : MonoBehaviour
             if (_traitListWidget == null)
             {
                 _traitListWidget = GameObject.Instantiate<TraitListWidget>(traitListPrefab, SubmenuContainer);
+                _traitListWidget.OnSelected += HandleTraitsSelected;
             }
             return _traitListWidget;
         }
     }
+
     #endregion
+    
 
     [SerializeField]
     private MaskGuessCardData data = null;
@@ -192,6 +195,13 @@ public class MaskGuessCardWidget : MonoBehaviour
             traitIcons.Add(icon);
         }
     }
+    
+    private void HandleTraitsSelected(List<TraitData> traitsSelected)
+    {
+        data.traitData = traitsSelected;
+        UpdateTraitDisplay();
+    }
+
 
     public void ClearDisplay()
     {
@@ -243,13 +253,6 @@ public class MaskGuessCardWidget : MonoBehaviour
         LocationListSubmenu.Initialize(data.locationData, this);
     }
 
-    public void ConfirmTraitSubmenu()
-    {
-        data.traitData = TraitListSubmenu.GetData();
-        TraitListSubmenu.gameObject.SetActive(false);
-        TraitListSubmenu.transform.SetParent(SubmenuContainer);
-        UpdateTraitDisplay();
-    }
 
     public void ConfirmLocationSubmenu()
     {

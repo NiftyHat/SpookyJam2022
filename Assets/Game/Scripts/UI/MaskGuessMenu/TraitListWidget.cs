@@ -1,3 +1,4 @@
+using System;
 using Data.Trait;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace CardUI
 
         private MaskGuessCardWidget _parentMenuReference;
 
+        public event Action<List<TraitData>> OnSelected;
 
         //Generate Buttons for Menu
         public void Start()
@@ -56,7 +58,9 @@ namespace CardUI
             foreach (TraitEntryWidget button in _buttons)
             {
                 if (button.Value)
+                {
                     results.Add(button.Data);
+                }
             }
             return results;
         }
@@ -97,10 +101,19 @@ namespace CardUI
             }
         }
 
+        private void Close()
+        {
+            gameObject.SetActive(false);
+        }
+
         public void OnConfirmButtonPressed()
         {
+            
+            var data = GetData();
+            OnSelected?.Invoke(data);
+            Close();
             //Fuckin take the data and disable this menu
-            _parentMenuReference.ConfirmTraitSubmenu();
+            //_parentMenuReference.ConfirmTraitSubmenu();
         }
     }
 }
