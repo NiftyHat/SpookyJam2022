@@ -9,268 +9,270 @@ using Data.Trait;
 using Data;
 using Entity;
 
-public class MaskGuessCardWidget : MonoBehaviour
+namespace CardUI //NFT Hat no more yell at me
 {
-    #region UI controls
-    [SerializeField] private GameObject closeButton;
-    #endregion
-
-    #region Accessing this Widget
-
-    #endregion
-
-
-    #region Icon Pooling    
-    [SerializeField] private IconWidget iconPrefab;
-    private static IObjectPool<IconWidget> _iconPool;
-    private static Transform poolContainer;
-    public IObjectPool<IconWidget> IconPool
+    public class MaskGuessCardWidget : MonoBehaviour
     {
-        get
+        #region UI controls
+        [SerializeField] private GameObject closeButton;
+        #endregion
+
+        #region Accessing this Widget
+
+        #endregion
+
+
+        #region Icon Pooling    
+        [SerializeField] private IconWidget iconPrefab;
+        private static IObjectPool<IconWidget> _iconPool;
+        private static Transform poolContainer;
+        public IObjectPool<IconWidget> IconPool
         {
-            if (_iconPool == null)
+            get
             {
-                poolContainer = new GameObject("UI ObjectPool - IconWidgets").transform;
-                _iconPool = new ObjectPool<IconWidget>(CreateIcon, actionOnGet: (obj) => obj.gameObject.SetActive(true), OnReleaseIcon, actionOnDestroy: (obj) => Destroy(obj), false, 6, 12);
+                if (_iconPool == null)
+                {
+                    poolContainer = new GameObject("UI ObjectPool - IconWidgets").transform;
+                    _iconPool = new ObjectPool<IconWidget>(CreateIcon, actionOnGet: (obj) => obj.gameObject.SetActive(true), OnReleaseIcon, actionOnDestroy: (obj) => Destroy(obj), false, 6, 12);
+                }
+                return _iconPool;
             }
-            return _iconPool;
         }
-    }
-    private IconWidget CreateIcon()
-    {
-        return GameObject.Instantiate<IconWidget>(iconPrefab);
-    }
-    private void OnReleaseIcon(IconWidget obj)
-    {
-        obj.gameObject.SetActive(false);
-        obj.transform.SetParent(poolContainer);
-    }
-    #endregion
-
-    #region Sub Menu References 
-    private static Transform _submenuContainer;
-    public static Transform SubmenuContainer
-    {
-        get
+        private IconWidget CreateIcon()
         {
-            if (_submenuContainer == null)
+            return GameObject.Instantiate<IconWidget>(iconPrefab);
+        }
+        private void OnReleaseIcon(IconWidget obj)
+        {
+            obj.gameObject.SetActive(false);
+            obj.transform.SetParent(poolContainer);
+        }
+        #endregion
+
+        #region Sub Menu References 
+        private static Transform _submenuContainer;
+        public static Transform SubmenuContainer
+        {
+            get
             {
-                _submenuContainer = new GameObject("MaskedGuestCard - Submenus").transform;
+                if (_submenuContainer == null)
+                {
+                    _submenuContainer = new GameObject("MaskedGuestCard - Submenus").transform;
+                }
+                return _submenuContainer;
             }
-            return _submenuContainer;
         }
-    }
 
-    [SerializeField] private NameListWidget nameListWidgetPrefab;
-    private static NameListWidget _nameListWidget;
-    public NameListWidget NameListSubmenu
-    {
-        get
+        [SerializeField] private NameListWidget nameListWidgetPrefab;
+        private static NameListWidget _nameListWidget;
+        public NameListWidget NameListSubmenu
         {
-            if (_nameListWidget == null)
+            get
             {
-                _nameListWidget = GameObject.Instantiate<NameListWidget>(nameListWidgetPrefab, SubmenuContainer);
+                if (_nameListWidget == null)
+                {
+                    _nameListWidget = GameObject.Instantiate<NameListWidget>(nameListWidgetPrefab, SubmenuContainer);
+                }
+                return _nameListWidget;
             }
-            return _nameListWidget;
         }
-    }
 
-    [SerializeField] private LocationListWidget locationListPrefab;
-    private static LocationListWidget _locationListWidget;
-    public LocationListWidget LocationListSubmenu
-    {
-        get
+        [SerializeField] private LocationListWidget locationListPrefab;
+        private static LocationListWidget _locationListWidget;
+        public LocationListWidget LocationListSubmenu
         {
-            if (_locationListWidget == null)
+            get
             {
-                _locationListWidget = GameObject.Instantiate<LocationListWidget>(locationListPrefab, SubmenuContainer);
+                if (_locationListWidget == null)
+                {
+                    _locationListWidget = GameObject.Instantiate<LocationListWidget>(locationListPrefab, SubmenuContainer);
+                }
+                return _locationListWidget;
             }
-            return _locationListWidget;
         }
-    }
 
-    [SerializeField] private TraitListWidget traitListPrefab;
-    private static TraitListWidget _traitListWidget;
-    public TraitListWidget TraitListSubmenu
-    {
-        get
+        [SerializeField] private TraitListWidget traitListPrefab;
+        private static TraitListWidget _traitListWidget;
+        public TraitListWidget TraitListSubmenu
         {
-            if (_traitListWidget == null)
+            get
             {
-                _traitListWidget = GameObject.Instantiate<TraitListWidget>(traitListPrefab, SubmenuContainer);
-                _traitListWidget.OnSelected += HandleTraitsSelected;
+                if (_traitListWidget == null)
+                {
+                    _traitListWidget = GameObject.Instantiate<TraitListWidget>(traitListPrefab, SubmenuContainer);
+                    _traitListWidget.OnSelected += HandleTraitsSelected;
+                }
+                return _traitListWidget;
             }
-            return _traitListWidget;
         }
-    }
 
-    #endregion
-    
+        #endregion
 
-    [SerializeField]
-    private MaskGuessCardData data = null;
-    private MaskEntity _selectedMask;
 
-    [Header("Display Data")]
-    public Image guestPortrait;
-    public Image maskPortrait;
+        [SerializeField]
+        private MaskGuessCardData data = null;
+        private MaskEntity _selectedMask;
 
-    public TextMeshProUGUI nameDisplayText;
+        [Header("Display Data")]
+        public Image guestPortrait;
+        public Image maskPortrait;
 
-    public GameObject locationDisplay, traitDisplay;
-    public Transform locationContainer, traitContainer;
+        public TextMeshProUGUI nameDisplayText;
 
-    private List<IconWidget> locationIcons = new List<IconWidget>();
-    private List<IconWidget> traitIcons = new List<IconWidget>();
+        public GameObject locationDisplay, traitDisplay;
+        public Transform locationContainer, traitContainer;
 
-    public void SetData(MaskEntity selectedMask)
-    {
-        _selectedMask = selectedMask;
-    }
+        private List<IconWidget> locationIcons = new List<IconWidget>();
+        private List<IconWidget> traitIcons = new List<IconWidget>();
 
-    public void ShowSingleWidget()
-    {
-        if (_selectedMask == null)
-            return;
-
-        Initialize(data);
-        closeButton.SetActive(true);
-        this.gameObject.SetActive(true);
-    }
-
-    public void CloseSingleWidget()
-    {
-        closeButton.SetActive(false);
-        this.gameObject.SetActive(false);
-    }
-
-    private void OnEnable()
-    {
-        Initialize(data);
-    }
-
-    public void Initialize(MaskGuessCardData data)
-    {
-        this.data = data;
-        maskPortrait.sprite = data.mask.MaskData.CardSprite;
-        maskPortrait.color = data.mask.Color;
-        UpdateNameDisplay();
-        UpdateLocationDisplay();
-        UpdateTraitDisplay();
-    }
-
-    public void UpdateNameDisplay()
-    {
-        nameDisplayText.SetText(data.DisplayName);
-    }
-
-    public void UpdateLocationDisplay()
-    {
-        foreach (IconWidget icon in locationIcons)
+        public void SetData(MaskEntity selectedMask)
         {
-            IconPool.Release(icon);
+            _selectedMask = selectedMask;
         }
-        locationIcons.Clear();
-        foreach (LocationData loc in data.locationData)
+
+        public void ShowSingleWidget()
         {
-            IconWidget icon = IconPool.Get();
-            icon.transform.SetParent(locationContainer);
-            icon.SetSprite(loc.Icon);
-            locationIcons.Add(icon);
-        }
-    }
+            if (_selectedMask == null)
+                return;
 
-    public void UpdateTraitDisplay()
-    {
-        foreach (IconWidget icon in traitIcons)
+            Initialize(data);
+            closeButton.SetActive(true);
+            this.gameObject.SetActive(true);
+        }
+
+        public void CloseSingleWidget()
         {
-            IconPool.Release(icon);
+            closeButton.SetActive(false);
+            this.gameObject.SetActive(false);
         }
-        traitIcons.Clear();
-        foreach (TraitData trt in data.traitData)
+
+        private void OnEnable()
         {
-            IconWidget icon = IconPool.Get();
-            icon.transform.SetParent(traitContainer);
-            icon.SetSprite(trt.Icon);
-            traitIcons.Add(icon);
+            Initialize(data);
         }
-    }
-    
-    private void HandleTraitsSelected(List<TraitData> traitsSelected)
-    {
-        data.traitData = traitsSelected;
-        UpdateTraitDisplay();
-    }
 
-
-    public void ClearDisplay()
-    {
-        foreach (IconWidget icon in traitIcons)
+        public void Initialize(MaskGuessCardData data)
         {
-            IconPool.Release(icon);
+            this.data = data;
+            maskPortrait.sprite = data.mask.MaskData.CardSprite;
+            maskPortrait.color = data.mask.Color;
+            UpdateNameDisplay();
+            UpdateLocationDisplay();
+            UpdateTraitDisplay();
         }
-        traitIcons.Clear();
-        foreach (IconWidget icon in locationIcons)
+
+        public void UpdateNameDisplay()
         {
-            IconPool.Release(icon);
+            nameDisplayText.SetText(data.DisplayName);
         }
-        locationIcons.Clear();
+
+        public void UpdateLocationDisplay()
+        {
+            foreach (IconWidget icon in locationIcons)
+            {
+                IconPool.Release(icon);
+            }
+            locationIcons.Clear();
+            foreach (LocationData loc in data.locationData)
+            {
+                IconWidget icon = IconPool.Get();
+                icon.transform.SetParent(locationContainer);
+                icon.SetSprite(loc.Icon);
+                locationIcons.Add(icon);
+            }
+        }
+
+        public void UpdateTraitDisplay()
+        {
+            foreach (IconWidget icon in traitIcons)
+            {
+                IconPool.Release(icon);
+            }
+            traitIcons.Clear();
+            foreach (TraitData trt in data.traitData)
+            {
+                IconWidget icon = IconPool.Get();
+                icon.transform.SetParent(traitContainer);
+                icon.SetSprite(trt.Icon);
+                traitIcons.Add(icon);
+            }
+        }
+
+        private void HandleTraitsSelected(List<TraitData> traitsSelected)
+        {
+            data.traitData = traitsSelected;
+            UpdateTraitDisplay();
+        }
+
+
+        public void ClearDisplay()
+        {
+            foreach (IconWidget icon in traitIcons)
+            {
+                IconPool.Release(icon);
+            }
+            traitIcons.Clear();
+            foreach (IconWidget icon in locationIcons)
+            {
+                IconPool.Release(icon);
+            }
+            locationIcons.Clear();
+        }
+
+        public void ShowDetailedData(bool show)
+        {
+            locationDisplay.SetActive(show);
+            traitDisplay.SetActive(show);
+        }
+
+        #region Submenu Handling
+
+        public void ShowNameSubmenu()
+        {
+            Debug.Log("Show Name Menu");
+            NameListSubmenu.gameObject.SetActive(true);
+            NameListSubmenu.transform.SetParent(this.transform);
+            NameListSubmenu.transform.position = this.transform.position;
+
+            NameListSubmenu.Initialize(this);
+        }
+
+        public void ShowTraitSubmenu()
+        {
+            Debug.Log("Show Trait Menu");
+            TraitListSubmenu.gameObject.SetActive(true);
+            TraitListSubmenu.transform.SetParent(this.transform);
+            TraitListSubmenu.transform.position = this.transform.position;
+            TraitListSubmenu.Initialize(data.traitData, this);
+        }
+
+        public void ShowLocationSubmenu()
+        {
+            Debug.Log("Show Location Menu");
+            LocationListSubmenu.gameObject.SetActive(true);
+            LocationListSubmenu.transform.SetParent(this.transform);
+            LocationListSubmenu.transform.position = this.transform.position;
+            LocationListSubmenu.Initialize(data.locationData, this);
+        }
+
+
+        public void ConfirmLocationSubmenu()
+        {
+            data.locationData = LocationListSubmenu.GetData();
+            LocationListSubmenu.gameObject.SetActive(false);
+            LocationListSubmenu.transform.SetParent(SubmenuContainer);
+            UpdateLocationDisplay();
+        }
+
+        public void ConfirmNameSubmenu()
+        {
+            CharacterName name = NameListSubmenu.GetData();
+            if (name != null)
+                data.name = NameListSubmenu.GetData();
+            NameListSubmenu.gameObject.SetActive(false);
+            NameListSubmenu.transform.SetParent(SubmenuContainer);
+        }
+
+        #endregion
     }
-
-    public void ShowDetailedData(bool show)
-    {
-        locationDisplay.SetActive(show);
-        traitDisplay.SetActive(show);
-    }
-
-    #region Submenu Handling
-
-    public void ShowNameSubmenu()
-    {
-        Debug.Log("Show Name Menu");
-        NameListSubmenu.gameObject.SetActive(true);
-        NameListSubmenu.transform.SetParent(this.transform);
-        NameListSubmenu.transform.position = this.transform.position;
-
-        NameListSubmenu.Initialize(this);
-    }
-
-    public void ShowTraitSubmenu()
-    {
-        Debug.Log("Show Trait Menu");
-        TraitListSubmenu.gameObject.SetActive(true);
-        TraitListSubmenu.transform.SetParent(this.transform);
-        TraitListSubmenu.transform.position = this.transform.position;
-        TraitListSubmenu.Initialize(data.traitData, this);
-    }
-
-    public void ShowLocationSubmenu()
-    {
-        Debug.Log("Show Location Menu");
-        LocationListSubmenu.gameObject.SetActive(true);
-        LocationListSubmenu.transform.SetParent(this.transform);
-        LocationListSubmenu.transform.position = this.transform.position;
-        LocationListSubmenu.Initialize(data.locationData, this);
-    }
-
-
-    public void ConfirmLocationSubmenu()
-    {
-        data.locationData = LocationListSubmenu.GetData();
-        LocationListSubmenu.gameObject.SetActive(false);
-        LocationListSubmenu.transform.SetParent(SubmenuContainer);
-        UpdateLocationDisplay();
-    }
-
-    public void ConfirmNameSubmenu()
-    {
-        CharacterName name = NameListSubmenu.GetData();
-        if (name != null)
-            data.name = NameListSubmenu.GetData();
-        NameListSubmenu.gameObject.SetActive(false);
-        NameListSubmenu.transform.SetParent(SubmenuContainer);
-
-    }
-
-    #endregion
 }
