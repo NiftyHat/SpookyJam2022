@@ -105,7 +105,8 @@ public class MaskGuessCardWidget : MonoBehaviour
     #endregion
 
     [SerializeField]
-    private MaskGuessCardData data;
+    private MaskGuessCardData data = null;
+    private MaskEntity _selectedMask;
 
     [Header("Display Data")]
     public Image guestPortrait;
@@ -119,6 +120,10 @@ public class MaskGuessCardWidget : MonoBehaviour
     private List<IconWidget> locationIcons = new List<IconWidget>();
     private List<IconWidget> traitIcons = new List<IconWidget>();
 
+    public void SetData(MaskEntity selectedMask)
+    {
+        _selectedMask = selectedMask;
+    }
 
     public void ShowSingleWidget(MaskGuessCardData data)
     {
@@ -126,6 +131,7 @@ public class MaskGuessCardWidget : MonoBehaviour
         closeButton.SetActive(true);
         this.gameObject.SetActive(true);
     }
+
     public void CloseSingleWidget()
     {
         closeButton.SetActive(false);

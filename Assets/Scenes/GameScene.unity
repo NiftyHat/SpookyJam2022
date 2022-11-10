@@ -3074,6 +3074,7 @@ MonoBehaviour:
   _targetPortrait: {fileID: 1463101723}
   _interactionList: {fileID: 1127002476}
   _assignedTraitsPanel: {fileID: 818651446}
+  _maskedGuessCardWidget: {fileID: 1363639172}
 --- !u!224 &630550087 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3504060932871403468, guid: 86ff6edb20e289d41a0879ca58e95aea,
@@ -5755,6 +5756,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f333cd345955a85468a1a50890954a1d, type: 3}
+--- !u!114 &1363639172 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5554387401641684645, guid: f333cd345955a85468a1a50890954a1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1363639171}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e94dd26413bc42f418713927999499af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1385950076
 GameObject:
   m_ObjectHideFlags: 0
