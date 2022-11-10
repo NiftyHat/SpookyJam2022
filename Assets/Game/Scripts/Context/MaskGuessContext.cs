@@ -10,12 +10,23 @@ namespace Context
     {
         private Dictionary<MaskEntity, MaskGuessCardData> _maskGuessData;
 
-        public void CreateNewEntry(MaskEntity mask)
+
+        public MaskGuessCardData GetData(MaskEntity mask)
         {
-            if (!_maskGuessData.ContainsKey(mask))
+            if (_maskGuessData == null)
+            {
+                _maskGuessData = new Dictionary<MaskEntity, MaskGuessCardData>();
+            }
+
+            if (_maskGuessData.ContainsKey(mask))
+            {
+                return _maskGuessData[mask];
+            }
+            else
             {
                 MaskGuessCardData newData = new MaskGuessCardData(mask);
                 _maskGuessData.Add(mask, newData);
+                return newData;
             }
         }
 

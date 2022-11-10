@@ -11,6 +11,10 @@ using Entity;
 
 public class MaskGuessCardWidget : MonoBehaviour
 {
+    #region UI controls
+    [SerializeField] private GameObject closeButton;
+    #endregion
+
     #region Accessing this Widget
 
     #endregion
@@ -114,6 +118,19 @@ public class MaskGuessCardWidget : MonoBehaviour
 
     private List<IconWidget> locationIcons = new List<IconWidget>();
     private List<IconWidget> traitIcons = new List<IconWidget>();
+
+
+    public void ShowSingleWidget(MaskGuessCardData data)
+    {
+        Initialize(data);
+        closeButton.SetActive(true);
+        this.gameObject.SetActive(true);
+    }
+    public void CloseSingleWidget()
+    {
+        closeButton.SetActive(false);
+        this.gameObject.SetActive(false);
+    }
 
     private void OnEnable()
     {
