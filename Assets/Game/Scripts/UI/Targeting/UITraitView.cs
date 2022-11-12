@@ -1,7 +1,9 @@
+using System;
 using Context;
 using Data;
 using Data.Trait;
 using NiftyFramework.Core.Context;
+using NiftyFramework.Core.Utils;
 using NiftyFramework.DataView;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,16 +14,24 @@ namespace UI.Targeting
     public class UITraitView : MonoBehaviour, IDataView<TraitData>, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private Image _icon;
+        [SerializeField][NonNull] private Button _button;
+        [SerializeField] private Sprite _unknownTrait;
 
         protected TraitData _data;
         protected TooltipContext _tooltipContext;
         protected ITooltip _tooltip;
 
-        
+        public event Action<TraitData> OnInput;
 
         public void Start()
         {
             ContextService.Get<TooltipContext>(HandleTooltipContext);
+            _button.onClick.AddListener(HandleButtonClick);
+        }
+
+        private void HandleButtonClick()
+        {
+            OnInput?.Invoke(_data);
         }
 
         private void HandleTooltipContext(TooltipContext service)
@@ -35,7 +45,6 @@ namespace UI.Targeting
             {
                 _tooltipContext.Remove(_tooltip);
             }
-            _icon.gameObject.SetActive(false);
             _data = null;
         }
 
@@ -43,19 +52,22 @@ namespace UI.Targeting
         {
             if (data == null)
             {
-                Clear();
+                _icon.sprite = _unknownTrait;
+                _tooltip = new TooltipSimple(null, "No guessed trait, click to select");
                 return;
             }
             _data = data;
             _icon.sprite = data.Icon;
-            _icon.gameObject.SetActive(true);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (_tooltipContext != null)
             {
-                _tooltip = _data.GetTooltip();
+                if (_data != null)
+                {
+                    _tooltip = _data.GetTooltip();
+                }
                 if (_tooltip != null)
                 {
                     _tooltipContext.Set(_tooltip);

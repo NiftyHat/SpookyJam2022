@@ -195,14 +195,14 @@ namespace CardUI //NFT Hat no more yell at me
             _traitListWidget.transform.position = this.transform.position;
             _traitListWidget.gameObject.SetActive(true);
             _traitListWidget.Initialize(data.traitData);
-            _traitListWidget.OnSelected += HandleTraitsSelected;
+            _traitListWidget.OnConfirm += HandleTraitsSelected;
         }
 
         private void HandleTraitsSelected(List<TraitData> traitsSelected)
         {
             data.traitData = traitsSelected;
             UpdateTraitDisplay();
-            _traitListWidget.OnSelected -= HandleTraitsSelected;
+            _traitListWidget.OnConfirm -= HandleTraitsSelected;
         }
 
         public void ShowLocationSubmenu()

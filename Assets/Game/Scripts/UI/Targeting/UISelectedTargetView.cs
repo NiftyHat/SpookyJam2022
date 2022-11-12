@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Context;
 using Data.Interactions;
+using Data.Trait;
 using Entity;
 using Interactions;
 using Interactions.Commands;
@@ -19,10 +20,11 @@ namespace UI.Targeting
         [SerializeField][NonNull] private UITargetPortraitPanel _targetPortrait;
         [SerializeField][NonNull] private UIInteractionListPanel _interactionList;
         [SerializeField][NonNull] private UIAssignedTraitsPanel _assignedTraitsPanel;
-        [SerializeField] [NonNull] private CardUI.MaskGuessCardWidget _maskedGuessCardWidget;
+        
         private GameStateContext _gameStateContext; 
         private MaskGuessContext _maskGuessContext;
         private PlayerInputHandler _player;
+        private CharacterEntity _characterEntity;
         public event Action<InteractionCommand> OnPreviewCommand;
 
         public void Start()
@@ -30,7 +32,16 @@ namespace UI.Targeting
             ContextService.Get<GameStateContext>(HandleGameStateContext);
             ContextService.Get<MaskGuessContext>(HandleMaskGuessContext);
             _interactionList.OnPreviewCommand += HandlePreviewCommand;
+            _assignedTraitsPanel.OnTraitSelectionChanged += HandleTraitSelectionChanged;
             Clear();
+        }
+
+        private void HandleTraitSelectionChanged(List<TraitData> traitDataList)
+        {
+            if (_characterEntity != null)
+            {
+                _characterEntity.SetTraitGuess(traitDataList);
+            }
         }
 
         private void HandleMaskGuessContext(MaskGuessContext maskGuessContext)
@@ -90,10 +101,11 @@ namespace UI.Targeting
                 {
                     return;
                 }
+                _characterEntity = instance;
                 _targetPortrait.Set(instance);
-                if (instance.Traits != null)
+                if (instance.TraitGuessList != null)
                 {
-                    _assignedTraitsPanel.Set(instance.Traits.ToList());
+                    _assignedTraitsPanel.Set(instance.TraitGuessList.ToList());
                 }
                 else
                 {

@@ -25,10 +25,13 @@ namespace Entity
 
         public CharacterName.ImpliedGender ImpliedGender => _impliedGender;
         public HashSet<TraitData> Traits => _traitList;
+        public List<TraitData> TraitGuessList => _traitGuessList;
 
         public CharacterViewData ViewData => _viewData;
 
         public LocationData CurrentLocation => _currentLocation;
+
+        private List<TraitData> _traitGuessList;
 
         public virtual string TypeFriendlyName => "Character";
 
@@ -41,6 +44,7 @@ namespace Entity
             _traitList = traitList;
             _impliedGender = nameData.Gender;
             _viewData = viewData;
+            _traitGuessList = new List<TraitData>();
         }
 
         public string PrintDebug()
@@ -70,7 +74,12 @@ namespace Entity
 
         public bool AtLocation(LocationData locationData)
         {
-            throw new NotImplementedException();
+            return _currentLocation == locationData;
+        }
+
+        public void SetTraitGuess(List<TraitData> traitDataList)
+        {
+            _traitGuessList = traitDataList;
         }
     }
 }

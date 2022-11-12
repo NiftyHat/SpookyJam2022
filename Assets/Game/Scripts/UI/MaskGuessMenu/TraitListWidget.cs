@@ -1,6 +1,5 @@
 using System;
 using Data.Trait;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,8 +21,8 @@ namespace CardUI
         private TraitEntryWidget _noneToggle = null;
         [SerializeField]
         private List<TraitEntryWidget> _buttons = new List<TraitEntryWidget>();
-
-        public event Action<List<TraitData>> OnSelected;
+        public event Action<List<TraitData>> OnConfirm;
+        public event Action<List<TraitData>> OnSelectionChanged;
 
         //Generate Buttons for Menu
         public void Start()
@@ -33,6 +32,7 @@ namespace CardUI
             {
                 TraitEntryWidget button = GameObject.Instantiate<TraitEntryWidget>(_entryPrefab, _container);
                 button.Initialize(data, false);
+                button.OnToggleChanged += HandleToggleChanged;
                 _buttons.Add(button);
                 button.onSetTrue.AddListener(OnNonNullEntrySelected);
             }
@@ -40,6 +40,7 @@ namespace CardUI
 
         public void Initialize(List<TraitData> data)
         {
+
             _noneToggle.SetValue(data.Count == 0);
 
             foreach (TraitEntryWidget button in _buttons)
@@ -68,7 +69,6 @@ namespace CardUI
             foreach (TraitData data in test)
             {
                 Debug.Log(" Location " + data.FriendlyName);
-                Debug.Log(" Location " + data.FriendlyName);
             }
         }
 
@@ -76,7 +76,9 @@ namespace CardUI
         {
             //Set None Toggle to be accurate
             if (_noneToggle.Value)
+            {
                 _noneToggle.SetValue(false);
+            }
         }
 
         //On selecting None, set all other location entries to false
@@ -88,6 +90,8 @@ namespace CardUI
                 {
                     button.SetValue(false);
                 }
+                var data = GetData();
+                OnSelectionChanged?.Invoke(data);
             }
         }
 
@@ -96,12 +100,18 @@ namespace CardUI
             gameObject.SetActive(false);
         }
 
-        public void OnConfirmButtonPressed()
+        public void HandleConfirmButtonPressed()
+        {
+            
+            var data = GetData();
+            OnConfirm?.Invoke(data);
+            Close();
+        }
+        
+        private void HandleToggleChanged(bool toggleState)
         {
             var data = GetData();
-            OnSelected?.Invoke(data);
-            Close();
-            //Fuckin take the data and disable this menu
+            OnSelectionChanged?.Invoke(data);
         }
     }
 }
