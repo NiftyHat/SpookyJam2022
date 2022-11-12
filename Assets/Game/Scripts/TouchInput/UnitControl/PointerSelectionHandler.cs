@@ -13,13 +13,19 @@ namespace TouchInput.UnitControl
         public ITargetable Target => _inputTarget;
         
         public delegate void SelectStateChanged(bool isSelected);
+        public delegate void OverStateChanged(bool isSelected);
 
         private bool _isSelected;
         
         private TargetType _targetType;
         public event SelectStateChanged OnSelectChange;
-        public event Action<Vector3> OnPositionUpdate;
+        public event OverStateChanged OnOverStateChange;
         public bool IsSelected => _isSelected;
+
+        public bool IsOver => _isOver;
+        private bool _isOver;
+        
+        public event Action<Vector3> OnPositionUpdate;
 
         public void SetSelected(bool isSelected)
         {
@@ -27,6 +33,15 @@ namespace TouchInput.UnitControl
             {
                 _isSelected = isSelected;
                 OnSelectChange?.Invoke(_isSelected);
+            }
+        }
+
+        public void SetOver(bool isOver)
+        {
+            if (_isOver != isOver)
+            {
+                _isOver = isOver;
+                OnOverStateChange?.Invoke(isOver);
             }
         }
     }

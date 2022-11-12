@@ -5,8 +5,6 @@ namespace NiftyFramework.TouchGrab
     [CreateAssetMenu(fileName = "TouchGrabHandlerRuntimeSet", menuName = "RuntimeSet/TouchGrabHandler", order = 1)]
     public class TouchGrabHandlerRuntimeSet : RuntimeSet<TouchGrabHandler>
     {
-
-
         public void OnEnable () 
         {
             _itemList.Clear();

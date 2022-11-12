@@ -38,7 +38,7 @@ namespace Commands
                 ICommand command = _commands[i];
                 if (command is IAsyncCommand asyncCommand)
                 {
-                    _commands.Remove(command);
+                    _commands.Remove(asyncCommand);
                     asyncCommand.Execute(HandleAsyncCommandComplete);
                     return;
                 }

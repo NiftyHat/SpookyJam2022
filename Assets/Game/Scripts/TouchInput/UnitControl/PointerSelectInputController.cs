@@ -12,12 +12,13 @@ namespace TouchInput.UnitControl
     public class PointerSelectInputController : MonoBehaviour
     {
         protected IEnumerable<PointerSelectionHandler> _selected;
+        protected HashSet<PointerSelectionHandler> _over;
         protected ScreenInputController _inputController;
 
         protected Vector3 _lastMousePosition;
         public event ScreenInputController.InputUpdateHandler OnPointerMoved;
         public Action<PointerSelectionHandler> OnSelectionChanged;
-        public Action<PointerSelectionHandler, RaycastHit> OnOverTarget;
+        public Action<PointerSelectionHandler, RaycastHit> OnSelectionOverChanged;
         public Action<MovementPlaneView, RaycastHit> OnSelectGround;
         public Action<MovementPlaneView, RaycastHit> OnOverGround;
         
@@ -29,6 +30,7 @@ namespace TouchInput.UnitControl
         void Start()
         {
             _selected = new List<PointerSelectionHandler>();
+            _over = new HashSet<PointerSelectionHandler>();
             _inputController = ScreenInputController.instance;
             _inputController.OnInputStart += HandleInputStart;
             _inputController.OnInputMoved += HandleInputUpdate;
@@ -189,11 +191,26 @@ namespace TouchInput.UnitControl
                 {
                     OnOverGround?.Invoke(groundPlane, hitInfo);
                 }
+                
+                if (TryGetComponentOnCollider(hitInfo.collider, out PointerSelectionHandler selectableItem))
+                {
+                    if (!_over.Contains(selectableItem))
+                    {
+                        _over.Add(selectableItem);
+                        selectableItem.SetOver(true);
+                        OnSelectionOverChanged?.Invoke(selectableItem, hitInfo);
+                    }
+                }
                 else
                 {
-                    if (TryGetComponentOnCollider(hitInfo.collider, out PointerSelectionHandler selectableItem))
+                    if (_over != null && _over.Count > 0)
                     {
-                        OnOverTarget?.Invoke(selectableItem, hitInfo);
+                        foreach (var item in _over)
+                        {
+                            item.SetOver(false);
+                        }
+                        OnSelectionOverChanged?.Invoke(null, hitInfo);
+                        _over.Clear();
                     }
                 }
                 

@@ -389,7 +389,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1914715173016959865}
         m_TargetAssemblyTypeName: TraitListWidget, Assembly-CSharp
-        m_MethodName: OnConfirmButtonPressed
+        m_MethodName: HandleConfirmButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

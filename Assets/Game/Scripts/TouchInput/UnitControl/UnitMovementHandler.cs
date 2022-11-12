@@ -48,11 +48,13 @@ namespace TouchInput.UnitControl
                 _moveLocation = null;
                 _moveDirection = Vector3.zero;
                 OnMoveComplete?.Invoke(endLocation);
+                OnMoveComplete = null;
             }
             else
             {
                 _moveDirection = Vector3.zero;
                 OnMoveComplete?.Invoke(transform.position);
+                OnMoveComplete = null;
             }
             
         }

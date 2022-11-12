@@ -5,7 +5,6 @@ using Context;
 using Data.Location;
 using Entity;
 using NiftyFramework.Core.Context;
-using NiftyFramework.Core.Utils;
 using NiftyFramework.UI;
 using Spawn;
 using UnityEditor;
@@ -14,20 +13,29 @@ using UnityEngine;
 public class LocationView : MonoBehaviour, IView<LocationData>
 {
     [SerializeField] private LocationData _locationData;
-    [SerializeField][NonNull] private List<TransitionZoneView> _transitionZoneViews;
+    [SerializeField] private List<TransitionZoneView> _transitionZoneViews;
 
     private GameStateContext _gameStateService;
     private CharacterSpawnSet _spawnSet;
     private bool _canSpawn = true;
     
     // Start is called before the first frame update
+    private void Awake()
+    {
+        foreach (var item in _transitionZoneViews)
+        {
+            item.SetLocation(_locationData);
+        }
+        if (_locationData != null)
+        {
+            _locationData.SetInstance(this);
+            Set(_locationData);
+        }
+    }
+
     void Start()
     {
         ContextService.Get<GameStateContext>(HandleGameState);
-        if (_locationData != null)
-        {
-            Set(_locationData);
-        }
     }
 
     private void HandleGameState(GameStateContext gameStateService)
@@ -38,7 +46,7 @@ public class LocationView : MonoBehaviour, IView<LocationData>
 
     void SpawnCharacters(IReadOnlyList<CharacterEntity> entities, System.Random random)
     {
-        if (_canSpawn)
+        if (_canSpawn && _spawnSet != null)
         {
             _spawnSet.Spawn(entities, random);
             _canSpawn = false;
@@ -110,6 +118,11 @@ public class LocationView : MonoBehaviour, IView<LocationData>
     public void Clear()
     {
         //intentionally empty
+    }
+
+    public bool IsLocation(LocationData location)
+    {
+        return _locationData = location;
     }
 
     public void Register(CharacterSpawnSet characterSpawnSet)

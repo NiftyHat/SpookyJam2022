@@ -128,7 +128,7 @@ namespace Interactions.Commands
             _targets = new TargetingInfo(_targets.Source, targetable);
         }
 
-        public bool IsValidTarget(UIController.FloorLocation floorLocation)
+        public bool IsValidTarget(ITargetable floorLocation)
         {
             var targetInfo = new TargetingInfo(_targets.Source, floorLocation);
             return _interaction.IsValidTarget(targetInfo);

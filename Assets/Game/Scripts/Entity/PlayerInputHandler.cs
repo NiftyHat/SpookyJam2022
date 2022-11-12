@@ -23,6 +23,9 @@ namespace Entity
         public List<InteractionData> Interactions => _interactionList;
         public GameStat ActionPoints => _actionPoints;
 
+        private LocationData _location;
+        public LocationData CurrentLocation => _location;
+
         public new void Start()
         {
             if (_playerData != null)
@@ -47,9 +50,9 @@ namespace Entity
             _actionPoints.Add(_actionPoints.Max);
         }
 
-        public void TravelToLocation(LocationData locationData)
+        public void SetLocation(LocationData locationData)
         {
-            
+            _location = locationData;
         }
 
         public void PreviewAPCost(InteractionCommand command)

@@ -73,7 +73,7 @@ namespace UI
                 gameObject.SetActive(true);
             }
             _pointerSelectInputController.OnSelectionChanged += HandleInputSelection;
-            _pointerSelectInputController.OnOverTarget += HandleOverSelection;
+            _pointerSelectInputController.OnSelectionOverChanged += HandleOverSelection;
             _pointerSelectInputController.OnSelectGround += HandleInputSelectGround;
             _pointerSelectInputController.OnOverGround += HandleInputOverGround;
             _selectedTargetView.OnPreviewCommand += HandlePreviewCommand;

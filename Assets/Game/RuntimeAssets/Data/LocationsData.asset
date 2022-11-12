@@ -16,6 +16,7 @@ MonoBehaviour:
   _description: 
   _icon: {fileID: 21300000, guid: 48bdde69c17bd2547ae56e802bfcadc6, type: 3}
   _spawnSeed: 523523
+  _prefab: {fileID: 0}
 --- !u!114 &-3538942094896422244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,6 +33,7 @@ MonoBehaviour:
   _description: 
   _icon: {fileID: 21300000, guid: 5e926b0c27fa8c24f88b8944a67a8002, type: 3}
   _spawnSeed: 523523
+  _prefab: {fileID: 0}
 --- !u!114 &-2087783226966105912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,6 +50,7 @@ MonoBehaviour:
   _description: 
   _icon: {fileID: 21300000, guid: d10844671dddc9849b999bf47b702952, type: 3}
   _spawnSeed: 523523
+  _prefab: {fileID: 0}
 --- !u!114 &-622056154717205662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,6 +67,8 @@ MonoBehaviour:
   _description: 
   _icon: {fileID: 21300000, guid: 505d1ef203f40bd40bae718e0fb4285c, type: 3}
   _spawnSeed: 523523
+  _prefab: {fileID: -5968094147890646115, guid: d4aba0a81e9429c46baf5986d0438163,
+    type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,6 +104,7 @@ MonoBehaviour:
   _description: 
   _icon: {fileID: 21300000, guid: 93d2fe75ab09e9d47b37b8723db5ead3, type: 3}
   _spawnSeed: 523523
+  _prefab: {fileID: 0}
 --- !u!114 &4635359559426436241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,3 +121,4 @@ MonoBehaviour:
   _description: 
   _icon: {fileID: 21300000, guid: 1bf5c1aba5f4ec245b1f4902bc494260, type: 3}
   _spawnSeed: 523523
+  _prefab: {fileID: 0}

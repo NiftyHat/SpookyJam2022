@@ -1,8 +1,10 @@
 using Commands;
+using Context;
 using Entity;
 using GameStats;
 using Interactions;
 using Interactions.Commands;
+using NiftyFramework.Core.Context;
 using TouchInput.UnitControl;
 using UnityEngine;
 
@@ -53,7 +55,11 @@ namespace Data.Interactions
                             {
                                 if (_targets.Target is TransitionZoneView transitionZoneView)
                                 {
-                                    transitionZoneView.DespawnPlayer(player);
+                                    ContextService.Get<GameStateContext>(gameState =>
+                                    {
+                                        gameState.ChangeLocation(player, transitionZoneView.LinkedLocation, transitionZoneView.ZoneLocation);
+                                    });
+                                    OnDone(this,true);
                                 }
                                 else
                                 {

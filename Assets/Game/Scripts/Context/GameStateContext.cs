@@ -16,6 +16,7 @@ using NiftyFramework.Core;
 using NiftyFramework.Core.Context;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityUtils;
 using AsyncOperation = UnityEngine.AsyncOperation;
 
 namespace Context
@@ -41,7 +42,7 @@ namespace Context
         
         private readonly TimeData _timeData;
         private readonly GuestListGenerator _guestListGenerator;
-        private readonly LocationDataSet _locationSet;
+        private readonly LocationDataSet _locationDataSet;
 
         private PlayerInputHandler _player;
         private GameOverReasonData _gameOverReason;
@@ -54,12 +55,12 @@ namespace Context
 
         public CommandRunner _commandRunner;
 
-        public GameStateContext(TimeData timeData, GuestListGenerator guestListGenerator, LocationDataSet locationSet)
+        public GameStateContext(TimeData timeData, GuestListGenerator guestListGenerator, LocationDataSet locationDataSet)
         {
             _timeData = timeData;
             _guestListGenerator = guestListGenerator;
             _monsterEntityTypeSet = guestListGenerator.MonsterTypeSet;
-            _locationSet = locationSet;
+            _locationDataSet = locationDataSet;
             _currentTime = ConvertTurnsToTime(Turns.Value);
             _characterEntities = _guestListGenerator.Generate(8, 1, 1);
             Debug.Log(GuestListGenerator.PrintDebug(_characterEntities));
@@ -125,6 +126,18 @@ namespace Context
             }
             OnTurnStarted?.Invoke(Turns.Value, Turns.Max, Phase.Value);
             OnClearReactions?.Invoke();
+        }
+
+        public void ChangeLocation(PlayerInputHandler player, LocationData newLocation, LocationData oldLocation)
+        {
+            var oldLocationInstance = oldLocation.GetInstance();
+            if (oldLocationInstance.TrySetActive(false))
+            {
+                //player.TrySetActive(false);
+            }
+            var locationInstance = newLocation.GetInstance();
+            locationInstance.SpawnPlayer(player, oldLocation);
+            locationInstance.TrySetActive(true);
         }
 
         public void StartGame(out AsyncOperation loadingOperation)
