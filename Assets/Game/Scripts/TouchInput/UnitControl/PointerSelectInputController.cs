@@ -17,7 +17,7 @@ namespace TouchInput.UnitControl
         protected Vector3 _lastMousePosition;
         public event ScreenInputController.InputUpdateHandler OnPointerMoved;
         public Action<PointerSelectionHandler> OnSelectionChanged;
-        public Action<InputTargetView> OnOverTarget;
+        public Action<PointerSelectionHandler, RaycastHit> OnOverTarget;
         public Action<MovementPlaneView, RaycastHit> OnSelectGround;
         public Action<MovementPlaneView, RaycastHit> OnOverGround;
         
@@ -191,8 +191,10 @@ namespace TouchInput.UnitControl
                 }
                 else
                 {
-                    var targetable = GetComponentOnCollider<InputTargetView>(hitInfo.collider);
-                    OnOverTarget?.Invoke(targetable);
+                    if (TryGetComponentOnCollider(hitInfo.collider, out PointerSelectionHandler selectableItem))
+                    {
+                        OnOverTarget?.Invoke(selectableItem, hitInfo);
+                    }
                 }
                 
                 if (_isDebugDraw)

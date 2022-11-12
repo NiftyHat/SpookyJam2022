@@ -48,7 +48,8 @@ namespace UI
             public event Action<Vector3> OnPositionUpdate;
         }
         
-        private PointerSelectionHandler _selectedUnit;
+        private PointerSelectionHandler _selected;
+        private PointerSelectionHandler _selectedOver;
         [SerializeField] private LocationIndicatorView _locationIndicatorView;
         [SerializeField] private PointerSelectInputController _pointerSelectInputController;
         [SerializeField] [NonNull] private RangeIndicatorView _rangeIndicatorView;
@@ -72,10 +73,27 @@ namespace UI
                 gameObject.SetActive(true);
             }
             _pointerSelectInputController.OnSelectionChanged += HandleInputSelection;
+            _pointerSelectInputController.OnOverTarget += HandleOverSelection;
             _pointerSelectInputController.OnSelectGround += HandleInputSelectGround;
             _pointerSelectInputController.OnOverGround += HandleInputOverGround;
             _selectedTargetView.OnPreviewCommand += HandlePreviewCommand;
             ContextService.Get<GameStateContext>(HandleGameState);
+        }
+
+        private void HandleOverSelection(PointerSelectionHandler obj, RaycastHit raycastHit)
+        {
+            if (obj == null || obj.Target == null)
+            {
+                return;
+            }
+            if (obj.Target is TransitionZoneView transitionZoneView)
+            {
+                if (_previewCommand != null && _previewCommand.IsValidTarget(_floorLocation) && _previewCommand.Targets.Target != obj.Target)
+                {
+                    //_floorLocation.Set(raycastHit.point);
+                    _previewCommand.SetTarget(transitionZoneView);
+                }
+            }
         }
 
         private void HandlePreviewCommand(InteractionCommand command)
@@ -147,7 +165,7 @@ namespace UI
         
         private void HandleInputSelection(PointerSelectionHandler unit)
         {
-            SetSelectedUnit(unit);
+            SetSelected(unit);
         }
         
         public void SetPreview(InteractionCommand command)
@@ -163,16 +181,23 @@ namespace UI
             }
         }
 
-        public void SetSelectedUnit(PointerSelectionHandler selectedInputHandler)
+        public void SetSelected(PointerSelectionHandler selected)
         {
-            _selectedUnit = selectedInputHandler;
-            _selectedTargetView.Set(selectedInputHandler);
-            if (_selectedUnit == null || _selectedUnit.Target == null)
+            if (_previewCommand != null && selected != null && selected.Target is TransitionZoneView transitionZoneView)
+            {
+                _previewCommand.SetTarget(transitionZoneView);
+                _gameStateContext.RunCommand(_previewCommand);
+                ClearPreview();
+                return;
+            }
+            _selected = selected;
+            _selectedTargetView.Set(selected);
+            if (_selected == null || _selected.Target == null)
             {
                 ClearPreview();
                 return;
             }
-            if (_selectedUnit.Target is PlayerInputHandler playerInputHandler)
+            if (_selected.Target is PlayerInputHandler playerInputHandler)
             {
                 if (_previewCommand == null)
                 {
@@ -183,7 +208,7 @@ namespace UI
             {
                 if (_previewCommand != null)
                 {
-                    _previewCommand.SetTarget(_selectedUnit.Target);
+                    _previewCommand.SetTarget(_selected.Target);
                 }
             }
         }
