@@ -8,19 +8,15 @@ namespace Context
 {
     public class MaskGuessContext : IContext
     {
-        private Dictionary<MaskEntity, MaskGuessCardData> _maskGuessData;
+        private Dictionary<MaskEntity, MaskGuessCardData> _maskGuessData = new Dictionary<MaskEntity, MaskGuessCardData>();
 
 
         public MaskGuessCardData GetData(MaskEntity mask)
         {
-            if (_maskGuessData == null)
+            MaskGuessCardData data;
+            if (_maskGuessData.TryGetValue(mask, out data))
             {
-                _maskGuessData = new Dictionary<MaskEntity, MaskGuessCardData>();
-            }
-
-            if (_maskGuessData.ContainsKey(mask))
-            {
-                return _maskGuessData[mask];
+                return data;
             }
             else
             {
@@ -37,6 +33,7 @@ namespace Context
 
         public void Dispose()
         {
+            _maskGuessData.Clear();
         }
     }
 }

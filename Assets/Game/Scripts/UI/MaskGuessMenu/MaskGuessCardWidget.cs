@@ -9,11 +9,15 @@ using Data.Trait;
 using Data;
 using Entity;
 using NiftyFramework.Core.Utils;
+using System;
+using Context;
+using NiftyFramework.Core.Context;
 
 namespace CardUI //NFT Hat no more yell at me
 {
     public class MaskGuessCardWidget : MonoBehaviour
     {
+
         #region UI controls
         [SerializeField] private GameObject _closeButton;
         #endregion
@@ -57,8 +61,9 @@ namespace CardUI //NFT Hat no more yell at me
 
 
         [SerializeField]
-        private MaskGuessCardData data = null;
+        private MaskGuessCardData _data = null;
         private MaskEntity _selectedMask;
+        private MaskGuessContext _maskGuessContext;
 
         [Header("Display Data")]
         [SerializeField] [NonNull] private Image _maskPortrait;
@@ -71,20 +76,9 @@ namespace CardUI //NFT Hat no more yell at me
         private List<IconWidget> _locationIcons = new List<IconWidget>();
         private List<IconWidget> _traitIcons = new List<IconWidget>();
 
-        public void SetData(MaskEntity selectedMask)
-        {
-            _selectedMask = selectedMask;
-        }
 
-        public void ShowSingleWidget()
-        {
-            if (_selectedMask == null)
-                return;
+        public event Action<MaskGuessCardData> OnConfirm;
 
-            Initialize(data);
-            _closeButton.SetActive(true);
-            this.gameObject.SetActive(true);
-        }
 
         public void CloseSingleWidget()
         {
@@ -92,16 +86,22 @@ namespace CardUI //NFT Hat no more yell at me
             this.gameObject.SetActive(false);
         }
 
-        private void OnEnable()
+        private void Start()
         {
-            Initialize(data);
+            ContextService.Get<MaskGuessContext>(HandleMaskGuessContext);
         }
 
-        public void Initialize(MaskGuessCardData data)
+        private void HandleMaskGuessContext(MaskGuessContext service)
         {
-            this.data = data;
-            _maskPortrait.sprite = data.mask.MaskData.CardSprite;
-            _maskPortrait.color = data.mask.Color;
+            _maskGuessContext = service;
+        }
+
+
+        public void Initialize(MaskEntity selectedMask)
+        {
+            this._data = _maskGuessContext.GetData(selectedMask);
+            _maskPortrait.sprite = _data.mask.MaskData.CardSprite;
+            _maskPortrait.color = _data.mask.Color;
             UpdateNameDisplay();
             UpdateLocationDisplay();
             UpdateTraitDisplay();
@@ -109,7 +109,7 @@ namespace CardUI //NFT Hat no more yell at me
 
         public void UpdateNameDisplay()
         {
-            _nameDisplayText.SetText(data.DisplayName);
+            _nameDisplayText.SetText(_data.DisplayName);
         }
 
         public void UpdateLocationDisplay()
@@ -119,7 +119,7 @@ namespace CardUI //NFT Hat no more yell at me
                 IconPool.Release(icon);
             }
             _locationIcons.Clear();
-            foreach (LocationData loc in data.locationData)
+            foreach (LocationData loc in _data.locationData)
             {
                 IconWidget icon = IconPool.Get();
                 icon.transform.SetParent(_locationContainer);
@@ -135,7 +135,7 @@ namespace CardUI //NFT Hat no more yell at me
                 IconPool.Release(icon);
             }
             _traitIcons.Clear();
-            foreach (TraitData trt in data.traitData)
+            foreach (TraitData trt in _data.traitData)
             {
                 IconWidget icon = IconPool.Get();
                 icon.transform.SetParent(_traitContainer);
@@ -165,6 +165,18 @@ namespace CardUI //NFT Hat no more yell at me
             _traitDisplay.SetActive(show);
         }
 
+
+        public void HandleConfirmButtonPressed()
+        {
+            OnConfirm?.Invoke(_data);
+        }
+
+
+        private void SaveMaskGuessData()
+        {
+            _maskGuessContext.EditEntry(_data);
+        }
+
         #region Submenu Handling
 
         public void ShowNameSubmenu()
@@ -181,9 +193,10 @@ namespace CardUI //NFT Hat no more yell at me
 
         public void HandleNameSelected(CharacterName nameSelected)
         {
-            data.name = nameSelected;
+            _data.name = nameSelected;
             UpdateTraitDisplay();
             _nameListWidget.OnSelected -= HandleNameSelected;
+            SaveMaskGuessData();
         }
 
         public void ShowTraitSubmenu()
@@ -194,15 +207,16 @@ namespace CardUI //NFT Hat no more yell at me
             Debug.Log("Show Trait Menu");
             _traitListWidget.transform.position = this.transform.position;
             _traitListWidget.gameObject.SetActive(true);
-            _traitListWidget.Initialize(data.traitData);
+            _traitListWidget.Initialize(_data.traitData);
             _traitListWidget.OnConfirm += HandleTraitsSelected;
         }
 
         private void HandleTraitsSelected(List<TraitData> traitsSelected)
         {
-            data.traitData = traitsSelected;
+            _data.traitData = traitsSelected;
             UpdateTraitDisplay();
             _traitListWidget.OnConfirm -= HandleTraitsSelected;
+            SaveMaskGuessData();
         }
 
         public void ShowLocationSubmenu()
@@ -210,16 +224,17 @@ namespace CardUI //NFT Hat no more yell at me
             Debug.Log("Show Location Menu");
             _locationListWidget.transform.position = this.transform.position;
             _locationListWidget.gameObject.SetActive(true);
-            _locationListWidget.Initialize(data.locationData);
+            _locationListWidget.Initialize(_data.locationData);
             _locationListWidget.OnSelected += HandleLocationsSelected;
         }
 
 
         public void HandleLocationsSelected(List<LocationData> locationsSelected)
         {
-            data.locationData = locationsSelected;
+            _data.locationData = locationsSelected;
             UpdateLocationDisplay();
             _locationListWidget.OnSelected -= HandleLocationsSelected;
+            SaveMaskGuessData();
         }
 
 
