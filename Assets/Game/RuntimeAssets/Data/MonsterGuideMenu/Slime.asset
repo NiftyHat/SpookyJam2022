@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Slime
   m_EditorClassIdentifier: 
   monsterName: Slime
-  image: {fileID: 21300000, guid: c6634b24464fbfa4c99ac4a9ec4e5c27, type: 3}
+  image: {fileID: 21300000, guid: 8a446822dccd4d940b545580eb2c44af, type: 3}
   description: Idk nifty's favorite
   hint: wet
