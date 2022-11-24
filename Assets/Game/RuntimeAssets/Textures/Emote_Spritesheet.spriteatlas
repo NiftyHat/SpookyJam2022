@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Emote_Spritesheet
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 60cbe70f21dbed345a599c2de32ee511, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: e449e13229433cf44bae4d31adbb0a62, type: 3}
+  - {fileID: 21300000, guid: e8bd732370dfae749afea8411eeb8426, type: 3}
+  - {fileID: 21300000, guid: 0b83a71480f094540b60697f3dddd972, type: 3}
+  - {fileID: 21300000, guid: 0bb31a55cb356c046bb7e23288349fb6, type: 3}
+  - {fileID: 21300000, guid: 289ddfe6ee2ac5f42be1452f39e8d9ba, type: 3}
+  - {fileID: 21300000, guid: ded9db596cc57ce4ebb92f74603a0214, type: 3}
+  - {fileID: 21300000, guid: 866d0a0aca31ae549bab167258b7e80a, type: 3}
+  - {fileID: 21300000, guid: 40a3869a342b69e4983b77e318bca91a, type: 3}
+  - {fileID: 21300000, guid: cbe65d4bf3867d84a96085ad0a95c930, type: 3}
+  - {fileID: 21300000, guid: 6072dc8bdcf86bf4da8f945fffcd6cb0, type: 3}
+  - {fileID: 21300000, guid: d630e9abecf75f54c8fdcb1316adf38c, type: 3}
+  - {fileID: 21300000, guid: 32f2d4dbfba9cf547b06f1b813fa278d, type: 3}
+  - {fileID: 21300000, guid: e9fa368cc88b9db46b0db28ad60c60e2, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Emote_Love
+  - Speech_Bubble
+  - Emote_Unimpressed
+  - Emote_Offended
+  - Emote_Impressed
+  - Emote_Vamp
+  - Emote_Bored
+  - Emote_WW
+  - Thought_Bubble
+  - Emote_Confused
+  - Emote_Blush
+  - Emote_Nervous
+  - Emote_Chat
+  m_RenderDataMap: {}
+  m_Tag: Emote_Spritesheet
+  m_IsVariant: 0
