@@ -36,6 +36,8 @@ namespace Entity
         public virtual string TypeFriendlyName => "Character";
 
         public event Action<ReactionData> OnReaction;
+        
+        public ReactionData LastReaction { get; private set; }
 
         public CharacterEntity(MaskEntity mask, CharacterName nameData, HashSet<TraitData> traitList, CharacterViewData viewData)
         {
@@ -67,9 +69,10 @@ namespace Entity
             return stringBuilder.ToString();
         }
 
-        public void DisplayReaction(ReactionData first)
+        public void DisplayReaction(ReactionData reactionData)
         {
-            OnReaction?.Invoke(first);
+            LastReaction = reactionData;
+            OnReaction?.Invoke(reactionData);
         }
 
         public bool AtLocation(LocationData locationData)

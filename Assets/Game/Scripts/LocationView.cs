@@ -24,7 +24,10 @@ public class LocationView : MonoBehaviour, IView<LocationData>
     {
         foreach (var item in _transitionZoneViews)
         {
-            item.SetLocation(_locationData);
+            if (item != null)
+            {
+                item.SetLocation(_locationData);
+            }
         }
         if (_locationData != null)
         {

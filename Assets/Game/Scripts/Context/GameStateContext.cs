@@ -48,6 +48,7 @@ namespace Context
         private GameOverReasonData _gameOverReason;
         private MonsterEntityTypeDataSet _monsterEntityTypeSet;
 
+        public event Action<CharacterEntity> OnTriggerCharacterReview;
         public event ConfessionConfirmed OnConfessionConfirmed;
         private event Action<PlayerInputHandler> _onPlayerAssigned;
         private List<CharacterEntity> _characterEntities;
@@ -191,6 +192,10 @@ namespace Context
             _commandRunner.Add(command);
             _commandRunner.Process();
         }
-        
+
+        public void ShowCharacterReview(CharacterEntity entity)
+        {
+            OnTriggerCharacterReview?.Invoke(entity);
+        }
     }
 }

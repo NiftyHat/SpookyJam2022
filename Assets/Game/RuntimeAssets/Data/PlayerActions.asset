@@ -312,6 +312,7 @@ MonoBehaviour:
   - {fileID: 205923538751195980}
   - {fileID: 2991345944667089571}
   - {fileID: -5256964978547721330}
+  - {fileID: 7374563703213576120}
 --- !u!114 &205923538751195980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +473,29 @@ MonoBehaviour:
     _description: Confess to {targetName}. If it's the Monster you win.
   _gameOverReason: {fileID: -7597645516445229309, guid: 0a1d5b9cddaf5794aae9e417cf1b6921,
     type: 2}
+--- !u!114 &7374563703213576120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb503e6c4ac4a4f8a6a8c5884903c4d, type: 3}
+  m_Name: ExamineInteractionData
+  m_EditorClassIdentifier: 
+  _range:
+    _min: 0
+    _max: 999
+  _costAP: 0
+  _radius: 0
+  _minTargets: 0
+  _targetType: 2
+  _menuItemData:
+    _friendlyName: Examine
+    _icon: {fileID: 21300000, guid: bba339bb1d0e2aa40a887fa7bb5e8c09, type: 3}
+    _description: Examine the target. If it's a character you can log traits
 --- !u!114 &8888680982059933768
 MonoBehaviour:
   m_ObjectHideFlags: 0

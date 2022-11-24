@@ -16,6 +16,7 @@ MonoBehaviour:
   _friendlyName: Nervous
   _animationName: 
   _prefab: {fileID: 2297733533638753883, guid: 31cbc6269ee7ace409179695b2588493, type: 3}
+  _isMiss: 0
 --- !u!114 &-6433956699517619100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,10 +29,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476a66ce14fb2ad478bad05533b8be1d, type: 3}
   m_Name: BlushReaction
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: d630e9abecf75f54c8fdcb1316adf38c, type: 3}
+  _sprite: {fileID: 1467194518216707590, guid: b05491c4d8ac1b14fa4879940dbbc7c2, type: 3}
   _friendlyName: Blush
   _animationName: 
   _prefab: {fileID: 2297733533638753883, guid: 31cbc6269ee7ace409179695b2588493, type: 3}
+  _isMiss: 0
 --- !u!114 &-6149206598976904165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,6 +50,7 @@ MonoBehaviour:
   _friendlyName: Confused
   _animationName: 
   _prefab: {fileID: 5394178223453748332, guid: 8ec5ecc78a34ae54da7f07a99a257840, type: 3}
+  _isMiss: 1
 --- !u!114 &-3605238400349697620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,6 +67,7 @@ MonoBehaviour:
   _friendlyName: Question
   _animationName: 
   _prefab: {fileID: 5394178223453748332, guid: 8ec5ecc78a34ae54da7f07a99a257840, type: 3}
+  _isMiss: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,14 +83,14 @@ MonoBehaviour:
   _references:
   - {fileID: -6433956699517619100}
   - {fileID: 277367436992013977}
-  - {fileID: -6149206598976904165}
   - {fileID: 3959208671623290579}
   - {fileID: 4349075112016446601}
   - {fileID: -6753986248370573308}
   - {fileID: 8380605986334348715}
-  - {fileID: -3605238400349697620}
   - {fileID: 1943571472787848707}
   - {fileID: 2558676309207384288}
+  - {fileID: -3605238400349697620}
+  - {fileID: -6149206598976904165}
 --- !u!114 &277367436992013977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +107,7 @@ MonoBehaviour:
   _friendlyName: Chat
   _animationName: 
   _prefab: {fileID: 2297733533638753883, guid: 31cbc6269ee7ace409179695b2588493, type: 3}
+  _isMiss: 0
 --- !u!114 &1943571472787848707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +124,7 @@ MonoBehaviour:
   _friendlyName: Unimpressed
   _animationName: 
   _prefab: {fileID: 2297733533638753883, guid: 31cbc6269ee7ace409179695b2588493, type: 3}
+  _isMiss: 0
 --- !u!114 &2558676309207384288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +141,7 @@ MonoBehaviour:
   _friendlyName: Confused
   _animationName: 
   _prefab: {fileID: 2297733533638753883, guid: 31cbc6269ee7ace409179695b2588493, type: 3}
+  _isMiss: 0
 --- !u!114 &3959208671623290579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +158,7 @@ MonoBehaviour:
   _friendlyName: 
   _animationName: 
   _prefab: {fileID: 2297733533638753883, guid: 31cbc6269ee7ace409179695b2588493, type: 3}
+  _isMiss: 0
 --- !u!114 &4349075112016446601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +175,7 @@ MonoBehaviour:
   _friendlyName: Love
   _animationName: 
   _prefab: {fileID: 2297733533638753883, guid: 31cbc6269ee7ace409179695b2588493, type: 3}
+  _isMiss: 0
 --- !u!114 &8380605986334348715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,3 +192,4 @@ MonoBehaviour:
   _friendlyName: Offended
   _animationName: 
   _prefab: {fileID: 2297733533638753883, guid: 31cbc6269ee7ace409179695b2588493, type: 3}
+  _isMiss: 0

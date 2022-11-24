@@ -34,7 +34,10 @@ namespace Spawn
             _set ??= new HashSet<CharacterSpawnPosition>();
             if (!_set.Contains(spawnPosition))
             {
-                _spawnPositions.Add(spawnPosition);
+                if (_spawnPositions != null)
+                {
+                    _spawnPositions.Add(spawnPosition);
+                }
                 _set.Add(spawnPosition);
             }
         }

@@ -237,7 +237,7 @@ namespace TouchInput.UnitControl
         //Returns 'true' if we touched or hovering on Unity UI element.
         public bool IsPointerOverUIElement()
         {
-            if (EventSystem.current.IsPointerOverGameObject(_fingerID))    // is the touch on the GUI
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject(_fingerID))    // is the touch on the GUI
             {
                 return true;
             }

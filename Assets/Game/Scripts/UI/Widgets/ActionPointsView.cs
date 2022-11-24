@@ -70,8 +70,11 @@ namespace UI.Widgets
             Set(gameStat);
             if (command != null)
             {
-                PreviewCost(command.APCostProvider.Value);
-                command.APCostProvider.OnChanged += HandleUpdatePreviewCost;
+                if (command.APCostProvider != null)
+                {
+                    PreviewCost(command.APCostProvider.Value);
+                    command.APCostProvider.OnChanged += HandleUpdatePreviewCost;
+                }
             }
         }
 

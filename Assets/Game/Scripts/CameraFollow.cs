@@ -1,3 +1,4 @@
+using NiftyFramework.Scripts;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
@@ -8,6 +9,8 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField] private Transform _followTarget;
     [SerializeField] private float _distanceToMove = 1.0f;
+
+    [SerializeField] private IntRange _movementRangeZ;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,7 @@ public class CameraFollow : MonoBehaviour
         if (distance.magnitude > _distanceToMove)
         {
             Vector3 newCameraTargetPos = _followTarget.position + _relativeVectorFromTarget;
+            newCameraTargetPos.Set(newCameraTargetPos.x, newCameraTargetPos.y, Mathf.Clamp(newCameraTargetPos.z, _movementRangeZ.Min, _movementRangeZ.Max));
             transform.position = Vector3.Lerp(transform.position, newCameraTargetPos, 0.005f);
             _lookAtPoint = transform.position - _relativeVectorFromTarget;
         }

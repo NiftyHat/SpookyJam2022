@@ -50,7 +50,7 @@ namespace Data.Interactions
             return _failList.RandomItem();
         }
 
-        public List<ReactionData> TryGetReaction(HashSet<TraitData> targetTraits)
+        public List<ReactionData> GetReactions(HashSet<TraitData> targetTraits)
         {
             HashSet<ReactionData> reactionList = new HashSet<ReactionData>();
             foreach (var trigger in _triggerList)
@@ -61,6 +61,44 @@ namespace Data.Interactions
                 }
             }
             return reactionList.ToList();
+        }
+        
+        public List<ReactionData> GetReactions(TraitData targetTrait)
+        {
+            HashSet<ReactionData> reactionList = new HashSet<ReactionData>();
+            foreach (var trigger in _triggerList)
+            {
+                if (trigger.Trait == targetTrait)
+                {
+                    reactionList.Add(trigger.Reaction);
+                }
+            }
+            return reactionList.ToList();
+        }
+
+        public bool TryGetReaction(TraitData targetTrait, out HashSet<ReactionData> reactionDataList, Func<ReactionData,bool> filter = null)
+        {
+            reactionDataList = new HashSet<ReactionData>();
+            foreach (var trigger in _triggerList)
+            {
+                if (trigger.Trait == targetTrait)
+                {
+                    if (filter != null)
+                    {
+                        if (filter(trigger.Reaction))
+                        {
+                            reactionDataList.Add(trigger.Reaction);
+                        }
+                    }
+                    else
+                    {
+                        reactionDataList.Add(trigger.Reaction);
+                    }
+                    
+                }
+            }
+
+            return reactionDataList.Count > 0;
         }
     }
 }

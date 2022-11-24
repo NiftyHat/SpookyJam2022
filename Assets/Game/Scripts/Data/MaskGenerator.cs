@@ -22,11 +22,12 @@ namespace Data
                 _colorLookup = new Dictionary<ColorStyleData,  List<MaskEntity>>();
                 _maskLookup = new Dictionary<MaskData,  List<MaskEntity>>();
                 _all = new List<MaskEntity>();
+                int cardValue = 1;
                 foreach (var maskType in maskDataList)
                 {
                     foreach (var colorStyle in colorStyleList)
                     {
-                        MaskEntity entity = new MaskEntity(maskType, colorStyle);
+                        MaskEntity entity = new MaskEntity(maskType, colorStyle, cardValue);
                         if (_maskLookup.TryGetValue(maskType, out var cacheMaskList))
                         {
                             cacheMaskList.Add(entity);
@@ -44,6 +45,7 @@ namespace Data
                             _colorLookup[colorStyle] = new List<MaskEntity>() { entity };
                         }
                         _all.Add(entity);
+                        cardValue++;
                     }
                 }
             }

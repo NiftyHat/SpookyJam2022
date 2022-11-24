@@ -56,9 +56,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: SortsMillGoudy-Regular
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -2114017318
   material: {fileID: -3846094004554855701}
-  materialHashCode: 0
+  materialHashCode: 519351994
   m_Version: 1.1.0
   m_SourceFontFileGUID: 79bec26ef8fa1dd46aebbc94078528c6
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 79bec26ef8fa1dd46aebbc94078528c6,

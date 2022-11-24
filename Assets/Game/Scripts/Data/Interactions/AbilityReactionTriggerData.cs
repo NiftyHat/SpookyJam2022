@@ -38,7 +38,7 @@ namespace Data.Interactions
             {
                 if (entity == null || entity.Traits != null)
                 {
-                    var triggerReactions = ReactionTriggerSet.TryGetReaction(entity.Traits);
+                    var triggerReactions = ReactionTriggerSet.GetReactions(entity.Traits);
                     if (triggerReactions != null && triggerReactions.Count > 0)
                     {
                         entity.DisplayReaction(triggerReactions.First());

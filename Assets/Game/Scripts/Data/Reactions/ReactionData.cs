@@ -9,9 +9,12 @@ namespace Data.Reactions
         [SerializeField] protected string _friendlyName;
         [SerializeField] protected string _animationName;
         [SerializeField] protected ReactionBubbleView _prefab;
+        [SerializeField] protected bool _isMiss;
         
         public Sprite Sprite => _sprite;
         public string FriendlyName => _friendlyName;
         public ReactionBubbleView Prefab => _prefab;
+
+        public bool isMiss => _isMiss;
     }
 }
