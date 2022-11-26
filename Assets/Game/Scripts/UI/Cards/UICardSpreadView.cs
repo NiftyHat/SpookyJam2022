@@ -40,13 +40,13 @@ namespace UI.Cards
                     var trait = traitDataList[traitIndex];
                     if (_cardPool.TryGet(out var view))
                     {
-                        if (playerData.TryGetReactionAbilities(trait, out var reactionList, out _))
+                        if (playerData.TryGetReactionAbilities(trait, out var reactionList, out var abilityList))
                         {
-                            view.Set(trait, reactionList.ToList());
+                            view.Set(trait, reactionList.ToList(), abilityList.ToList());
                         }
                         else
                         {
-                            view.Set(trait, null);
+                            view.Set(trait, null, null);
                         }
                     }
 

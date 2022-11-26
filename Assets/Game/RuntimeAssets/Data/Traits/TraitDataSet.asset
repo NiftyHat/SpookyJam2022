@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AntiquatedTrait
   m_EditorClassIdentifier: 
   _friendlyName: Antiquated
-  _icon: {fileID: -2881724807998438347, guid: b05491c4d8ac1b14fa4879940dbbc7c2, type: 3}
+  _icon: {fileID: -3204594881783858900, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: Old fasioned. Very very old fasioned
   _isEnabled: 1
   _cardNumber: 3
@@ -31,7 +31,7 @@ MonoBehaviour:
   m_Name: ReclusiveTrait
   m_EditorClassIdentifier: 
   _friendlyName: Reclusive
-  _icon: {fileID: 21300000, guid: 18b60707473b9f941bd641fe13987c43, type: 3}
+  _icon: {fileID: -1869764906081662520, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: Hard to pin down.
   _isEnabled: 1
   _cardNumber: 2
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: SocialiteTrait
   m_EditorClassIdentifier: 
   _friendlyName: Socialite
-  _icon: {fileID: 21300000, guid: ad4068993d0b94745b9606a3a0fb2827, type: 3}
+  _icon: {fileID: -5298189338693074327, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: Socially connected and well liked by peers
   _isEnabled: 1
   _cardNumber: 1
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Name: HeirTrait
   m_EditorClassIdentifier: 
   _friendlyName: Heir
-  _icon: {fileID: 21300000, guid: 457c94bd523e4684e82ec9826aaa424e, type: 3}
+  _icon: {fileID: -8413271832904141720, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: In line to inherit an important title.
   _isEnabled: 1
   _cardNumber: 1
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: DebutantTrait
   m_EditorClassIdentifier: 
   _friendlyName: Debutant
-  _icon: {fileID: 21300000, guid: 9f675ab3d7bf4254d9d25ef3e848febd, type: 3}
+  _icon: {fileID: 463110672502015473, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: Making the Debut into society at this event.
   _isEnabled: 1
   _cardNumber: 3
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: FiestyTrait
   m_EditorClassIdentifier: 
   _friendlyName: Fiesty
-  _icon: {fileID: -9207370245720014827, guid: b05491c4d8ac1b14fa4879940dbbc7c2, type: 3}
+  _icon: {fileID: 459501055929969797, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: 
   _isEnabled: 1
   _cardNumber: 1
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: WellBredTrait
   m_EditorClassIdentifier: 
   _friendlyName: Well Bred
-  _icon: {fileID: 21300000, guid: 0dc41dc1b06bdcd479c74614b447a488, type: 3}
+  _icon: {fileID: 5468975763660379514, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: Comes from good stock in a well respected family
   _isEnabled: 1
   _cardNumber: 1
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: OldMoney
   m_EditorClassIdentifier: 
   _friendlyName: Old Money
-  _icon: {fileID: 21300000, guid: 3b4ba5b7ba987b649ab02e1b63aeaa62, type: 3}
+  _icon: {fileID: -7745550820805891689, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: From a wealth family with an old business
   _isEnabled: 1
   _cardNumber: 1
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: RefinedTrait
   m_EditorClassIdentifier: 
   _friendlyName: Refined
-  _icon: {fileID: 21300000, guid: d4d4a4ea41e3e0449a8d951c595b2f18, type: 3}
+  _icon: {fileID: -1458703995989870937, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: Amazing grace and poise
   _isEnabled: 1
   _cardNumber: 1
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: MeddlerTrait
   m_EditorClassIdentifier: 
   _friendlyName: Meddler
-  _icon: {fileID: 21300000, guid: bee75903d65168545a34aa33beef0707, type: 3}
+  _icon: {fileID: -7973121347434331627, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: Constantly interfearing with the affairs of others.
   _isEnabled: 1
   _cardNumber: 3
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: AwkwardTrait
   m_EditorClassIdentifier: 
   _friendlyName: Awkward
-  _icon: {fileID: 21300000, guid: 3fa7cb9422a80e34891ba409b3d6fe58, type: 3}
+  _icon: {fileID: -5997108453755342256, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: Lacking in ease and grace
   _isEnabled: 1
   _cardNumber: 4
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: ModestTrait
   m_EditorClassIdentifier: 
   _friendlyName: Modest
-  _icon: {fileID: 21300000, guid: df7ceb341f14b3e479a22e038e868056, type: 3}
+  _icon: {fileID: -701199084815294044, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: Unassuming or moderate in their own means.
   _isEnabled: 1
   _cardNumber: 3
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: EligableTrait
   m_EditorClassIdentifier: 
   _friendlyName: Eligable
-  _icon: {fileID: 21300000, guid: 2504edf50b685b94cb81e4890474e335, type: 3}
+  _icon: {fileID: 3257587759288264639, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: A candidate for marriage to a good family.
   _isEnabled: 1
   _cardNumber: 3
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Name: EducatedTrait
   m_EditorClassIdentifier: 
   _friendlyName: Educated
-  _icon: {fileID: 21300000, guid: 13521bc6bd5a8a04e944f1310e67c327, type: 3}
+  _icon: {fileID: 8238535645930480288, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: Well schooled and read
   _isEnabled: 1
   _cardNumber: 2
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Name: AffluentTrait
   m_EditorClassIdentifier: 
   _friendlyName: Affluent
-  _icon: {fileID: 21300000, guid: 0541c8badaae5b14ead71bc9fc505658, type: 3}
+  _icon: {fileID: -6158577979262034925, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: Owns great wealth. Probably earned from Fracking.
   _isEnabled: 1
   _cardNumber: 2
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Name: ShamelessTrait
   m_EditorClassIdentifier: 
   _friendlyName: Shameless
-  _icon: {fileID: 21300000, guid: b0adbf148a6659944a28cd843dc84fd1, type: 3}
+  _icon: {fileID: 8284827205904676672, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: Ignores social conventions
   _isEnabled: 1
   _cardNumber: 2
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Name: FasionableTrait
   m_EditorClassIdentifier: 
   _friendlyName: Fasionable
-  _icon: {fileID: 21300000, guid: 90e6d297ad338b043b60e815c2d3da22, type: 3}
+  _icon: {fileID: 1251897918880445879, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: Always the best dressed at every location
   _isEnabled: 1
   _cardNumber: 2

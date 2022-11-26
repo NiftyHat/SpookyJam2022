@@ -39,6 +39,17 @@ namespace Data.Interactions
                 });
             return builder;
         }
+        
+        public StringBuilder GetTraitSpriteList()
+        {
+            StringBuilder builder = new StringBuilder();
+            _triggerList.ForEach(
+                val =>
+                {
+                    builder.Append(" <sprite name=").Append(val.Trait.Emoji).Append(">");
+                });
+            return builder;
+        }
 
         public IReadOnlyList<TraitData> GetAllTraits()
         {

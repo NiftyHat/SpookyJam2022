@@ -20,6 +20,8 @@ namespace Data.Trait
         public int CardNumber => _cardNumber;
         public string CardSuit => _cardSuit;
 
+        public string Emoji => _icon.name;
+
         public ITooltip GetTooltip()
         {
             return new TooltipSimple(_icon, $"{_friendlyName} - {_description}");

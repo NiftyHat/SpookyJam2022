@@ -101,7 +101,9 @@ MonoBehaviour:
         type: 2}
       _reaction: {fileID: 8380605986334348715, guid: e32084423b1cd6646889c10d75f87b73,
         type: 2}
-    _failList: []
+    _failList:
+    - {fileID: -6149206598976904165, guid: e32084423b1cd6646889c10d75f87b73, type: 2}
+    - {fileID: -3605238400349697620, guid: e32084423b1cd6646889c10d75f87b73, type: 2}
 --- !u!114 &-4190080506035454281
 MonoBehaviour:
   m_ObjectHideFlags: 0

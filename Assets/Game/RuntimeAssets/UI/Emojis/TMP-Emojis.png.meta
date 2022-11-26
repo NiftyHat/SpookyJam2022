@@ -1,0 +1,888 @@
+fileFormatVersion: 2
+guid: 84260c44931a7244abdc8238a6b6fafd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1467194518216707590
+    second: Emote_Blush
+  - first:
+      213: -2435359898191022327
+    second: Emote_Bored
+  - first:
+      213: -2250895524606800935
+    second: Emote_Chat
+  - first:
+      213: -109573723473219723
+    second: Emote_Confused
+  - first:
+      213: -9161520170812784064
+    second: Emote_Impressed
+  - first:
+      213: -6365784122795345601
+    second: Emote_Love
+  - first:
+      213: -4814031307734051258
+    second: Emote_Nervous
+  - first:
+      213: 6172989012730995332
+    second: Emote_Offended
+  - first:
+      213: -8529918272834007836
+    second: Emote_Unimpressed
+  - first:
+      213: -6158577979262034925
+    second: Trait_Affluent
+  - first:
+      213: -3204594881783858900
+    second: Trait_Antiquated
+  - first:
+      213: -5997108453755342256
+    second: Trait_Awkward
+  - first:
+      213: 463110672502015473
+    second: Trait_Debutaunt
+  - first:
+      213: -5194033518427056601
+    second: Trait_Disgraced
+  - first:
+      213: 8238535645930480288
+    second: Trait_Educated
+  - first:
+      213: 3257587759288264639
+    second: Trait_Eligable
+  - first:
+      213: 1251897918880445879
+    second: Trait_Fashionable
+  - first:
+      213: 459501055929969797
+    second: Trait_Fiesty
+  - first:
+      213: -4810068617477679631
+    second: Trait_Firstborn
+  - first:
+      213: 5856217358709928672
+    second: Trait_Forceful
+  - first:
+      213: 6142266517193933443
+    second: Trait_Gorgeous
+  - first:
+      213: -8413271832904141720
+    second: Trait_Heir
+  - first:
+      213: -7973121347434331627
+    second: Trait_Meddler
+  - first:
+      213: -701199084815294044
+    second: Trait_Modest
+  - first:
+      213: -7745550820805891689
+    second: Trait_OldMoney
+  - first:
+      213: 5520663368378487410
+    second: Trait_Pompous
+  - first:
+      213: -1869764906081662520
+    second: Trait_Reclusive
+  - first:
+      213: -1458703995989870937
+    second: Trait_Refined
+  - first:
+      213: 8284827205904676672
+    second: Trait_shameless
+  - first:
+      213: -5298189338693074327
+    second: Trait_Socialite
+  - first:
+      213: -7251191684603112205
+    second: Trait_Sus
+  - first:
+      213: 5468975763660379514
+    second: Trait_Wellbred
+  - first:
+      213: -6652726025237223808
+    second: Emote_Question
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Emote_Blush
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 2867
+        width: 609
+        height: 566
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60e05ba04a58c5410800000000000000
+      internalID: 1467194518216707590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Emote_Bored
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1741
+        width: 590
+        height: 561
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 907b710631dd33ed0800000000000000
+      internalID: -2435359898191022327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Emote_Chat
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2275
+        width: 608
+        height: 613
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9db8b45327633c0e0800000000000000
+      internalID: -2250895524606800935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Emote_Confused
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 3410
+        width: 807
+        height: 588
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57f69af6747ba7ef0800000000000000
+      internalID: -109573723473219723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Emote_Impressed
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 2302
+        width: 598
+        height: 565
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 042c028c1fdbbd080800000000000000
+      internalID: -9161520170812784064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Emote_Love
+      rect:
+        serializedVersion: 2
+        x: 3131
+        y: 3438
+        width: 647
+        height: 560
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3936f3511138a7a0800000000000000
+      internalID: -6365784122795345601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Emote_Nervous
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3433
+        width: 827
+        height: 565
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64617ec0800213db0800000000000000
+      internalID: -4814031307734051258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Emote_Offended
+      rect:
+        serializedVersion: 2
+        x: 2452
+        y: 3395
+        width: 679
+        height: 603
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 482683a1dccdaa550800000000000000
+      internalID: 6172989012730995332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Emote_Question
+      rect:
+        serializedVersion: 2
+        x: 2758
+        y: 2848
+        width: 361
+        height: 547
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0862dbd7de4cca3a0800000000000000
+      internalID: -6652726025237223808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Emote_Unimpressed
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 3433
+        width: 818
+        height: 565
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ec8d983684af9980800000000000000
+      internalID: -8529918272834007836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Affluent
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 1487
+        width: 505
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31c1b8815f5588aa0800000000000000
+      internalID: -6158577979262034925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Antiquated
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 1487
+        width: 398
+        height: 443
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c29fc360fedf683d0800000000000000
+      internalID: -3204594881783858900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Awkward
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 486
+        width: 501
+        height: 495
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 052bb66a2adf5cca0800000000000000
+      internalID: -5997108453755342256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Debutaunt
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 2752
+        width: 607
+        height: 658
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f5cc26f3bc4d6600800000000000000
+      internalID: 463110672502015473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Disgraced
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 1930
+        width: 400
+        height: 505
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 726deaeb8061be7b0800000000000000
+      internalID: -5194033518427056601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Educated
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 82
+        width: 502
+        height: 304
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a264153588255270800000000000000
+      internalID: 8238535645930480288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Eligable
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 2937
+        width: 414
+        height: 496
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb7a901cec6453d20800000000000000
+      internalID: 3257587759288264639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Fashionable
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 386
+        width: 468
+        height: 502
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b57bed3682af5110800000000000000
+      internalID: 1251897918880445879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Fiesty
+      rect:
+        serializedVersion: 2
+        x: 3131
+        y: 2720
+        width: 624
+        height: 718
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58c6f9c96c9706600800000000000000
+      internalID: 459501055929969797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Firstborn
+      rect:
+        serializedVersion: 2
+        x: 2252
+        y: 2524
+        width: 505
+        height: 503
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f51df5c3143f3db0800000000000000
+      internalID: -4810068617477679631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Forceful
+      rect:
+        serializedVersion: 2
+        x: 3778
+        y: 3497
+        width: 268
+        height: 501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e2b16109a6754150800000000000000
+      internalID: 5856217358709928672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Gorgeous
+      rect:
+        serializedVersion: 2
+        x: 1633
+        y: 2253
+        width: 505
+        height: 499
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 382ce11bad6bd3550800000000000000
+      internalID: 6142266517193933443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Heir
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 31
+        width: 500
+        height: 355
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 864f2f8e7dd0e3b80800000000000000
+      internalID: -8413271832904141720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Meddler
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1773
+        width: 508
+        height: 502
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 512c71fb068c95190800000000000000
+      internalID: -7973121347434331627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Modest
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 888
+        width: 504
+        height: 501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a161c0c527d446f0800000000000000
+      internalID: -701199084815294044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_OldMoney
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 2435
+        width: 402
+        height: 502
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7992120f096428490800000000000000
+      internalID: -7745550820805891689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Pompous
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 981
+        width: 504
+        height: 506
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27216b475165d9c40800000000000000
+      internalID: 5520663368378487410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Reclusive
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 0
+        width: 500
+        height: 486
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c9c28f69b24d06e0800000000000000
+      internalID: -1869764906081662520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Refined
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1389
+        width: 506
+        height: 384
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a6b496b174a1cbe0800000000000000
+      internalID: -1458703995989870937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_shameless
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 386
+        width: 460
+        height: 502
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 047b079e27e99f270800000000000000
+      internalID: 8284827205904676672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Socialite
+      rect:
+        serializedVersion: 2
+        x: 2252
+        y: 3027
+        width: 506
+        height: 368
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96200721edc0976b0800000000000000
+      internalID: -5298189338693074327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Sus
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 999
+        width: 494
+        height: 488
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f417f0d4979e5b90800000000000000
+      internalID: -7251191684603112205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trait_Wellbred
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2888
+        width: 622
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a75923e2b74b5eb40800000000000000
+      internalID: 5468975763660379514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

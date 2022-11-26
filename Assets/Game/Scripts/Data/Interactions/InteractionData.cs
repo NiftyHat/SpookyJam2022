@@ -36,7 +36,7 @@ namespace Data.Interactions
         [SerializeField] private int _radius = 0;
         [SerializeField] private int _minTargets = 0;
         [SerializeField] private TargetType _targetType;
-        [SerializeField] public MenuItemData _menuItemData;
+        [SerializeField] protected MenuItemData _menuItemData;
             
         public int RangeMin => _range.Min;
         public int RangeMax => _range.Max;

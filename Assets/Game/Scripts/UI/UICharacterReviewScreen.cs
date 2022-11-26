@@ -2,12 +2,14 @@ using System.Collections.Generic;
 using System.Linq;
 using Context;
 using Data;
+using Data.Interactions;
 using Data.Reactions;
 using Data.Trait;
 using Entity;
 using NiftyFramework.Core.Context;
 using NiftyFramework.UI;
 using NiftyFramework.UnityUtils;
+using UI;
 using UI.Cards;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,13 +27,14 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
     [SerializeField] private LayoutGroup _reactionFilterLayout;
     [SerializeField] private Button _clearFilterButton;
     [SerializeField] private Button _closeButton;
+    [SerializeField] private UIReactionView _lastReactionView;
 
     [SerializeField] private GameObject _root;
     
     private GameStateContext _gameStateContext;
     private CharacterEntity _currentCharacter;
     private IReadOnlyList<CharacterEntity> _characterEntities;
-    private MonoPool<UIButtonReactionView> _reactionFilterButtonPool;
+    private MonoPool<UIFilterButtonView> _filterButtonPool;
 
     private void Start()
     {
@@ -46,21 +49,37 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
             _gameStateContext.OnTriggerCharacterReview += HandleTriggerCharacterReview;
         });
 
-        var reactionButtons = _reactionFilterLayout.GetComponentsInChildren<UIButtonReactionView>();
-        _reactionFilterButtonPool = new MonoPool<UIButtonReactionView>(reactionButtons);
+        var filterButtons = _reactionFilterLayout.GetComponentsInChildren<UIFilterButtonView>();
+        _filterButtonPool = new MonoPool<UIFilterButtonView>(filterButtons);
+        
+        List<AbilityReactionTriggerData> reactionAbilityList = _playerData.GetInteractionDataList<AbilityReactionTriggerData>();
 
-        for (int i = 0; i < _reactionDataSet.References.Count; i++)
+        for (int i = 0; i < reactionAbilityList.Count; i++)
         {
-            var item = _reactionDataSet.References[i];
-            if (item.isMiss == false)
+            var ability = reactionAbilityList[i];
+            if (_filterButtonPool.TryGet(out var view))
             {
-                if (_reactionFilterButtonPool.TryGet(out var view))
-                {
-                    view.Set(item);
-                    view.OnSelected += HandleSelectedReaction;
-                }
+                UIFilterButtonView.Data<AbilityReactionTriggerData> viewData =
+                    new UIFilterButtonView.Data<AbilityReactionTriggerData>(ability, ability.MenuItem);
+                view.Set(viewData);
+                view.OnSelected += HandleSelectedFilter;
             }
         }
+
+        /*
+        for (int i = 0; i < _reactionDataSet.References.Count; i++)
+        {
+            var reactionData = _reactionDataSet.References[i];
+            if (reactionData.isMiss == false)
+            {
+                if (_filterButtonPool.TryGet(out var view))
+                {
+                    var filter = new UIFilterButtonView.Data<ReactionData>(reactionData);
+                    view.Set(filter);
+                    view.OnSelected += HandleSelectedFilter;
+                }
+            }
+        }*/
 
         _cardSpreadView.Set(_traitData.References, _playerData);
         if (_currentCharacter != null)
@@ -100,11 +119,38 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
         _cardCharacterView.SetTraitGuesses(traitList.ToList());
     }
 
-    private void HandleSelectedReaction(ReactionData reactionData)
+    private void HandleSelectedFilter(UIFilterButtonView.Data buttonData)
+    {
+        if (buttonData is UIFilterButtonView.Data<ReactionData> reactionButton)
+        {
+            DoFilter(reactionButton.Item);
+        }
+        if (buttonData is UIFilterButtonView.Data<AbilityReactionTriggerData> abilityButton)
+        {
+            DoFilter(abilityButton.Item);
+        }
+    }
+
+    private void DoFilter(ReactionData reactionData)
     {
         _cardSpreadView.WithAll(item =>
         {
             if (item.HasReaction(reactionData))
+            {
+                item.SetFacingDown(false);
+            }
+            else
+            {
+                item.SetFacingDown(true);
+            }
+        });
+    }
+    
+    private void DoFilter(AbilityReactionTriggerData abilityData)
+    {
+        _cardSpreadView.WithAll(item =>
+        {
+            if (item.HasAbility(abilityData))
             {
                 item.SetFacingDown(false);
             }
@@ -177,7 +223,12 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
         _cardSpreadView.SetSelected(_currentCharacter.TraitGuessList);
         if (characterEntity.LastReaction != null)
         {
-            HandleSelectedReaction(characterEntity.LastReaction);
+            _lastReactionView.Set(characterEntity.LastReaction);
+            //DoFilter(characterEntity.LastReaction);
+        }
+        else
+        {
+            _lastReactionView.Clear();
         }
     }
 

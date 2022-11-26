@@ -88,10 +88,7 @@ namespace Data.Interactions
 
         public override string GetDescription()
         {
-            if (string.IsNullOrEmpty(_traitListCopy))
-            {
-                _traitListCopy = _reactionTrigger.GetTraitList().ToString();
-            }
+            _traitListCopy = _reactionTrigger.GetTraitSpriteList().ToString();
             return base.GetDescription().Replace("{traitList}", _traitListCopy);
         }
 

@@ -1,10 +1,10 @@
 version: 2
 tpsheetFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
-- Assets/Game/RuntimeAssets/UI/TMP-Sprites/TMP-Sprites.tpsheet
+- Assets/Game/RuntimeAssets/UI/Emojis/TMP-Emojis.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
-- Assets/Game/RuntimeAssets/UI/TMP-Sprites/reaction-spritesheet.png
+- Assets/Game/RuntimeAssets/UI/Emojis/TMP-Emojis.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
 - 

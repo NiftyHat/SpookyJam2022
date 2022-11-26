@@ -19,7 +19,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b335a2d2c2fbe2bd44c378fdaf533430ce831c8a"
+      "hash": "8e33e6173da6a125fc5e3688fd37b1a92b490166"
     },
     "com.niftyhat.scriptableset": {
       "version": "https://github.com/NiftyHat/NiftyScriptableSet.git",

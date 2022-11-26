@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Data.Interactions;
 using Data.Reactions;
 using Data.Trait;
 using DG.Tweening;
@@ -13,7 +14,7 @@ using UnityUtils;
 
 namespace UI.Cards
 {
-    public class UICardTraitView : MonoBehaviour, IView<TraitData, IList<ReactionData>>, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+    public class UICardTraitView : MonoBehaviour, IView<TraitData, IList<ReactionData>, IList<AbilityReactionTriggerData>>, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
         [SerializeField] private UICardHeaderView _cardHeader;
         [SerializeField] private TextMeshProUGUI _textFooter;
@@ -27,7 +28,8 @@ namespace UI.Cards
 
         public TraitData TraitData { get; private set; }
         public IList<ReactionData> ReactionList {get; private set; }
-
+        public IList<AbilityReactionTriggerData> AbilityList { get; private set; }
+ 
         private bool _isTabbedOut;
         private bool _isFacingDown;
         public event Action<UICardTraitView, bool> OnToggled;
@@ -36,7 +38,7 @@ namespace UI.Cards
 
         protected int _defaultSortOrder;
 
-        public void Set(TraitData traitData, IList<ReactionData> reactionDataList)
+        public void Set(TraitData traitData, IList<ReactionData> reactionDataList, IList<AbilityReactionTriggerData> abilityDataList)
         {
             if (_cardFront != null)
             {
@@ -51,6 +53,7 @@ namespace UI.Cards
             _cardHeader.Set(traitData.CardSuit, traitData.CardNumber);
             _button.onClick.AddListener(HandleClicked);
             ReactionList = reactionDataList;
+            AbilityList = abilityDataList;
             TraitData = traitData;
             _defaultSortOrder = _canvas.renderOrder;
         }
@@ -141,6 +144,11 @@ namespace UI.Cards
         public bool HasReaction(ReactionData reactionData)
         {
             return ReactionList.Contains(reactionData);
+        }
+
+        public bool HasAbility(AbilityReactionTriggerData ability)
+        {
+            return AbilityList.Contains(ability);
         }
     }
 }

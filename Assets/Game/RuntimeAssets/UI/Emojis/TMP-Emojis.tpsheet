@@ -1,0 +1,48 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://assetstore.unity.com/packages/tools/sprite-management/texturepacker-importer-16641
+#
+# created with Free texture packer v0.6.7
+# http://free-tex-packer.com
+#
+:format=40300
+:texture=TMP-Emojis.png
+:size=4046x3998
+:pivotpoints=enabled
+:borders=disabled
+
+Emote_Nervous;0;3433;827;565; 0.5;0.5; 0;0;0;0
+Emote_Unimpressed;827;3433;818;565; 0.5;0.5; 0;0;0;0
+Emote_Confused;1645;3410;807;588; 0.5;0.5; 0;0;0;0
+Emote_Offended;2452;3395;679;603; 0.5;0.5; 0;0;0;0
+Emote_Love;3131;3438;647;560; 0.5;0.5; 0;0;0;0
+Trait_Forceful;3778;3497;268;501; 0.5;0.5; 0;0;0;0
+Trait_Fiesty;3131;2720;624;718; 0.5;0.5; 0;0;0;0
+Trait_Wellbred;0;2888;622;545; 0.5;0.5; 0;0;0;0
+Emote_Blush;622;2867;609;566; 0.5;0.5; 0;0;0;0
+Trait_Eligable;1231;2937;414;496; 0.5;0.5; 0;0;0;0
+Emote_Chat;0;2275;608;613; 0.5;0.5; 0;0;0;0
+Trait_Debutaunt;1645;2752;607;658; 0.5;0.5; 0;0;0;0
+Trait_OldMoney;1231;2435;402;502; 0.5;0.5; 0;0;0;0
+Emote_Impressed;608;2302;598;565; 0.5;0.5; 0;0;0;0
+Emote_Bored;608;1741;590;561; 0.5;0.5; 0;0;0;0
+Trait_Meddler;0;1773;508;502; 0.5;0.5; 0;0;0;0
+Trait_Refined;0;1389;506;384; 0.5;0.5; 0;0;0;0
+Trait_Socialite;2252;3027;506;368; 0.5;0.5; 0;0;0;0
+Emote_Question;2758;2848;361;547; 0.5;0.5; 0;0;0;0
+Trait_Firstborn;2252;2524;505;503; 0.5;0.5; 0;0;0;0
+Trait_Gorgeous;1633;2253;505;499; 0.5;0.5; 0;0;0;0
+Trait_Disgraced;1206;1930;400;505; 0.5;0.5; 0;0;0;0
+Trait_Antiquated;1206;1487;398;443; 0.5;0.5; 0;0;0;0
+Trait_Affluent;506;1487;505;254; 0.5;0.5; 0;0;0;0
+Trait_Pompous;506;981;504;506; 0.5;0.5; 0;0;0;0
+Trait_Modest;0;888;504;501; 0.5;0.5; 0;0;0;0
+Trait_Fashionable;0;386;468;502; 0.5;0.5; 0;0;0;0
+Trait_Heir;0;31;500;355; 0.5;0.5; 0;0;0;0
+Trait_shameless;468;386;460;502; 0.5;0.5; 0;0;0;0
+Trait_Educated;500;82;502;304; 0.5;0.5; 0;0;0;0
+Trait_Awkward;928;486;501;495; 0.5;0.5; 0;0;0;0
+Trait_Sus;1010;999;494;488; 0.5;0.5; 0;0;0;0
+Trait_Reclusive;1002;0;500;486; 0.5;0.5; 0;0;0;0
