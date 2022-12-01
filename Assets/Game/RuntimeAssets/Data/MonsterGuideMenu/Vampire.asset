@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Vampire
   m_EditorClassIdentifier: 
   monsterName: Vampire
-  image: {fileID: 21300000, guid: b366ef7e8dbcfe04fb7b58b8a2c51502, type: 3}
+  image: {fileID: 21300000, guid: 6db28da6aa0ef804984913cd4397f42c, type: 3}
   description: Christopher Lee
   hint: It's just Christopher Lee
