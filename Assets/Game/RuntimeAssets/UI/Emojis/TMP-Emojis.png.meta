@@ -101,6 +101,15 @@ TextureImporter:
   - first:
       213: -6652726025237223808
     second: Emote_Question
+  - first:
+      213: 6885531744091830942
+    second: Trait_Impulsive
+  - first:
+      213: -9114403068518727402
+    second: Emote_Vamp
+  - first:
+      213: 5732772993350233361
+    second: Emote_Wearwolf
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -181,8 +190,8 @@ TextureImporter:
       name: Emote_Blush
       rect:
         serializedVersion: 2
-        x: 622
-        y: 2867
+        x: 1644
+        y: 2661
         width: 609
         height: 566
       alignment: 0
@@ -202,8 +211,8 @@ TextureImporter:
       name: Emote_Bored
       rect:
         serializedVersion: 2
-        x: 608
-        y: 1741
+        x: 1607
+        y: 2091
         width: 590
         height: 561
       alignment: 0
@@ -223,8 +232,8 @@ TextureImporter:
       name: Emote_Chat
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2275
+        x: 624
+        y: 2039
         width: 608
         height: 613
       alignment: 0
@@ -245,7 +254,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1645
-        y: 3410
+        y: 3227
         width: 807
         height: 588
       alignment: 0
@@ -265,8 +274,8 @@ TextureImporter:
       name: Emote_Impressed
       rect:
         serializedVersion: 2
-        x: 608
-        y: 2302
+        x: 2253
+        y: 2238
         width: 598
         height: 565
       alignment: 0
@@ -286,8 +295,8 @@ TextureImporter:
       name: Emote_Love
       rect:
         serializedVersion: 2
-        x: 3131
-        y: 3438
+        x: 3102
+        y: 2652
         width: 647
         height: 560
       alignment: 0
@@ -308,7 +317,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 3433
+        y: 3250
         width: 827
         height: 565
       alignment: 0
@@ -328,8 +337,8 @@ TextureImporter:
       name: Emote_Offended
       rect:
         serializedVersion: 2
-        x: 2452
-        y: 3395
+        x: 3189
+        y: 3212
         width: 679
         height: 603
       alignment: 0
@@ -349,8 +358,8 @@ TextureImporter:
       name: Emote_Question
       rect:
         serializedVersion: 2
-        x: 2758
-        y: 2848
+        x: 1246
+        y: 2256
         width: 361
         height: 547
       alignment: 0
@@ -371,7 +380,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 827
-        y: 3433
+        y: 3250
         width: 818
         height: 565
       alignment: 0
@@ -388,11 +397,53 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: Emote_Vamp
+      rect:
+        serializedVersion: 2
+        x: 2452
+        y: 3335
+        width: 737
+        height: 480
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 611063903b2238180800000000000000
+      internalID: -9114403068518727402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Emote_Wearwolf
+      rect:
+        serializedVersion: 2
+        x: 2452
+        y: 2803
+        width: 650
+        height: 532
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11de796f9a6ee8f40800000000000000
+      internalID: 5732772993350233361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: Trait_Affluent
       rect:
         serializedVersion: 2
-        x: 506
-        y: 1487
+        x: 2851
+        y: 2398
         width: 505
         height: 254
       alignment: 0
@@ -412,8 +463,8 @@ TextureImporter:
       name: Trait_Antiquated
       rect:
         serializedVersion: 2
-        x: 1206
-        y: 1487
+        x: 1246
+        y: 2807
         width: 398
         height: 443
       alignment: 0
@@ -433,8 +484,8 @@ TextureImporter:
       name: Trait_Awkward
       rect:
         serializedVersion: 2
-        x: 928
-        y: 486
+        x: 2115
+        y: 1347
         width: 501
         height: 495
       alignment: 0
@@ -454,8 +505,8 @@ TextureImporter:
       name: Trait_Debutaunt
       rect:
         serializedVersion: 2
-        x: 1645
-        y: 2752
+        x: 0
+        y: 1874
         width: 607
         height: 658
       alignment: 0
@@ -475,8 +526,8 @@ TextureImporter:
       name: Trait_Disgraced
       rect:
         serializedVersion: 2
-        x: 1206
-        y: 1930
+        x: 0
+        y: 0
         width: 400
         height: 505
       alignment: 0
@@ -496,8 +547,8 @@ TextureImporter:
       name: Trait_Educated
       rect:
         serializedVersion: 2
-        x: 500
-        y: 82
+        x: 2197
+        y: 1842
         width: 502
         height: 304
       alignment: 0
@@ -517,8 +568,8 @@ TextureImporter:
       name: Trait_Eligable
       rect:
         serializedVersion: 2
-        x: 1231
-        y: 2937
+        x: 3355
+        y: 1650
         width: 414
         height: 496
       alignment: 0
@@ -538,8 +589,8 @@ TextureImporter:
       name: Trait_Fashionable
       rect:
         serializedVersion: 2
-        x: 0
-        y: 386
+        x: 505
+        y: 601
         width: 468
         height: 502
       alignment: 0
@@ -559,8 +610,8 @@ TextureImporter:
       name: Trait_Fiesty
       rect:
         serializedVersion: 2
-        x: 3131
-        y: 2720
+        x: 0
+        y: 2532
         width: 624
         height: 718
       alignment: 0
@@ -580,8 +631,8 @@ TextureImporter:
       name: Trait_Firstborn
       rect:
         serializedVersion: 2
-        x: 2252
-        y: 2524
+        x: 506
+        y: 1152
         width: 505
         height: 503
       alignment: 0
@@ -601,8 +652,8 @@ TextureImporter:
       name: Trait_Forceful
       rect:
         serializedVersion: 2
-        x: 3778
-        y: 3497
+        x: 3749
+        y: 2711
         width: 268
         height: 501
       alignment: 0
@@ -622,8 +673,8 @@ TextureImporter:
       name: Trait_Gorgeous
       rect:
         serializedVersion: 2
-        x: 1633
-        y: 2253
+        x: 0
+        y: 1007
         width: 505
         height: 499
       alignment: 0
@@ -643,8 +694,8 @@ TextureImporter:
       name: Trait_Heir
       rect:
         serializedVersion: 2
-        x: 0
-        y: 31
+        x: 1011
+        y: 1196
         width: 500
         height: 355
       alignment: 0
@@ -661,11 +712,32 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: Trait_Impulsive
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 727
+        width: 476
+        height: 469
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9af440e3a25e8f50800000000000000
+      internalID: 6885531744091830942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: Trait_Meddler
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1773
+        x: 1607
+        y: 1589
         width: 508
         height: 502
       alignment: 0
@@ -685,8 +757,8 @@ TextureImporter:
       name: Trait_Modest
       rect:
         serializedVersion: 2
-        x: 0
-        y: 888
+        x: 2851
+        y: 1897
         width: 504
         height: 501
       alignment: 0
@@ -706,8 +778,8 @@ TextureImporter:
       name: Trait_OldMoney
       rect:
         serializedVersion: 2
-        x: 1231
-        y: 2435
+        x: 400
+        y: 3
         width: 402
         height: 502
       alignment: 0
@@ -727,8 +799,8 @@ TextureImporter:
       name: Trait_Pompous
       rect:
         serializedVersion: 2
-        x: 506
-        y: 981
+        x: 3356
+        y: 2146
         width: 504
         height: 506
       alignment: 0
@@ -748,8 +820,8 @@ TextureImporter:
       name: Trait_Reclusive
       rect:
         serializedVersion: 2
-        x: 1002
-        y: 0
+        x: 1607
+        y: 1103
         width: 500
         height: 486
       alignment: 0
@@ -769,8 +841,8 @@ TextureImporter:
       name: Trait_Refined
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1389
+        x: 607
+        y: 1655
         width: 506
         height: 384
       alignment: 0
@@ -790,8 +862,8 @@ TextureImporter:
       name: Trait_shameless
       rect:
         serializedVersion: 2
-        x: 468
-        y: 386
+        x: 0
+        y: 505
         width: 460
         height: 502
       alignment: 0
@@ -811,8 +883,8 @@ TextureImporter:
       name: Trait_Socialite
       rect:
         serializedVersion: 2
-        x: 2252
-        y: 3027
+        x: 0
+        y: 1506
         width: 506
         height: 368
       alignment: 0
@@ -832,8 +904,8 @@ TextureImporter:
       name: Trait_Sus
       rect:
         serializedVersion: 2
-        x: 1010
-        y: 999
+        x: 1113
+        y: 1551
         width: 494
         height: 488
       alignment: 0
@@ -853,8 +925,8 @@ TextureImporter:
       name: Trait_Wellbred
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2888
+        x: 624
+        y: 2705
         width: 622
         height: 545
       alignment: 0

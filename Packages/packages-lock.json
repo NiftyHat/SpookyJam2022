@@ -12,23 +12,23 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "7db8e996912a62ccb05778d5262c467f703953cf"
+      "hash": "b885a272bdde7ef13dcce074ec3c65d56238053a"
     },
     "com.niftyhat.niftycore": {
       "version": "https://github.com/NiftyHat/NiftyCore.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "8e33e6173da6a125fc5e3688fd37b1a92b490166"
+      "hash": "227e9b92d303cfdbb43fd32a30910a6bd49cc3b4"
     },
     "com.niftyhat.scriptableset": {
       "version": "https://github.com/NiftyHat/NiftyScriptableSet.git",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.niftyhat.editormenu": "0.4.0"
+        "com.niftyhat.editormenu": "0.4.1"
       },
-      "hash": "5a0bc924bdd582dcaa932b057441aa6149a1874f"
+      "hash": "f92fd94f622301ab781180fe62b3c0a4e4d4a808"
     },
     "com.unity.2d.animation": {
       "version": "6.0.4",

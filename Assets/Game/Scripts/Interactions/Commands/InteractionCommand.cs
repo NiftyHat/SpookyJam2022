@@ -1,10 +1,9 @@
 using System;
-using System.Collections.Generic;
 using Commands;
+using Data;
 using Entity;
 using GameStats;
 using NiftyFramework.Core;
-using TouchInput.UnitControl;
 using UI;
 
 namespace Interactions.Commands
@@ -105,6 +104,11 @@ namespace Interactions.Commands
         public void Update()
         {
             Validate();
+        }
+
+        public virtual ITooltip GetTooltip()
+        {
+            return new TooltipAbilitySimple(_interaction.MenuItem.Icon, _interaction.GetDescription(), _interaction.GetFriendlyName(), _interaction.CostAP);
         }
 
         public abstract string GetDescription();

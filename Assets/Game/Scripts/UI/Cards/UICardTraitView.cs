@@ -14,13 +14,14 @@ using UnityUtils;
 
 namespace UI.Cards
 {
-    public class UICardTraitView : MonoBehaviour, IView<TraitData, IList<ReactionData>, IList<AbilityReactionTriggerData>>, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+    public class UICardTraitView : MonoBehaviour, IView<TraitData, IList<ReactionData>, IList<AbilityReactionTriggerData>>, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private UICardHeaderView _cardHeader;
         [SerializeField] private TextMeshProUGUI _textFooter;
         [SerializeField] private CanvasGroup _cardBack;
         [SerializeField] private CanvasGroup _cardFront;
         [SerializeField] private UICardTraitContentContainer _content;
+        [SerializeField] private UICardBorderView _boarderView;
         [SerializeField] private Animator _animator;
         [SerializeField] private Button _button;
         [SerializeField] private float _popHeight = 30;
@@ -30,9 +31,10 @@ namespace UI.Cards
         public IList<ReactionData> ReactionList {get; private set; }
         public IList<AbilityReactionTriggerData> AbilityList { get; private set; }
  
-        private bool _isTabbedOut;
+        private Guess _guessValue;
         private bool _isFacingDown;
-        public event Action<UICardTraitView, bool> OnToggled;
+        //public event Action<UICardTraitView, bool> OnToggled;
+        public event Action<UICardTraitView, Guess> OnGuessChange;
 
         private static readonly int FaceDown = Animator.StringToHash("FaceDown");
 
@@ -60,13 +62,9 @@ namespace UI.Cards
 
         private void HandleClicked()
         {
-            ToggleTabbedOut();
-            OnToggled?.Invoke(this,_isTabbedOut);
-        }
-
-        private void ToggleTabbedOut()
-        {
-            SetTabbedOut(!_isTabbedOut);
+            _guessValue = GuessUtils.Next(_guessValue);
+            SetGuess(_guessValue);
+            OnGuessChange?.Invoke(this,_guessValue);
         }
 
         public void Clear()
@@ -95,50 +93,24 @@ namespace UI.Cards
             }
         }
 
-        public void SetTabbedOut(bool isTabbedOut)
-        {
-            if (_isTabbedOut != isTabbedOut)
-            {
-                _isTabbedOut = isTabbedOut;
-                if (_isTabbedOut == false)
-                {
-                    _animator.transform.DOLocalMoveY(0, 0.5f).SetEase(Ease.InCubic);
-                    _canvas.overrideSorting = false;
-                    _canvas.sortingOrder = _defaultSortOrder;
-
-                }
-                else
-                {
-                    _animator.transform.DOLocalMoveY(_popHeight, 0.2f).SetEase(Ease.InCubic);
-
-                }
-            }
-        }
-
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (_animator != null && !_isFacingDown)
             {
                 _animator.transform.DOLocalMoveY(_popHeight, 0.2f).SetEase(Ease.InCubic);
                 _canvas.overrideSorting = true;
-                _canvas.sortingOrder = 1;
+                _canvas.sortingOrder = 3;
             }
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if (_animator != null && !_isTabbedOut)
+            if (_animator != null)
             {
                 _animator.transform.DOLocalMoveY(0, 0.5f).SetEase(Ease.InCubic);
                 _canvas.overrideSorting = false;
                 _canvas.sortingOrder = _defaultSortOrder;
             }
-        }
-
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            ToggleTabbedOut();
-            OnToggled?.Invoke(this,_isTabbedOut);
         }
 
         public bool HasReaction(ReactionData reactionData)
@@ -149,6 +121,11 @@ namespace UI.Cards
         public bool HasAbility(AbilityReactionTriggerData ability)
         {
             return AbilityList.Contains(ability);
+        }
+
+        public void SetGuess(Guess guess)
+        {
+            _boarderView.Set(guess);
         }
     }
 }

@@ -45,7 +45,7 @@ SpriteAtlas:
   m_PackedSpriteNamesToIndex:
   - Speech_Bubble
   - Emote_Vamp
-  - Emote_WW
+  - Emote_Wearwolf
   - Thought_Bubble
   m_RenderDataMap: {}
   m_Tag: Emote_Spritesheet

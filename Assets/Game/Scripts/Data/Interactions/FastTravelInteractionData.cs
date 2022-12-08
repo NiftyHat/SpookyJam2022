@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Data.Location;
 using Interactions;
+using UI;
 using UnityEngine;
 
 namespace Data.Interactions

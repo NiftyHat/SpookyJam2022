@@ -5,6 +5,7 @@ using GameStats;
 using Interactions;
 using Interactions.Commands;
 using NiftyFramework.Core.Context;
+using UI;
 
 namespace Data.Interactions
 {
@@ -42,7 +43,7 @@ namespace Data.Interactions
         {
             
         }
-
+        
         public override InteractionCommand GetCommand(TargetingInfo targetingInfo)
         {
             return new Command(this, targetingInfo);

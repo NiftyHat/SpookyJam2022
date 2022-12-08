@@ -1,3 +1,4 @@
+using System;
 using Data;
 using UnityEngine;
 
@@ -5,22 +6,31 @@ namespace UI
 {
     public class TooltipSimple : ITooltip
     {
-        public readonly IconViewData _iconViewData;
-        public readonly string _copy;
-        public TooltipSimple(Sprite sprite, string copy)
+        public readonly IconViewData IconViewData;
+        public readonly string BodyCopy;
+        protected RectTransform _target;
+        public RectTransform Target => _target;
+        public event Action<RectTransform> OnTargetChange;
+        public TooltipSimple(Sprite sprite, string bodyCopy)
         {
-            _iconViewData = new IconViewData(sprite);
-            _copy = copy;
+            IconViewData = new IconViewData(sprite);
+            BodyCopy = bodyCopy;
+        }
+
+        public void SetTarget(RectTransform target)
+        {
+            _target = target;
+            OnTargetChange?.Invoke(target);
         }
         
         public IIconViewData GetIcon()
         {
-            return _iconViewData;
+            return IconViewData;
         }
 
         public string GetCopy()
         {
-            return _copy;
+            return BodyCopy;
         }
     }
 }

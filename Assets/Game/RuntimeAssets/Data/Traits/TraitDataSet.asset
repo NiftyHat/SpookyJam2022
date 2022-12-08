@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Name: ImpulsiveTrait
   m_EditorClassIdentifier: 
   _friendlyName: Impulsive
-  _icon: {fileID: 21300000, guid: 8ee89d2b3efba014eaadd72ef2dd4925, type: 3}
+  _icon: {fileID: 6885531744091830942, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: Has poor impulse control
   _isEnabled: 1
   _cardNumber: 3

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using Data;
 using Data.Character;
+using Data.Interactions;
 using Data.Location;
 using Data.Reactions;
 using Data.Trait;
-using UnityEngine;
 
 namespace Entity
 {
@@ -25,20 +25,26 @@ namespace Entity
 
         public CharacterName.ImpliedGender ImpliedGender => _impliedGender;
         public HashSet<TraitData> Traits => _traitList;
-        public List<TraitData> TraitGuessList => _traitGuessList;
+        
+        
 
         public CharacterViewData ViewData => _viewData;
 
         public LocationData CurrentLocation => _currentLocation;
 
+        public List<TraitData> TraitGuessList => _traitGuessList;
         private List<TraitData> _traitGuessList;
+
+        private Dictionary<TraitData, Guess> _traitGuessInfo = new Dictionary<TraitData, Guess>();
+        
+        public Dictionary<TraitData, Guess> TraitGuessInfo => _traitGuessInfo;
+
+        private CharacterTypeGuess _typeGuess = new CharacterTypeGuess();
+        public CharacterTypeGuess TypeGuess => _typeGuess;
 
         public virtual string TypeFriendlyName => "Character";
 
         public event Action<ReactionData> OnReaction;
-        
-        public ReactionData LastReaction { get; private set; }
-
         public CharacterEntity(MaskEntity mask, CharacterName nameData, HashSet<TraitData> traitList, CharacterViewData viewData)
         {
             _mask = mask;
@@ -71,7 +77,6 @@ namespace Entity
 
         public void DisplayReaction(ReactionData reactionData)
         {
-            LastReaction = reactionData;
             OnReaction?.Invoke(reactionData);
         }
 
@@ -80,9 +85,9 @@ namespace Entity
             return _currentLocation == locationData;
         }
 
-        public void SetTraitGuess(List<TraitData> traitDataList)
+        public void SetTraitGuess(Dictionary<TraitData, Guess> traitGuessSet)
         {
-            _traitGuessList = traitDataList;
+            _traitGuessInfo = traitGuessSet;
         }
     }
 }

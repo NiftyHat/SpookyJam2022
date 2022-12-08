@@ -11,11 +11,12 @@ public class IconWidget : MonoBehaviour, IDataView<IIconViewData>
     [SerializeField]
     private Image image;
 
-    protected Color defaultColor;
+    protected Color? _defaultColor;
+    private IIconViewData _viewData;
 
-    protected void Start()
+    protected void Awake()
     {
-        defaultColor = image.color;
+        _defaultColor = image.color;
     }
 
     public void SetSprite(Sprite sprite)
@@ -24,23 +25,51 @@ public class IconWidget : MonoBehaviour, IDataView<IIconViewData>
         image.sprite = sprite;
     }
 
+    public void SetEnabled(bool isEnabled)
+    {
+        if (!_defaultColor.HasValue)
+        {
+            _defaultColor = image.color;
+        }
+        if (isEnabled)
+        {
+            if (_viewData != null && _viewData.Tint.TryGet(out var tintColor))
+            {
+                image.color = tintColor;
+            }
+            else
+            {
+                image.color = _defaultColor.Value;
+            }
+        }
+        else
+        {
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 0.2f);
+        }
+        
+    }
+
     public void Clear()
     {
         image.gameObject.SetActive(false);
-        image.color = defaultColor;
+        if (_defaultColor.HasValue)
+        {
+            image.color = _defaultColor.Value;
+        }
     }
 
     public void Set(IIconViewData data)
     {
         image.gameObject.SetActive(true);
-        image.sprite = data.Sprite;
-        if (data.Tint.TryGet(out var tintColor))
+        _viewData = data;
+        image.sprite = _viewData.Sprite;
+        if (_viewData.Tint.TryGet(out var tintColor))
         {
             image.color = tintColor;
         }
-        else
+        else if (_defaultColor.HasValue)
         {
-            image.color = defaultColor;
+            image.color = _defaultColor.Value;
         }
     }
 }

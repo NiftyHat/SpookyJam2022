@@ -95,7 +95,6 @@ namespace Data.Interactions
         }
 
         public abstract InteractionCommand GetCommand(TargetingInfo targetingInfo);
-
         public void OnBeforeSerialize()
         {
             

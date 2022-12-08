@@ -19,7 +19,8 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
     [SerializeField] private UICardCharacterView _cardCharacterView;
     [SerializeField] private TraitDataSet _traitData;
     [SerializeField] private PlayerData _playerData;
-    [SerializeField] private ReactionDataSet _reactionDataSet;
+    [SerializeField] private LayoutGroup _cardsActive;
+    [SerializeField] private LayoutGroup _cardsPassive;
 
     [SerializeField] private Button _buttonNext;
     [SerializeField] private Button _buttonPrevious;
@@ -28,6 +29,7 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
     [SerializeField] private Button _clearFilterButton;
     [SerializeField] private Button _closeButton;
     [SerializeField] private UIReactionView _lastReactionView;
+    [SerializeField] private UIGuessTypeSelector _guessTypeSelector;
 
     [SerializeField] private GameObject _root;
     
@@ -35,6 +37,7 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
     private CharacterEntity _currentCharacter;
     private IReadOnlyList<CharacterEntity> _characterEntities;
     private MonoPool<UIFilterButtonView> _filterButtonPool;
+    private GameStateContext.LastInteractionData _lastInteractionData;
 
     private void Start()
     {
@@ -66,35 +69,24 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
             }
         }
 
-        /*
-        for (int i = 0; i < _reactionDataSet.References.Count; i++)
-        {
-            var reactionData = _reactionDataSet.References[i];
-            if (reactionData.isMiss == false)
-            {
-                if (_filterButtonPool.TryGet(out var view))
-                {
-                    var filter = new UIFilterButtonView.Data<ReactionData>(reactionData);
-                    view.Set(filter);
-                    view.OnSelected += HandleSelectedFilter;
-                }
-            }
-        }*/
-
         _cardSpreadView.Set(_traitData.References, _playerData);
         if (_currentCharacter != null)
         {
-            _cardSpreadView.SetSelected(_currentCharacter.TraitGuessList);
+            _cardSpreadView.SetGuessInfo(_currentCharacter.TraitGuessInfo);
+            _guessTypeSelector.Set(_currentCharacter.TypeGuess);
         }
+        
+        
         
         _clearFilterButton.onClick.AddListener(HandleClickClear);
         
-        _cardSpreadView.OnSelectedTraitsChanged += HandleSelectedTraitsChanged;
+        _cardSpreadView.OnTraitGuessesChanged += HandleTraitGuessesChanged;
 
         _buttonNext.onClick.AddListener(HandleClickNext);
         _buttonPrevious.onClick.AddListener(HandleClickPrevious);
         _closeButton.onClick.AddListener(HandleClose);
     }
+
 
     private void HandleClose()
     {
@@ -113,10 +105,10 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
         _cardSpreadView.ClearSelection();
     }
 
-    private void HandleSelectedTraitsChanged(List<TraitData> traitList)
+    private void HandleTraitGuessesChanged(Dictionary<TraitData, Guess> guesses)
     {
-        _currentCharacter.SetTraitGuess(traitList.ToList());
-        _cardCharacterView.SetTraitGuesses(traitList.ToList());
+        _currentCharacter.SetTraitGuess(guesses);
+        _cardCharacterView.SetTraitGuesses(guesses);
     }
 
     private void HandleSelectedFilter(UIFilterButtonView.Data buttonData)
@@ -137,11 +129,11 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
         {
             if (item.HasReaction(reactionData))
             {
-                item.SetFacingDown(false);
+                item.transform.parent = _cardsActive.transform;
             }
             else
             {
-                item.SetFacingDown(true);
+                item.transform.parent = _cardsPassive.transform;
             }
         });
     }
@@ -152,11 +144,11 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
         {
             if (item.HasAbility(abilityData))
             {
-                item.SetFacingDown(false);
+                item.transform.parent = _cardsActive.transform;
             }
             else
             {
-                item.SetFacingDown(true);
+                item.transform.parent = _cardsPassive.transform;
             }
         });
     }
@@ -220,21 +212,33 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
             _cardCharacterView.Set(characterEntity);
             
         }
-        _cardSpreadView.SetSelected(_currentCharacter.TraitGuessList);
-        if (characterEntity.LastReaction != null)
+        _cardSpreadView.SetGuessInfo(_currentCharacter.TraitGuessInfo);
+        _lastInteractionData = _gameStateContext.LastInteraction;
+        if (_lastInteractionData != null)
         {
-            _lastReactionView.Set(characterEntity.LastReaction);
-            //DoFilter(characterEntity.LastReaction);
+            if (_lastInteractionData.Reactions.TryGetValue(_currentCharacter, out var reactionData))
+            {
+                _lastReactionView.Set(reactionData);
+            }
+            else
+            {
+                _lastReactionView.Clear();
+            }
+
+            if (_lastInteractionData.Interaction is AbilityReactionTriggerData reactionTriggerData)
+            {
+                DoFilter(reactionTriggerData);
+            }
         }
         else
         {
             _lastReactionView.Clear();
         }
+        _guessTypeSelector.Set(_currentCharacter.TypeGuess);
     }
 
     public void Clear()
     {
-        _cardCharacterView.SetFacingDown(true);
-        //throw new System.NotImplementedException();
+        
     }
 }

@@ -6,6 +6,7 @@ using GameStats;
 using Interactions;
 using Interactions.Commands;
 using NiftyFramework.Core.Context;
+using UI;
 using UnityEngine;
 
 namespace Data.Interactions

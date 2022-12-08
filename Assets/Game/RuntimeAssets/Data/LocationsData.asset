@@ -104,7 +104,7 @@ MonoBehaviour:
   _description: 
   _icon: {fileID: 21300000, guid: 93d2fe75ab09e9d47b37b8723db5ead3, type: 3}
   _spawnSeed: 523523
-  _prefab: {fileID: 0}
+  _prefab: {fileID: 1183476245819586080, guid: 31fcd2a59ced21b428206be3ea6c5aa9, type: 3}
 --- !u!114 &4635359559426436241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,4 +121,4 @@ MonoBehaviour:
   _description: 
   _icon: {fileID: 21300000, guid: 1bf5c1aba5f4ec245b1f4902bc494260, type: 3}
   _spawnSeed: 523523
-  _prefab: {fileID: 0}
+  _prefab: {fileID: 6280254265414593223, guid: 6a1398d66e4292d49804a315af92eed3, type: 3}

@@ -18,6 +18,8 @@ public class LocationView : MonoBehaviour, IView<LocationData>
     private GameStateContext _gameStateService;
     private CharacterSpawnSet _spawnSet;
     private bool _canSpawn = true;
+
+    private Action _onDeferedSpawn;
     
     // Start is called before the first frame update
     private void Awake()
@@ -49,10 +51,18 @@ public class LocationView : MonoBehaviour, IView<LocationData>
 
     void SpawnCharacters(IReadOnlyList<CharacterEntity> entities, System.Random random)
     {
-        if (_canSpawn && _spawnSet != null)
+        if (_canSpawn)
         {
-            _spawnSet.Spawn(entities, random);
-            _canSpawn = false;
+            if (_spawnSet != null)
+            {
+                _spawnSet.Spawn(entities, random);
+                _canSpawn = false;
+            }
+            else
+            {
+                _onDeferedSpawn = () => SpawnCharacters(entities, random);
+            }
+            
         }
     }
 
@@ -109,7 +119,9 @@ public class LocationView : MonoBehaviour, IView<LocationData>
     {
         if (_locationData != null)
         {
+#if UNITY_EDITOR
             Handles.Label(transform.position, _locationData.FriendlyName);
+            #endif
         }
     }
 
@@ -131,9 +143,10 @@ public class LocationView : MonoBehaviour, IView<LocationData>
     public void Register(CharacterSpawnSet characterSpawnSet)
     {
         _spawnSet = characterSpawnSet;
-        if (_gameStateService != null)
+        if (_onDeferedSpawn != null)
         {
-            
+            _onDeferedSpawn.Invoke();
+            _onDeferedSpawn = null;
         }
     }
 }

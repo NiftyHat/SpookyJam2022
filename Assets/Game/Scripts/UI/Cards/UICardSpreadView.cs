@@ -15,8 +15,8 @@ namespace UI.Cards
         [SerializeField] private LayoutGroup[] _cardLayouts;
         private MonoPool<UICardTraitView> _cardPool;
         private HashSet<UICardTraitView> _views;
-        public event Action<List<TraitData>> OnSelectedTraitsChanged;
-        private List<TraitData> _selected = new List<TraitData>();
+        public event Action<Dictionary<TraitData, Guess>> OnTraitGuessesChanged;
+        private Dictionary<TraitData, Guess> _guessInfo = new Dictionary<TraitData, Guess>();
         public void Set(List<TraitData> traitDataList, PlayerData playerData)
         {
             List<UICardTraitView> cardViews = new List<UICardTraitView>();
@@ -51,7 +51,8 @@ namespace UI.Cards
                     }
 
                     view.transform.parent = rowTransform;
-                    view.OnToggled += HandleCardToggled;
+                    //view.OnToggled += HandleCardToggled;
+                    view.OnGuessChange += HandleGuessChanged;
                     _views.Add(view);
 
                     traitIndex++;
@@ -59,31 +60,39 @@ namespace UI.Cards
             }
         }
 
+        private void HandleGuessChanged(UICardTraitView view, Guess enumGuess)
+        {
+            if (view.TraitData == null)
+            {
+                return;
+            }
+            if (enumGuess == Guess.None)
+            {
+                _guessInfo.Remove(view.TraitData);
+            }
+            else if (_guessInfo != null)
+            {
+                if (_guessInfo.ContainsKey(view.TraitData))
+                {
+                    _guessInfo[view.TraitData] = enumGuess;
+                }
+                else
+                {
+                    _guessInfo.Add(view.TraitData, enumGuess);
+                }
+            }
+            OnTraitGuessesChanged?.Invoke(_guessInfo);
+        }
+
         public void ClearSelection()
         {
-            _selected.Clear();
+            _guessInfo = null;
             WithAll(item =>
             {
                 item.SetFacingDown(false);
             });
         }
 
-        private void HandleCardToggled(UICardTraitView cardView, bool isToggled)
-        {
-            if (isToggled)
-            {
-                if (!_selected.Contains(cardView.TraitData))
-                {
-                    _selected.Add(cardView.TraitData);
-                }
-            }
-            else
-            {
-                _selected.Remove(cardView.TraitData);
-            }
-            OnSelectedTraitsChanged?.Invoke(_selected);
-        }
-        
         public void WithAll(Action<UICardTraitView> func)
         {
             foreach(var item in _views)
@@ -100,20 +109,24 @@ namespace UI.Cards
             }
         }
         
-        public void SetSelected(List<TraitData> currentCharacterTraitGuessList)
+        public void SetGuessInfo(Dictionary<TraitData, Guess> guessInfo)
         {
-            _selected = new List<TraitData>(currentCharacterTraitGuessList);
-            foreach (var view in _views)
+            _guessInfo = guessInfo;
+            if (_views != null)
             {
-                if (view.TraitData != null)
+                foreach (var view in _views)
                 {
-                    view.SetTabbedOut(_selected.Contains(view.TraitData));
-                }
-                else
-                {
-                    view.SetTabbedOut(false);
+                    if (guessInfo != null && guessInfo.TryGetValue(view.TraitData, out Guess guessValue))
+                    {
+                        view.SetGuess(guessValue);
+                    }
+                    else
+                    {
+                        view.SetGuess(Guess.None);
+                    }
                 }
             }
+            
         }
     }
 }

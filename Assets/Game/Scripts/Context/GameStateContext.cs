@@ -7,6 +7,7 @@ using Data.GameOver;
 using Data.Interactions;
 using Data.Location;
 using Data.Monsters;
+using Data.Reactions;
 using Entity;
 using GameStats;
 using Generators;
@@ -23,6 +24,27 @@ namespace Context
 {
     public class GameStateContext : IContext
     {
+
+        public class LastInteractionData
+        {
+            private IInteraction _interaction;
+            private Dictionary<CharacterEntity, ReactionData> _reactionData;
+
+            public IInteraction Interaction => _interaction;
+
+            public Dictionary<CharacterEntity, ReactionData> Reactions => _reactionData;
+            public LastInteractionData(IInteraction interaction, Dictionary<CharacterEntity, ReactionData> reactions)
+            {
+                _interaction = interaction;
+                _reactionData = reactions;
+            }
+            
+            public LastInteractionData(IInteraction interaction, CharacterEntity characterEntity, ReactionData reaction)
+            {
+                _interaction = interaction;
+                _reactionData = new Dictionary<CharacterEntity, ReactionData> { { characterEntity, reaction } };
+            }
+        }
         public delegate void TurnStarted(int turn, int turnMax, int phase);
         public delegate void ConfessionConfirmed(CharacterEntity entity, MonsterEntityTypeData monsterEntityTypeData, Action OnAnimationComplete);
 
@@ -55,6 +77,9 @@ namespace Context
         public IReadOnlyList<CharacterEntity> CharacterEntities => _characterEntities;
 
         public CommandRunner _commandRunner;
+
+        private LastInteractionData _lastInteractionData;
+        public LastInteractionData LastInteraction => _lastInteractionData;
 
         public GameStateContext(TimeData timeData, GuestListGenerator guestListGenerator, LocationDataSet locationDataSet)
         {
@@ -196,6 +221,11 @@ namespace Context
         public void ShowCharacterReview(CharacterEntity entity)
         {
             OnTriggerCharacterReview?.Invoke(entity);
+        }
+
+        public void SetLastInteraction(LastInteractionData lastInteractionData)
+        {
+            _lastInteractionData = lastInteractionData;
         }
     }
 }

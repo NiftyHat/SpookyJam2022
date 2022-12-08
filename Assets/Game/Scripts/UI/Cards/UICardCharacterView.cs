@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Data.Reactions;
 using Data.Trait;
 using Entity;
@@ -48,9 +49,9 @@ namespace UI.Cards
             {
                 _textFooter.SetText("???");
             }
-            
-            List<TraitData> traitGuessList = characterEntity.TraitGuessList;
-            SetTraitGuesses(traitGuessList);
+
+            Dictionary<TraitData, Guess> traitGuesses = characterEntity.TraitGuessInfo;
+            SetTraitGuesses(traitGuesses);
         }
 
         public void SetFacingDown(bool isFacingDown)
@@ -61,14 +62,23 @@ namespace UI.Cards
             }
         }
 
-        public void SetTraitGuesses(List<TraitData> traitGuessList)
+        public void SetTraitGuesses(Dictionary<TraitData, Guess> guesses)
         {
-            for (int i = 0; i < _traitViewList.Length; i++)
+            if (guesses == null)
+            {
+                foreach (var item in _traitViewList)
+                {
+                    item.Clear();
+                }
+                return;
+            }
+            var filtered = guesses.Where(item => item.Value == Guess.Yes).ToList();
+            for (int i = 0; i < filtered.Count; i++)
             {
                 var traitView = _traitViewList[i];
-                if (i < traitGuessList.Count)
+                if (i < filtered.Count)
                 {
-                    traitView.Set(traitGuessList[i]);
+                    traitView.Set(filtered[i].Key);
                 }
                 else
                 {

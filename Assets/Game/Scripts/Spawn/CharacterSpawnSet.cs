@@ -12,7 +12,7 @@ namespace Spawn
         [SerializeField] [ReadOnly] private List<CharacterSpawnPosition> _spawnPositions;
         private HashSet<CharacterSpawnPosition> _set;
 
-        public void Start()
+        public void Awake()
         {
             _locationView.Register(this);
         }

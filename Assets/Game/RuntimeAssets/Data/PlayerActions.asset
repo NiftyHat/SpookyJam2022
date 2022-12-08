@@ -22,7 +22,7 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: Flirt
     _icon: {fileID: 21300000, guid: c06228c0350d2b943a80d67f4f3c2df6, type: 3}
-    _description: '{abilityName} with {targetName} - Hit on {traitList}'
+    _description: '{abilityName} with {targetName}'
   _reactionTrigger:
     _triggerList:
     - _trait: {fileID: 7801872093390142965, guid: 26f61f036fbd8a843af3f89912a03468,
@@ -74,7 +74,7 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: Incite
     _icon: {fileID: 21300000, guid: 4640b9f1e2156a742a929235c1cf3413, type: 3}
-    _description: Incite everyone near {targetName}. Hit on {traitList}
+    _description: Incite everyone within {radius} of  {targetName}.
   _reactionTrigger:
     _triggerList:
     - _trait: {fileID: -1646269247474937957, guid: 26f61f036fbd8a843af3f89912a03468,
@@ -172,7 +172,7 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: Conspire
     _icon: {fileID: 21300000, guid: 2a45049b67e4a9149bf9021cefd76c33, type: 3}
-    _description: '{abilityName} with {targetName} - Hit on {traitList}'
+    _description: '{abilityName} with {targetName}'
   _reactionTrigger:
     _triggerList:
     - _trait: {fileID: -1646269247474937957, guid: 26f61f036fbd8a843af3f89912a03468,
@@ -251,7 +251,7 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: Brag
     _icon: {fileID: 21300000, guid: d7b3301f321f2bd46a9143c0b0921261, type: 3}
-    _description: '{abilityName} with everyone within {radius}. Hit on {traitList}'
+    _description: '{abilityName} with everyone within {radius}'
   _reactionTrigger:
     _triggerList:
     - _trait: {fileID: -1646269247474937957, guid: 26f61f036fbd8a843af3f89912a03468,
@@ -337,7 +337,7 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: Joke
     _icon: {fileID: 21300000, guid: 39a1d1f28424e9f4283ae02092ed1ecf, type: 3}
-    _description: Tell a joke eveyone near {targetName}. Hit on {traitList}
+    _description: 'Tell a joke eveyone within {radius} of  {targetName}. '
   _reactionTrigger:
     _triggerList:
     - _trait: {fileID: 7801872093390142965, guid: 26f61f036fbd8a843af3f89912a03468,
@@ -392,8 +392,8 @@ MonoBehaviour:
   _targetType: 1
   _menuItemData:
     _friendlyName: Speech
-    _icon: {fileID: 21300000, guid: 878d745bc9741ba46ab9ae73c1efa1d6, type: 3}
-    _description: Give a {abilityName} to everyone within {radius}. Hit on {traitList}
+    _icon: {fileID: 21300000, guid: 374850c1efea11d439342e6aaadb696a, type: 3}
+    _description: Give a {abilityName} to everyone within {radius}.
   _reactionTrigger:
     _triggerList:
     - _trait: {fileID: -8261361936468618248, guid: 26f61f036fbd8a843af3f89912a03468,
@@ -520,7 +520,7 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: Mingle
     _icon: {fileID: 21300000, guid: e64e38e0d6ed892478f31144d309a66f, type: 3}
-    _description: '{abilityName} with everyone within {radius}. Hit on {traitList}'
+    _description: '{abilityName} with everyone within {radius}'
   _reactionTrigger:
     _triggerList:
     - _trait: {fileID: -8261361936468618248, guid: 26f61f036fbd8a843af3f89912a03468,

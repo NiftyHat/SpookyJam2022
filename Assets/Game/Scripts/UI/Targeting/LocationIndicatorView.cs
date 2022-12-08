@@ -12,11 +12,11 @@ namespace UI.Targeting
         public void Set(Vector3 start, Vector3 end, Func<bool> validateRange)
         {
             gameObject.SetActive(true);
-            transform.position = end;
+            transform.position = end + Vector3.up;
             _distanceLineView.transform.localPosition = Vector3.zero;
             if (_distanceLineView != null)
             {
-                _distanceLineView.SetFrom(start);
+                _distanceLineView.SetFrom(start+ Vector3.up);
             }
 
             if (validateRange != null)

@@ -22,22 +22,24 @@ namespace UI.Targeting
         [SerializeField][NonNull] protected SpriteRenderer _fillSprite;
         [SerializeField][NonNull] protected Transform _ringTransform;
 
-        protected float _defaultRingFillAlpha;
+        protected float _defaultRingFillAlpha = -1f;
     
         protected void Start()
         {
-            _defaultRingFillAlpha = _fillSprite.color.a;
         }
 
         protected void SetColour(Color color)
         {
+            if (_defaultRingFillAlpha == -1)
+            {
+                _defaultRingFillAlpha = _fillSprite.color.a;
+            }
             _outlineSprite.color = color;
             _fillSprite.color = new Color(color.r, color.g, color.b, _defaultRingFillAlpha);
         }
 
         public void Set(Vector3 position, Data viewData)
         {
-            
             if (viewData.Distance == 0)
             {
                 SetColour(_defaultColour);

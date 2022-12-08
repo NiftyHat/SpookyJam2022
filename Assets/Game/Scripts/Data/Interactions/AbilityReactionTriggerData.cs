@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using Commands;
+using Context;
 using Data.Reactions;
 using Entity;
 using GameStats;
 using Interactions;
 using Interactions.Commands;
+using NiftyFramework.Core.Context;
+using UI;
 using UnityEngine;
 
 namespace Data.Interactions
@@ -34,14 +37,17 @@ namespace Data.Interactions
                 return null;
             }
 
-            private void TriggerReaction(CharacterEntity entity, Completed onDone)
+            private void TriggerReaction(CharacterEntity entity, Completed onDone, out ReactionData reaction)
             {
+                //private AbilityInteractionData _interactionData;
+                reaction = null;
                 if (entity == null || entity.Traits != null)
                 {
                     var triggerReactions = ReactionTriggerSet.GetReactions(entity.Traits);
                     if (triggerReactions != null && triggerReactions.Count > 0)
                     {
-                        entity.DisplayReaction(triggerReactions.First());
+                        reaction = triggerReactions.First();
+                        entity.DisplayReaction(reaction);
                         onDone?.Invoke(this);
                     }
                     else
@@ -49,6 +55,7 @@ namespace Data.Interactions
                         ReactionData failReact = ReactionTriggerSet.GetFail();
                         if (failReact != null)
                         {
+                            reaction = failReact;
                             entity.DisplayReaction(failReact);
                             onDone?.Invoke(this);
                         }
@@ -62,22 +69,55 @@ namespace Data.Interactions
 
             public override void Execute(Completed onDone)
             {
-                base.Execute(onDone);
-                if (_interaction.Radius > 0)
+                if (Validate())
                 {
-                    _targets.TryGetEntitiesInRange(out HashSet<CharacterEntity> entityList, _interaction.Radius);
-                    foreach (var character in entityList)
+                    float distance = _targets.GetDistance();
+                    if (distance > _interaction.RangeMax)
                     {
-                        TriggerReaction(character, null);
+                        onDone(this,false);
                     }
-                    _actionPoints.Subtract(_interaction.CostAP);
-                    onDone(this);
+                    else
+                    {
+                        if (_interaction.Radius > 0)
+                        {
+                            Dictionary<CharacterEntity, ReactionData> reactions =
+                                new Dictionary<CharacterEntity, ReactionData>();
+                    
+                            _targets.TryGetEntitiesInRange(out HashSet<CharacterEntity> entityList, _interaction.Radius);
+                            foreach (var character in entityList)
+                            {
+                                TriggerReaction(character, null, out var reaction);
+                                reactions.Add(character, reaction);
+                            }
+                            _actionPoints.Subtract(_interaction.CostAP);
+                            ContextService.Get<GameStateContext>(gameContext =>
+                            {
+                                gameContext.SetLastInteraction(new GameStateContext.LastInteractionData(_interaction,reactions));
+                            });
+                            onDone(this);
+                        }
+                        else if (_targets.TryGetTargetEntity(out CharacterEntity entity))
+                        {
+                            TriggerReaction(entity, null, out var reaction);
+                            _actionPoints.Subtract(_interaction.CostAP);
+                            ContextService.Get<GameStateContext>(gameContext =>
+                            {
+                                gameContext.SetLastInteraction(new GameStateContext.LastInteractionData(_interaction, entity, reaction));
+                            });
+                            onDone(this);
+                        }
+                        else
+                        {
+                            onDone(this, false);
+                        }
+                    }
                 }
-                else if (_targets.TryGetTargetEntity(out CharacterEntity entity))
-                {
-                    TriggerReaction(entity, onDone);
-                    _actionPoints.Subtract(_interaction.CostAP);
-                }
+            }
+            
+            public override ITooltip GetTooltip()
+            {
+                return new TooltipTriggerReactionAbility(Interaction.MenuItem.Icon, GetDescription(),
+                    Interaction.GetFriendlyName(), Interaction.CostAP, ReactionTriggerSet.GetAllTraits());
             }
         }
 
@@ -89,7 +129,7 @@ namespace Data.Interactions
         public override string GetDescription()
         {
             _traitListCopy = _reactionTrigger.GetTraitSpriteList().ToString();
-            return base.GetDescription().Replace("{traitList}", _traitListCopy);
+            return base.GetDescription().Replace("{traitList}", "");
         }
 
         public override InteractionCommand GetCommand(TargetingInfo targetingInfo)

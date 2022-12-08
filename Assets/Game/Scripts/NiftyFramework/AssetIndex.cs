@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace NiftyFramework
@@ -23,7 +25,9 @@ namespace NiftyFramework
 
         public void OnEnable()
         {
+#if UNITY_EDITOR
             UpdateReferences();
+            #endif
         }
 
         public bool TryGet<TAsset>(out TAsset asset)
@@ -60,6 +64,7 @@ namespace NiftyFramework
             return false;
         }
 
+        #if UNITY_EDITOR
         [ContextMenu("UpdateReferences")]
         public void UpdateReferences()
         {
@@ -82,6 +87,7 @@ namespace NiftyFramework
             _references = newAssets.ToArray();
             CacheMap();
         }
+        #endif
 
         protected void CacheMap()
         {

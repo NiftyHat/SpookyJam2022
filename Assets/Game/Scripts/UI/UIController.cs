@@ -1,5 +1,6 @@
 using System;
 using Context;
+using Data.Interactions;
 using Entity;
 using Interactions;
 using Interactions.Commands;
@@ -8,6 +9,7 @@ using NiftyFramework.Core.Utils;
 using TouchInput.UnitControl;
 using UI.Targeting;
 using UnityEngine;
+using UnityUtils;
 
 
 namespace UI
@@ -53,8 +55,10 @@ namespace UI
         [SerializeField] private LocationIndicatorView _locationIndicatorView;
         [SerializeField] private PointerSelectInputController _pointerSelectInputController;
         [SerializeField] [NonNull] private RangeIndicatorView _rangeIndicatorView;
-        [SerializeField] [NonNull] private UISelectedTargetView _selectedTargetView;
+        [SerializeField] private UISelectedTargetView _selectedTargetView;
         [SerializeField] [NonNull] private RadiusIndicatorView _radiusIndicatorView;
+        [SerializeField] [NonNull] private UIInteractionListPanel _interactionList;
+        [SerializeField] [NonNull] private UICharacterSelectPreview _characterSelectPreview;
         
         private FloorLocation _floorLocation;
         
@@ -76,7 +80,7 @@ namespace UI
             _pointerSelectInputController.OnSelectionOverChanged += HandleOverSelection;
             _pointerSelectInputController.OnSelectGround += HandleInputSelectGround;
             _pointerSelectInputController.OnOverGround += HandleInputOverGround;
-            _selectedTargetView.OnPreviewCommand += HandlePreviewCommand;
+            _interactionList.OnPreviewCommand += HandlePreviewCommand;
             ContextService.Get<GameStateContext>(HandleGameState);
         }
 
@@ -101,19 +105,31 @@ namespace UI
             _previewCommand = command;
         }
 
-        private void HandleInputOverGround(MovementPlaneView movementPlane, RaycastHit raycastHit)
+        private void HandleInputOverGround(WalkLocationView walkLocation, RaycastHit raycastHit)
         {
             if (_floorLocation == null)
             {
                 _floorLocation = new FloorLocation(raycastHit.point);
             }
+            else
+            {
+                _floorLocation.Set(raycastHit.point);
+            }
             
             if (_previewCommand != null)
             {
-                if (_previewCommand.IsValidTarget(_floorLocation) && _previewCommand.Targets.Target != _floorLocation)
+                if (_previewCommand.IsValidTarget(_floorLocation))
                 {
-                    _floorLocation.Set(raycastHit.point);
-                    _previewCommand.SetTarget(_floorLocation);
+                    if (_previewCommand.Targets.Target != _floorLocation)
+                    {
+                        _floorLocation.Set(raycastHit.point);
+                        _previewCommand.SetTarget(_floorLocation);  
+                    }
+                    _pointerSelectInputController.SetCanSelect(false);
+                }
+                else
+                {
+                    _pointerSelectInputController.SetCanSelect(true);
                 }
                 
                 Vector3 sourcePosition = _previewCommand.Targets.Source.GetInteractionPosition();
@@ -137,10 +153,6 @@ namespace UI
                     _floorLocation.Set(raycastHit.point);
                 }
             }
-            else
-            {
-                _floorLocation.Set(raycastHit.point);
-            }
         }
 
         private void HandleGameState(GameStateContext service)
@@ -150,7 +162,7 @@ namespace UI
         }
 
 
-        private void HandleInputSelectGround(MovementPlaneView groundPlane, RaycastHit raycastHit)
+        private void HandleInputSelectGround(WalkLocationView groundPlane, RaycastHit raycastHit)
         {
             if (_previewCommand != null)
             {
@@ -173,14 +185,6 @@ namespace UI
             _previewCommand = command;
         }
 
-        public void RemovePreview(InteractionCommand command)
-        {
-            if (_previewCommand == command)
-            {
-                _previewCommand = null;
-            }
-        }
-
         public void SetSelected(PointerSelectionHandler selected)
         {
             if (_previewCommand != null && selected != null && selected.Target is TransitionZoneView transitionZoneView)
@@ -191,12 +195,46 @@ namespace UI
                 return;
             }
             _selected = selected;
-            _selectedTargetView.Set(selected);
+            //_selectedTargetView.Set(selected);
+
+            if (_player != null)
+            {
+                var targetingInfo = new TargetingInfo(_player, selected != null ? selected.Target : null);
+                bool FilterInteractions(InteractionData interaction)
+                {
+                    if (interaction.IsValidTarget(targetingInfo))
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+                var interactions = _gameStateContext.GetInteractions(FilterInteractions);
+                _interactionList.Set(interactions, targetingInfo);
+            }
+            
+            
+            
             if (_selected == null || _selected.Target == null)
             {
                 ClearPreview();
                 return;
             }
+            
+            if (_selected.Target is IEntityView<CharacterEntity> selectableCharacter)
+            {
+                var instance = selectableCharacter.Entity;
+                if (instance == null)
+                {
+                    _characterSelectPreview.Clear();
+                    return;
+                }
+                _characterSelectPreview.Set(instance);
+            }
+            else
+            {
+                _characterSelectPreview.Clear();
+            }
+
             if (_selected.Target is PlayerInputHandler playerInputHandler)
             {
                 if (_previewCommand == null)
@@ -217,12 +255,14 @@ namespace UI
         {
             _rangeIndicatorView.Clear();
             _locationIndicatorView.Clear();
-            _selectedTargetView.Clear();
+            _interactionList.Clear();
             _radiusIndicatorView.Clear();
+            _characterSelectPreview.Clear();
             if (_player != null)
             {
                 _player.HideAPDisplay();
             }
+            _pointerSelectInputController.SetCanSelect(true);
             _previewCommand = null;
         }
 

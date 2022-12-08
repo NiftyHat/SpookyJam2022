@@ -1,3 +1,4 @@
+using System.Linq;
 using Commands;
 using Context;
 using Entity;
@@ -6,6 +7,7 @@ using Interactions;
 using Interactions.Commands;
 using NiftyFramework.Core.Context;
 using TouchInput.UnitControl;
+using UI;
 using UnityEngine;
 
 namespace Data.Interactions
@@ -53,18 +55,22 @@ namespace Data.Interactions
                         {
                             if (_targets.Source is PlayerInputHandler player)
                             {
-                                if (_targets.Target is TransitionZoneView transitionZoneView)
+                                Collider[] overlappingItems = new Collider[10];
+                                var size = Physics.OverlapSphereNonAlloc(endPosition, 1f, overlappingItems);
+                                for (int i = 0; i < size; i++)
                                 {
-                                    ContextService.Get<GameStateContext>(gameState =>
+                                    Collider collider = overlappingItems[i];
+                                    if (PointerSelectInputController.TryGetComponent(collider, out TransitionZoneView comp))
                                     {
-                                        gameState.ChangeLocation(player, transitionZoneView.LinkedLocation, transitionZoneView.ZoneLocation);
-                                    });
-                                    OnDone(this,true);
+                                        ContextService.Get<GameStateContext>(gameState =>
+                                        {
+                                            gameState.ChangeLocation(player, comp.LinkedLocation, comp.ZoneLocation);
+                                        });
+                                        OnDone(this,true);
+                                        return;
+                                    }
                                 }
-                                else
-                                {
-                                    OnDone(this, true);
-                                }
+                                OnDone(this, true);
                             }
                             else
                             {

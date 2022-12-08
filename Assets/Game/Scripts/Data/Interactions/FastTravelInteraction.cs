@@ -6,6 +6,7 @@ using GameStats;
 using Interactions;
 using Interactions.Commands;
 using NiftyFramework.Core.Context;
+using UI;
 
 namespace Data.Interactions
 {
@@ -73,6 +74,11 @@ namespace Data.Interactions
         public InteractionCommand GetCommand(TargetingInfo targetingInfo)
         {
             throw new System.NotImplementedException();
+        }
+
+        public ITooltip GetTooltip()
+        {
+            return new TooltipAbilitySimple(MenuItem.Icon, GetDescription(), GetFriendlyName(), _costAP);
         }
     }
 }

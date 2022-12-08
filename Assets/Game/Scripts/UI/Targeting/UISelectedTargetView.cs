@@ -21,8 +21,7 @@ namespace UI.Targeting
         [SerializeField][NonNull] private UIInteractionListPanel _interactionList;
         [SerializeField][NonNull] private UIAssignedTraitsPanel _assignedTraitsPanel;
         
-        private GameStateContext _gameStateContext; 
-        private MaskGuessContext _maskGuessContext;
+        private GameStateContext _gameStateContext;
         private PlayerInputHandler _player;
         private CharacterEntity _characterEntity;
         public event Action<InteractionCommand> OnPreviewCommand;
@@ -30,23 +29,8 @@ namespace UI.Targeting
         public void Start()
         {
             ContextService.Get<GameStateContext>(HandleGameStateContext);
-            ContextService.Get<MaskGuessContext>(HandleMaskGuessContext);
             _interactionList.OnPreviewCommand += HandlePreviewCommand;
-            _assignedTraitsPanel.OnTraitSelectionChanged += HandleTraitSelectionChanged;
             Clear();
-        }
-
-        private void HandleTraitSelectionChanged(List<TraitData> traitDataList)
-        {
-            if (_characterEntity != null)
-            {
-                _characterEntity.SetTraitGuess(traitDataList);
-            }
-        }
-
-        private void HandleMaskGuessContext(MaskGuessContext maskGuessContext)
-        {
-            _maskGuessContext = maskGuessContext;
         }
 
         private void HandlePreviewCommand(InteractionCommand command)

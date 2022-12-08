@@ -1,7 +1,9 @@
 using Entity;
 using NiftyFramework.DataView;
 using NiftyFramework.Scripts.UnityUtils;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace Spawn
@@ -63,6 +65,7 @@ namespace Spawn
         private void OnDrawGizmos()
         {
             Vector3 origin = transform.position;
+            #if UNITY_EDITOR
             if (_viewCache != null &&  _viewCache.Entity != null)
             {
                 Handles.Label(origin, _viewCache.Entity.Name.Full);
@@ -71,6 +74,7 @@ namespace Spawn
             {
                 Handles.Label(origin, "Guest Spawn");
             }
+            #endif
             Gizmos.DrawWireSphere(origin, 2f);
         }
 
