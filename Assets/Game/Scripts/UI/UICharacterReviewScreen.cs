@@ -108,7 +108,6 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
     private void HandleTraitGuessesChanged(Dictionary<TraitData, Guess> guesses)
     {
         _currentCharacter.SetTraitGuess(guesses);
-        _cardCharacterView.SetTraitGuesses(guesses);
     }
 
     private void HandleSelectedFilter(UIFilterButtonView.Data buttonData)

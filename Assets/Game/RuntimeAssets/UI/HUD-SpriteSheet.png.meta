@@ -21,7 +21,7 @@ TextureImporter:
       213: 5920585933131536487
     second: AbilityFill-CurvedCorners.png
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -42,6 +42,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -80,9 +81,70 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -97,32 +159,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AbilityButton-Background.png
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 30
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 14, y: 14, z: 15, w: 14}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cde1c50d0c9e4d240800000000000000
-      internalID: 4815730915904593628
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: AbilityButton-CostBackground.png
       rect:
         serializedVersion: 2
-        x: 256
-        y: 115
+        x: 261
+        y: 242
         width: 55
         height: 43
       alignment: 0
@@ -142,8 +183,8 @@ TextureImporter:
       name: AbilityButton-Outline.png
       rect:
         serializedVersion: 2
-        x: 128
-        y: 30
+        x: 131
+        y: 283
         width: 128
         height: 128
       alignment: 0
@@ -163,8 +204,8 @@ TextureImporter:
       name: AbilityFill-CurvedCorners.png
       rect:
         serializedVersion: 2
-        x: 593
-        y: 128
+        x: 598
+        y: 383
         width: 127
         height: 128
       alignment: 0
@@ -184,8 +225,8 @@ TextureImporter:
       name: RoundedButton.png
       rect:
         serializedVersion: 2
-        x: 380
-        y: 143
+        x: 383
+        y: 398
         width: 213
         height: 113
       alignment: 0
@@ -205,8 +246,8 @@ TextureImporter:
       name: TooltipSkill.png
       rect:
         serializedVersion: 2
-        x: 0
-        y: 158
+        x: 1
+        y: 413
         width: 380
         height: 98
       alignment: 0
@@ -222,6 +263,111 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: AbilityButton-Background.png
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 283
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb44621c4a39fd84988f60224d7050a1
+      internalID: 1471761390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checkbox-Cross.png
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 281
+        width: 123
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 953987919f6089446b662c6e2694ba83
+      internalID: 1007505744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checkbox-Tick.png
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 287
+        width: 110
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 960a73b1be682474b87cfa6696caa6cb
+      internalID: 1867067168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon-Chevron-Next.png
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 261
+        width: 98
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1986e3b0053e95142b41c42c4af565a8
+      internalID: -1086382725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small-Square-Rounded-Corners.png
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 236
+        width: 50
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 6, y: 6, z: 6, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 125fd84600a5adc4c840bf14bc15b7bc
+      internalID: -2004639798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -232,6 +378,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Icon-Chevron-Next.png: -1086382725
+      AbilityFill-CurvedCorners.png: 5920585933131536487
+      AbilityButton-Outline.png: -3945633791335285793
+      Checkbox-Tick.png: 1867067168
+      TooltipSkill.png: 8400484449425757192
+      AbilityButton-Background.png: 1471761390
+      RoundedButton.png: 4095538057763963606
+      Checkbox-Cross.png: 1007505744
+      AbilityButton-CostBackground.png: -1413265788828118824
+      Small-Square-Rounded-Corners.png: -2004639798
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

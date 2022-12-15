@@ -39,13 +39,9 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: e8bd732370dfae749afea8411eeb8426, type: 3}
-  - {fileID: 21300000, guid: ded9db596cc57ce4ebb92f74603a0214, type: 3}
-  - {fileID: 21300000, guid: 40a3869a342b69e4983b77e318bca91a, type: 3}
   - {fileID: 21300000, guid: cbe65d4bf3867d84a96085ad0a95c930, type: 3}
   m_PackedSpriteNamesToIndex:
   - Speech_Bubble
-  - Emote_Vamp
-  - Emote_Wearwolf
   - Thought_Bubble
   m_RenderDataMap: {}
   m_Tag: Emote_Spritesheet

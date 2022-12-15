@@ -21,11 +21,19 @@ namespace Spawn
         {
             int[] indexList = ListUtils.GenerateInts(_spawnPositions.Count, random, 0 , _spawnPositions.Count);
             indexList.Shuffle();
-            for (int i = 0; i < indexList.Length && i< entity.Count; i++)
+            for (int i = 0; i < indexList.Length; i++)
             {
                 int randomIndex = indexList[i];
                 CharacterSpawnPosition spawnPosition = _spawnPositions[randomIndex];
-                spawnPosition.Set(entity[i]);
+                if (i < entity.Count)
+                {
+                    spawnPosition.Set(entity[i]);
+                }
+                else
+                {
+                    spawnPosition.Clear();
+                }
+                
             }
         }
 

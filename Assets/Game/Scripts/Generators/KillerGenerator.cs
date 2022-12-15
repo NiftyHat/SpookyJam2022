@@ -20,7 +20,7 @@ namespace Generators
             CharacterName.ImpliedGender impliedGender = NameGenerator.GetRandomGender(random);
             itemPool.Masks.TryGet(out var maskEntity, random);
             itemPool.Names.TryGet(out var nameEntity, impliedGender);
-
+            itemPool.Schedules.TryGet(out var schedule);
             targetMonster.GetActiveTraits(out HashSet<TraitData> monsterPreferred);
             HashSet<TraitData> possibleKillerTraits = new HashSet<TraitData>(itemPool.Traits.PossibleTraits);
             possibleKillerTraits.ExceptWith(monsterPreferred);
@@ -49,7 +49,7 @@ namespace Generators
             }*/
             HashSet<TraitData> killerTraitSet = new HashSet<TraitData>(monsterPreferred);
             CharacterViewData viewData = itemPool.ViewData.GetGendered(impliedGender, random);
-            return new KillerEntity(targetMonster, _killerEntityType, maskEntity, nameEntity, killerTraitSet, viewData);
+            return new KillerEntity(targetMonster, _killerEntityType, maskEntity, nameEntity, killerTraitSet, schedule, viewData);
         }
 
         public List<TraitData> GeneratePreferredTraits(HashSet<TraitData> monsterPreferredTraits, System.Random random)

@@ -42,13 +42,14 @@ namespace UI
 
         private void HandleButtonClick()
         {
-            _guess = GuessUtils.Next(_guess);
-            SetGuess(_guess);
+            var nextGuess = GuessUtils.Next(_guess);
+            SetGuess(nextGuess);
             OnValueChanged?.Invoke(_guess);
         }
 
         public void SetGuess(Guess guess)
         {
+            _guess = guess;
             if (_guessAnimation != null)
             {
                 _guessAnimation.Set(guess);

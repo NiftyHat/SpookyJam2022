@@ -38,7 +38,6 @@ namespace Spawn
             {
                 Debug.LogWarning($"Orphan Spawn Location {name}");
             }
-            
         }
         
         public static Vector3 GetFacingVector(FacingDirection facingDirection)

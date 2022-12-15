@@ -98,7 +98,7 @@ namespace Context
         {
             if (locationData != null)
             {
-                var list = _characterEntities.Where(item => item.AtLocation(locationData)).ToList();
+                var list = _characterEntities.Where(item => item.AtLocation(locationData, Phase)).ToList();
                 return list;
             }
             return null;
@@ -125,6 +125,7 @@ namespace Context
         private void HandlePhaseChange(int oldValue, int newValue)
         {
             OnPhaseChange?.Invoke(oldValue, newValue);
+            
         }
 
         public void Dispose()

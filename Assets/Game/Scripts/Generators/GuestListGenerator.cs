@@ -7,6 +7,7 @@ using Data.Character;
 using Data.Monsters;
 using Data.Trait;
 using Entity;
+using FluentCsv.FluentReader;
 using NiftyFramework.Scripts;
 using UnityEngine;
 
@@ -23,23 +24,26 @@ namespace Generators
         /// </summary>
         public class GuestItemPool
         {
-            public GuestItemPool(MaskGenerator.MaskPool maskPool, NameGenerator.NamePool namePool, TraitPoolGenerator.TraitPool traitPool, CharacterViewDataSet viewDataSet)
+            public GuestItemPool(MaskGenerator.MaskPool maskPool, NameGenerator.NamePool namePool, TraitPoolGenerator.TraitPool traitPool, CharacterViewDataSet viewDataSet, ScheduleGenerator.SchedulePool schedulePool)
             {
                 _maskPool = maskPool;
                 _namePool = namePool;
                 _traitPool = traitPool;
                 _viewDataSet = viewDataSet;
+                _schedulePool = schedulePool;
             }
             
             protected readonly MaskGenerator.MaskPool _maskPool;
             protected readonly NameGenerator.NamePool _namePool;
             protected readonly TraitPoolGenerator.TraitPool _traitPool;
             protected readonly CharacterViewDataSet _viewDataSet;
+            protected readonly ScheduleGenerator.SchedulePool _schedulePool;
 
             public MaskGenerator.MaskPool Masks => _maskPool;
             public NameGenerator.NamePool Names => _namePool;
             public TraitPoolGenerator.TraitPool Traits => _traitPool;
             public CharacterViewDataSet ViewData => _viewDataSet;
+            public ScheduleGenerator.SchedulePool Schedules => _schedulePool;
         }
 
         [SerializeField] protected NameGenerator _nameGenerator;
@@ -53,6 +57,7 @@ namespace Generators
 
         [SerializeField] protected IntRange _peopleWithMonsterTraits;
         [SerializeField] protected CharacterViewDataSet _viewDataSet;
+        [SerializeField] protected ScheduleGenerator _scheduleGenerator;
 
         public CharacterEntitySet EntitySet => _characterEntitySet;
         public MonsterEntityTypeDataSet MonsterTypeSet => _monsterGenerator?.MonsterTypeDate;
@@ -84,8 +89,10 @@ namespace Generators
             NameGenerator.NamePool namePool = _nameGenerator.GetPool(random, totalCount * 2);
             //trait pool
             TraitPoolGenerator.TraitPool traitPool = _traitPoolGenerator.GetPool(random, totalCount);
+
+            ScheduleGenerator.SchedulePool schedulePool = _scheduleGenerator.GetPool(random, totalCount);
             //guest item pool shares everything that needs to be distributed across the entire guest list;
-            GuestItemPool itemPool = new GuestItemPool(maskPool, namePool, traitPool, _viewDataSet);
+            GuestItemPool itemPool = new GuestItemPool(maskPool, namePool, traitPool, _viewDataSet, schedulePool);
             //Monster Generation
             HashSet<MonsterEntityTypeData> monsterTypeSet = new HashSet<MonsterEntityTypeData>();
             List<MonsterEntity> monsterEntities = new List<MonsterEntity>();

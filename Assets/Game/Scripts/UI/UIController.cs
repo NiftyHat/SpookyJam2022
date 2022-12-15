@@ -1,6 +1,7 @@
 using System;
 using Context;
 using Data.Interactions;
+using Data.Reactions;
 using Entity;
 using Interactions;
 using Interactions.Commands;
@@ -219,7 +220,6 @@ namespace UI
                 ClearPreview();
                 return;
             }
-            
             if (_selected.Target is IEntityView<CharacterEntity> selectableCharacter)
             {
                 var instance = selectableCharacter.Entity;
@@ -228,7 +228,9 @@ namespace UI
                     _characterSelectPreview.Clear();
                     return;
                 }
-                _characterSelectPreview.Set(instance);
+                ReactionData lastReaction = null;
+                _gameStateContext.LastInteraction?.Reactions.TryGetValue(selectableCharacter.Entity, out lastReaction);
+                _characterSelectPreview.Set(instance, lastReaction);
             }
             else
             {

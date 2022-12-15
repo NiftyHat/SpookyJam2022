@@ -72,8 +72,18 @@ namespace Entity
                 _goSelectedIndicator.SetActive(isSelected);
             }
         }
-        
-        public CharacterEntity Entity => _entity;
+
+        public CharacterEntity Entity
+        {
+            get
+            {
+                if (gameObject.activeInHierarchy)
+                {
+                    return _entity;
+                }
+                return null;
+            }
+        }
         public void Clear()
         {
             _entity = null;

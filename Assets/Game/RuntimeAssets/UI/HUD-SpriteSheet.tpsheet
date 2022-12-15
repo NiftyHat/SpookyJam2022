@@ -9,13 +9,17 @@
 #
 :format=40300
 :texture=HUD-SpriteSheet.png
-:size=1024x256
+:size=1024x512
 :pivotpoints=enabled
 :borders=disabled
 
-TooltipSkill.png;0;158;380;98; 0.5;0.5; 0;0;0;0
-RoundedButton.png;380;143;213;113; 0.5;0.5; 0;0;0;0
-AbilityButton-Background.png;0;30;128;128; 0.5;0.5; 0;0;0;0
-AbilityButton-Outline.png;128;30;128;128; 0.5;0.5; 0;0;0;0
-AbilityButton-CostBackground.png;256;115;55;43; 0.5;0.5; 0;0;0;0
-AbilityFill-CurvedCorners.png;593;128;127;128; 0.5;0.5; 0;0;0;0
+TooltipSkill.png;1;413;380;98; 0.5;0.5; 0;0;0;0
+RoundedButton.png;383;398;213;113; 0.5;0.5; 0;0;0;0
+AbilityButton-Background.png;1;283;128;128; 0.5;0.5; 0;0;0;0
+AbilityButton-Outline.png;131;283;128;128; 0.5;0.5; 0;0;0;0
+Checkbox-Tick.png;261;287;110;124; 0.5;0.5; 0;0;0;0
+AbilityFill-CurvedCorners.png;598;383;127;128; 0.5;0.5; 0;0;0;0
+Checkbox-Cross.png;373;281;123;115; 0.5;0.5; 0;0;0;0
+Icon-Chevron-Next.png;498;261;98;135; 0.5;0.5; 0;0;0;0
+AbilityButton-CostBackground.png;261;242;55;43; 0.5;0.5; 0;0;0;0
+Small-Square-Rounded-Corners.png;318;236;50;49; 0.5;0.5; 0;0;0;0

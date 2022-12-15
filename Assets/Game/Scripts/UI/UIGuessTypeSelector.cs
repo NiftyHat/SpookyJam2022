@@ -16,8 +16,6 @@ namespace UI
         void Start()
         {
             _monsterGuessList.OnChangeSelection += HandleMonsterGuessChanged;
-            _labeledGuessSelectorKiller.OnValueChanged += HandleKillerGuess;
-            _labeledGuessSelectorHuman.OnValueChanged += HandleHumanGuess;
         }
 
         private void HandleDataChange(CharacterTypeGuess guessData)
@@ -27,17 +25,7 @@ namespace UI
                 return;
             }
         }
-
-        private void HandleHumanGuess(Guess guessValue)
-        {
-            _data.SetHuman(guessValue);
-        }
-
-        private void HandleKillerGuess(Guess guessValue)
-        {
-            _data.SetKiller(guessValue);
-        }
-
+        
         private void HandleMonsterGuessChanged(Dictionary<MonsterEntityTypeData, Guess> guessData)
         {
             _data.SetMonster(guessData);
@@ -60,8 +48,6 @@ namespace UI
             }
             _data = data;
             _data.OnChange += HandleDataChange;
-            _labeledGuessSelectorHuman.Set("Human", _data.Human);
-            _labeledGuessSelectorKiller.Set("Killer", _data.Killer);
             if (_data.GuessMonster != null)
             {
                 _monsterGuessList.Set(data.GuessMonster);

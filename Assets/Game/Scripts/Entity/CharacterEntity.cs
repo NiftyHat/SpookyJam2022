@@ -7,6 +7,9 @@ using Data.Interactions;
 using Data.Location;
 using Data.Reactions;
 using Data.Trait;
+using GameStats;
+using Generators;
+using Interactions;
 
 namespace Entity
 {
@@ -25,8 +28,6 @@ namespace Entity
 
         public CharacterName.ImpliedGender ImpliedGender => _impliedGender;
         public HashSet<TraitData> Traits => _traitList;
-        
-        
 
         public CharacterViewData ViewData => _viewData;
 
@@ -42,16 +43,20 @@ namespace Entity
         private CharacterTypeGuess _typeGuess = new CharacterTypeGuess();
         public CharacterTypeGuess TypeGuess => _typeGuess;
 
+        private GuestSchedule _schedule;
+
         public virtual string TypeFriendlyName => "Character";
 
         public event Action<ReactionData> OnReaction;
-        public CharacterEntity(MaskEntity mask, CharacterName nameData, HashSet<TraitData> traitList, CharacterViewData viewData)
+        public event Action<LocationData, LocationData> OnLocationChange;
+        public CharacterEntity(MaskEntity mask, CharacterName nameData, HashSet<TraitData> traitList, GuestSchedule schedule, CharacterViewData viewData)
         {
             _mask = mask;
             _name = nameData;
             _traitList = traitList;
             _impliedGender = nameData.Gender;
             _viewData = viewData;
+            _schedule = schedule;
             _traitGuessList = new List<TraitData>();
         }
 
@@ -72,6 +77,7 @@ namespace Entity
                 stringBuilder.Append(",");
             }
             stringBuilder.Append("]");
+            stringBuilder.Append(_schedule.ToString());
             return stringBuilder.ToString();
         }
 
@@ -84,10 +90,34 @@ namespace Entity
         {
             return _currentLocation == locationData;
         }
+        
+        public bool AtLocation(LocationData locationData, GameStat phaseStat)
+        {
+            return _schedule.IsAtLocationDuringPhase(phaseStat.Value, (location => location == locationData));
+        }
+
 
         public void SetTraitGuess(Dictionary<TraitData, Guess> traitGuessSet)
         {
             _traitGuessInfo = traitGuessSet;
+        }
+
+        public void SetPhaseStat(GameStat phaseStat)
+        {
+            phaseStat.OnChanged += HandlePhaseChanged;
+            if (_schedule.TryGetLocation(phaseStat.Value, out var newLocation))
+            {
+                if (newLocation != _currentLocation)
+                {
+                    _currentLocation = newLocation;
+                    OnLocationChange?.Invoke(newLocation, _currentLocation);
+                }
+            }
+        }
+
+        private void HandlePhaseChanged(int oldValue, int newValue)
+        {
+            _schedule.TryGetLocation(newValue, out _currentLocation);
         }
     }
 }

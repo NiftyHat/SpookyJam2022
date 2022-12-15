@@ -20,6 +20,7 @@ namespace UI.Cards
         [SerializeField] private UICharacterView _character;
         [SerializeField] private UITraitView[] _traitViewList;
         [SerializeField] private Animator _animator;
+        [SerializeField] private UIGuessInfoView _guessInfo;
         private static readonly int FaceDown = Animator.StringToHash("FaceDown");
 
         public void Set(CharacterEntity characterEntity)
@@ -42,7 +43,7 @@ namespace UI.Cards
                 }
                 else
                 {
-                    _textFooter.SetText($"{characterEntity.Name.First}<br>{characterEntity.Name.Last}");
+                    _textFooter.SetText($"{characterEntity.Name.First[0]}.{characterEntity.Name.Last}");
                 }
             }
             else
@@ -51,7 +52,7 @@ namespace UI.Cards
             }
 
             Dictionary<TraitData, Guess> traitGuesses = characterEntity.TraitGuessInfo;
-            SetTraitGuesses(traitGuesses);
+            _guessInfo.Set(characterEntity.TypeGuess);
         }
 
         public void SetFacingDown(bool isFacingDown)
@@ -59,31 +60,6 @@ namespace UI.Cards
             if (_animator != null)
             {
                 _animator.SetBool(FaceDown, isFacingDown);
-            }
-        }
-
-        public void SetTraitGuesses(Dictionary<TraitData, Guess> guesses)
-        {
-            if (guesses == null)
-            {
-                foreach (var item in _traitViewList)
-                {
-                    item.Clear();
-                }
-                return;
-            }
-            var filtered = guesses.Where(item => item.Value == Guess.Yes).ToList();
-            for (int i = 0; i < filtered.Count; i++)
-            {
-                var traitView = _traitViewList[i];
-                if (i < filtered.Count)
-                {
-                    traitView.Set(filtered[i].Key);
-                }
-                else
-                {
-                    traitView.Set(null);
-                }
             }
         }
 

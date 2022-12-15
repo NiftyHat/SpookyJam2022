@@ -10,7 +10,7 @@ namespace UI
         public TooltipAbilitySimple(Sprite sprite, string bodyCopy, string titleCopy, int cost) : base(sprite, bodyCopy)
         {
             Title = titleCopy;
-            Cost = Cost;
+            Cost = cost;
         }
     }
 }

@@ -17,9 +17,7 @@ MonoBehaviour:
   _moveInteraction: {fileID: -3633477180647774105, guid: 55fb0e9da2cf1f541b8465936e65330c,
     type: 2}
   _abilityInteractionList:
-  - {fileID: 7374563703213576120, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
   - {fileID: -3633477180647774105, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
-  - {fileID: -221668627621745594, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
   - {fileID: -4190080506035454281, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
   - {fileID: -7946234956790623502, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
   - {fileID: -1671792078212301720, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}

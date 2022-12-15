@@ -62,8 +62,8 @@ namespace UI.Cards
 
         private void HandleClicked()
         {
-            _guessValue = GuessUtils.Next(_guessValue);
-            SetGuess(_guessValue);
+            var nextGuess = GuessUtils.Next(_guessValue);
+            SetGuess(nextGuess);
             OnGuessChange?.Invoke(this,_guessValue);
         }
 
@@ -125,6 +125,7 @@ namespace UI.Cards
 
         public void SetGuess(Guess guess)
         {
+            _guessValue = guess;
             _boarderView.Set(guess);
         }
     }

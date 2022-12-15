@@ -3,6 +3,8 @@ using Data;
 using Data.Character;
 using Data.Monsters;
 using Data.Trait;
+using Generators;
+using Interactions;
 
 namespace Entity
 {
@@ -12,7 +14,7 @@ namespace Entity
 
         public MonsterEntityTypeData TypeData => _typeData;
         public override string TypeFriendlyName => _typeData.FriendlyName;
-        public MonsterEntity(MonsterEntityTypeData type, MaskEntity mask, CharacterName nameData, HashSet<TraitData> traitList, CharacterViewData viewData) : base(mask, nameData, traitList, viewData)
+        public MonsterEntity(MonsterEntityTypeData type, MaskEntity mask, CharacterName nameData, HashSet<TraitData> traitList, GuestSchedule schedule, CharacterViewData viewData) : base(mask, nameData, traitList, schedule, viewData)
         {
             _typeData = type;
         }

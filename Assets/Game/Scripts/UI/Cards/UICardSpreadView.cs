@@ -66,7 +66,7 @@ namespace UI.Cards
             {
                 return;
             }
-            if (enumGuess == Guess.None)
+            if (enumGuess == Guess.None && _guessInfo != null)
             {
                 _guessInfo.Remove(view.TraitData);
             }
