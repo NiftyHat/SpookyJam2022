@@ -26,6 +26,7 @@ namespace UI.Cards
         [SerializeField] private Button _button;
         [SerializeField] private float _popHeight = 30;
         [SerializeField] private Canvas _canvas;
+        [SerializeField] private Image _markedNoDecal;
 
         public TraitData TraitData { get; private set; }
         public IList<ReactionData> ReactionList {get; private set; }
@@ -126,6 +127,14 @@ namespace UI.Cards
         public void SetGuess(Guess guess)
         {
             _guessValue = guess;
+            if (guess == Guess.No)
+            {
+                _markedNoDecal.TrySetActive(true);
+            }
+            else
+            {
+                _markedNoDecal.TrySetActive(false);
+            }
             _boarderView.Set(guess);
         }
     }
