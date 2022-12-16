@@ -28,9 +28,10 @@ namespace Generators
             CharacterName.ImpliedGender impliedGender = NameGenerator.GetRandomGender(random);
             itemPool.Masks.TryGet(out var maskEntity, random);
             itemPool.Names.TryGet(out var nameEntity, impliedGender);
+            itemPool.Schedules.TryGet(out var schedule);
             HashSet<TraitData> monsterTraits = new HashSet<TraitData>(entityTypeData.PreferredTraits);
             CharacterViewData viewData = itemPool.ViewData.GetGendered(impliedGender, random);
-            return new MonsterEntity(entityTypeData, maskEntity, nameEntity, monsterTraits, viewData);
+            return new MonsterEntity(entityTypeData, maskEntity, nameEntity, monsterTraits, schedule, viewData);
         }
     }
 }

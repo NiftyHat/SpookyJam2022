@@ -1,3 +1,4 @@
+using System.Linq;
 using Commands;
 using Context;
 using Entity;
@@ -6,13 +7,14 @@ using Interactions;
 using Interactions.Commands;
 using NiftyFramework.Core.Context;
 using TouchInput.UnitControl;
+using UI;
 using UnityEngine;
 
 namespace Data.Interactions
 {
     public class MoveInteractionData : InteractionData
     {
-        private class Command : InteractionCommand
+        public class Command : InteractionCommand
         {
             private readonly float _oneUnit = 0.5f;
             private float _apCostForOneMovementUnit;
@@ -22,6 +24,10 @@ namespace Data.Interactions
             
             private UnitMovementHandler _movementHandler;
             private float _apRemainingDistance;
+            
+            LayerMask _movementBlocker = LayerMask.GetMask("Movement Blocker");
+            private Vector3 _targetLocation;
+            public Vector3 TargetLocation => _targetLocation;
             
             private string _description;
             public Command(IInteraction interaction, TargetingInfo targets, GameStat actionPoints) : base(interaction, targets, actionPoints)
@@ -33,6 +39,31 @@ namespace Data.Interactions
             {
                 return _interaction.GetDescription().Replace("{apCost}", APCostProvider.Value.ToString())
                     .Replace("{distance}", _targets.GetDistance().ToString());
+            }
+
+            public Vector3 GetMoveLocation()
+            {
+                Vector3 castStart= _targets.Source.GetInteractionPosition();
+                if (_targets.Target != null)
+                {
+                    
+                    Vector3 castEnd = _targets.Target.GetInteractionPosition();
+#if UNITY_EDITOR
+                    Debug.DrawLine(castStart, castEnd, Color.yellow, 0.1f);
+#endif
+                    if (Physics.Linecast(castStart, castEnd, out RaycastHit raycastHit, _movementBlocker))
+                    {
+                        Vector3 castLocation = new Vector3(raycastHit.point.x, castEnd.y, raycastHit.point.z);
+                        
+#if UNITY_EDITOR
+                        Debug.DrawLine(castStart, castLocation, Color.red, 0.1f);
+#endif
+                        return castLocation;
+                    }
+                    return castEnd;
+                }
+                
+                return castStart;
             }
 
             public override void Execute(Completed OnDone)
@@ -49,22 +80,26 @@ namespace Data.Interactions
                     if (movementHandler != null)
                     {
                         _actionPoints.Subtract(APCostProvider.Value);
-                        movementHandler.MoveTo(_targets.Target.GetInteractionPosition(), endPosition =>
+                        movementHandler.MoveTo(_targetLocation, endPosition =>
                         {
                             if (_targets.Source is PlayerInputHandler player)
                             {
-                                if (_targets.Target is TransitionZoneView transitionZoneView)
+                                Collider[] overlappingItems = new Collider[10];
+                                var size = Physics.OverlapSphereNonAlloc(endPosition, 1f, overlappingItems);
+                                for (int i = 0; i < size; i++)
                                 {
-                                    ContextService.Get<GameStateContext>(gameState =>
+                                    Collider collider = overlappingItems[i];
+                                    if (PointerSelectInputController.TryGetComponent(collider, out TransitionZoneView comp))
                                     {
-                                        gameState.ChangeLocation(player, transitionZoneView.LinkedLocation, transitionZoneView.ZoneLocation);
-                                    });
-                                    OnDone(this,true);
+                                        ContextService.Get<GameStateContext>(gameState =>
+                                        {
+                                            gameState.ChangeLocation(player, comp.LinkedLocation, comp.ZoneLocation);
+                                        });
+                                        OnDone(this,true);
+                                        return;
+                                    }
                                 }
-                                else
-                                {
-                                    OnDone(this, true);
-                                }
+                                OnDone(this, true);
                             }
                             else
                             {
@@ -75,9 +110,11 @@ namespace Data.Interactions
                 }
             }
             
+            
             public override bool Validate()
             {
-                float distance = _targets.GetDistance();
+                _targetLocation = GetMoveLocation();
+                float distance = Vector3.Distance(_targets.Source.GetInteractionPosition(), _targetLocation);
                 var abilityRange = Range;
                 int ap = _actionPoints.Value;
                 _maxRangeFromAP = (int)(ap * _apCostForOneMovementUnit);
@@ -90,6 +127,8 @@ namespace Data.Interactions
                 {
                     return false;
                 }
+
+                
                 return base.Validate();
             }
         }

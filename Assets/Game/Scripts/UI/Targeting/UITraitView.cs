@@ -14,7 +14,7 @@ namespace UI.Targeting
     public class UITraitView : MonoBehaviour, IDataView<TraitData>, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private Image _icon;
-        [SerializeField][NonNull] private Button _button;
+        [SerializeField] private Button _button;
         [SerializeField] private Sprite _unknownTrait;
 
         protected TraitData _data;
@@ -26,7 +26,10 @@ namespace UI.Targeting
         public void Start()
         {
             ContextService.Get<TooltipContext>(HandleTooltipContext);
-            _button.onClick.AddListener(HandleButtonClick);
+            if (_button != null)
+            {
+                _button.onClick.AddListener(HandleButtonClick);
+            }
         }
 
         private void HandleButtonClick()

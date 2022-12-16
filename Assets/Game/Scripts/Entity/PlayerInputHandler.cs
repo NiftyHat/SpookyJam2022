@@ -17,6 +17,7 @@ namespace Entity
     {
         [SerializeField][NonNull] private PlayerData _playerData;
         [SerializeField] private ActionPointsView _actionPointsView;
+        [SerializeField] private CameraFollow _camera;
 
         private GameStat _actionPoints;
         private List<InteractionData> _interactionList;
@@ -73,6 +74,14 @@ namespace Entity
         public InteractionCommand GetDefaultCommand()
         {
             return _playerData.MoveInteraction.GetCommand(this);
+        }
+
+        public void SnapCamera()
+        {
+            if (_camera != null)
+            {
+                _camera.Snap();
+            }
         }
     }
 }

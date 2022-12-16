@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Context;
+using GameStats;
 using NiftyFramework.Core.Context;
 using NiftyFramework.Core.Utils;
 using TMPro;
@@ -11,7 +12,9 @@ public class EndTurnButtonWidget : MonoBehaviour
 {
     [SerializeField] [NonNull] private Button _button;
     [SerializeField] [NonNull] private TextMeshProUGUI _label;
+    [SerializeField] [NonNull] private TextMeshProUGUI _turnLabel;
     private GameStateContext _gameStateContext;
+    private GameStat _turns;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +31,13 @@ public class EndTurnButtonWidget : MonoBehaviour
     private void HandleGameStateContext(GameStateContext service)
     {
         _gameStateContext = service;
+        _turns = _gameStateContext.Turns;
         _gameStateContext.OnTurnStarted += HandleTurnStarted;
+        if (_turnLabel != null)
+        {
+            int turnsRemaining = _turns.Max - _turns.Value;
+            _turnLabel.SetText(turnsRemaining.ToString());
+        }
     }
 
     private void HandleTurnStarted(int turn, int turnMax, int phase)
@@ -41,16 +50,10 @@ public class EndTurnButtonWidget : MonoBehaviour
         {
             _label.SetText("Give Up");
         }
-    }
 
-    private void HandleEndTurnClicked()
-    {
-        _gameStateContext?.NextTurn();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (_turnLabel != null)
+        {
+            _turnLabel.SetText((turnMax - turn).ToString());
+        }
     }
 }

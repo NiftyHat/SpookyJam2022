@@ -15,8 +15,9 @@ namespace Generators
             itemPool.Masks.TryGet(out var maskEntity, random);
             itemPool.Names.TryGet(out var nameEntity, impliedGender);
             itemPool.Traits.TryGet(out var poolTraitItems);
+            itemPool.Schedules.TryGet(out var schedule);
             CharacterViewData viewData = itemPool.ViewData.GetGendered(impliedGender, random);
-            return new CharacterEntity(maskEntity, nameEntity, poolTraitItems, viewData);
+            return new CharacterEntity(maskEntity, nameEntity, poolTraitItems, schedule, viewData);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Spawn
         [SerializeField] [ReadOnly] private List<CharacterSpawnPosition> _spawnPositions;
         private HashSet<CharacterSpawnPosition> _set;
 
-        public void Start()
+        public void Awake()
         {
             _locationView.Register(this);
         }
@@ -21,11 +21,19 @@ namespace Spawn
         {
             int[] indexList = ListUtils.GenerateInts(_spawnPositions.Count, random, 0 , _spawnPositions.Count);
             indexList.Shuffle();
-            for (int i = 0; i < indexList.Length && i< entity.Count; i++)
+            for (int i = 0; i < indexList.Length; i++)
             {
                 int randomIndex = indexList[i];
                 CharacterSpawnPosition spawnPosition = _spawnPositions[randomIndex];
-                spawnPosition.Set(entity[i]);
+                if (i < entity.Count)
+                {
+                    spawnPosition.Set(entity[i]);
+                }
+                else
+                {
+                    spawnPosition.Clear();
+                }
+                
             }
         }
 
@@ -34,7 +42,10 @@ namespace Spawn
             _set ??= new HashSet<CharacterSpawnPosition>();
             if (!_set.Contains(spawnPosition))
             {
-                _spawnPositions.Add(spawnPosition);
+                if (_spawnPositions != null)
+                {
+                    _spawnPositions.Add(spawnPosition);
+                }
                 _set.Add(spawnPosition);
             }
         }

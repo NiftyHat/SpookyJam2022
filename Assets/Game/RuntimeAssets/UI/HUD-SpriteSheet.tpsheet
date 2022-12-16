@@ -1,0 +1,25 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://assetstore.unity.com/packages/tools/sprite-management/texturepacker-importer-16641
+#
+# created with Free texture packer v0.6.7
+# http://free-tex-packer.com
+#
+:format=40300
+:texture=HUD-SpriteSheet.png
+:size=1024x512
+:pivotpoints=enabled
+:borders=disabled
+
+TooltipSkill.png;1;413;380;98; 0.5;0.5; 0;0;0;0
+RoundedButton.png;383;398;213;113; 0.5;0.5; 0;0;0;0
+AbilityButton-Background.png;1;283;128;128; 0.5;0.5; 0;0;0;0
+AbilityButton-Outline.png;131;283;128;128; 0.5;0.5; 0;0;0;0
+Checkbox-Tick.png;261;287;110;124; 0.5;0.5; 0;0;0;0
+AbilityFill-CurvedCorners.png;598;383;127;128; 0.5;0.5; 0;0;0;0
+Checkbox-Cross.png;373;281;123;115; 0.5;0.5; 0;0;0;0
+Icon-Chevron-Next.png;498;261;98;135; 0.5;0.5; 0;0;0;0
+AbilityButton-CostBackground.png;261;242;55;43; 0.5;0.5; 0;0;0;0
+Small-Square-Rounded-Corners.png;318;236;50;49; 0.5;0.5; 0;0;0;0

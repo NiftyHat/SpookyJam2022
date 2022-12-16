@@ -1,8 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Context;
+using Data.Interactions;
+using Entity;
 using Interactions;
 using Interactions.Commands;
+using NiftyFramework.Core.Context;
 using NiftyFramework.Core.Utils;
 using NiftyFramework.DataView;
 using NiftyFramework.UnityUtils;
@@ -18,14 +22,29 @@ namespace UI.Targeting
         [SerializeField][NonNull] private LayoutGroup _layout;
         private readonly List<UIInteractionButton> _views = new List<UIInteractionButton>();
         private GameStateContext _gameStateContext;
-        
+        private PlayerInputHandler _player;
+
         public event Action<InteractionCommand> OnPreviewCommand;
 
         private void Start()
         {
             var prototype = _layout.GetComponentInChildren<UIInteractionButton>();
-            _viewPool = new MonoPool<UIInteractionButton>(prototype);
-            Clear();
+            _viewPool = new MonoPool<UIInteractionButton>(prototype, 9,9);
+            for (int i = 0; i < 8; i++)
+            {
+                if (_viewPool.TryGet(out var buttonView))
+                {
+                    _views.Add(buttonView);
+                    buttonView.Clear();
+                }
+            }
+            ContextService.Get<GameStateContext>(HandleGameStateContext);
+        }
+        
+        private void HandleGameStateContext(GameStateContext gameStateContext)
+        {
+            _gameStateContext = gameStateContext;
+            _gameStateContext.GetPlayer(player => _player = player);
         }
         
         public void Clear()
@@ -35,10 +54,7 @@ namespace UI.Targeting
                 foreach (var buttonView in _views)
                 {
                     buttonView.OnPreviewChange -= HandleButtonPreview;
-                    if (buttonView.gameObject != null)
-                    {
-                        _viewPool.TryReturn(buttonView);
-                    }
+                    buttonView.Clear();
                 }
             }
         }
@@ -46,17 +62,24 @@ namespace UI.Targeting
         public void Set(IEnumerable<IInteraction> data, TargetingInfo targetingInfo)
         {
             Clear();
-            int index = 0;
-            foreach (var item in data)
+            List<IInteraction> interactions = data.ToList();
+            for (int i = 0; i < _views.Count; i++)
             {
-                if (_viewPool.TryGet(out var buttonView))
+                UIInteractionButton buttonView = _views[i];
+                buttonView.OnPreviewChange -= HandleButtonPreview;
+                if (i < interactions.Count)
                 {
-                    buttonView.transform.SetSiblingIndex(index);
-                    buttonView.OnPreviewChange += HandleButtonPreview;
-                    buttonView.Set(item, targetingInfo);
-                    _views.Add(buttonView);
-                    index++;
+                    if (buttonView != null)
+                    {
+                        buttonView.Set(interactions[i], targetingInfo);
+                        buttonView.OnPreviewChange += HandleButtonPreview;
+                    }
                 }
+                else
+                {
+                    buttonView.Set(null, targetingInfo);
+                }
+                
             }
         }
 

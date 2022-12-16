@@ -1,8 +1,11 @@
 using Commands;
+using Context;
 using Entity;
 using GameStats;
 using Interactions;
 using Interactions.Commands;
+using NiftyFramework.Core.Context;
+using UI;
 
 namespace Data.Interactions
 {
@@ -20,6 +23,14 @@ namespace Data.Interactions
 
             public override void Execute(Completed onDone)
             {
+                if (_targets.TryGetTargetEntity(out CharacterEntity entity))
+                {
+                    //TriggerReaction(entity, onDone);
+                    ContextService.Get<GameStateContext>(service =>
+                    {
+                        service.ShowCharacterReview(entity);
+                    });
+                }
                 base.Execute(onDone);
             }
 
@@ -32,10 +43,10 @@ namespace Data.Interactions
         {
             
         }
-
+        
         public override InteractionCommand GetCommand(TargetingInfo targetingInfo)
         {
-            return null;
+            return new Command(this, targetingInfo);
         }
     }
 }

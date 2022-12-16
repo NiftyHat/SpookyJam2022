@@ -1,3 +1,4 @@
+using NiftyFramework.Scripts;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
@@ -8,6 +9,8 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField] private Transform _followTarget;
     [SerializeField] private float _distanceToMove = 1.0f;
+
+    [SerializeField] private IntRange _movementRangeZ;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +20,7 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
-    void SetTarget(Transform followTarget)
+    public void SetTarget(Transform followTarget)
     {
         _followTarget = followTarget;
         _relativeVectorFromTarget = transform.position - _followTarget.position;
@@ -25,7 +28,7 @@ public class CameraFollow : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         if (_lookAtPoint == Vector3.zero)
         {
@@ -35,8 +38,17 @@ public class CameraFollow : MonoBehaviour
         if (distance.magnitude > _distanceToMove)
         {
             Vector3 newCameraTargetPos = _followTarget.position + _relativeVectorFromTarget;
+            newCameraTargetPos.Set(newCameraTargetPos.x, newCameraTargetPos.y, Mathf.Clamp(newCameraTargetPos.z, _movementRangeZ.Min, _movementRangeZ.Max));
             transform.position = Vector3.Lerp(transform.position, newCameraTargetPos, 0.005f);
             _lookAtPoint = transform.position - _relativeVectorFromTarget;
         }
+    }
+
+    public void Snap()
+    {
+        Vector3 newCameraTargetPos = _followTarget.position + _relativeVectorFromTarget;
+        newCameraTargetPos.Set(newCameraTargetPos.x, newCameraTargetPos.y, Mathf.Clamp(newCameraTargetPos.z, _movementRangeZ.Min, _movementRangeZ.Max));
+        transform.position = newCameraTargetPos;
+        _lookAtPoint = transform.position - _relativeVectorFromTarget;
     }
 }

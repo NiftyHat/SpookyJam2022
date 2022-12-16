@@ -76,5 +76,10 @@ namespace GameStats
         {
             return _value == _max;
         }
+
+        public float Percentage()
+        {
+            return _value / (float)_max;
+        }
     }
 }

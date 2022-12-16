@@ -11,6 +11,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityUtils;
 
 namespace UI
 {
@@ -18,7 +19,12 @@ namespace UI
     {
         [SerializeField][NonNull] private Button _button;
         [SerializeField] private TextMeshProUGUI _label;
+        [SerializeField] private TextMeshProUGUI _costLabel;
         [SerializeField] private IconWidget _icon;
+        [SerializeField] private CanvasGroup _backgroundGroup;
+        [SerializeField] private CanvasGroup _costGroup;
+        [SerializeField] private RectTransform _tooltipTransform;
+        
         private TooltipContext _tooltipContext;
         private ITooltip _tooltip;
         private TargetingInfo _targetingInfo;
@@ -52,37 +58,71 @@ namespace UI
 
         public void Clear()
         {
-          // gameObject.SetActive(false);
+            gameObject.name = $"InteractionButton(Empty)";
+            if (_backgroundGroup != null)
+            {
+                _backgroundGroup.alpha = 0.5f;
+                _icon.TrySetActive(false);
+                _costGroup.TrySetActive(false);
+            }
+
+            if (_button)
+            {
+                _button.enabled = false;
+                _tooltip = null;
+            }
         }
 
         public void Set(IInteraction data, TargetingInfo targetingInfo)
         {
             if (data == null)
             {
+                Clear();
                 return;
             }
+
+            if (_backgroundGroup != null)
+            {
+                _backgroundGroup.alpha = 1.0f;
+            }
+
             gameObject.name = $"InteractionButton({data.MenuItem.FriendlyName})";
             gameObject.SetActive(true);
-            _label.SetText(data.MenuItem.FriendlyName);
+            if (_label != null)
+            {
+                _label.SetText(data.MenuItem.FriendlyName);
+            }
+
             _icon.SetSprite(data.MenuItem.Icon);
             _command = data.GetCommand(targetingInfo);
             _button.enabled = _command.Validate();
-            string description = _command.GetDescription();
-            _tooltip = new TooltipSimple(data.MenuItem.Icon, description);
+            _icon.SetEnabled(_button.enabled);
+            _tooltip = _command.GetTooltip();
+            _tooltip?.SetTarget(_tooltipTransform);
+            if (_costGroup.TrySetActive(data.CostAP > 0))
+            {
+                _costLabel.SetText(data.CostAP.ToString());
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            _button.enabled = _command.Validate();
-            
             if (_tooltipContext != null)
             {
                 _tooltipContext.Set(_tooltip);
             }
 
-            if (_gameStateContext != null && _command != null)
+            if (_command != null)
             {
-                OnPreviewChange?.Invoke(_command);
+                if (_button != null)
+                {
+                    _button.enabled = _command.Validate();
+                    _icon.SetEnabled(_button.enabled);
+                }
+                if (_gameStateContext != null)
+                {
+                    OnPreviewChange?.Invoke(_command);
+                }
             }
         }
 

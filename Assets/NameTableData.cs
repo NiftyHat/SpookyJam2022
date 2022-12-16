@@ -122,24 +122,28 @@ namespace Data
             return output;
         }
 
-        public Entry GetItem(int weight)
+        public Entry GetItem(int weightIndex)
         {
-            if (weight > _totalWeight)
+            if (_data == null || _data.Count == 0)
             {
-                weight %= _totalWeight;
+                return null;
             }
-            int weightCount = 0;
+            if (weightIndex > _totalWeight)
+            {
+                weightIndex %= _totalWeight;
+            }
+            int count = 0;
             foreach (var data in _data)
             {
-                if (weightCount >= weight)
+                count += data.Weight;
+                if (weightIndex <= count)
                 {
                     return data;
                 }
-                weightCount += data.Weight;
             }
-            if (weightCount > _totalWeight)
+            if (count > _totalWeight)
             {
-                Debug.LogError($"{nameof(NameTableData)}GetItem() over ran total item weight of {_totalWeight} with a count of {weightCount}");
+                Debug.LogError($"{nameof(NameTableData)}GetItem() over ran total item weight of {_totalWeight} with a count of {count}");
             }
             return _data[_data.Capacity - 1];
         }

@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Data.Interactions;
+using Data.Reactions;
+using Data.Trait;
 using GameStats;
 using NiftyFramework.Core.Utils;
 using UnityEngine;
@@ -45,5 +48,28 @@ namespace Data
             }
             return output;
         }
+
+        public bool TryGetReactionAbilities(TraitData trait, out HashSet<ReactionData> reactionDataList, out List<AbilityReactionTriggerData> abilityDataList)
+        {
+            reactionDataList = new HashSet<ReactionData>();
+            abilityDataList = new List<AbilityReactionTriggerData>();
+            var playerReactionAbilities = GetInteractionDataList<AbilityReactionTriggerData>();
+            bool hasResults = false;
+            foreach (var ability in playerReactionAbilities)
+            {
+                if (ability.ReactionTrigger.TryGetReaction(trait, out var abilityReactionTriggers, item => item.isMiss == false))
+                {
+                    abilityDataList.Add(ability);
+                    reactionDataList.UnionWith(abilityReactionTriggers);
+                    hasResults = true;
+                }
+            }
+            if (hasResults)
+            {
+                return true;
+            }
+            return false;
+        }
+
     }
 }

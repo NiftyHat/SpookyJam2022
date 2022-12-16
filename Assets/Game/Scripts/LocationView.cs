@@ -18,13 +18,17 @@ public class LocationView : MonoBehaviour, IView<LocationData>
     private GameStateContext _gameStateService;
     private CharacterSpawnSet _spawnSet;
     private bool _canSpawn = true;
+
+    private Action _onDeferedSpawn;
     
-    // Start is called before the first frame update
     private void Awake()
     {
         foreach (var item in _transitionZoneViews)
         {
-            item.SetLocation(_locationData);
+            if (item != null)
+            {
+                item.SetLocation(_locationData);
+            }
         }
         if (_locationData != null)
         {
@@ -41,23 +45,42 @@ public class LocationView : MonoBehaviour, IView<LocationData>
     private void HandleGameState(GameStateContext gameStateService)
     {
         _gameStateService = gameStateService;
+        gameStateService.OnPhaseChange += HandlePhaseChange;
         Init();
+    }
+
+    private void HandlePhaseChange(int newvalue, int oldvalue)
+    {
+        _canSpawn = true;
+        var charactersInLocation = _gameStateService.GetCharactersInLocation(_locationData);
+        if (charactersInLocation != null && charactersInLocation.Count > 0)
+        {
+            SpawnCharacters(charactersInLocation, new System.Random(_locationData.SpawnSeed));
+        }
     }
 
     void SpawnCharacters(IReadOnlyList<CharacterEntity> entities, System.Random random)
     {
-        if (_canSpawn && _spawnSet != null)
+        if (_canSpawn)
         {
-            _spawnSet.Spawn(entities, random);
-            _canSpawn = false;
+            if (_spawnSet != null)
+            {
+                _spawnSet.Spawn(entities, random);
+                _canSpawn = false;
+            }
+            else
+            {
+                _onDeferedSpawn = () => SpawnCharacters(entities, random);
+            }
         }
     }
 
     private void Init()
     {
-        if (_gameStateService.CharacterEntities != null)
+        var charactersInLocation = _gameStateService.GetCharactersInLocation(_locationData);
+        if (charactersInLocation != null && charactersInLocation.Count > 0)
         {
-            SpawnCharacters(_gameStateService.CharacterEntities, new System.Random(_locationData.SpawnSeed));
+            SpawnCharacters(charactersInLocation, new System.Random(_locationData.SpawnSeed));
         }
     }
 
@@ -68,6 +91,7 @@ public class LocationView : MonoBehaviour, IView<LocationData>
 
     public void Unload()
     {
+        _canSpawn = true;
         gameObject.SetActive(false);
     }
 
@@ -106,7 +130,9 @@ public class LocationView : MonoBehaviour, IView<LocationData>
     {
         if (_locationData != null)
         {
+#if UNITY_EDITOR
             Handles.Label(transform.position, _locationData.FriendlyName);
+            #endif
         }
     }
 
@@ -120,17 +146,13 @@ public class LocationView : MonoBehaviour, IView<LocationData>
         //intentionally empty
     }
 
-    public bool IsLocation(LocationData location)
-    {
-        return _locationData = location;
-    }
-
     public void Register(CharacterSpawnSet characterSpawnSet)
     {
         _spawnSet = characterSpawnSet;
-        if (_gameStateService != null)
+        if (_onDeferedSpawn != null)
         {
-            
+            _onDeferedSpawn.Invoke();
+            _onDeferedSpawn = null;
         }
     }
 }

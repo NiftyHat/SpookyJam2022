@@ -17,10 +17,8 @@ MonoBehaviour:
   _moveInteraction: {fileID: -3633477180647774105, guid: 55fb0e9da2cf1f541b8465936e65330c,
     type: 2}
   _abilityInteractionList:
-  - {fileID: -221668627621745594, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
-  - {fileID: -4190080506035454281, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
   - {fileID: -3633477180647774105, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
-  - {fileID: 4128197612467975644, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
+  - {fileID: -4190080506035454281, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
   - {fileID: -7946234956790623502, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
   - {fileID: -1671792078212301720, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
   - {fileID: 8888680982059933768, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
@@ -28,4 +26,5 @@ MonoBehaviour:
   - {fileID: 2991345944667089571, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
   - {fileID: -188742047455454632, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
   - {fileID: -5256964978547721330, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
+  - {fileID: 4128197612467975644, guid: 55fb0e9da2cf1f541b8465936e65330c, type: 2}
   _timeData: {fileID: 11400000, guid: a4800a58d3f358d4aac223e16e796a78, type: 2}

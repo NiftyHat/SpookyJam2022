@@ -108,7 +108,7 @@ namespace Generators
             {
                 foreach (var reactionTrigger in _reactionTriggerSets)
                 {
-                    List<ReactionData> reactions = reactionTrigger.TryGetReaction(currentTraits);
+                    List<ReactionData> reactions = reactionTrigger.GetReactions(currentTraits);
                     if (reactions.Count > 0)
                     {
                         possibleTraits.ExceptWith(reactionTrigger.GetAllTraits());

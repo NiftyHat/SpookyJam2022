@@ -7,6 +7,7 @@ using Data.GameOver;
 using Data.Interactions;
 using Data.Location;
 using Data.Monsters;
+using Data.Reactions;
 using Entity;
 using GameStats;
 using Generators;
@@ -14,6 +15,7 @@ using Interactions;
 using Interactions.Commands;
 using NiftyFramework.Core;
 using NiftyFramework.Core.Context;
+using TouchInput.UnitControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityUtils;
@@ -23,6 +25,26 @@ namespace Context
 {
     public class GameStateContext : IContext
     {
+        public class LastInteractionData
+        {
+            private IInteraction _interaction;
+            private Dictionary<CharacterEntity, ReactionData> _reactionData;
+
+            public IInteraction Interaction => _interaction;
+
+            public Dictionary<CharacterEntity, ReactionData> Reactions => _reactionData;
+            public LastInteractionData(IInteraction interaction, Dictionary<CharacterEntity, ReactionData> reactions)
+            {
+                _interaction = interaction;
+                _reactionData = reactions;
+            }
+            
+            public LastInteractionData(IInteraction interaction, CharacterEntity characterEntity, ReactionData reaction)
+            {
+                _interaction = interaction;
+                _reactionData = new Dictionary<CharacterEntity, ReactionData> { { characterEntity, reaction } };
+            }
+        }
         public delegate void TurnStarted(int turn, int turnMax, int phase);
         public delegate void ConfessionConfirmed(CharacterEntity entity, MonsterEntityTypeData monsterEntityTypeData, Action OnAnimationComplete);
 
@@ -38,6 +60,7 @@ namespace Context
 
         public event TurnStarted OnTurnStarted;
         public event ValueProvider<int>.Changed OnPhaseChange;
+        public event Action<PointerSelectionHandler> OnSetSelection;
         public event Action OnClearReactions; 
         
         private readonly TimeData _timeData;
@@ -48,12 +71,16 @@ namespace Context
         private GameOverReasonData _gameOverReason;
         private MonsterEntityTypeDataSet _monsterEntityTypeSet;
 
+        public event Action<CharacterEntity> OnTriggerCharacterReview;
         public event ConfessionConfirmed OnConfessionConfirmed;
         private event Action<PlayerInputHandler> _onPlayerAssigned;
         private List<CharacterEntity> _characterEntities;
         public IReadOnlyList<CharacterEntity> CharacterEntities => _characterEntities;
 
         public CommandRunner _commandRunner;
+
+        private LastInteractionData _lastInteractionData;
+        public LastInteractionData LastInteraction => _lastInteractionData;
 
         public GameStateContext(TimeData timeData, GuestListGenerator guestListGenerator, LocationDataSet locationDataSet)
         {
@@ -72,7 +99,7 @@ namespace Context
         {
             if (locationData != null)
             {
-                var list = _characterEntities.Where(item => item.AtLocation(locationData)).ToList();
+                var list = _characterEntities.Where(item => item.AtLocation(locationData, Phase)).ToList();
                 return list;
             }
             return null;
@@ -99,6 +126,7 @@ namespace Context
         private void HandlePhaseChange(int oldValue, int newValue)
         {
             OnPhaseChange?.Invoke(oldValue, newValue);
+            
         }
 
         public void Dispose()
@@ -191,6 +219,21 @@ namespace Context
             _commandRunner.Add(command);
             _commandRunner.Process();
         }
-        
+
+        public void ShowCharacterReview(CharacterEntity entity)
+        {
+            OnTriggerCharacterReview?.Invoke(entity);
+        }
+
+        public void SetLastInteraction(LastInteractionData lastInteractionData)
+        {
+            _lastInteractionData = lastInteractionData;
+        }
+
+        public void SelectPlayer()
+        {
+            var playerSelection = _player.GetComponent<PointerSelectionHandler>();
+            OnSetSelection?.Invoke(playerSelection);
+        }
     }
 }

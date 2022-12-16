@@ -35,13 +35,19 @@ namespace UI.Widgets
             }
             if (!_loadingOperation.isDone)
             {
-                float percentage = _loadingOperation.progress * 100f;
                 _sliderProgress.value = _loadingOperation.progress;
-                _labelProgress.SetText(percentage.ToString("{0:P0}"));
+                if (_labelProgress != null)
+                {
+                    float percentage = _loadingOperation.progress * 100f;
+                    _labelProgress.SetText(percentage.ToString("{0:P0}"));
+                }
             }
             else
             {
-                _labelProgress.SetText("100%");
+                if (_labelProgress != null)
+                {
+                    _labelProgress.SetText("100%");
+                }
                 _sliderProgress.value = 1.0f;
             }
         }

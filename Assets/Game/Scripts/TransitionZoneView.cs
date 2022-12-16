@@ -65,6 +65,7 @@ public class TransitionZoneView : InputTargetView
         {
             facingDirection.Set(_facingDirection);
         }
+        player.SnapCamera();
     }
 
     public void SetLocation(LocationData locationData)
