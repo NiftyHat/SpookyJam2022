@@ -162,8 +162,8 @@ TextureImporter:
       name: AbilityButton-CostBackground.png
       rect:
         serializedVersion: 2
-        x: 261
-        y: 242
+        x: 131
+        y: 253
         width: 55
         height: 43
       alignment: 0
@@ -183,13 +183,13 @@ TextureImporter:
       name: AbilityButton-Outline.png
       rect:
         serializedVersion: 2
-        x: 131
-        y: 283
+        x: 1
+        y: 168
         width: 128
         height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 13, y: 13, z: 12, w: 14}
+      border: {x: 13, y: 13, z: 13, w: 14}
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -204,7 +204,7 @@ TextureImporter:
       name: AbilityFill-CurvedCorners.png
       rect:
         serializedVersion: 2
-        x: 598
+        x: 629
         y: 383
         width: 127
         height: 128
@@ -225,8 +225,8 @@ TextureImporter:
       name: RoundedButton.png
       rect:
         serializedVersion: 2
-        x: 383
-        y: 398
+        x: 1
+        y: 298
         width: 213
         height: 113
       alignment: 0
@@ -267,7 +267,7 @@ TextureImporter:
       name: AbilityButton-Background.png
       rect:
         serializedVersion: 2
-        x: 1
+        x: 216
         y: 283
         width: 128
         height: 128
@@ -288,8 +288,8 @@ TextureImporter:
       name: Checkbox-Cross.png
       rect:
         serializedVersion: 2
-        x: 373
-        y: 281
+        x: 758
+        y: 396
         width: 123
         height: 115
       alignment: 0
@@ -309,8 +309,8 @@ TextureImporter:
       name: Checkbox-Tick.png
       rect:
         serializedVersion: 2
-        x: 261
-        y: 287
+        x: 883
+        y: 387
         width: 110
         height: 124
       alignment: 0
@@ -330,8 +330,8 @@ TextureImporter:
       name: Icon-Chevron-Next.png
       rect:
         serializedVersion: 2
-        x: 498
-        y: 261
+        x: 758
+        y: 259
         width: 98
         height: 135
       alignment: 0
@@ -351,8 +351,8 @@ TextureImporter:
       name: Small-Square-Rounded-Corners.png
       rect:
         serializedVersion: 2
-        x: 318
-        y: 236
+        x: 629
+        y: 332
         width: 50
         height: 49
       alignment: 0
@@ -364,6 +364,27 @@ TextureImporter:
       bones: []
       spriteID: 125fd84600a5adc4c840bf14bc15b7bc
       internalID: -2004639798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rounded-Button-Glow.png
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 358
+        width: 244
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 80, y: 0, z: 69, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76e708ca6da99e04f9755b558311506e
+      internalID: 1335019174
       vertices: []
       indices: 
       edges: []
@@ -383,6 +404,7 @@ TextureImporter:
       AbilityFill-CurvedCorners.png: 5920585933131536487
       AbilityButton-Outline.png: -3945633791335285793
       Checkbox-Tick.png: 1867067168
+      Rounded-Button-Glow.png: 1335019174
       TooltipSkill.png: 8400484449425757192
       AbilityButton-Background.png: 1471761390
       RoundedButton.png: 4095538057763963606

@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using Context;
+using Entity;
 using GameStats;
 using NiftyFramework.Core.Context;
 using NiftyFramework.Core.Utils;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityUtils;
 
 public class EndTurnButtonWidget : MonoBehaviour
 {
     [SerializeField] [NonNull] private Button _button;
     [SerializeField] [NonNull] private TextMeshProUGUI _label;
     [SerializeField] [NonNull] private TextMeshProUGUI _turnLabel;
+    [SerializeField] [NonNull] private Image _glow;
+    [SerializeField] private int _glowAPThreshold;
     private GameStateContext _gameStateContext;
     private GameStat _turns;
 
@@ -21,6 +25,7 @@ public class EndTurnButtonWidget : MonoBehaviour
     {
         ContextService.Get<GameStateContext>(HandleGameStateContext);
         _button.onClick.AddListener(HandleButtonClicked);
+        _glow.TrySetActive(false);
     }
 
     private void HandleButtonClicked()
@@ -37,6 +42,27 @@ public class EndTurnButtonWidget : MonoBehaviour
         {
             int turnsRemaining = _turns.Max - _turns.Value;
             _turnLabel.SetText(turnsRemaining.ToString());
+        }
+        _gameStateContext.GetPlayer(HandlePlayer);
+    }
+
+    private void HandlePlayer(PlayerInputHandler player)
+    {
+        if (player != null)
+        {
+            player.ActionPoints.OnChanged += HandleActionPointsChanged;
+        }
+    }
+
+    private void HandleActionPointsChanged(int newvalue, int oldvalue)
+    {
+        if (newvalue < _glowAPThreshold)
+        {
+            _glow.TrySetActive(true);
+        }
+        else
+        {
+            _glow.TrySetActive(false);
         }
     }
 
