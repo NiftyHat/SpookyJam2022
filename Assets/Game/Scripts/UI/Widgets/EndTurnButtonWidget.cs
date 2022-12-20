@@ -54,9 +54,9 @@ public class EndTurnButtonWidget : MonoBehaviour
         }
     }
 
-    private void HandleActionPointsChanged(int newvalue, int oldvalue)
+    private void HandleActionPointsChanged(int newValue, int oldValue)
     {
-        if (newvalue < _glowAPThreshold)
+        if (newValue < _glowAPThreshold)
         {
             _glow.TrySetActive(true);
         }
