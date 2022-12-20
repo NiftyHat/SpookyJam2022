@@ -2,6 +2,7 @@ using System;
 using Data.Menu;
 using Interactions;
 using Interactions.Commands;
+using NiftyFramework.Core;
 using NiftyFramework.Scripts;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ namespace Data.Interactions
         public struct MenuItemData : IMenuItem
         {
             [SerializeField] private string _friendlyName;
-            [SerializeField] private Sprite _icon;
+            [SerializeField][SpritePreview] private Sprite _icon;
             [SerializeField][TextArea] private string _description;
 
             public string FriendlyName => _friendlyName;

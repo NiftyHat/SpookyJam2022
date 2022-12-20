@@ -21,7 +21,7 @@ MonoBehaviour:
   _targetType: 2
   _menuItemData:
     _friendlyName: Flirt
-    _icon: {fileID: 21300000, guid: c06228c0350d2b943a80d67f4f3c2df6, type: 3}
+    _icon: {fileID: -1515131695, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
     _description: '{abilityName} with {targetName}'
   _reactionTrigger:
     _triggerList:
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97e1a6de6f814c7aa7314115ae6bfcf5, type: 3}
-  m_Name: InciteTriggerAbility
+  m_Name: InstigateTriggerAbility
   m_EditorClassIdentifier: 
   _range:
     _min: 3
@@ -72,9 +72,9 @@ MonoBehaviour:
   _minTargets: 0
   _targetType: 2
   _menuItemData:
-    _friendlyName: Incite
-    _icon: {fileID: 21300000, guid: 4640b9f1e2156a742a929235c1cf3413, type: 3}
-    _description: Incite everyone within {radius} of  {targetName}.
+    _friendlyName: Instigate
+    _icon: {fileID: 412789284, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+    _description: Instigate {target} and everyone within {radius}.
   _reactionTrigger:
     _triggerList:
     - _trait: {fileID: -1646269247474937957, guid: 26f61f036fbd8a843af3f89912a03468,
@@ -148,7 +148,7 @@ MonoBehaviour:
   _targetType: 3
   _menuItemData:
     _friendlyName: Walk
-    _icon: {fileID: 21300000, guid: 18c94124ad517f0459608cae5fa4337e, type: 3}
+    _icon: {fileID: 1959121752, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
     _description: Spend {apCost} to move {distance}
 --- !u!114 &-1671792078212301720
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   _targetType: 2
   _menuItemData:
     _friendlyName: Conspire
-    _icon: {fileID: 21300000, guid: 2a45049b67e4a9149bf9021cefd76c33, type: 3}
+    _icon: {fileID: -628399140, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
     _description: '{abilityName} with {targetName}'
   _reactionTrigger:
     _triggerList:
@@ -206,29 +206,6 @@ MonoBehaviour:
     _failList:
     - {fileID: -6149206598976904165, guid: e32084423b1cd6646889c10d75f87b73, type: 2}
     - {fileID: -3605238400349697620, guid: e32084423b1cd6646889c10d75f87b73, type: 2}
---- !u!114 &-221668627621745594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a298efb7f095412387fbf0eacd6677a7, type: 3}
-  m_Name: Examine
-  m_EditorClassIdentifier: 
-  _range:
-    _min: 0
-    _max: 0
-  _costAP: 0
-  _radius: 0
-  _minTargets: 0
-  _targetType: 0
-  _menuItemData:
-    _friendlyName: 
-    _icon: {fileID: 0}
-    _description: 
 --- !u!114 &-188742047455454632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,7 +227,7 @@ MonoBehaviour:
   _targetType: 1
   _menuItemData:
     _friendlyName: Brag
-    _icon: {fileID: 21300000, guid: d7b3301f321f2bd46a9143c0b0921261, type: 3}
+    _icon: {fileID: 430583790, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
     _description: '{abilityName} with everyone within {radius}'
   _reactionTrigger:
     _triggerList:
@@ -303,8 +280,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _references:
   - {fileID: -3633477180647774105}
-  - {fileID: -221668627621745594}
-  - {fileID: 4003674306322824952}
   - {fileID: -4190080506035454281}
   - {fileID: 4128197612467975644}
   - {fileID: -1671792078212301720}
@@ -336,7 +311,7 @@ MonoBehaviour:
   _targetType: 2
   _menuItemData:
     _friendlyName: Joke
-    _icon: {fileID: 21300000, guid: 39a1d1f28424e9f4283ae02092ed1ecf, type: 3}
+    _icon: {fileID: 1804464223, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
     _description: 'Tell a joke eveyone within {radius} of  {targetName}. '
   _reactionTrigger:
     _triggerList:
@@ -392,7 +367,7 @@ MonoBehaviour:
   _targetType: 1
   _menuItemData:
     _friendlyName: Speech
-    _icon: {fileID: 21300000, guid: 374850c1efea11d439342e6aaadb696a, type: 3}
+    _icon: {fileID: 394077799, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
     _description: Give a {abilityName} to everyone within {radius}.
   _reactionTrigger:
     _triggerList:
@@ -427,29 +402,6 @@ MonoBehaviour:
     _failList:
     - {fileID: -6149206598976904165, guid: e32084423b1cd6646889c10d75f87b73, type: 2}
     - {fileID: -3605238400349697620, guid: e32084423b1cd6646889c10d75f87b73, type: 2}
---- !u!114 &4003674306322824952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a298efb7f095412387fbf0eacd6677a7, type: 3}
-  m_Name: Introduce
-  m_EditorClassIdentifier: 
-  _range:
-    _min: 0
-    _max: 0
-  _costAP: 0
-  _radius: 0
-  _minTargets: 0
-  _targetType: 0
-  _menuItemData:
-    _friendlyName: 
-    _icon: {fileID: 0}
-    _description: 
 --- !u!114 &4128197612467975644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,7 +423,7 @@ MonoBehaviour:
   _targetType: 2
   _menuItemData:
     _friendlyName: Confess
-    _icon: {fileID: 21300000, guid: bb857c698ad558f41939eb22c497086a, type: 3}
+    _icon: {fileID: 1145517890, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
     _description: Confess to {targetName}. If it's the Monster you win.
   _gameOverReason: {fileID: -7597645516445229309, guid: 0a1d5b9cddaf5794aae9e417cf1b6921,
     type: 2}
@@ -496,7 +448,7 @@ MonoBehaviour:
   _targetType: 2
   _menuItemData:
     _friendlyName: Examine
-    _icon: {fileID: 21300000, guid: bba339bb1d0e2aa40a887fa7bb5e8c09, type: 3}
+    _icon: {fileID: -1157539444, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
     _description: Examine the target. If it's a character you can log traits
 --- !u!114 &8888680982059933768
 MonoBehaviour:
@@ -519,7 +471,7 @@ MonoBehaviour:
   _targetType: 1
   _menuItemData:
     _friendlyName: Mingle
-    _icon: {fileID: 21300000, guid: e64e38e0d6ed892478f31144d309a66f, type: 3}
+    _icon: {fileID: 1456780871, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
     _description: '{abilityName} with everyone within {radius}'
   _reactionTrigger:
     _triggerList:

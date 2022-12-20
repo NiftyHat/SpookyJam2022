@@ -9,18 +9,29 @@
 #
 :format=40300
 :texture=HUD-SpriteSheet.png
-:size=1024x512
+:size=2048x2048
 :pivotpoints=enabled
 :borders=disabled
 
-TooltipSkill.png;1;413;380;98; 0.5;0.5; 0;0;0;0
-Rounded-Button-Glow.png;383;358;244;153; 0.5;0.5; 0;0;0;0
-RoundedButton.png;1;298;213;113; 0.5;0.5; 0;0;0;0
-AbilityButton-Background.png;216;283;128;128; 0.5;0.5; 0;0;0;0
-AbilityButton-Outline.png;1;168;128;128; 0.5;0.5; 0;0;0;0
-AbilityButton-CostBackground.png;131;253;55;43; 0.5;0.5; 0;0;0;0
-AbilityFill-CurvedCorners.png;629;383;127;128; 0.5;0.5; 0;0;0;0
-Checkbox-Cross.png;758;396;123;115; 0.5;0.5; 0;0;0;0
-Checkbox-Tick.png;883;387;110;124; 0.5;0.5; 0;0;0;0
-Icon-Chevron-Next.png;758;259;98;135; 0.5;0.5; 0;0;0;0
-Small-Square-Rounded-Corners.png;629;332;50;49; 0.5;0.5; 0;0;0;0
+Interaction-Speech.png;1;1574;490;473; 0.5;0.5; 0;0;0;0
+Interaction-Instigate.png;493;1566;485;481; 0.5;0.5; 0;0;0;0
+Interaction-Flirt.png;1;1096;480;476; 0.5;0.5; 0;0;0;0
+Interaction-Conspire.png;980;1562;479;485; 0.5;0.5; 0;0;0;0
+Interaction-Confess.png;483;1086;479;478; 0.5;0.5; 0;0;0;0
+Interaction-Mingle.png;1;673;479;421; 0.5;0.5; 0;0;0;0
+Interaction-Examine.png;1461;1571;475;476; 0.5;0.5; 0;0;0;0
+Icon-Chevron-Next.png;1938;1912;98;135; 0.5;0.5; 0;0;0;0
+AbilityButton-CostBackground.png;1938;1867;55;43; 0.5;0.5; 0;0;0;0
+Small-Square-Rounded-Corners.png;1995;1861;50;49; 0.5;0.5; 0;0;0;0
+Interaction-Brag.png;1461;1089;408;480; 0.5;0.5; 0;0;0;0
+AbilityButton-Background.png;1871;1441;128;128; 0.5;0.5; 0;0;0;0
+AbilityButton-Outline.png;1871;1311;128;128; 0.5;0.5; 0;0;0;0
+AbilityFill-CurvedCorners.png;1871;1181;127;128; 0.5;0.5; 0;0;0;0
+Checkbox-Cross.png;1871;1064;123;115; 0.5;0.5; 0;0;0;0
+TooltipSkill.png;964;1462;380;98; 0.5;0.5; 0;0;0;0
+Checkbox-Tick.png;1346;1436;110;124; 0.5;0.5; 0;0;0;0
+Interaction-EndTurn.png;964;1069;367;391; 0.5;0.5; 0;0;0;0
+Interaction-Walk.png;482;618;349;466; 0.5;0.5; 0;0;0;0
+Interaction-Joke.png;1;221;344;450; 0.5;0.5; 0;0;0;0
+Rounded-Button-Glow.png;1;66;244;153; 0.5;0.5; 0;0;0;0
+RoundedButton.png;247;106;213;113; 0.5;0.5; 0;0;0;0
