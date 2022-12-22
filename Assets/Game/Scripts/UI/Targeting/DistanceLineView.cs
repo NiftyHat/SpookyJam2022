@@ -21,6 +21,7 @@ namespace UI.Targeting
         {
             _lineRenderer.SetPosition(0, transform.position);
             _lineRenderer.SetPosition(1, target);
+            
         }
 
         public void SetFrom(Transform transform)
