@@ -7,6 +7,7 @@ using Data.Location;
 using Interactions;
 using NiftyFramework.Scripts;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Generators
 {
@@ -77,8 +78,6 @@ namespace Generators
                 public int Weight => _weight;
                 public LocationData Data => _data;
             }
-
-            public string name;
 
             [SerializeField] protected int _totalWeight;
             [SerializeField] private List<Entry> _data;
@@ -171,13 +170,16 @@ namespace Generators
         [ContextMenu("SortWeight")]
         public void SortWeight()
         {
-            
             foreach (var item in _phaseLocationChances)
             {
                 item.SortWeight();
             }
-            
         }
 
+        public bool TryGet(Random random, out GuestSchedule schedule)
+        {
+            schedule = new GuestSchedule(random, _phaseLocationChances);
+            return schedule != null;
+        }
     }
 }

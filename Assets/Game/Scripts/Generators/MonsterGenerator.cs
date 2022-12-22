@@ -4,6 +4,7 @@ using Data.Character;
 using Data.Monsters;
 using Data.Trait;
 using Entity;
+using Interactions;
 using NiftyFramework.Scripts;
 using UnityEngine;
 
@@ -28,7 +29,16 @@ namespace Generators
             CharacterName.ImpliedGender impliedGender = NameGenerator.GetRandomGender(random);
             itemPool.Masks.TryGet(out var maskEntity, random);
             itemPool.Names.TryGet(out var nameEntity, impliedGender);
-            itemPool.Schedules.TryGet(out var schedule);
+            GuestSchedule schedule = null;
+            if (entityTypeData.ScheduleGenerator != null)
+            {
+                entityTypeData.ScheduleGenerator.TryGet(random, out schedule);
+            }
+            if (schedule == null)
+            {
+                itemPool.Schedules.TryGet(out schedule);
+            }
+            
             HashSet<TraitData> monsterTraits = new HashSet<TraitData>(entityTypeData.PreferredTraits);
             CharacterViewData viewData = itemPool.ViewData.GetGendered(impliedGender, random);
             return new MonsterEntity(entityTypeData, maskEntity, nameEntity, monsterTraits, schedule, viewData);
