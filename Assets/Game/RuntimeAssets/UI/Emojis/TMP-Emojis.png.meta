@@ -252,8 +252,8 @@ TextureImporter:
       name: Emote_Blush
       rect:
         serializedVersion: 2
-        x: 1632
-        y: 2939
+        x: 1644
+        y: 2917
         width: 609
         height: 566
       alignment: 0
@@ -273,8 +273,8 @@ TextureImporter:
       name: Emote_Bored
       rect:
         serializedVersion: 2
-        x: 1628
-        y: 1765
+        x: 607
+        y: 1743
         width: 590
         height: 561
       alignment: 0
@@ -294,8 +294,8 @@ TextureImporter:
       name: Emote_Chat
       rect:
         serializedVersion: 2
-        x: 1632
-        y: 2326
+        x: 624
+        y: 2304
         width: 608
         height: 613
       alignment: 0
@@ -316,7 +316,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1645
-        y: 3505
+        y: 3483
         width: 807
         height: 588
       alignment: 0
@@ -336,8 +336,8 @@ TextureImporter:
       name: Emote_Impressed
       rect:
         serializedVersion: 2
-        x: 2241
-        y: 1787
+        x: 2253
+        y: 2423
         width: 598
         height: 565
       alignment: 0
@@ -357,8 +357,8 @@ TextureImporter:
       name: Emote_Love
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2968
+        x: 3131
+        y: 2456
         width: 647
         height: 560
       alignment: 0
@@ -379,7 +379,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 3528
+        y: 3506
         width: 827
         height: 565
       alignment: 0
@@ -400,7 +400,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2452
-        y: 3010
+        y: 2988
         width: 679
         height: 603
       alignment: 0
@@ -420,8 +420,8 @@ TextureImporter:
       name: Emote_Question
       rect:
         serializedVersion: 2
-        x: 1271
-        y: 2981
+        x: 1246
+        y: 2441
         width: 361
         height: 547
       alignment: 0
@@ -442,7 +442,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 827
-        y: 3528
+        y: 3506
         width: 818
         height: 565
       alignment: 0
@@ -462,8 +462,8 @@ TextureImporter:
       name: Trait_Affluent
       rect:
         serializedVersion: 2
-        x: 1627
-        y: 1376
+        x: 559
+        y: 1489
         width: 505
         height: 254
       alignment: 0
@@ -483,8 +483,8 @@ TextureImporter:
       name: Trait_Antiquated
       rect:
         serializedVersion: 2
-        x: 1609
-        y: 0
+        x: 1246
+        y: 3063
         width: 398
         height: 443
       alignment: 0
@@ -504,8 +504,8 @@ TextureImporter:
       name: Trait_Awkward
       rect:
         serializedVersion: 2
-        x: 0
-        y: 516
+        x: 1008
+        y: 802
         width: 501
         height: 495
       alignment: 0
@@ -525,8 +525,8 @@ TextureImporter:
       name: Trait_Debutaunt
       rect:
         serializedVersion: 2
-        x: 2241
-        y: 2352
+        x: 0
+        y: 2130
         width: 607
         height: 658
       alignment: 0
@@ -546,8 +546,8 @@ TextureImporter:
       name: Trait_Disgraced
       rect:
         serializedVersion: 2
-        x: 0
-        y: 11
+        x: 1197
+        y: 1297
         width: 400
         height: 505
       alignment: 0
@@ -568,7 +568,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1011
+        y: 794
         width: 502
         height: 304
       alignment: 0
@@ -588,8 +588,8 @@ TextureImporter:
       name: Trait_Eligable
       rect:
         serializedVersion: 2
-        x: 1214
-        y: 2314
+        x: 2705
+        y: 1458
         width: 414
         height: 496
       alignment: 0
@@ -609,8 +609,8 @@ TextureImporter:
       name: Trait_Fashionable
       rect:
         serializedVersion: 2
-        x: 400
-        y: 14
+        x: 500
+        y: 0
         width: 468
         height: 502
       alignment: 0
@@ -630,8 +630,8 @@ TextureImporter:
       name: Trait_Fiesty
       rect:
         serializedVersion: 2
-        x: 647
-        y: 2810
+        x: 0
+        y: 2788
         width: 624
         height: 718
       alignment: 0
@@ -651,8 +651,8 @@ TextureImporter:
       name: Trait_Firstborn
       rect:
         serializedVersion: 2
-        x: 2839
-        y: 1315
+        x: 1599
+        y: 1379
         width: 505
         height: 503
       alignment: 0
@@ -672,8 +672,8 @@ TextureImporter:
       name: Trait_Forceful
       rect:
         serializedVersion: 2
-        x: 3805
-        y: 3068
+        x: 3780
+        y: 3046
         width: 268
         height: 501
       alignment: 0
@@ -693,8 +693,8 @@ TextureImporter:
       name: Trait_Gorgeous
       rect:
         serializedVersion: 2
-        x: 2218
-        y: 1288
+        x: 1597
+        y: 880
         width: 505
         height: 499
       alignment: 0
@@ -714,8 +714,8 @@ TextureImporter:
       name: Trait_Heir
       rect:
         serializedVersion: 2
-        x: 2723
-        y: 960
+        x: 0
+        y: 439
         width: 500
         height: 355
       alignment: 0
@@ -735,8 +735,8 @@ TextureImporter:
       name: Trait_Impulsive
       rect:
         serializedVersion: 2
-        x: 1133
-        y: 855
+        x: 3359
+        y: 1499
         width: 476
         height: 469
       alignment: 0
@@ -756,8 +756,8 @@ TextureImporter:
       name: Trait_Meddler
       rect:
         serializedVersion: 2
-        x: 3360
-        y: 1998
+        x: 2851
+        y: 1954
         width: 508
         height: 502
       alignment: 0
@@ -777,8 +777,8 @@ TextureImporter:
       name: Trait_Modest
       rect:
         serializedVersion: 2
-        x: 559
-        y: 822
+        x: 504
+        y: 988
         width: 504
         height: 501
       alignment: 0
@@ -798,8 +798,8 @@ TextureImporter:
       name: Trait_OldMoney
       rect:
         serializedVersion: 2
-        x: 1214
-        y: 1812
+        x: 1197
+        y: 1802
         width: 402
         height: 502
       alignment: 0
@@ -819,8 +819,8 @@ TextureImporter:
       name: Trait_Pompous
       rect:
         serializedVersion: 2
-        x: 1627
-        y: 870
+        x: 0
+        y: 1098
         width: 504
         height: 506
       alignment: 0
@@ -840,8 +840,8 @@ TextureImporter:
       name: Trait_Reclusive
       rect:
         serializedVersion: 2
-        x: 3344
-        y: 1144
+        x: 502
+        y: 502
         width: 500
         height: 486
       alignment: 0
@@ -861,8 +861,8 @@ TextureImporter:
       name: Trait_Refined
       rect:
         serializedVersion: 2
-        x: 2848
-        y: 1818
+        x: 2199
+        y: 2039
         width: 506
         height: 384
       alignment: 0
@@ -882,8 +882,8 @@ TextureImporter:
       name: Trait_shameless
       rect:
         serializedVersion: 2
-        x: 2131
-        y: 409
+        x: 968
+        y: 0
         width: 460
         height: 502
       alignment: 0
@@ -903,8 +903,8 @@ TextureImporter:
       name: Trait_Socialite
       rect:
         serializedVersion: 2
-        x: 3354
-        y: 1630
+        x: 2199
+        y: 1671
         width: 506
         height: 368
       alignment: 0
@@ -924,8 +924,8 @@ TextureImporter:
       name: Trait_Sus
       rect:
         serializedVersion: 2
-        x: 1133
-        y: 1324
+        x: 3359
+        y: 1968
         width: 494
         height: 488
       alignment: 0
@@ -945,8 +945,8 @@ TextureImporter:
       name: Trait_Wellbred
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2423
+        x: 624
+        y: 2961
         width: 622
         height: 545
       alignment: 0
@@ -966,8 +966,8 @@ TextureImporter:
       name: Cat_Icon
       rect:
         serializedVersion: 2
-        x: 1609
-        y: 443
+        x: 0
+        y: 12
         width: 439
         height: 427
       alignment: 0
@@ -987,8 +987,8 @@ TextureImporter:
       name: Dog_Icon
       rect:
         serializedVersion: 2
-        x: 574
-        y: 1323
+        x: 0
+        y: 1604
         width: 559
         height: 526
       alignment: 0
@@ -1008,8 +1008,8 @@ TextureImporter:
       name: Mimic_Icon
       rect:
         serializedVersion: 2
-        x: 622
-        y: 2236
+        x: 1607
+        y: 1882
         width: 592
         height: 574
       alignment: 0
@@ -1029,8 +1029,8 @@ TextureImporter:
       name: Slime_Icon
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1315
+        x: 1607
+        y: 2468
         width: 559
         height: 449
       alignment: 0
@@ -1051,7 +1051,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3188
-        y: 3569
+        y: 3547
         width: 686
         height: 524
       alignment: 0
@@ -1072,7 +1072,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2452
-        y: 3613
+        y: 3591
         width: 736
         height: 480
       alignment: 0
@@ -1093,7 +1093,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3131
-        y: 2500
+        y: 3016
         width: 649
         height: 531
       alignment: 0
@@ -1109,132 +1109,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Action_Flirt
-      rect:
-        serializedVersion: 2
-        x: 2131
-        y: 911
-        width: 472
-        height: 377
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0209cea0c68f0a045b7f58d9ba65ad2b
-      internalID: -1496067586
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Action_Greet
-      rect:
-        serializedVersion: 2
-        x: 3131
-        y: 3031
-        width: 674
-        height: 538
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 49f92792818a75a4db873b7ef6437112
-      internalID: 1539020530
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Action_Mingle
-      rect:
-        serializedVersion: 2
-        x: 2848
-        y: 2202
-        width: 512
-        height: 298
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47c23c40dad21ed4398c8d093969f2ce
-      internalID: -2009547011
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Action_Move
-      rect:
-        serializedVersion: 2
-        x: 574
-        y: 1849
-        width: 561
-        height: 387
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 84c789c2c6619ca479cac9ad270ba03c
-      internalID: 1299049973
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Action_Question
-      rect:
-        serializedVersion: 2
-        x: 1063
-        y: 313
-        width: 400
-        height: 542
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b880fc02c2e0d1c48a4638796b79c955
-      internalID: -1779518827
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Action_Search
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1764
-        width: 574
-        height: 659
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bfe3cc56c34032043bf6e45610989509
-      internalID: -1619915259
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1246,52 +1120,46 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Trait_Refined: -1458703995989870937
       Trait_Impulsive: 6885531744091830942
+      Trait_Fashionable: 1251897918880445879
       Vampire_Icon: 1648101837
+      Trait_OldMoney: -7745550820805891689
+      Trait_Awkward: -5997108453755342256
+      Trait_Pompous: 5520663368378487410
       Emote_Nervous: -4814031307734051258
       Trait_Modest: -701199084815294044
       Emote_Confused: -109573723473219723
       Trait_Fiesty: 459501055929969797
       Trait_Wellbred: 5468975763660379514
+      Emote_Question: -6652726025237223808
       Trait_Forceful: 5856217358709928672
       Cat_Icon: 444950429
       Emote_Chat: -2250895524606800935
-      Action_Search: -1619915259
       Emote_Bored: -2435359898191022327
-      Action_Mingle: -2009547011
-      Trait_Socialite: -5298189338693074327
-      Succubus_Icon: -705012949
-      Emote_Love: -6365784122795345601
-      Trait_shameless: 8284827205904676672
-      Action_Question: -1779518827
-      Trait_Eligable: 3257587759288264639
-      Trait_Heir: -8413271832904141720
-      Trait_Educated: 8238535645930480288
-      Slime_Icon: 1415450888
-      Trait_Sus: -7251191684603112205
-      Trait_Reclusive: -1869764906081662520
-      Trait_Refined: -1458703995989870937
-      Action_Flirt: -1496067586
-      Trait_Fashionable: 1251897918880445879
-      Trait_OldMoney: -7745550820805891689
-      Trait_Awkward: -5997108453755342256
-      Trait_Pompous: 5520663368378487410
-      Action_Move: 1299049973
-      Emote_Question: -6652726025237223808
-      Action_Greet: 1539020530
       Werewolf_Icon: -1561162427
       Trait_Disgraced: -5194033518427056601
+      Trait_Socialite: -5298189338693074327
       Trait_Antiquated: -3204594881783858900
+      Succubus_Icon: -705012949
       Mimic_Icon: -1866089822
       Emote_Offended: 6172989012730995332
+      Emote_Love: -6365784122795345601
       Emote_Unimpressed: -8529918272834007836
       Dog_Icon: 1748466308
+      Trait_shameless: 8284827205904676672
       Trait_Meddler: -7973121347434331627
       Emote_Impressed: -9161520170812784064
+      Trait_Eligable: 3257587759288264639
+      Trait_Heir: -8413271832904141720
       Trait_Gorgeous: 6142266517193933443
+      Trait_Educated: 8238535645930480288
       Trait_Debutaunt: 463110672502015473
+      Slime_Icon: 1415450888
       Trait_Affluent: -6158577979262034925
+      Trait_Reclusive: -1869764906081662520
       Emote_Blush: 1467194518216707590
+      Trait_Sus: -7251191684603112205
       Trait_Firstborn: -4810068617477679631
   spritePackingTag: 
   pSDRemoveMatte: 0

@@ -1,10 +1,8 @@
 fileFormatVersion: 2
-guid: db16e20483aefeb478a5e74ab8a4da3f
-labels:
-- DiningHallLocation
+guid: 185b0cfc7b052af4a9cd5cb22d39f6d0
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 11400000
+  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
