@@ -123,6 +123,16 @@ namespace UI.Cards
         {
             return AbilityList.Contains(ability);
         }
+        
+        public bool HasTrait(TraitData[] preferredTraits)
+        {
+            return preferredTraits.Contains(TraitData);
+        }
+
+        public bool IsGuessState(Guess guessState)
+        {
+            return _guessValue == guessState;
+        }
 
         public void SetGuess(Guess guess)
         {
@@ -137,5 +147,7 @@ namespace UI.Cards
             }
             _boarderView.Set(guess);
         }
+
+
     }
 }

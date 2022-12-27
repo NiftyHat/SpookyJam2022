@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace Data.Interactions
 {
-    public class AbilityReactionTriggerData : InteractionData
+    public class AbilityReactionTriggerData : InteractionData, IMenuItemProvider
     {
         protected class Command : InteractionCommand
         {

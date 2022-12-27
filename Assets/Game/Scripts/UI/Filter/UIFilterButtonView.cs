@@ -1,14 +1,11 @@
 using System;
-using Data.Interactions;
 using Data.Menu;
-using NiftyFramework.Core.Utils;
 using NiftyFramework.UI;
-using UI.Cards;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityUtils;
 
-namespace UI
+namespace UI.Filter
 {
     public class UIFilterButtonView : MonoBehaviour, IView<UIFilterButtonView.Data>
     {
@@ -30,6 +27,16 @@ namespace UI
                 _item = item;
                 _icon = menuItem.Icon;
                 _friendlyName = menuItem.FriendlyName;
+            }
+            
+            public Data(TFilterItem item)
+            {
+                _item = item;
+                if (item is IMenuItemProvider provider)
+                {
+                    _icon = provider.MenuItem.Icon;
+                    _friendlyName = provider.MenuItem.FriendlyName;
+                }
             }
         }
 

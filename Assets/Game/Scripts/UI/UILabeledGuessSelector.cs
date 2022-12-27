@@ -13,6 +13,7 @@ namespace UI
         [SerializeField] [NonNull] private UIGuessAnimation _guessAnimation;
         [SerializeField] [NonNull] private TextMeshProUGUI _label;
         [SerializeField] [NonNull] private Button _button;
+        [SerializeField] [NonNull] private Image _icon;
         [SerializeField] private CanvasGroup _canvasGroup;
 
         protected Guess _guess;
@@ -64,6 +65,16 @@ namespace UI
             }
             _label.SetText(label);
         }
+        
+        public void Set(string label, Sprite icon)
+        {
+            if (label == null)
+            {
+                Clear();
+            }
+            _icon.sprite = icon;
+            _label.SetText(label);
+        }
     
         public void Set(string label, Guess guess)
         {
@@ -72,6 +83,17 @@ namespace UI
                 Clear();
             }
             _label.SetText(label);
+            SetGuess(guess);
+        }
+
+        public void Set(string label, Sprite icon, Guess guess)
+        {
+            if (label == null)
+            {
+                Clear();
+            }
+            _label.SetText(label);
+            _icon.sprite = icon;
             SetGuess(guess);
         }
 
