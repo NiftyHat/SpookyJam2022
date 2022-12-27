@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Context;
 using Data;
 using Data.Interactions;
@@ -9,7 +8,6 @@ using Data.Trait;
 using Entity;
 using NiftyFramework.Core.Context;
 using NiftyFramework.UI;
-using NiftyFramework.UnityUtils;
 using UI;
 using UI.Cards;
 using UI.Filter;
@@ -42,7 +40,6 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
     private GameStateContext _gameStateContext;
     private CharacterEntity _currentCharacter;
     private IReadOnlyList<CharacterEntity> _characterEntities;
-    //private MonoPool<UIFilterButtonView> _filterButtonPool;
     private GameStateContext.LastInteractionData _lastInteractionData;
 
     private void Start()
@@ -58,24 +55,6 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
             _gameStateContext.OnTriggerCharacterReview += HandleTriggerCharacterReview;
         });
 
-        /*
-        var filterButtons = _reactionFilterLayout.GetComponentsInChildren<UIFilterButtonView>();
-        _filterButtonPool = new MonoPool<UIFilterButtonView>(filterButtons);
-        
-        List<AbilityReactionTriggerData> reactionAbilityList = _playerData.GetInteractionDataList<AbilityReactionTriggerData>();
-
-        for (int i = 0; i < reactionAbilityList.Count; i++)
-        {
-            var ability = reactionAbilityList[i];
-            if (_filterButtonPool.TryGet(out var view))
-            {
-                UIFilterButtonView.Data<AbilityReactionTriggerData> viewData =
-                    new UIFilterButtonView.Data<AbilityReactionTriggerData>(ability, ability.MenuItem);
-                view.Set(viewData);
-                view.OnSelected += HandleSelectedFilter;
-            }
-        }*/
-
         List<AbilityReactionTriggerData> reactionAbilityList = _playerData.GetInteractionDataList<AbilityReactionTriggerData>();
         _filterTriggerAbility.Set(reactionAbilityList);
 
@@ -89,8 +68,6 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
         _filterViews.Add(_filterMonsterType);
         _filterViews.Add(_filterGuessState);
         
-        //_filterTriggerAbility.Set(reactionAbilityList);
-
         _cardSpreadView.Set(_traitData.References, _playerData);
         if (_currentCharacter != null)
         {
