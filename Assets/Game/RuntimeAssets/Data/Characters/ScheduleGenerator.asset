@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: ScheduleGenerator
   m_EditorClassIdentifier: 
   _phaseLocationChances:
-  - name: Phase 1
-    _totalWeight: 45
+  - _totalWeight: 45
     _data:
     - _data: {fileID: 935647436183426658, guid: db16e20483aefeb478a5e74ab8a4da3f,
         type: 2}
@@ -25,8 +24,7 @@ MonoBehaviour:
     - _data: {fileID: -622056154717205662, guid: db16e20483aefeb478a5e74ab8a4da3f,
         type: 2}
       _weight: 30
-  - name: Phase 2
-    _totalWeight: 85
+  - _totalWeight: 85
     _data:
     - _data: {fileID: -622056154717205662, guid: db16e20483aefeb478a5e74ab8a4da3f,
         type: 2}
@@ -46,8 +44,7 @@ MonoBehaviour:
     - _data: {fileID: 4635359559426436241, guid: db16e20483aefeb478a5e74ab8a4da3f,
         type: 2}
       _weight: 30
-  - name: Phase 3
-    _totalWeight: 150
+  - _totalWeight: 150
     _data:
     - _data: {fileID: -8594268752274956579, guid: db16e20483aefeb478a5e74ab8a4da3f,
         type: 2}

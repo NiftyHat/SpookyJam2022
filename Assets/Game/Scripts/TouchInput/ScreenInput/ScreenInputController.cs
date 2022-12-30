@@ -98,7 +98,7 @@ namespace NiftyFramework.ScreenInput
                     _lastMousePosition = Input.mousePosition;
                     if (OnInputStart != null)
                     {
-                        screenPointRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+                        screenPointRay = mainCamera.ScreenPointToRay(Input.mousePosition);
                         OnInputStart(worldPosition, Vector2.zero, screenPointRay, _inputDownTime);
                     }
                 }

@@ -3,6 +3,7 @@ using Entity;
 using NiftyFramework.Core;
 using NiftyFramework.Scripts;
 using UnityEngine;
+using UnityUtils;
 
 namespace Spawn
 {
@@ -17,24 +18,73 @@ namespace Spawn
             _locationView.Register(this);
         }
 
-        public void Spawn(IReadOnlyList<CharacterEntity> entity, System.Random random)
+        public void Spawn(IReadOnlyList<CharacterEntity> entityList, System.Random random)
         {
+            var possibleSpawns = new List<CharacterSpawnPosition>() { };
+            possibleSpawns.AddRange(_spawnPositions);
+            possibleSpawns.Shuffle(random);
+            
             int[] indexList = ListUtils.GenerateInts(_spawnPositions.Count, random, 0 , _spawnPositions.Count);
             indexList.Shuffle();
+            
+            Pair<CharacterEntity> followPair = default;
+            CharacterSpawnPosition spawnReservedForFollowing = null;
             for (int i = 0; i < indexList.Length; i++)
             {
                 int randomIndex = indexList[i];
                 CharacterSpawnPosition spawnPosition = _spawnPositions[randomIndex];
-                if (i < entity.Count)
+                CharacterEntity entity = (i < entityList.Count) ? entityList[i] : null;
+                if (entity != null)
                 {
-                    spawnPosition.Set(entity[i]);
+                    if (entity.FollowTarget != null)
+                    {
+                        followPair = new Pair<CharacterEntity>(entity, entity.FollowTarget);
+                        spawnReservedForFollowing = GetClosest(spawnPosition);
+                    }
+                    if (entity == followPair.Right && spawnReservedForFollowing != null)
+                    {
+                        continue;
+                    }
+                    spawnPosition.Set(entity);
                 }
                 else
                 {
                     spawnPosition.Clear();
                 }
                 
+                
+                
             }
+            if (followPair.Right != null && spawnReservedForFollowing != null)
+            {
+                if (spawnReservedForFollowing.TrySwap(followPair.Right, out var swappedCharacter))
+                {
+                    int unoccupiedIndex = indexList[ entityList.Count];
+                    var swapToLocation = _spawnPositions[unoccupiedIndex];
+                    swapToLocation.Set(swappedCharacter);
+                }
+            }
+        }
+
+        public CharacterSpawnPosition GetClosest(CharacterSpawnPosition spawnPosition)
+        {
+            float shortestDistance = float.MaxValue;
+            CharacterSpawnPosition best = null;
+            for (int i = 0; i < _spawnPositions.Count; i++)
+            {
+                var item = _spawnPositions[i];
+                if (item == spawnPosition)
+                {
+                    continue;
+                }
+                float distance = Vector3.Distance(spawnPosition.gameObject.transform.position, item.gameObject.transform.position);
+                if (distance < shortestDistance)
+                {
+                    best = item;
+                    shortestDistance = distance;
+                }
+            }
+            return best;
         }
 
         public void Register(CharacterSpawnPosition spawnPosition)

@@ -86,6 +86,15 @@ namespace Entity
         }
         public void Clear()
         {
+            if (_entity != null)
+            {
+                _entity.OnReaction -= ShowReaction;
+                _spriteRenderer.sprite = null;
+                if (_maskView != null)
+                {
+                    _maskView.Clear();
+                }
+            }
             _entity = null;
             gameObject.SetActive(false);
             if (_reactionBubbleCache != null)
@@ -107,6 +116,10 @@ namespace Entity
 
         public void Set(CharacterEntity entity)
         {
+            if (_entity != null)
+            {
+                Clear();
+            }
             _entity = entity;
             _entity.OnReaction += ShowReaction;
             _spriteRenderer.sprite = _entity.ViewData.Sprite;

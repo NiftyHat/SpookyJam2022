@@ -31,6 +31,9 @@ namespace Data.Monsters
         [SerializeField] private TraitData[] _preferredTraits;
         [SerializeField] private ScheduleGenerator _scheduleGenerator;
         [SerializeField] private MenuItemData _menuItem;
+        [SerializeField] private bool _hasCopyMaskAbility;
+        [SerializeField] private bool _hasCopyScheduleAbility;
+        [SerializeField] private bool _hasFollowGuestAbility;
         
         public Sprite RevealSprite => _revealSprite;
         public string FriendlyName => _friendlyName;
@@ -38,5 +41,9 @@ namespace Data.Monsters
         public TraitData[] PreferredTraits => _preferredTraits;
         public ScheduleGenerator ScheduleGenerator => _scheduleGenerator;
         public IMenuItem MenuItem => _menuItem;
+
+        public bool HasCopyMaskAbility => _hasCopyMaskAbility;
+        public bool HasCopyScheduleAbility => _hasCopyScheduleAbility;
+        public bool HasFollowGuestAbility => _hasFollowGuestAbility;
     }
 }

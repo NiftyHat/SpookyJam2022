@@ -5,6 +5,7 @@ using NiftyFramework.Scripts.UnityUtils;
 using UnityEditor;
 #endif
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 namespace Spawn
 {
@@ -20,6 +21,8 @@ namespace Spawn
         [SerializeField] private CharacterSpawnSet _characterSpawnSet;
         [SerializeField] private CharacterView _viewCache;
         [SerializeField] private FacingDirection _facingDirection;
+
+        public CharacterEntity CurrentEntity => _viewCache != null ? _viewCache.Entity : null;
 
         private void OnValidate()
         {
@@ -98,6 +101,20 @@ namespace Spawn
             }
             _viewCache.gameObject.SetActive(true);
             _viewCache.Set(entity);
+        }
+
+        public bool TrySwap(CharacterEntity entity, out CharacterEntity current)
+        {
+            if (_viewCache != null)
+            {
+                current = _viewCache.Entity;
+            }
+            else
+            {
+                current = null;
+            }
+            _viewCache.Set(entity);
+            return current != null;
         }
     }
 }

@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using Data;
+using System.Text;
 using Data.Character;
 using Data.Monsters;
 using Data.Trait;
-using Generators;
 using Interactions;
 
 namespace Entity
@@ -11,7 +10,6 @@ namespace Entity
     public class MonsterEntity : CharacterEntity
     {
         private MonsterEntityTypeData _typeData;
-
         public MonsterEntityTypeData TypeData => _typeData;
         public override string TypeFriendlyName => _typeData.FriendlyName;
         public MonsterEntity(MonsterEntityTypeData type, MaskEntity mask, CharacterName nameData, HashSet<TraitData> traitList, GuestSchedule schedule, CharacterViewData viewData) : base(mask, nameData, traitList, schedule, viewData)
@@ -30,5 +28,7 @@ namespace Entity
             preferred = new HashSet<TraitData>(_typeData.PreferredTraits);
             preferred.IntersectWith(Traits);
         }
+
+
     }
 }

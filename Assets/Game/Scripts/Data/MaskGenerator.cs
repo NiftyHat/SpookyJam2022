@@ -64,6 +64,21 @@ namespace Data
                 entity = null;
                 return false;
             }
+            
+            public bool TryGet(out MaskEntity entity, System.Random random, MaskData maskData = null)
+            {
+                if (_maskLookup != null && maskData != null)
+                {
+                    entity = _maskLookup[maskData].RandomItem(random);
+                    if (entity != null)
+                    {
+                        Remove(entity);
+                        return true;
+                    }
+                }
+                entity = null;
+                return false;
+            }
 
             private void Remove(MaskEntity entity)
             {

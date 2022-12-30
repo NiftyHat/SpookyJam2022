@@ -82,14 +82,18 @@ namespace Context
         private LastInteractionData _lastInteractionData;
         public LastInteractionData LastInteraction => _lastInteractionData;
 
+        protected int _seed;
+
         public GameStateContext(TimeData timeData, GuestListGenerator guestListGenerator, LocationDataSet locationDataSet)
         {
+            var random = new System.Random();
+            _seed = random.Next();
             _timeData = timeData;
             _guestListGenerator = guestListGenerator;
             _monsterEntityTypeSet = guestListGenerator.MonsterTypeSet;
             _locationDataSet = locationDataSet;
             _currentTime = ConvertTurnsToTime(Turns.Value);
-            _characterEntities = _guestListGenerator.Generate(8, 1, 1);
+            _characterEntities = _guestListGenerator.Generate(8, 1, 1, _seed);
             Debug.Log(GuestListGenerator.PrintDebug(_characterEntities));
             _commandRunner = new CommandRunner();
             Phase.OnChanged += HandlePhaseChange;

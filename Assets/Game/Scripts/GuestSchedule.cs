@@ -8,7 +8,7 @@ namespace Interactions
 {
     public class GuestSchedule
     {
-        private List<LocationData> _locationsByPhase;
+        private readonly List<LocationData> _locationsByPhase;
         
         public GuestSchedule(System.Random random, List<ScheduleGenerator.WeightedLocationChance> weightedLocations)
         {
@@ -23,7 +23,7 @@ namespace Interactions
 
         public bool TryGetLocation(int index, out LocationData location)
         {
-            if (index > 0 &&  index< _locationsByPhase.Count && _locationsByPhase[index] != null)
+            if (index >= 0 &&  index < _locationsByPhase.Count && _locationsByPhase[index] != null)
             {
                 location = _locationsByPhase[index];
                 return true;

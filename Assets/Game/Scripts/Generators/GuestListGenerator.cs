@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using Data;
 using Data.Character;
+using Data.Mask;
 using Data.Monsters;
 using Data.Trait;
 using Entity;
 using FluentCsv.FluentReader;
+using Interactions;
 using NiftyFramework.Scripts;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Generators
 {
@@ -96,6 +99,8 @@ namespace Generators
             //Monster Generation
             HashSet<MonsterEntityTypeData> monsterTypeSet = new HashSet<MonsterEntityTypeData>();
             List<MonsterEntity> monsterEntities = new List<MonsterEntity>();
+            MaskEntity monsterTargetMask = null;
+            GuestSchedule monsterTargetSchedule = null;
             for (int i = 0; i < monsterCount; i++)
             {
                 MonsterEntity monster = _monsterGenerator.Generate(random, itemPool, out var monsterType);
@@ -105,7 +110,19 @@ namespace Generators
                 {
                     monsterTypeSet.Add(monsterType);
                 }
+
+                if (monster.TypeData.HasCopyMaskAbility)
+                {
+                    itemPool.Masks.TryGet(out monsterTargetMask, random, monster.Mask.MaskData);
+                }
+
+                if (monster.TypeData.HasCopyScheduleAbility)
+                {
+                    monsterTargetSchedule = monster.Schedule;
+                }
             }
+
+            
             //Create a pool of possible monster traits. These get added to other guests to increase difficulty.
             HashSet<TraitData> monsterTraitPool = new HashSet<TraitData>();
             foreach (var item in monsterTypeSet)
@@ -123,12 +140,28 @@ namespace Generators
                 traitList.Remove(first);
                 traitList.Add(monsterTraitList.RandomItem(random));
             }
-
+            
             //People generation
             for (int i = 0; i < personCount; i++)
             {
-                var person = _personGenerator.Generate(random, itemPool);
-                generatedCharacters.Add(person);
+                //TODO dsaunders - this is a ugly way of forcing the first guest to be marked if a Monster requires it.
+                if (i == 0 && monsterTargetMask != null || monsterTargetSchedule != null)
+                {
+                    var person = _personGenerator.Generate(random, monsterTargetMask,
+                        monsterTargetSchedule, itemPool);
+                    var firstMonster = monsterEntities[0];
+                    if (firstMonster != null)
+                    {
+                        firstMonster.SetFollowTarget(person);
+                    }
+                    generatedCharacters.Add(person);
+                }
+                else
+                {
+                    var person = _personGenerator.Generate(random, itemPool);
+                    generatedCharacters.Add(person);
+                }
+                
             }
             
             _characterEntitySet.Assign(generatedCharacters);
@@ -167,7 +200,6 @@ namespace Generators
             {
                 sb.Append(item.PrintDebug());
                 sb.AppendLine();
-                
             }
             return sb.ToString();
         }

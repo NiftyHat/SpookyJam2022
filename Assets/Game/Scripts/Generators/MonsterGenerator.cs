@@ -38,7 +38,6 @@ namespace Generators
             {
                 itemPool.Schedules.TryGet(out schedule);
             }
-            
             HashSet<TraitData> monsterTraits = new HashSet<TraitData>(entityTypeData.PreferredTraits);
             CharacterViewData viewData = itemPool.ViewData.GetGendered(impliedGender, random);
             return new MonsterEntity(entityTypeData, maskEntity, nameEntity, monsterTraits, schedule, viewData);

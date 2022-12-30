@@ -45,6 +45,12 @@ namespace Entity
 
         private GuestSchedule _schedule;
 
+        public GuestSchedule Schedule => _schedule;
+        
+        private CharacterEntity _followTarget;
+
+        public CharacterEntity FollowTarget => _followTarget;
+
         public virtual string TypeFriendlyName => "Character";
 
         public event Action<ReactionData> OnReaction;
@@ -58,6 +64,11 @@ namespace Entity
             _viewData = viewData;
             _schedule = schedule;
             _traitGuessList = new List<TraitData>();
+        }
+        
+        public void SetFollowTarget(CharacterEntity entity)
+        {
+            _followTarget = entity;
         }
 
         public string PrintDebug()
@@ -78,6 +89,13 @@ namespace Entity
             }
             stringBuilder.Append("]");
             stringBuilder.Append(_schedule.ToString());
+            if (_followTarget != null)
+            {
+                stringBuilder.Append(" Following: ");
+                stringBuilder.Append("'");
+                stringBuilder.Append(_followTarget.Name.Full);
+                stringBuilder.Append("'");
+            }
             return stringBuilder.ToString();
         }
 
