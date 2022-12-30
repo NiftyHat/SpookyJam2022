@@ -73,8 +73,10 @@ namespace Generators
             {
                 [SerializeField] private LocationData _data;
                 [SerializeField] private int _weight;
+                [SerializeField] private int _minimum;
 
                 public int Weight => _weight;
+                public int Minimum => _minimum;
                 public LocationData Data => _data;
             }
 
@@ -90,6 +92,7 @@ namespace Generators
                     _totalWeight += item.Weight;
                 }
             }
+            
             public List<LocationData> GetRandom(System.Random random, int count)
             {
                 List<LocationData> output = new List<LocationData> ( new LocationData[count] );

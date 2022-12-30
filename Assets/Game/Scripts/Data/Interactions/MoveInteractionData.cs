@@ -1,4 +1,3 @@
-using System.Linq;
 using Commands;
 using Context;
 using Entity;
@@ -7,7 +6,6 @@ using Interactions;
 using Interactions.Commands;
 using NiftyFramework.Core.Context;
 using TouchInput.UnitControl;
-using UI;
 using UnityEngine;
 
 namespace Data.Interactions

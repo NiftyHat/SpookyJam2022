@@ -31,12 +31,7 @@ namespace UI.Cards
                 }
             }
         }
-
-        public void OnEnable()
-        {
-            Debug.Log(gameObject.name);
-        }
-
+        
         public void Clear()
         {
             _traitView.Clear();

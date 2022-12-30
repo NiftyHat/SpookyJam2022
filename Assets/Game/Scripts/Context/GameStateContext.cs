@@ -169,7 +169,9 @@ namespace Context
             }
             var locationInstance = newLocation.GetInstance();
             locationInstance.SpawnPlayer(player, oldLocation);
+            locationInstance.Load();
             locationInstance.TrySetActive(true);
+            oldLocationInstance.Unload();
         }
 
         public void StartGame(out AsyncOperation loadingOperation)

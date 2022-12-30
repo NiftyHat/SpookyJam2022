@@ -39,14 +39,13 @@ public class LocationView : MonoBehaviour, IView<LocationData>
 
     void Start()
     {
-        ContextService.Get<GameStateContext>(HandleGameState);
+        Init();
     }
 
     private void HandleGameState(GameStateContext gameStateService)
     {
         _gameStateService = gameStateService;
-        gameStateService.OnPhaseChange += HandlePhaseChange;
-        Init();
+        
     }
 
     private void HandlePhaseChange(int newvalue, int oldvalue)
@@ -75,8 +74,21 @@ public class LocationView : MonoBehaviour, IView<LocationData>
         }
     }
 
-    private void Init()
+    protected void Init()
     {
+        if (_gameStateService == null)
+        {
+            ContextService.Get<GameStateContext>(gameStateService =>
+            {
+                if (_gameStateService == null)
+                {
+                    _gameStateService = gameStateService;
+                    gameStateService.OnPhaseChange += HandlePhaseChange;
+                    Init();
+                }
+            });
+            return;
+        }
         var charactersInLocation = _gameStateService.GetCharactersInLocation(_locationData);
         if (charactersInLocation != null && charactersInLocation.Count > 0)
         {
@@ -97,6 +109,7 @@ public class LocationView : MonoBehaviour, IView<LocationData>
 
     public void SpawnPlayer(PlayerInputHandler player, LocationData fromLocation)
     {
+        _canSpawn = true;
         Transform playerTransform = player.transform;
         playerTransform.parent = transform;
         TransitionZoneView spawnZone = _transitionZoneViews.FirstOrDefault(item => item.LinkedLocation == fromLocation);
