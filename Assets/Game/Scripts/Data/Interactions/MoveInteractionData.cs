@@ -23,8 +23,8 @@ namespace Data.Interactions
             
             private UnitMovementHandler _movementHandler;
             private float _apRemainingDistance;
-            
-            LayerMask _movementBlocker = LayerMask.GetMask("Movement Blocker");
+
+            private readonly LayerMask _movementBlocker = LayerMask.GetMask("Movement Blocker");
             private Vector3 _targetLocation;
             public Vector3 TargetLocation => _targetLocation;
 
