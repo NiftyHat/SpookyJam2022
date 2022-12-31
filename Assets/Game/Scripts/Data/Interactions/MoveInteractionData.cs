@@ -4,6 +4,7 @@ using Entity;
 using GameStats;
 using Interactions;
 using Interactions.Commands;
+using Newtonsoft.Json.Serialization;
 using NiftyFramework.Core.Context;
 using TouchInput.UnitControl;
 using UnityEngine;
@@ -26,8 +27,12 @@ namespace Data.Interactions
             LayerMask _movementBlocker = LayerMask.GetMask("Movement Blocker");
             private Vector3 _targetLocation;
             public Vector3 TargetLocation => _targetLocation;
-            
+
+            public override bool ShowRangeCircle => false;
+
             private string _description;
+            private bool _showRangeCircle1;
+
             public Command(IInteraction interaction, TargetingInfo targets, GameStat actionPoints) : base(interaction, targets, actionPoints)
             {
                 _apCostForOneMovementUnit = (interaction.RangeMax / interaction.CostAP) * _oneUnit;

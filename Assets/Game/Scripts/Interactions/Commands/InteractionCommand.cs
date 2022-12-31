@@ -26,7 +26,7 @@ namespace Interactions.Commands
         public IInteraction Interaction => _interaction;
         public TargetingInfo Targets => _targets;
 
-        public bool ShowRangeCircle => _interaction.RangeMax > 0;
+        public virtual bool ShowRangeCircle => _interaction.RangeMax > 0;
         public bool ShowRadiusCircle => _interaction.Radius > 0;
         public bool ShowTargetLine => _interaction != null && _interaction.isFloorTarget;
 
