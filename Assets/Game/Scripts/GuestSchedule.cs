@@ -10,7 +10,7 @@ namespace Interactions
     {
         private readonly List<LocationData> _locationsByPhase;
         
-        public GuestSchedule(System.Random random, List<ScheduleGenerator.WeightedLocationChance> weightedLocations)
+        public GuestSchedule(System.Random random, List<ScheduleGenerator.SpawnLocationChance> weightedLocations)
         {
             _locationsByPhase = new List<LocationData>();
             for (int i = 0; i < weightedLocations.Count; i++)

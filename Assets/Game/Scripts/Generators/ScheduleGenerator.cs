@@ -15,14 +15,14 @@ namespace Generators
     {
         public class SchedulePool
         {
-            private List<GuestSchedule> _all;
+            private readonly List<GuestSchedule> _all;
 
-            public SchedulePool(List<WeightedLocationChance> locationChance, int count, System.Random random)
+            public SchedulePool(List<SpawnLocationChance> locationChancesList, int count, System.Random random)
             {
                 _all = new List<GuestSchedule>();
                 for (int i = 0; i < count; i++)
                 {
-                    _all.Add(new GuestSchedule(random, locationChance));
+                    _all.Add(new GuestSchedule(random, locationChancesList));
                 }
             }
 
@@ -66,7 +66,7 @@ namespace Generators
         }
         
         [Serializable]
-        public class WeightedLocationChance
+        public class SpawnLocationChance
         {
             [Serializable]
             public class Entry
@@ -145,7 +145,7 @@ namespace Generators
             }
         }
 
-        [SerializeField] private List<WeightedLocationChance> _phaseLocationChances;
+        [SerializeField] private List<SpawnLocationChance> _phaseLocationChances;
 
         public SchedulePool GetPool(System.Random randomSeed, int count)
         {
