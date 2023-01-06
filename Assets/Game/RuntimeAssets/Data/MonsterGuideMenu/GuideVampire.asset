@@ -10,9 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f81b4a7db40afe49b6851f63712cf28, type: 3}
-  m_Name: Vampire
+  m_Name: GuideVampire
   m_EditorClassIdentifier: 
-  monsterName: Vampire
+  monsterName: Vampyrus Cometessa
   image: {fileID: 21300000, guid: 6db28da6aa0ef804984913cd4397f42c, type: 3}
-  description: Christopher Lee
-  hint: It's just Christopher Lee
+  description: 'The Vampyrus Cometessa blends incredibly well with society. They
+    play their immortality off as being the <b>Heir</b> of a long aristrocractic
+    line.
+
+
+    Their long lifespand and periods of sleep give them <b>Antiquated</b>
+    attitudes; but also granted then <b>Affluent</b> welath.'
+  hint: They require an invitation to enter a building, and have to lurk outside.

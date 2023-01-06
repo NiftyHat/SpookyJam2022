@@ -73,6 +73,18 @@ namespace Data.Interactions
             }
             return reactionList.ToList();
         }
+
+        public ReactionData GetReaction(TraitData targetTrait)
+        {
+            foreach (var trigger in _triggerList)
+            {
+                if (trigger.Trait == targetTrait)
+                {
+                    return trigger.Reaction;
+                }
+            }
+            return null;
+        }
         
         public List<ReactionData> GetReactions(TraitData targetTrait)
         {

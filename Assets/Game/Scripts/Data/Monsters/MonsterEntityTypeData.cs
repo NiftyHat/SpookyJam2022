@@ -21,7 +21,6 @@ namespace Data.Monsters
 
             public string FriendlyName => _friendlyName;
             public Sprite Icon => _icon;
-            
             public string Description => _description;
             
         }

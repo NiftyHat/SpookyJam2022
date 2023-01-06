@@ -124,12 +124,12 @@ namespace Data.Interactions
         [SerializeField] private ReactionTriggerSet _reactionTrigger;
         public ReactionTriggerSet ReactionTrigger => _reactionTrigger;
 
-        protected string _traitListCopy = null;
-
         public override string GetDescription()
         {
-            _traitListCopy = _reactionTrigger.GetTraitSpriteList().ToString();
-            return base.GetDescription().Replace("{traitList}", "");
+            return base.GetDescription().Replace("{traitList}", "").
+                Replace("{targetName}", "Target").
+                Replace("{range}", RangeMax.ToString()).
+                Replace("{radius}", Radius.ToString());
         }
 
         public override InteractionCommand GetCommand(TargetingInfo targetingInfo)

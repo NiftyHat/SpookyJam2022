@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f81b4a7db40afe49b6851f63712cf28, type: 3}
+  m_Name: GuideSlime
+  m_EditorClassIdentifier: 
+  monsterName: Limus Multiformis
+  image: {fileID: 21300000, guid: 8a446822dccd4d940b545580eb2c44af, type: 3}
+  description: 'The Limus Multiformis, in the plebian parlence the "gelatinous ooze"
+    is unique amongst the cryptids in that their traits don''t reflect the nature
+    of the creature and instead are quiet <b>Reclusive</b>
+
+
+    Instead they will
+    earnestly attempt to fit in with society explifying the virtues of being very
+    <b>Refined</b> and equally <b>Modest</b> .'
+  hint: Outside of simple deduction with social traits there is no other known way
+    to identify this cryptid.

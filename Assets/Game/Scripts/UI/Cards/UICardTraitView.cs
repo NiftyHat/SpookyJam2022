@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Data;
 using Data.Interactions;
 using Data.Reactions;
 using Data.Trait;
@@ -28,6 +29,7 @@ namespace UI.Cards
         [SerializeField] private Canvas _canvas;
         [SerializeField] private Image _markedNoDecal;
 
+
         public TraitData TraitData { get; private set; }
         public IList<ReactionData> ReactionList {get; private set; }
         public IList<AbilityReactionTriggerData> AbilityList { get; private set; }
@@ -40,6 +42,7 @@ namespace UI.Cards
         private static readonly int FaceDown = Animator.StringToHash("FaceDown");
 
         protected int _defaultSortOrder;
+        
 
         public void Set(TraitData traitData, IList<ReactionData> reactionDataList, IList<AbilityReactionTriggerData> abilityDataList)
         {
@@ -54,7 +57,11 @@ namespace UI.Cards
             _content.Set(traitData, reactionDataList);
             _textFooter.SetText(traitData.FriendlyName);
             _cardHeader.Set(traitData.CardSuit, traitData.CardNumber);
-            _button.onClick.AddListener(HandleClicked);
+            if (_button != null)
+            {
+                _button.onClick.AddListener(HandleClicked);
+            }
+           
             ReactionList = reactionDataList;
             AbilityList = abilityDataList;
             TraitData = traitData;

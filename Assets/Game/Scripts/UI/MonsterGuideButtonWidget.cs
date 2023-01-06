@@ -1,5 +1,6 @@
 using Context;
 using NiftyFramework.Core.Utils;
+using UI.Guide;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ namespace UI
     public class MonsterGuideButtonWidget : MonoBehaviour
     {
         [SerializeField] [NonNull] private Button _button;
-        [SerializeField] [NonNull] private MonsterGuideMenuWidget _guideWidget;
+        [SerializeField] [NonNull] private UIGuideBookView _guideView;
         
         private GameStateContext _gameStateContext;
 
@@ -19,9 +20,9 @@ namespace UI
 
         private void HandleClick()
         {
-            if (_guideWidget != null)
+            if (_guideView != null)
             {
-                _guideWidget.ShowGuide();
+                _guideView.Show();
             }
         }
     }

@@ -7,8 +7,8 @@ public class MonsterGuidePageSO : ScriptableObject
 {
     public string monsterName;
     public Sprite image;
-    [TextArea]
+    [TextArea(8,12)]
     public string description;
-    [TextArea]
+    [TextArea(2,5)]
     public string hint;
 }
