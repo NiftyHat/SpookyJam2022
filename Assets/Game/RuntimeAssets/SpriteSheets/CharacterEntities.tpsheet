@@ -1,0 +1,24 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://assetstore.unity.com/packages/tools/sprite-management/texturepacker-importer-16641
+#
+# created with Free texture packer v0.6.7
+# http://free-tex-packer.com
+#
+:format=40300
+:texture=CharacterEntities.png
+:size=1019x469
+:pivotpoints=enabled
+:borders=disabled
+
+Character_F;0;0;218;469; 0.5;0.5; 0;0;0;0
+Character_K;218;15;218;454; 0.5;0.5; 0;0;0;0
+Character_M;436;15;218;454; 0.5;0.5; 0;0;0;0
+Mask-Bird-World;654;370;113;99; 0.5;0.5; 0;0;0;0
+Mask-Butterfly-World;767;370;101;99; 0.5;0.5; 0;0;0;0
+Mask-Rabbit-World;868;337;87;132; 0.5;0.5; 0;0;0;0
+Mask-Plauge-World;654;275;81;95; 0.5;0.5; 0;0;0;0
+Mask-Devil-World;735;289;77;81; 0.5;0.5; 0;0;0;0
+Mask-Tiger_World;955;392;64;77; 0.5;0.5; 0;0;0;0

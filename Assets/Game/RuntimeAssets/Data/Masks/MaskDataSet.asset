@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6796321495467166421
+--- !u!114 &-9213557325161373230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 587a432da2cf4936918762877a51f7d6, type: 3}
-  m_Name: BatMask
+  m_Name: TigerMask
   m_EditorClassIdentifier: 
-  _friendlyName: Bat
-  _worldSprite: {fileID: 21300000, guid: 4971007f00d969c46998c8e1e9c38279, type: 3}
-  _cardSprite: {fileID: 21300000, guid: f684495efddc9bf4a95dc42f21cb5aeb, type: 3}
-  _iconSprite: {fileID: 21300000, guid: f684495efddc9bf4a95dc42f21cb5aeb, type: 3}
+  _friendlyName: Tiger
+  _worldSprite: {fileID: -450183932, guid: 4fe53f8dd68020047b70b4702be97926, type: 3}
+  _cardSprite: {fileID: 0}
+  _iconSprite: {fileID: 1751181281, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
 --- !u!114 &-2635509945030308675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,9 +29,9 @@ MonoBehaviour:
   m_Name: RabbitMask
   m_EditorClassIdentifier: 
   _friendlyName: Rabbit
-  _worldSprite: {fileID: 21300000, guid: ac9d135066a8c3b46ae325e7635b2c83, type: 3}
+  _worldSprite: {fileID: 1172716965, guid: 4fe53f8dd68020047b70b4702be97926, type: 3}
   _cardSprite: {fileID: 21300000, guid: 5c914e230535d9543885de7ccc8c7844, type: 3}
-  _iconSprite: {fileID: 21300000, guid: 5c914e230535d9543885de7ccc8c7844, type: 3}
+  _iconSprite: {fileID: 1566392351, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
 --- !u!114 &-1947377418804468816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: PlagueMask
   m_EditorClassIdentifier: 
   _friendlyName: Plague
-  _worldSprite: {fileID: 21300000, guid: fececb6c87733ad4a8ec784aa09948cb, type: 3}
-  _cardSprite: {fileID: 21300000, guid: fececb6c87733ad4a8ec784aa09948cb, type: 3}
-  _iconSprite: {fileID: 21300000, guid: fececb6c87733ad4a8ec784aa09948cb, type: 3}
+  _worldSprite: {fileID: 1119162597, guid: 4fe53f8dd68020047b70b4702be97926, type: 3}
+  _cardSprite: {fileID: 0}
+  _iconSprite: {fileID: 1423887151, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
 --- !u!114 &-23421124812814307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,9 +61,9 @@ MonoBehaviour:
   m_Name: DevilMask
   m_EditorClassIdentifier: 
   _friendlyName: Tiger
-  _worldSprite: {fileID: 21300000, guid: fc0e2cf6d1ba58341a453a6d5d97a124, type: 3}
+  _worldSprite: {fileID: -325744854, guid: 4fe53f8dd68020047b70b4702be97926, type: 3}
   _cardSprite: {fileID: 21300000, guid: 121c2b76c9759b947a1a70ed28f33d52, type: 3}
-  _iconSprite: {fileID: 21300000, guid: 121c2b76c9759b947a1a70ed28f33d52, type: 3}
+  _iconSprite: {fileID: -531026663, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,8 +81,8 @@ MonoBehaviour:
   - {fileID: -2635509945030308675}
   - {fileID: 7322081165476461360}
   - {fileID: -23421124812814307}
-  - {fileID: -6796321495467166421}
   - {fileID: -1947377418804468816}
+  - {fileID: -9213557325161373230}
   _colours: []
 --- !u!114 &7322081165476461360
 MonoBehaviour:
@@ -97,9 +97,9 @@ MonoBehaviour:
   m_Name: ButterflyMask
   m_EditorClassIdentifier: 
   _friendlyName: Butterfly
-  _worldSprite: {fileID: 21300000, guid: c55a56f8c8188ba44a71198f48947154, type: 3}
+  _worldSprite: {fileID: 532432071, guid: 4fe53f8dd68020047b70b4702be97926, type: 3}
   _cardSprite: {fileID: 21300000, guid: 0e8981debf4712845b598dc33fa1ed94, type: 3}
-  _iconSprite: {fileID: 21300000, guid: 0e8981debf4712845b598dc33fa1ed94, type: 3}
+  _iconSprite: {fileID: -1744400674, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
 --- !u!114 &7810831403378279784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +113,6 @@ MonoBehaviour:
   m_Name: BirdMask
   m_EditorClassIdentifier: 
   _friendlyName: Bird
-  _worldSprite: {fileID: 21300000, guid: 15d0f2c8310f4e0429d4f87dcd4520d7, type: 3}
+  _worldSprite: {fileID: -1246942064, guid: 4fe53f8dd68020047b70b4702be97926, type: 3}
   _cardSprite: {fileID: 21300000, guid: eaa50e0e78acba54585f4baab6db6a7f, type: 3}
-  _iconSprite: {fileID: 21300000, guid: eaa50e0e78acba54585f4baab6db6a7f, type: 3}
+  _iconSprite: {fileID: 1955585649, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}

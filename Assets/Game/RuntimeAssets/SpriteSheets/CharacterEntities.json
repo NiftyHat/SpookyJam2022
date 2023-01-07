@@ -1,0 +1,375 @@
+{
+  "frames": {
+    "Character_F": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 218,
+        "h": 469
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 218,
+        "h": 469
+      },
+      "sourceSize": {
+        "w": 218,
+        "h": 469
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Character_K": {
+      "frame": {
+        "x": 218,
+        "y": 0,
+        "w": 218,
+        "h": 454
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 218,
+        "h": 454
+      },
+      "sourceSize": {
+        "w": 218,
+        "h": 454
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Character_M": {
+      "frame": {
+        "x": 436,
+        "y": 0,
+        "w": 218,
+        "h": 454
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 218,
+        "h": 454
+      },
+      "sourceSize": {
+        "w": 218,
+        "h": 454
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Mask-Bird-World": {
+      "frame": {
+        "x": 654,
+        "y": 0,
+        "w": 123,
+        "h": 107
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 123,
+        "h": 107
+      },
+      "sourceSize": {
+        "w": 123,
+        "h": 107
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Mask-Butterfly-Icon": {
+      "frame": {
+        "x": 777,
+        "y": 0,
+        "w": 120,
+        "h": 85
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 85
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 85
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Mask-Bird-Icon": {
+      "frame": {
+        "x": 897,
+        "y": 0,
+        "w": 120,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 80
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Mask-Devil-Icon": {
+      "frame": {
+        "x": 1017,
+        "y": 0,
+        "w": 114,
+        "h": 102
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 114,
+        "h": 102
+      },
+      "sourceSize": {
+        "w": 114,
+        "h": 102
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Mask-Butterfly-World": {
+      "frame": {
+        "x": 897,
+        "y": 80,
+        "w": 111,
+        "h": 108
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 111,
+        "h": 108
+      },
+      "sourceSize": {
+        "w": 111,
+        "h": 108
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Mask-Devil-World": {
+      "frame": {
+        "x": 777,
+        "y": 102,
+        "w": 108,
+        "h": 114
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 108,
+        "h": 114
+      },
+      "sourceSize": {
+        "w": 108,
+        "h": 114
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Mask-Tiger-Icon": {
+      "frame": {
+        "x": 654,
+        "y": 107,
+        "w": 106,
+        "h": 104
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 106,
+        "h": 104
+      },
+      "sourceSize": {
+        "w": 106,
+        "h": 104
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Mask-Tiger_World": {
+      "frame": {
+        "x": 654,
+        "y": 211,
+        "w": 102,
+        "h": 123
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 102,
+        "h": 123
+      },
+      "sourceSize": {
+        "w": 103,
+        "h": 123
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Mask-Plauge-World": {
+      "frame": {
+        "x": 1131,
+        "y": 0,
+        "w": 92,
+        "h": 108
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 92,
+        "h": 108
+      },
+      "sourceSize": {
+        "w": 92,
+        "h": 108
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Mask-Rabbit-World": {
+      "frame": {
+        "x": 1008,
+        "y": 102,
+        "w": 90,
+        "h": 137
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 90,
+        "h": 137
+      },
+      "sourceSize": {
+        "w": 90,
+        "h": 137
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Mask-Rabbit-Icon": {
+      "frame": {
+        "x": 885,
+        "y": 188,
+        "w": 89,
+        "h": 125
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 89,
+        "h": 125
+      },
+      "sourceSize": {
+        "w": 89,
+        "h": 125
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Mask-Plauge-Icon": {
+      "frame": {
+        "x": 885,
+        "y": 313,
+        "w": 83,
+        "h": 124
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 83,
+        "h": 124
+      },
+      "sourceSize": {
+        "w": 83,
+        "h": 124
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "CharacterEntities.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1223,
+      "h": 469
+    },
+    "scale": 1
+  }
+}

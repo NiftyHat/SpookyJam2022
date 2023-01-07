@@ -35,5 +35,24 @@ public class CharacterTypeGuess
         }
         return Guess.None;
     }
+
+    public bool IsEliminated(List<MonsterEntityTypeData> monsterEntityTypeDataList)
+    {
+        foreach (var item in monsterEntityTypeDataList)
+        {
+            if (_guessMonster.TryGetValue(item, out Guess guess))
+            {
+                if (guess != Guess.No)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     
 }

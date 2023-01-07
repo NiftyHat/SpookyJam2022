@@ -641,6 +641,132 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Mask-Bird-Icon.png
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 890
+        width: 120
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88182730233d45748b7a1a1e3d2ed75b
+      internalID: 1955585649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mask-Butterfly-Icon.png
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 870
+        width: 120
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 291202bd2124da849abb761c3a44817f
+      internalID: -1744400674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mask-Devil-Icon.png
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 853
+        width: 114
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbb5f8302ca91d144a2b6043cdf316cf
+      internalID: -531026663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mask-Plauge-Icon.png
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 1222
+        width: 87
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ec35608590294c4aa3fa696d42584fb
+      internalID: 1423887151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mask-Rabbit-Icon.png
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 1330
+        width: 94
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06dbd3c61f14874499f684c8be49d3df
+      internalID: 1566392351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mask-Tiger-Icon.png
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 981
+        width: 106
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0436c089f36d9aa4da7bf29a72baea49
+      internalID: 1751181281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -652,10 +778,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Mask-Tiger-Icon.png: 1751181281
       Icon-Chevron-Next.png: -1086382725
       Interaction-Speech.png: 394077799
       AbilityFill-CurvedCorners.png: 5920585933131536487
       Interaction-Flirt.png: -1515131695
+      Mask-Plauge-Icon.png: 1423887151
       AbilityButton-Outline.png: -3945633791335285793
       Interaction-Brag.png: 430583790
       Interaction-Examine.png: -1157539444
@@ -669,10 +797,14 @@ TextureImporter:
       Interaction-Mingle.png: 1456780871
       RoundedButton.png: 4095538057763963606
       Interaction-Joke.png: 1804464223
+      Mask-Butterfly-Icon.png: -1744400674
       Interaction-Conspire.png: -628399140
       Interaction-EndTurn.png: 649916452
       Checkbox-Cross.png: 1007505744
+      Mask-Devil-Icon.png: -531026663
       Monster-Select-Tag.png: 843645967
+      Mask-Bird-Icon.png: 1955585649
+      Mask-Rabbit-Icon.png: 1566392351
       AbilityButton-CostBackground.png: -1413265788828118824
       Small-Square-Rounded-Corners.png: -2004639798
   spritePackingTag: 

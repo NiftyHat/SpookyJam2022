@@ -25,6 +25,8 @@ Small-Square-Rounded-Corners.png;1966;1953;50;49; 0.5;0.5; 0;0;0;0
 Interaction-Examine.png;1485;1148;475;476; 0.5;0.5; 0;0;0;0
 Interaction-Brag.png;969;1089;408;480; 0.5;0.5; 0;0;0;0
 Icon-Chevron-Next.png;1379;1434;98;135; 0.5;0.5; 0;0;0;0
+Mask-Rabbit-Icon.png;1379;1330;94;102; 0.5;0.5; 0;0;0;0
+Mask-Plauge-Icon.png;1379;1222;87;106; 0.5;0.5; 0;0;0;0
 TooltipSkill.png;1379;1048;380;98; 0.5;0.5; 0;0;0;0
 Interaction-EndTurn.png;969;696;367;391; 0.5;0.5; 0;0;0;0
 Rounded-Button-Glow.png;1761;993;244;153; 0.5;0.5; 0;0;0;0
@@ -33,6 +35,10 @@ Interaction-Joke.png;1689;541;344;450; 0.5;0.5; 0;0;0;0
 RoundedButton.png;482;972;213;113; 0.5;0.5; 0;0;0;0
 AbilityButton-Background.png;697;957;128;128; 0.5;0.5; 0;0;0;0
 AbilityButton-Outline.png;827;842;128;128; 0.5;0.5; 0;0;0;0
+Mask-Tiger-Icon.png;827;981;106;104; 0.5;0.5; 0;0;0;0
 AbilityFill-CurvedCorners.png;1;411;127;128; 0.5;0.5; 0;0;0;0
 Checkbox-Tick.png;1;570;110;124; 0.5;0.5; 0;0;0;0
 Checkbox-Cross.png;1;725;123;115; 0.5;0.5; 0;0;0;0
+Mask-Devil-Icon.png;1;853;114;102; 0.5;0.5; 0;0;0;0
+Mask-Butterfly-Icon.png;117;870;120;85; 0.5;0.5; 0;0;0;0
+Mask-Bird-Icon.png;239;890;120;80; 0.5;0.5; 0;0;0;0
