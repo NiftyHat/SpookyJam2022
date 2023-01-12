@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Context;
 using Data.Location;
 using Entity;
@@ -62,6 +63,13 @@ public class LocationView : MonoBehaviour, IView<LocationData>
     {
         if (_canSpawn)
         {
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in entities)
+            {
+                sb.Append(item.Name.Full);
+                sb.Append(",");
+            }
+            Debug.Log($"{_locationData.FriendlyName} = {sb}");
             if (_spawnSet != null)
             {
                 _spawnSet.Spawn(entities, random);

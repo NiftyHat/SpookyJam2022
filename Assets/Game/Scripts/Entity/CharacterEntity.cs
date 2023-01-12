@@ -10,11 +10,17 @@ using Data.Trait;
 using GameStats;
 using Generators;
 using Interactions;
+using NiftyFramework.Core;
 
 namespace Entity
 {
     public class CharacterEntity
     {
+        public class SeenProvider : ValueProvider<bool>
+        {
+            
+        }
+
         private CharacterName _name;
         private MaskEntity _mask;
         private CharacterName.ImpliedGender _impliedGender;
@@ -55,6 +61,8 @@ namespace Entity
 
         public event Action<ReactionData> OnReaction;
         public event Action<LocationData, LocationData> OnLocationChange;
+
+        public ValueProvider<bool> WasSeen;
         public CharacterEntity(MaskEntity mask, CharacterName nameData, HashSet<TraitData> traitList, GuestSchedule schedule, CharacterViewData viewData)
         {
             _mask = mask;
@@ -63,6 +71,7 @@ namespace Entity
             _impliedGender = nameData.Gender;
             _viewData = viewData;
             _schedule = schedule;
+            WasSeen = new SeenProvider();
             _traitGuessList = new List<TraitData>();
         }
         

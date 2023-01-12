@@ -12,7 +12,6 @@ namespace UI.Guide
         [SerializeField] private Image _maskImage;
         [SerializeField] private Transform _unknownIcon;
 
-
         public void Set(MaskEntity maskEntity)
         {
             if (maskEntity != null)

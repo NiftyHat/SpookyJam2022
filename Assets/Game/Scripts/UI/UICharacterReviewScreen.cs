@@ -91,8 +91,8 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
     private void HandleTriggerCharacterReview(CharacterEntity characterEntity)
     {
         _root.SetActive(true);
+        characterEntity.WasSeen.Value = true;
         Set(characterEntity);
-       
     }
 
     private void HandleClickClear()
@@ -249,9 +249,7 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
         _currentCharacter = characterEntity;
         if (_cardCharacterView != null)
         {
-            _cardCharacterView.SetFacingDown(false);
             _cardCharacterView.Set(characterEntity);
-            
         }
         _cardSpreadView.SetGuessInfo(_currentCharacter.TraitGuessInfo);
         _lastInteractionData = _gameStateContext.LastInteraction;
@@ -260,6 +258,7 @@ public class UICharacterReviewScreen : MonoBehaviour, IView<CharacterEntity>
             if (_lastInteractionData.Reactions.TryGetValue(_currentCharacter, out var reactionData))
             {
                 _lastReactionView.Set(reactionData);
+                characterEntity.WasSeen.Value = true;
             }
             else
             {

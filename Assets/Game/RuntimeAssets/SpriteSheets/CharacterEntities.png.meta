@@ -146,10 +146,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 218
-        height: 469
-      alignment: 9
-      pivot: {x: 0.6903597, y: 0}
+        width: 245
+        height: 473
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,12 +165,12 @@ TextureImporter:
       name: Character_K
       rect:
         serializedVersion: 2
-        x: 218
-        y: 15
-        width: 218
-        height: 454
-      alignment: 9
-      pivot: {x: 0.5658203, y: 0}
+        x: 245
+        y: 0
+        width: 245
+        height: 473
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,12 +186,12 @@ TextureImporter:
       name: Character_M
       rect:
         serializedVersion: 2
-        x: 436
-        y: 15
-        width: 218
-        height: 454
-      alignment: 9
-      pivot: {x: 0.55645835, y: 0}
+        x: 490
+        y: 0
+        width: 245
+        height: 473
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,12 +207,12 @@ TextureImporter:
       name: Mask-Bird-World
       rect:
         serializedVersion: 2
-        x: 654
-        y: 370
+        x: 735
+        y: 374
         width: 113
         height: 99
       alignment: 9
-      pivot: {x: 0.635289, y: 0.18444331}
+      pivot: {x: 0.6355137, y: 0.1592885}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,12 +228,12 @@ TextureImporter:
       name: Mask-Butterfly-World
       rect:
         serializedVersion: 2
-        x: 767
-        y: 370
+        x: 848
+        y: 374
         width: 101
         height: 99
       alignment: 9
-      pivot: {x: 0.6184584, y: 0.58056736}
+      pivot: {x: 0.61473525, y: 0.57942927}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -250,11 +250,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 735
-        y: 289
+        y: 254
         width: 77
         height: 81
       alignment: 9
-      pivot: {x: 0.59495485, y: 0.3030565}
+      pivot: {x: 0.6021229, y: 0.31605774}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -270,12 +270,12 @@ TextureImporter:
       name: Mask-Plauge-World
       rect:
         serializedVersion: 2
-        x: 654
-        y: 275
+        x: 820
+        y: 279
         width: 81
         height: 95
       alignment: 9
-      pivot: {x: 0.4212443, y: 0.7070104}
+      pivot: {x: 0.46934152, y: 0.7156478}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -291,12 +291,12 @@ TextureImporter:
       name: Mask-Rabbit-World
       rect:
         serializedVersion: 2
-        x: 868
-        y: 337
+        x: 949
+        y: 341
         width: 87
         height: 132
       alignment: 9
-      pivot: {x: 0.729201, y: 0.13744563}
+      pivot: {x: 0.73547643, y: 0.13786362}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -312,12 +312,12 @@ TextureImporter:
       name: Mask-Tiger_World
       rect:
         serializedVersion: 2
-        x: 955
-        y: 392
+        x: 1036
+        y: 396
         width: 64
         height: 77
       alignment: 9
-      pivot: {x: 0.5987129, y: 0.36890322}
+      pivot: {x: 0.6972313, y: 0.27156442}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -325,6 +325,27 @@ TextureImporter:
       bones: []
       spriteID: 5d990808eeebed649beab120608dce2c
       internalID: -450183932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mask-Generic-World
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 335
+        width: 85
+        height: 39
+      alignment: 9
+      pivot: {x: 0.6558084, y: 0.35143027}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25eb01262bec79b408e07d6f4b384e6f
+      internalID: 1907366252
       vertices: []
       indices: 
       edges: []
@@ -342,6 +363,7 @@ TextureImporter:
     nameFileIdTable:
       Character_K: 637786094
       Mask-Plauge-World: 1119162597
+      Mask-Generic-World: 1907366252
       Character_M: 389551884
       Mask-Tiger_World: -450183932
       Mask-Bird-World: -1246942064

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Entity;
 using NiftyFramework.Core;
 using NiftyFramework.Scripts;
@@ -23,8 +24,8 @@ namespace Spawn
             var possibleSpawns = new List<CharacterSpawnPosition>() { };
             possibleSpawns.AddRange(_spawnPositions);
             possibleSpawns.Shuffle(random);
-            
-            int[] indexList = ListUtils.GenerateInts(_spawnPositions.Count, random, 0 , _spawnPositions.Count);
+
+            int[] indexList = Enumerable.Range(0, _spawnPositions.Count).ToArray();//ListUtils.GenerateInts(_spawnPositions.Count, random, 0 , _spawnPositions.Count);
             indexList.Shuffle();
             
             Pair<CharacterEntity> followPair = default;
@@ -51,15 +52,12 @@ namespace Spawn
                 {
                     spawnPosition.Clear();
                 }
-                
-                
-                
             }
             if (followPair.Right != null && spawnReservedForFollowing != null)
             {
                 if (spawnReservedForFollowing.TrySwap(followPair.Right, out var swappedCharacter))
                 {
-                    int unoccupiedIndex = indexList[ entityList.Count];
+                    int unoccupiedIndex = indexList[entityList.Count];
                     var swapToLocation = _spawnPositions[unoccupiedIndex];
                     swapToLocation.Set(swappedCharacter);
                 }

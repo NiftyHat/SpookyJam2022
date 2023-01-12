@@ -46,8 +46,8 @@ namespace UI
                     _mask.sprite = data.Mask.MaskData.WorldSprite;
                     _mask.color = data.Mask.ColorStyleData.Color;
                     _mask.SetNativeSize();
-
-                    AlignPivot(_mask);
+                    
+                    //AlignPivot(_mask);
                 }
                 else
                 {

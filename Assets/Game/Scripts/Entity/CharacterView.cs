@@ -120,6 +120,7 @@ namespace Entity
             {
                 Clear();
             }
+            gameObject.SetActive(true);
             _entity = entity;
             _entity.OnReaction += ShowReaction;
             _spriteRenderer.sprite = _entity.ViewData.Sprite;

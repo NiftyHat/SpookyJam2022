@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587a432da2cf4936918762877a51f7d6, type: 3}
   m_Name: DevilMask
   m_EditorClassIdentifier: 
-  _friendlyName: Tiger
+  _friendlyName: Devil
   _worldSprite: {fileID: -325744854, guid: 4fe53f8dd68020047b70b4702be97926, type: 3}
   _cardSprite: {fileID: 21300000, guid: 121c2b76c9759b947a1a70ed28f33d52, type: 3}
   _iconSprite: {fileID: -531026663, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}

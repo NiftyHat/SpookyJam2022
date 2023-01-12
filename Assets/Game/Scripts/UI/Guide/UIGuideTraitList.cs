@@ -22,12 +22,6 @@ namespace UI.Guide
         {
             _traitViews = GetComponentsInChildren<UIGuideTrait>().ToList();
             Set(_traitDataSet);
-            /*
-            _traitViewPool = new MonoPool<UIGuideTrait>(traitIconsViews);
-            if (_traitDataSet != null)
-            {
-                Set(_traitDataSet);
-            }*/
         }
 
         public void Set(TraitDataSet traitDataSet)

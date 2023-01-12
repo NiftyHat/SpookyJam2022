@@ -99,7 +99,7 @@ namespace Spawn
             {
                 _viewCache = Instantiate(_viewPrefab, this.transform);
             }
-            _viewCache.gameObject.SetActive(true);
+            Debug.Log($"{name} assigned to {entity.Name.Full}");
             _viewCache.Set(entity);
         }
 
@@ -114,6 +114,15 @@ namespace Spawn
                 current = null;
             }
             _viewCache.Set(entity);
+            if (current != null)
+            {
+                Debug.Log($"{name} swapped {current.Name.Full} for {entity.Name.Full}");
+            }
+            else
+            {
+                Debug.Log($"{name} Set {entity.Name.Full}");
+            }
+           
             return current != null;
         }
     }

@@ -14,14 +14,24 @@ namespace UI.Guide
         [SerializeField] private UIGuideGuestListTag _guestListTag;
 
         private MonsterEntityTypeDataSet _monsterEntityTypeDataSet;
+        private CharacterEntity _characterEntity;
 
         public void Set(CharacterEntity characterEntity, MonsterEntityTypeDataSet monsterEntityTypeDataSet)
         {
             _monsterEntityTypeDataSet = monsterEntityTypeDataSet;
+            _characterEntity = characterEntity;
             gameObject.TrySetActive(true);
             {
                 _labelName.SetText(characterEntity.Name.Full);
-                _guestListTag.Set(characterEntity.Mask);
+                if (characterEntity.WasSeen.Value)
+                {
+                    _guestListTag.Set(characterEntity.Mask);
+                }
+                else
+                {
+                    _guestListTag.Set(null);
+                }
+                
                 if (characterEntity.TypeGuess.IsEliminated(monsterEntityTypeDataSet.References))
                 {
                     _labelName.fontStyle = FontStyles.Strikethrough;
@@ -31,8 +41,21 @@ namespace UI.Guide
                     _labelName.fontStyle = FontStyles.Normal;
                 }
                 characterEntity.TypeGuess.OnChange += HandleGuessChange;
+                characterEntity.WasSeen.OnChanged += HandleSeenChange;
             }
 
+        }
+
+        private void HandleSeenChange(bool newValue, bool oldValue)
+        {
+            if (newValue)
+            {
+                _guestListTag.Set(_characterEntity.Mask);
+            }
+            else
+            {
+                _guestListTag.Set(null);
+            }
         }
 
         private void HandleGuessChange(CharacterTypeGuess typeGuess)
