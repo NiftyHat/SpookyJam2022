@@ -1,69 +1,66 @@
 using System;
-using System.Collections.Generic;
 using System.Text;
 using Data.Location;
-using Generators;
 
-namespace Interactions
+public class GuestSchedule
 {
-    public class GuestSchedule
+    private readonly LocationData[] _orderedLocationList;
+        
+    public GuestSchedule(int phaseCount)
     {
-        private readonly List<LocationData> _locationsByPhase;
-        
-        public GuestSchedule(System.Random random, List<ScheduleGenerator.SpawnLocationChance> weightedLocations)
-        {
-            _locationsByPhase = new List<LocationData>();
-            for (int i = 0; i < weightedLocations.Count; i++)
-            {
-                var locationChance = weightedLocations[i];
-                var locationData = locationChance.GetRandom(random);
-                _locationsByPhase.Add(locationData);
-            }
-        }
+        _orderedLocationList = new LocationData[phaseCount];
+    }
 
-        public bool TryGetLocation(int index, out LocationData location)
+    public void AddLocation(int phase, LocationData locationData)
+    {
+        if (phase < _orderedLocationList.Length)
         {
-            if (index >= 0 &&  index < _locationsByPhase.Count && _locationsByPhase[index] != null)
-            {
-                location = _locationsByPhase[index];
-                return true;
-            }
-            location = null;
-            return false;
+            _orderedLocationList[phase] = locationData;
         }
+    }
+    
+    public bool TryGetLocation(int index, out LocationData location)
+    {
+        if (index >= 0 &&  index < _orderedLocationList.Length && _orderedLocationList[index] != null)
+        {
+            location = _orderedLocationList[index];
+            return true;
+        }
+        location = null;
+        return false;
+    }
 
-        public bool IsAtLocationDuringPhase(int index, Func<LocationData, bool> validator)
+    public bool IsAtLocationDuringPhase(int index, Func<LocationData, bool> validator)
+    {
+        if (index >= 0 &&  index< _orderedLocationList.Length && _orderedLocationList[index] != null)
         {
-            if (index >= 0 &&  index< _locationsByPhase.Count && _locationsByPhase[index] != null)
-            {
-                return validator(_locationsByPhase[index]);
-            }
-            return false;
+            return validator(_orderedLocationList[index]);
         }
+        return false;
+    }
         
 
-        public string ToString()
+    public string ToString()
+    {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < _orderedLocationList.Length; i++)
         {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < _locationsByPhase.Count; i++)
+            if (TryGetLocation(i, out var locationData))
             {
-                if (TryGetLocation(i, out var locationData))
-                {
-                    sb.Append(i);
-                    sb.Append(":");
-                    sb.Append(locationData.FriendlyName);
-                }
-                else
-                {
-                    sb.Append("[NULL]");
-                }
-
-                if (i < _locationsByPhase.Count - 1)
-                {
-                    sb.Append(",");
-                }
+                sb.Append(i);
+                sb.Append(":");
+                sb.Append(locationData.FriendlyName);
             }
-            return sb.ToString();
+            else
+            {
+                sb.Append("[NULL]");
+            }
+
+            if (i < _orderedLocationList.Length - 1)
+            {
+                sb.Append(",");
+            }
         }
+        return sb.ToString();
     }
 }

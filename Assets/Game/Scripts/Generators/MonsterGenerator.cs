@@ -32,7 +32,7 @@ namespace Generators
             GuestSchedule schedule = null;
             if (entityTypeData.ScheduleGenerator != null)
             {
-                entityTypeData.ScheduleGenerator.TryGet(random, out schedule);
+                entityTypeData.ScheduleGenerator.TryGet(out schedule, random);
             }
             if (schedule == null)
             {

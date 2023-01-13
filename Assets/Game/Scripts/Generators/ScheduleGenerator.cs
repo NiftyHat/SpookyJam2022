@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Data;
 using Data.Location;
 using Interactions;
+using NiftyFramework.Core;
 using NiftyFramework.Scripts;
+using RandomGenerator;
 using UnityEngine;
 using Random = System.Random;
 
@@ -17,15 +20,27 @@ namespace Generators
         {
             private readonly List<GuestSchedule> _all;
 
-            public SchedulePool(List<SpawnLocationChance> locationChancesList, int count, System.Random random)
+            public SchedulePool(PhaseSpawnData[] phaseSpawnDataList, int count, System.Random random)
             {
-                _all = new List<GuestSchedule>();
-                for (int i = 0; i < count; i++)
+                int phaseCount = phaseSpawnDataList.Length;
+                List<GuestSchedule> schedules = new List<GuestSchedule>();
+                for (int phase = 0; phase < phaseCount; phase++)
                 {
-                    _all.Add(new GuestSchedule(random, locationChancesList));
+                    PhaseSpawnData spawnData = phaseSpawnDataList[phase];
+                    var randomLocations = spawnData.GetSpawnLocations(count, random);
+                    for (int ii = 0; ii < count; ii++)
+                    {
+                        LocationData locationThisPhase = randomLocations[ii];
+                        while (ii >= schedules.Count)
+                        {
+                            schedules.Add(new GuestSchedule(phaseCount));
+                        }
+                        schedules[ii].AddLocation(phase, locationThisPhase);
+                    }
                 }
+                _all = schedules;
             }
-
+            
             public bool TryGet(out GuestSchedule schedule, System.Random random = null)
             {
                 if (_all != null)
@@ -40,7 +55,7 @@ namespace Generators
                 schedule = null;
                 return false;
             }
-
+            
             private void Remove(GuestSchedule entity)
             {
                 _all.Remove(entity);
@@ -50,7 +65,7 @@ namespace Generators
             {
                 return _all;
             }
-
+            
             public int Count => _all != null ? _all.Count : 0;
             
             public string PrintDebug()
@@ -64,92 +79,71 @@ namespace Generators
                 return sb.ToString();
             }
         }
-        
+
         [Serializable]
-        public class SpawnLocationChance
+        public class PhaseSpawnData
         {
             [Serializable]
-            public class Entry
+            public class LocationSpawnData : WeightedList.IWeighted
             {
-                [SerializeField] private LocationData _data;
+                [SerializeField] private LocationData _location;
                 [SerializeField] private int _weight;
-                [SerializeField] private int _minimum;
-
+                [SerializeField] private int _max;
                 public int Weight => _weight;
-                public int Minimum => _minimum;
-                public LocationData Data => _data;
+                public int Max => _max;
+                public LocationData Location => _location;
             }
+            
+            [SerializeField] private List<LocationSpawnData> _weightedSpawns;
+            [SerializeField] private List<LocationData> _requiredSpawns;
+            private WeightedList _weightedList;
 
-            [SerializeField] protected int _totalWeight;
-            [SerializeField] private List<Entry> _data;
-            
-            
-            public void UpdateWeight()
+            public List<LocationData> GetSpawnLocations(int npcCount, System.Random random)
             {
-                _totalWeight = 0;
-                foreach (var item in _data)
+                _weightedList = new WeightedList();
+                foreach (var item in _weightedSpawns)
                 {
-                    _totalWeight += item.Weight;
+                    _weightedList.Add(item);
                 }
-            }
-            
-            public List<LocationData> GetRandom(System.Random random, int count)
-            {
-                List<LocationData> output = new List<LocationData> ( new LocationData[count] );
-                int[] weights = ListUtils.GenerateInts(count, random, 0, _totalWeight);
-                for (int i = 0; i < count; i++)
+                var list = new List<LocationData>();
+                for (int i = 0; i < npcCount; i++)
                 {
-                    var randomEntry = GetItem(weights[i]);
-                    output[i] = randomEntry.Data;
-                }
-                return output;
-            }
-            
-            public LocationData GetRandom(System.Random random)
-            {
-                int randomWeight = random.Next(0, _totalWeight);
-                var randomEntry = GetItem(randomWeight);
-                return randomEntry?.Data;
-            }
-    
-            public Entry GetItem(int weightIndex)
-            {
-                if (_data == null || _data.Count == 0)
-                {
-                    return null;
-                }
-                if (weightIndex > _totalWeight)
-                {
-                    weightIndex %= _totalWeight;
-                }
-                int count = 0;
-                foreach (var data in _data)
-                {
-                    count += data.Weight;
-                    if (weightIndex <= count)
+                    if (i < _requiredSpawns.Count)
                     {
-                        return data;
+                        list.Add(_requiredSpawns[i]);
+                    }
+                    else
+                    {
+                        if (_weightedList.Get<LocationSpawnData>(random, out var randomLocation))
+                        {
+                            list.Add(randomLocation.Location);
+                            if (randomLocation.Max > -1)
+                            {
+                                if (list.Count(item => item == randomLocation.Location) >= randomLocation.Max)
+                                {
+                                    _weightedList.Remove(randomLocation);
+                                }
+                            }
+                        }
                     }
                 }
-                if (count > _totalWeight)
-                {
-                    Debug.LogError($"{nameof(NameTableData)}GetItem() over ran total item weight of {_totalWeight} with a count of {count}");
-                }
-                return _data[_data.Capacity - 1];
-            }
-
-            public void SortWeight()
-            {
-                _data.Sort((left, right) => right.Weight- left.Weight);
-                _data.Reverse();
+                list.Shuffle(random);
+                return list;
             }
         }
 
-        [SerializeField] private List<SpawnLocationChance> _phaseLocationChances;
-
+        [SerializeField] private PhaseSpawnData[] _phaseSpawnData;
+        
         public SchedulePool GetPool(System.Random randomSeed, int count)
         {
-            return new SchedulePool(_phaseLocationChances, count, randomSeed);
+            return new SchedulePool(_phaseSpawnData, count, randomSeed);
+        }
+        
+        public bool TryGet(out GuestSchedule schedule, System.Random random = null)
+        {
+            var pool = GetPool(random, 1);
+            pool.TryGet(out schedule, random);
+            return schedule != null;
         }
 
         [ContextMenu("Test")]
@@ -158,30 +152,6 @@ namespace Generators
             var random = new System.Random();
             var pool = GetPool(random, 10);
             Debug.Log(pool.PrintDebug());
-        }
-
-        [ContextMenu("UpdateWeight")]
-        public void UpdateWeight()
-        {
-            foreach (var item in _phaseLocationChances)
-            {
-                item.UpdateWeight();
-            }
-        }
-        
-        [ContextMenu("SortWeight")]
-        public void SortWeight()
-        {
-            foreach (var item in _phaseLocationChances)
-            {
-                item.SortWeight();
-            }
-        }
-
-        public bool TryGet(Random random, out GuestSchedule schedule)
-        {
-            schedule = new GuestSchedule(random, _phaseLocationChances);
-            return schedule != null;
         }
     }
 }

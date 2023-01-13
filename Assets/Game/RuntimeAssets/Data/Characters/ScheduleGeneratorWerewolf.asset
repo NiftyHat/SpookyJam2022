@@ -12,37 +12,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976a5349c9664e12a81b5d2e57eac8d7, type: 3}
   m_Name: ScheduleGeneratorWerewolf
   m_EditorClassIdentifier: 
-  _phaseLocationChances:
-  - _totalWeight: 15
-    _data:
-    - _data: {fileID: 935647436183426658, guid: db16e20483aefeb478a5e74ab8a4da3f,
+  _phaseSpawnData:
+  - _weightedSpawns:
+    - _location: {fileID: 935647436183426658, guid: db16e20483aefeb478a5e74ab8a4da3f,
+        type: 2}
+      _weight: 50
+      _max: -1
+    - _location: {fileID: -3538942094896422244, guid: db16e20483aefeb478a5e74ab8a4da3f,
+        type: 2}
+      _weight: 50
+      _max: -1
+    _requiredSpawns: []
+  - _weightedSpawns:
+    - _location: {fileID: -2087783226966105912, guid: db16e20483aefeb478a5e74ab8a4da3f,
+        type: 2}
+      _weight: 50
+      _max: -1
+    - _location: {fileID: 4635359559426436241, guid: db16e20483aefeb478a5e74ab8a4da3f,
+        type: 2}
+      _weight: 50
+      _max: -1
+    - _location: {fileID: 935647436183426658, guid: db16e20483aefeb478a5e74ab8a4da3f,
         type: 2}
       _weight: 5
-    - _data: {fileID: 4635359559426436241, guid: db16e20483aefeb478a5e74ab8a4da3f,
-        type: 2}
-      _weight: 10
-  - _totalWeight: 70
-    _data:
-    - _data: {fileID: 935647436183426658, guid: db16e20483aefeb478a5e74ab8a4da3f,
+      _max: -1
+    - _location: {fileID: -3538942094896422244, guid: db16e20483aefeb478a5e74ab8a4da3f,
         type: 2}
       _weight: 5
-    - _data: {fileID: -3538942094896422244, guid: db16e20483aefeb478a5e74ab8a4da3f,
+      _max: -1
+    _requiredSpawns: []
+  - _weightedSpawns:
+    - _location: {fileID: -2087783226966105912, guid: db16e20483aefeb478a5e74ab8a4da3f,
         type: 2}
-      _weight: 5
-    - _data: {fileID: -2087783226966105912, guid: db16e20483aefeb478a5e74ab8a4da3f,
+      _weight: 100
+      _max: -1
+    - _location: {fileID: 4635359559426436241, guid: db16e20483aefeb478a5e74ab8a4da3f,
         type: 2}
-      _weight: 30
-    - _data: {fileID: 4635359559426436241, guid: db16e20483aefeb478a5e74ab8a4da3f,
-        type: 2}
-      _weight: 30
-  - _totalWeight: 140
-    _data:
-    - _data: {fileID: -3538942094896422244, guid: db16e20483aefeb478a5e74ab8a4da3f,
-        type: 2}
-      _weight: 10
-    - _data: {fileID: 4635359559426436241, guid: db16e20483aefeb478a5e74ab8a4da3f,
+      _weight: 80
+      _max: -1
+    - _location: {fileID: -3538942094896422244, guid: db16e20483aefeb478a5e74ab8a4da3f,
         type: 2}
       _weight: 40
-    - _data: {fileID: -2087783226966105912, guid: db16e20483aefeb478a5e74ab8a4da3f,
+      _max: -1
+    - _location: {fileID: 935647436183426658, guid: db16e20483aefeb478a5e74ab8a4da3f,
         type: 2}
-      _weight: 90
+      _weight: 40
+      _max: -1
+    _requiredSpawns: []
+  - _weightedSpawns:
+    - _location: {fileID: -3538942094896422244, guid: db16e20483aefeb478a5e74ab8a4da3f,
+        type: 2}
+      _weight: 10
+      _max: -1
+    - _location: {fileID: 935647436183426658, guid: db16e20483aefeb478a5e74ab8a4da3f,
+        type: 2}
+      _weight: 20
+      _max: -1
+    - _location: {fileID: 4635359559426436241, guid: db16e20483aefeb478a5e74ab8a4da3f,
+        type: 2}
+      _weight: 10
+      _max: -1
+    _requiredSpawns: []
