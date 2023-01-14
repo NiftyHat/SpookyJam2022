@@ -26,7 +26,6 @@ namespace UI
         [SerializeField] private Button _buttonNext;
         [SerializeField] private Button _buttonPrevious;
         [SerializeField] private UICardSpreadView _cardSpreadView;
-        [SerializeField] private Button _clearFilterButton;
         [SerializeField] private Button _closeButton;
         [SerializeField] private UIReactionView _lastReactionView;
         [SerializeField] private UIGuessTypeSelector _guessTypeSelector;
@@ -35,6 +34,7 @@ namespace UI
         [SerializeField] private UIFilterSetAbilityTrigger _filterTriggerAbility;
         [SerializeField] private UIFilterSetMonsterType _filterMonsterType;
         [SerializeField] private UIFilterGuessState _filterGuessState;
+        [SerializeField] private GameObject _blockerUnmetCharacter;
 
         [SerializeField] private GameObject _root;
 
@@ -94,11 +94,6 @@ namespace UI
             _root.SetActive(true);
             characterEntity.WasSeen.Value = true;
             Set(characterEntity);
-        }
-
-        private void HandleClickClear()
-        {
-            _cardSpreadView.ClearSelection();
         }
 
         private void HandleTraitGuessesChanged(Dictionary<TraitData, Guess> guesses)
@@ -248,10 +243,6 @@ namespace UI
         public void Set(CharacterEntity characterEntity)
         {
             _currentCharacter = characterEntity;
-            if (_cardCharacterView != null)
-            {
-                _cardCharacterView.Set(characterEntity);
-            }
             _cardSpreadView.SetGuessInfo(_currentCharacter.TraitGuessInfo);
             _lastInteractionData = _gameStateContext.LastInteraction;
             if (_lastInteractionData != null)
@@ -274,6 +265,11 @@ namespace UI
             else
             {
                 _lastReactionView.Clear();
+            }
+            if (_cardCharacterView != null)
+            {
+                _cardCharacterView.Set(characterEntity);
+                _blockerUnmetCharacter.SetActive(!characterEntity.WasSeen.Value);
             }
             _guessTypeSelector.Set(_currentCharacter.TypeGuess);
         }

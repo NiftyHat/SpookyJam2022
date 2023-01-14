@@ -25,6 +25,20 @@ namespace UI
             imageRect.pivot = percentPivot;
         }
 
+        public void SetHidden(bool isHidden)
+        {
+            if (isHidden)
+            {
+                _mask.gameObject.SetActive(false);
+                _character.color = Color.black;
+            }
+            else
+            {
+                _mask.gameObject.SetActive(true);
+                _character.color = Color.white;
+            }
+        }
+        
         public void Set(CharacterEntity data)
         {
             if (data == null)
@@ -38,7 +52,7 @@ namespace UI
                 gameObject.SetActive(true);
                 _character.gameObject.SetActive(true);
                 _character.sprite = data.ViewData.Sprite;
-                //AlignPivot(_character);
+               
                 
                 if (data.Mask != null)
                 {
@@ -47,7 +61,7 @@ namespace UI
                     _mask.color = data.Mask.ColorStyleData.Color;
                     _mask.SetNativeSize();
                     
-                    //AlignPivot(_mask);
+                     AlignPivot(_mask);
                 }
                 else
                 {

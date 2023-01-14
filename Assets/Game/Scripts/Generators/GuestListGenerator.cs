@@ -145,7 +145,7 @@ namespace Generators
             for (int i = 0; i < personCount; i++)
             {
                 //TODO dsaunders - this is a ugly way of forcing the first guest to be marked if a Monster requires it.
-                if (i == 0 && monsterTargetMask != null || monsterTargetSchedule != null)
+                if (i == 0 && (monsterTargetMask != null || monsterTargetSchedule != null))
                 {
                     var person = _personGenerator.Generate(random, monsterTargetMask,
                         monsterTargetSchedule, itemPool);

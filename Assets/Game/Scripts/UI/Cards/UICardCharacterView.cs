@@ -21,20 +21,14 @@ namespace UI.Cards
         [SerializeField] private UITraitView[] _traitViewList;
         [SerializeField] private Animator _animator;
         [SerializeField] private UIGuessInfoView _guessInfo;
-        private static readonly int FaceDown = Animator.StringToHash("FaceDown");
+        private static readonly int FlipFaceDown = Animator.StringToHash("FlipFaceDown");
+        private static readonly int SetFaceDown = Animator.StringToHash("SetFaceDown");
+        private static readonly int SetFaceUp = Animator.StringToHash("SetFaceUp");
 
         public void Set(CharacterEntity characterEntity)
         {
             _character.Set(characterEntity);
-            if (characterEntity.Mask != null)
-            {
-                _cardHeader.Set(characterEntity.Mask.FriendlyName, characterEntity.Mask.CardValue);
-            }
-            else
-            {
-                _cardHeader.Set("Guest");
-            }
-
+            _character.SetHidden(!characterEntity.WasSeen.Value);
             if (characterEntity.Name != null)
             {
                 if (characterEntity.Name.Full.Length <= 13)
@@ -50,16 +44,45 @@ namespace UI.Cards
             {
                 _textFooter.SetText("???");
             }
-
-            Dictionary<TraitData, Guess> traitGuesses = characterEntity.TraitGuessInfo;
+            if (characterEntity.WasSeen.Value)
+            {
+                if (characterEntity.Mask != null)
+                {
+                    _cardHeader.Set(characterEntity.Mask.FriendlyName, characterEntity.Mask.CardValue);
+                }
+                else
+                {
+                    _cardHeader.Set("Guest");
+                }
+            }
+            else
+            {
+                _cardHeader.Set("Unmet Guest");
+            }
             _guessInfo.Set(characterEntity.TypeGuess);
         }
 
+        public void FlipFacingDown(bool isFacingDown)
+        {
+            if (_animator != null)
+            {
+                _animator.SetBool(FlipFaceDown, isFacingDown);
+            }
+        }
+        
         public void SetFacingDown(bool isFacingDown)
         {
             if (_animator != null)
             {
-                _animator.SetBool(FaceDown, isFacingDown);
+                _animator.SetBool(FlipFaceDown, isFacingDown);
+                if (isFacingDown)
+                {
+                    _animator.SetTrigger(SetFaceDown);
+                }
+                else
+                {
+                    _animator.SetTrigger(SetFaceUp);
+                }
             }
         }
 

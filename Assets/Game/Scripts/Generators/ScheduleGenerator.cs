@@ -36,6 +36,7 @@ namespace Generators
                             schedules.Add(new GuestSchedule(phaseCount));
                         }
                         schedules[ii].AddLocation(phase, locationThisPhase);
+                        Debug.Log($"Set Schedule {ii} - {phase} to {locationThisPhase.FriendlyName}");
                     }
                 }
                 _all = schedules;
