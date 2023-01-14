@@ -15,7 +15,7 @@ MonoBehaviour:
   _range:
     _min: 0
     _max: 8
-  _costAP: 10
+  _costAP: 20
   _radius: 0
   _minTargets: 0
   _targetType: 2
@@ -165,7 +165,7 @@ MonoBehaviour:
   _range:
     _min: 0
     _max: 8
-  _costAP: 10
+  _costAP: 25
   _radius: 0
   _minTargets: 0
   _targetType: 2
@@ -361,7 +361,7 @@ MonoBehaviour:
   _range:
     _min: 0
     _max: 0
-  _costAP: 10
+  _costAP: 50
   _radius: 15
   _minTargets: 0
   _targetType: 1
@@ -465,7 +465,7 @@ MonoBehaviour:
   _range:
     _min: 0
     _max: 0
-  _costAP: 50
+  _costAP: 35
   _radius: 12
   _minTargets: 0
   _targetType: 1

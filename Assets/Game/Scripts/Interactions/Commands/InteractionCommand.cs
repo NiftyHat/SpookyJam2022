@@ -65,6 +65,10 @@ namespace Interactions.Commands
             {
                 return false;
             }
+            if (_interaction.CostAP > 0 && _interaction.CostAP > _actionPoints.Value)
+            {
+                return false;
+            }
             if (!_interaction.IsValidTarget(_targets))
             {
                 return false;
