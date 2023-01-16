@@ -1,0 +1,42 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://assetstore.unity.com/packages/tools/sprite-management/texturepacker-importer-16641
+#
+# created with Free texture packer v0.6.7
+# http://free-tex-packer.com
+#
+:format=40300
+:texture=Location-Garden.png
+:size=2048x1956
+:pivotpoints=enabled
+:borders=disabled
+
+Object_Shrub_End.PNG;0;1016;970;940; 0.5;0.5; 0;0;0;0
+Object_Grass.PNG;970;1444;512;512; 0.5;0.5; 0;0;0;0
+Object_Shrub_Top.png;1482;1862;512;94; 0.5;0.5; 0;0;0;0
+White-Box.png;1994;1940;16;16; 0.5;0.5; 0;0;0;0
+Object_Shrub_Bottom.png;1482;1814;512;48; 0.5;0.5; 0;0;0;0
+Fountain_Base.PNG;1482;1532;341;282; 0.5;0.5; 0;0;0;0
+Object_Yellow_Flower.png;1823;1637;152;177; 0.5;0.5; 0;0;0;0
+Object_Bush_1.PNG;1823;1448;151;189; 0.5;0.5; 0;0;0;0
+Object_Coblestone.PNG;1482;1398;333;134; 0.5;0.5; 0;0;0;0
+Object_Bush_2.PNG;1815;1259;151;189; 0.5;0.5; 0;0;0;0
+Fountain_F1.PNG;970;1232;292;212; 0.5;0.5; 0;0;0;0
+Object_Flower_Pink_1.png;1262;1306;134;138; 0.5;0.5; 0;0;0;0
+Fountain_F3.PNG;1396;1189;289;209; 0.5;0.5; 0;0;0;0
+Object_Flower_Pink_2.png;1262;1121;134;138; 0.5;0.5; 0;0;0;0
+Fountain_F2.PNG;970;1018;287;214; 0.5;0.5; 0;0;0;0
+Object_Hangingplant_Large_2.PNG;1685;1201;95;197; 0.5;0.5; 0;0;0;0
+Dog_F4.PNG;1780;1008;268;251; 0.5;0.5; 0;0;0;0
+Object_Hangingplant_Large.PNG;1685;1004;94;197; 0.5;0.5; 0;0;0;0
+Dog_F6.PNG;1779;757;268;251; 0.5;0.5; 0;0;0;0
+Dog_F7.PNG;1396;934;263;255; 0.5;0.5; 0;0;0;0
+Object_Flower_Pink_3.png;1257;983;134;138; 0.5;0.5; 0;0;0;0
+Dog_f3.PNG;970;763;263;255; 0.5;0.5; 0;0;0;0
+Object_Hangingplant_Small_2.PNG;1659;859;94;145; 0.5;0.5; 0;0;0;0
+Object_Hangingplant_Small.PNG;1659;715;94;144; 0.5;0.5; 0;0;0;0
+Dog_f5.PNG;1753;515;257;242; 0.5;0.5; 0;0;0;0
+Dog_f2.PNG;1753;252;256;263; 0.5;0.5; 0;0;0;0
+Dog_F1.PNG;0;0;248;252; 0.5;0.5; 0;0;0;0
