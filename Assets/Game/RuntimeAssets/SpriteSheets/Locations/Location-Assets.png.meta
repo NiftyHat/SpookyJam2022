@@ -1,0 +1,1237 @@
+fileFormatVersion: 2
+guid: 27e3eef24e81f83479645c858e4b7b25
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Flooring.PNG
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 2055
+        width: 409
+        height: 370
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce5f05761acbeea48a5d0a71340ce3b1
+      internalID: -539593826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fountain_Base.PNG
+      rect:
+        serializedVersion: 2
+        x: 2934
+        y: 3391
+        width: 852
+        height: 705
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f72b51380d0f06242a005a4ec281d064
+      internalID: 319362829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fountain_F1.PNG
+      rect:
+        serializedVersion: 2
+        x: 2934
+        y: 2645
+        width: 727
+        height: 527
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3753af3f6c223648907bde419ce9b4f
+      internalID: -86309502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fountain_F2.PNG
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 2907
+        width: 716
+        height: 533
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6d80eee64a3a80489b9ba25f52b08a5
+      internalID: 1186700416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fountain_F3.PNG
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2918
+        width: 721
+        height: 522
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3732bda29f57e654099883f69e9230d2
+      internalID: -1679383193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Bush_1.PNG
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 1921
+        width: 151
+        height: 189
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 468a1cdb3143c2d418206cb8956ff365
+      internalID: -845111093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Bush_2.PNG
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2427
+        width: 151
+        height: 189
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc241d39f0c67b74c8c7a6f8fd32e8c9
+      internalID: 1944169731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Coblestone.PNG
+      rect:
+        serializedVersion: 2
+        x: 2541
+        y: 3022
+        width: 333
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31148b24801730540bab967e95ebb64a
+      internalID: 406655678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Feast_Table.PNG
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3440
+        width: 1964
+        height: 656
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f54bd49704a518a4890bb19ee83e3a7d
+      internalID: 1308455725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Grass.PNG
+      rect:
+        serializedVersion: 2
+        x: 1437
+        y: 2928
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e70c6a9e423fc47b4d6c8164e60cb0
+      internalID: 2050945871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Hanging_Lights.PNG
+      rect:
+        serializedVersion: 2
+        x: 1681
+        y: 2308
+        width: 237
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9cfb4bed8e5bb04183aa2186806187e
+      internalID: -1944373337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Hangingplant_Large.PNG
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 2662
+        width: 94
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a4d5164017fcf4aa89a81cd3204e0f
+      internalID: -1138439406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Hangingplant_Large_2.PNG
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 2721
+        width: 95
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44b08cc9bc3ebd844818c063738064cd
+      internalID: 1988321788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Hangingplant_Small.PNG
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 2373
+        width: 94
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b00933fb8bcd0b4489e2d0e96494827
+      internalID: 1954188193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Hangingplant_Small_2.PNG
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 2517
+        width: 94
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb00add121b29342b2cf48972e4f054
+      internalID: -1312905589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Painting.PNG
+      rect:
+        serializedVersion: 2
+        x: 1949
+        y: 2452
+        width: 592
+        height: 704
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c2339e5a56ae454a89f67e66065e1da
+      internalID: 859171883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Shrub_Bottom.png
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 2859
+        width: 512
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 855b6dfdc0f4f27478fb400f44f2af84
+      internalID: 482304195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Shrub_End.PNG
+      rect:
+        serializedVersion: 2
+        x: 1964
+        y: 3156
+        width: 970
+        height: 940
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6a84685d95564f44a58ba23831a224b
+      internalID: 1120020819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Shrub_Top.png
+      rect:
+        serializedVersion: 2
+        x: 1437
+        y: 2834
+        width: 512
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe14a5541d23abc45998d0f3aee6a038
+      internalID: -603337287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Stair.PNG
+      rect:
+        serializedVersion: 2
+        x: 1433
+        y: 2578
+        width: 409
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 670256710d3f8f544a9a8e7bdbadb4f3
+      internalID: 1873764087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Stair_Banner.PNG
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 2930
+        width: 52
+        height: 409
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c22ecbd4326e44695ad00ad43da98b
+      internalID: -1907860204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Yellow_Flower.png
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 2110
+        width: 152
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f29039daa8923f448df6b7e471309d8
+      internalID: 1667417794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: White-Box.png
+      rect:
+        serializedVersion: 2
+        x: 4054
+        y: 4013
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 5, z: 7, w: 7}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44b080987e5c6754eac4e5f27be0d822
+      internalID: -1186827086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_F1.PNG
+      rect:
+        serializedVersion: 2
+        x: 1433
+        y: 2326
+        width: 248
+        height: 252
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b1f9fd304f816f49971b966ed41161c
+      internalID: 1237008532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_f2.PNG
+      rect:
+        serializedVersion: 2
+        x: 2541
+        y: 2517
+        width: 256
+        height: 263
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64b6ecf6537cdb1479662427c079d5b7
+      internalID: 377292612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_f3.PNG
+      rect:
+        serializedVersion: 2
+        x: 3769
+        y: 3084
+        width: 263
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b85ebdce1b36824c8ba3415680202bd
+      internalID: 1442878804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_F4.PNG
+      rect:
+        serializedVersion: 2
+        x: 3786
+        y: 3845
+        width: 268
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13d8d2fd1368f1c44962663eea118482
+      internalID: -1897740410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_f5.PNG
+      rect:
+        serializedVersion: 2
+        x: 2541
+        y: 2780
+        width: 257
+        height: 242
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04400b21bf1bca94c82c6bade22416c1
+      internalID: 1329060217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_F6.PNG
+      rect:
+        serializedVersion: 2
+        x: 3786
+        y: 3594
+        width: 268
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d2fefb59ce67840af970d00668e816
+      internalID: -1350267188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_F7.PNG
+      rect:
+        serializedVersion: 2
+        x: 3786
+        y: 3339
+        width: 263
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68471b35227165d489762b5dd0aa8c9c
+      internalID: -1432181991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Flower_Pink_1.png
+      rect:
+        serializedVersion: 2
+        x: 2798
+        y: 2884
+        width: 134
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 133000d4edbdf334693713191ec581e5
+      internalID: -2064006916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Flower_Pink_2.png
+      rect:
+        serializedVersion: 2
+        x: 2798
+        y: 2746
+        width: 134
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a72fbe5bbca29ac47b615dc2f9523a1d
+      internalID: -84263179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Flower_Pink_3.png
+      rect:
+        serializedVersion: 2
+        x: 2797
+        y: 2608
+        width: 134
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65d1559730b9f1c4fa56acb27588e6a2
+      internalID: -545970999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Rug.png
+      rect:
+        serializedVersion: 2
+        x: 2934
+        y: 3172
+        width: 835
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9baaf1237f4e244281bc70a41583506
+      internalID: 550713335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Window.PNG
+      rect:
+        serializedVersion: 2
+        x: 3661
+        y: 2696
+        width: 365
+        height: 388
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f6c10f9b8c631545806ad9ddc149465
+      internalID: -1419525241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Cup.PNG
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 1978
+        width: 144
+        height: 319
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09d15c81e37db5a4386d91d45297dcaf
+      internalID: -1435113804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Desk.PNG
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2616
+        width: 620
+        height: 302
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 604f977aac5b1a844aa7f0beab5a1d95
+      internalID: 1225333610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Floor.PNG
+      rect:
+        serializedVersion: 2
+        x: 1433
+        y: 2628
+        width: 409
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a666dbdf88e608c40b0806ccda835874
+      internalID: 343885191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Lamp.PNG
+      rect:
+        serializedVersion: 2
+        x: 4026
+        y: 2802
+        width: 67
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a947c673d966934c8884370ec35f49a
+      internalID: -2078950534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Nightsky.PNG
+      rect:
+        serializedVersion: 2
+        x: 3661
+        y: 2287
+        width: 409
+        height: 409
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ca863de26e18f48afec2d2bb1f781f
+      internalID: 1844552042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Pillar.PNG
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 2379
+        width: 94
+        height: 342
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5611cca00f5d6044b2ec7de3cdc6650
+      internalID: 1724309681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Sil_Candle.PNG
+      rect:
+        serializedVersion: 2
+        x: 4054
+        y: 4029
+        width: 30
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20ad6e0517c0125459fbb9a7e81d1c99
+      internalID: 730849212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Sil_Candles.PNG
+      rect:
+        serializedVersion: 2
+        x: 4026
+        y: 2704
+        width: 66
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6557d71a638379e4e9dd9335cf940943
+      internalID: -1730755550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Sil_Clock.PNG
+      rect:
+        serializedVersion: 2
+        x: 1842
+        y: 2729
+        width: 83
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc7c892b2ce7324fb4ace4368f51c63
+      internalID: -1782043320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Sil_Plants.PNG
+      rect:
+        serializedVersion: 2
+        x: 1842
+        y: 2591
+        width: 76
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f6906aed190a6547bea6689b1563f6a
+      internalID: 1197674068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Sil_Table.PNG
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 2297
+        width: 203
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 841e4848521a5844e8b28014d20b4d87
+      internalID: 1395835990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Statue.PNG
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 2046
+        width: 230
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19e1282b804e54c42b4a2b51623e1cd2
+      internalID: 174670625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object_Wall_Full.PNG
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 2425
+        width: 409
+        height: 409
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9082033da4d50344783873b101c0e10a
+      internalID: -833568204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall.PNG
+      rect:
+        serializedVersion: 2
+        x: 1227
+        y: 2498
+        width: 206
+        height: 409
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4ca57312cdde3c4cb5629cc6b028a15
+      internalID: -1784349628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 498258d977481ce45bd3ee8141d92b59
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Object_Shrub_Top.png: -603337287
+      Object_Stair.PNG: 1873764087
+      Dog_f5.PNG: 1329060217
+      Object_Wall_Full.PNG: -833568204
+      Object_Statue.PNG: 174670625
+      Dog_F7.PNG: -1432181991
+      Dog_F1.PNG: 1237008532
+      Object_Sil_Candles.PNG: -1730755550
+      Object_Hangingplant_Large.PNG: -1138439406
+      Object_Shrub_Bottom.png: 482304195
+      Object_Feast_Table.PNG: 1308455725
+      Wall.PNG: -1784349628
+      Fountain_Base.PNG: 319362829
+      Object_Flower_Pink_1.png: -2064006916
+      Object_Grass.PNG: 2050945871
+      Object_Pillar.PNG: 1724309681
+      Dog_f3.PNG: 1442878804
+      Object_Sil_Candle.PNG: 730849212
+      Object_Yellow_Flower.png: 1667417794
+      Object_Sil_Plants.PNG: 1197674068
+      Object_Lamp.PNG: -2078950534
+      White-Box.png: -1186827086
+      Object_Flower_Pink_2.png: -84263179
+      Object_Shrub_End.PNG: 1120020819
+      Object_Hanging_Lights.PNG: -1944373337
+      Object_Sil_Table.PNG: 1395835990
+      Object_Hangingplant_Small.PNG: 1954188193
+      Object_Bush_2.PNG: 1944169731
+      Object_Hangingplant_Large_2.PNG: 1988321788
+      Object_Sil_Clock.PNG: -1782043320
+      Object_Hangingplant_Small_2.PNG: -1312905589
+      Dog_F4.PNG: -1897740410
+      Object_Rug.png: 550713335
+      Object_Window.PNG: -1419525241
+      Object_Bush_1.PNG: -845111093
+      Flooring.PNG: -539593826
+      Fountain_F2.PNG: 1186700416
+      Object_Stair_Banner.PNG: -1907860204
+      Object_Flower_Pink_3.png: -545970999
+      Dog_f2.PNG: 377292612
+      Object_Nightsky.PNG: 1844552042
+      Object_Coblestone.PNG: 406655678
+      Object_Floor.PNG: 343885191
+      Dog_F6.PNG: -1350267188
+      Object_Painting.PNG: 859171883
+      Object_Cup.PNG: -1435113804
+      Object_Desk.PNG: 1225333610
+      Fountain_F3.PNG: -1679383193
+      Fountain_F1.PNG: -86309502
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

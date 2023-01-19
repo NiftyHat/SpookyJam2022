@@ -112,7 +112,7 @@ namespace Interactions.Commands
 
         public virtual ITooltip GetTooltip()
         {
-            return new TooltipAbilitySimple(_interaction.MenuItem.Icon, _interaction.GetDescription(), _interaction.GetFriendlyName(), _interaction.CostAP);
+            return new TooltipAbilitySimple(_interaction.MenuItem.Icon, GetDescription(), _interaction.GetFriendlyName(), _interaction.CostAP);
         }
 
         public abstract string GetDescription();

@@ -1,0 +1,64 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://assetstore.unity.com/packages/tools/sprite-management/texturepacker-importer-16641
+#
+# created with Free texture packer v0.6.7
+# http://free-tex-packer.com
+#
+:format=40300
+:texture=Location-Assets.png
+:size=4096x4096
+:pivotpoints=enabled
+:borders=disabled
+
+Object_Feast_Table.PNG;0;3440;1964;656; 0.5;0.5; 0;0;0;0
+Object_Shrub_End.PNG;1964;3156;970;940; 0.5;0.5; 0;0;0;0
+Fountain_Base.PNG;2934;3391;852;705; 0.5;0.5; 0;0;0;0
+Dog_F4.PNG;3786;3845;268;251; 0.5;0.5; 0;0;0;0
+Object_Sil_Candle.PNG;4054;4029;30;67; 0.5;0.5; 0;0;0;0
+White-Box.png;4054;4013;16;16; 0.5;0.5; 0;0;0;0
+Dog_F6.PNG;3786;3594;268;251; 0.5;0.5; 0;0;0;0
+Dog_F7.PNG;3786;3339;263;255; 0.5;0.5; 0;0;0;0
+Object_Rug.png;2934;3172;835;219; 0.5;0.5; 0;0;0;0
+Dog_f3.PNG;3769;3084;263;255; 0.5;0.5; 0;0;0;0
+Object_Stair_Banner.PNG;4032;2930;52;409; 0.5;0.5; 0;0;0;0
+Fountain_F1.PNG;2934;2645;727;527; 0.5;0.5; 0;0;0;0
+Object_Window.PNG;3661;2696;365;388; 0.5;0.5; 0;0;0;0
+Object_Lamp.PNG;4026;2802;67;128; 0.5;0.5; 0;0;0;0
+Object_Sil_Candles.PNG;4026;2704;66;98; 0.5;0.5; 0;0;0;0
+Object_Nightsky.PNG;3661;2287;409;409; 0.5;0.5; 0;0;0;0
+Fountain_F3.PNG;0;2918;721;522; 0.5;0.5; 0;0;0;0
+Fountain_F2.PNG;721;2907;716;533; 0.5;0.5; 0;0;0;0
+Object_Grass.PNG;1437;2928;512;512; 0.5;0.5; 0;0;0;0
+Object_Desk.PNG;0;2616;620;302; 0.5;0.5; 0;0;0;0
+Object_Hangingplant_Large_2.PNG;620;2721;95;197; 0.5;0.5; 0;0;0;0
+Object_Painting.PNG;1949;2452;592;704; 0.5;0.5; 0;0;0;0
+Object_Shrub_Top.png;1437;2834;512;94; 0.5;0.5; 0;0;0;0
+Object_Coblestone.PNG;2541;3022;333;134; 0.5;0.5; 0;0;0;0
+Dog_f5.PNG;2541;2780;257;242; 0.5;0.5; 0;0;0;0
+Object_Flower_Pink_1.png;2798;2884;134;138; 0.5;0.5; 0;0;0;0
+Object_Flower_Pink_2.png;2798;2746;134;138; 0.5;0.5; 0;0;0;0
+Dog_f2.PNG;2541;2517;256;263; 0.5;0.5; 0;0;0;0
+Object_Flower_Pink_3.png;2797;2608;134;138; 0.5;0.5; 0;0;0;0
+Object_Shrub_Bottom.png;715;2859;512;48; 0.5;0.5; 0;0;0;0
+Wall.PNG;1227;2498;206;409; 0.5;0.5; 0;0;0;0
+Object_Wall_Full.PNG;715;2425;409;409; 0.5;0.5; 0;0;0;0
+Object_Pillar.PNG;620;2379;94;342; 0.5;0.5; 0;0;0;0
+Object_Hangingplant_Large.PNG;1124;2662;94;197; 0.5;0.5; 0;0;0;0
+Object_Hangingplant_Small_2.PNG;1124;2517;94;145; 0.5;0.5; 0;0;0;0
+Object_Hangingplant_Small.PNG;1124;2373;94;144; 0.5;0.5; 0;0;0;0
+Flooring.PNG;714;2055;409;370; 0.5;0.5; 0;0;0;0
+Object_Floor.PNG;1433;2628;409;206; 0.5;0.5; 0;0;0;0
+Object_Sil_Clock.PNG;1842;2729;83;105; 0.5;0.5; 0;0;0;0
+Object_Sil_Plants.PNG;1842;2591;76;138; 0.5;0.5; 0;0;0;0
+Object_Stair.PNG;1433;2578;409;50; 0.5;0.5; 0;0;0;0
+Dog_F1.PNG;1433;2326;248;252; 0.5;0.5; 0;0;0;0
+Object_Sil_Table.PNG;1218;2297;203;155; 0.5;0.5; 0;0;0;0
+Object_Hanging_Lights.PNG;1681;2308;237;270; 0.5;0.5; 0;0;0;0
+Object_Statue.PNG;1421;2046;230;280; 0.5;0.5; 0;0;0;0
+Object_Yellow_Flower.png;1123;2110;152;177; 0.5;0.5; 0;0;0;0
+Object_Cup.PNG;1275;1978;144;319; 0.5;0.5; 0;0;0;0
+Object_Bush_1.PNG;1123;1921;151;189; 0.5;0.5; 0;0;0;0
+Object_Bush_2.PNG;0;2427;151;189; 0.5;0.5; 0;0;0;0

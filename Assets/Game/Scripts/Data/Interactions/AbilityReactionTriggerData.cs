@@ -33,7 +33,6 @@ namespace Data.Interactions
                     }
                     return _interaction.GetDescription().Replace("{targetName}", "Target");
                 }
-
                 return null;
             }
 
