@@ -1,0 +1,17 @@
+{
+  "name": "com.devoid.signals",
+  "version": "1.0.0",
+  "displayName": "Devoid Signals",
+  "description": "Signals - A typesafe, lightweight messaging lib for Unity.",
+  "keywords": [
+    "Utils",
+    "Events",
+    "Messaging",
+    "Signals"
+  ],
+  "author": {
+    "name": "Yanko Oliveira",
+    "email": "",
+    "url": "http://yankooliveira.com"
+  }
+}

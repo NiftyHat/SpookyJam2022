@@ -1,34 +1,53 @@
 {
   "dependencies": {
     "com.aboudoux.fluentcsv": {
-      "version": "https://github.com/NiftyHat/FluentCSVUnity.git",
+      "version": "file:../NiftyScriptableSet/FluentCSV",
       "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "8c2c38174effeb855060d4054a53e282f0183fc2"
+      "source": "local",
+      "dependencies": {}
+    },
+    "com.devoid.signals": {
+      "version": "file:../NiftyScriptableSet/deVoidSignals",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
     },
     "com.niftyhat.editormenu": {
-      "version": "https://github.com/NiftyHat/NiftyEditorMenu.git",
+      "version": "file:../NiftyScriptableSet/NiftyEditorMenu",
       "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "b885a272bdde7ef13dcce074ec3c65d56238053a"
+      "source": "local",
+      "dependencies": {}
+    },
+    "com.niftyhat.glyphs": {
+      "version": "file:../NiftyScriptableSet/NiftyGlyphs",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.niftyhat.niftycore": "0.1.7",
+        "com.niftyhat.editormenu": "0.4.1"
+      }
     },
     "com.niftyhat.niftycore": {
-      "version": "https://github.com/NiftyHat/NiftyCore.git",
+      "version": "file:../NiftyScriptableSet/NiftyCore",
       "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "39513d0929098cb2d639f28a8e5afa03fe5d7040"
+      "source": "local",
+      "dependencies": {}
+    },
+    "com.niftyhat.niftycrafts": {
+      "version": "file:../NiftyScriptableSet/NiftyCrafts",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.niftyhat.niftycore": "0.0.1"
+      }
     },
     "com.niftyhat.scriptableset": {
-      "version": "https://github.com/NiftyHat/NiftyScriptableSet.git",
+      "version": "file:../NiftyScriptableSet/NiftyScriptableSet",
       "depth": 0,
-      "source": "git",
+      "source": "local",
       "dependencies": {
         "com.niftyhat.editormenu": "0.4.1"
-      },
-      "hash": "f92fd94f622301ab781180fe62b3c0a4e4d4a808"
+      }
     },
     "com.unity.2d.animation": {
       "version": "7.0.9",

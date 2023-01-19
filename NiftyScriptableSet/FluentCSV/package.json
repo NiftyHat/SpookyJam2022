@@ -1,0 +1,15 @@
+{
+  "name": "com.aboudoux.fluentcsv",
+  "version": "1.0.1",
+  "displayName": "fluentcsv Unity",
+  "description": "Fork of FluentSCV for Unity Packages",
+  "keywords": [
+    "CSV",
+    "Data"
+  ],
+  "author": {
+    "name": "Nifty Hat",
+    "email": "duncan@niftyhat.com",
+    "url": "https://www.niftyhat.com"
+  }
+}
