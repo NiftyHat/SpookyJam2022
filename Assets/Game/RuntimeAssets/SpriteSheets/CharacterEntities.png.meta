@@ -144,10 +144,10 @@ TextureImporter:
       name: Character_F
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 245
-        height: 473
+        x: 1601
+        y: 162
+        width: 218
+        height: 470
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: Character_K
       rect:
         serializedVersion: 2
-        x: 245
-        y: 0
-        width: 245
-        height: 473
+        x: 2045
+        y: 178
+        width: 218
+        height: 454
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,10 +186,10 @@ TextureImporter:
       name: Character_M
       rect:
         serializedVersion: 2
-        x: 490
-        y: 0
-        width: 245
-        height: 473
+        x: 1823
+        y: 177
+        width: 218
+        height: 455
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,8 +207,8 @@ TextureImporter:
       name: Mask-Bird-World
       rect:
         serializedVersion: 2
-        x: 735
-        y: 374
+        x: 93
+        y: 48
         width: 113
         height: 99
       alignment: 0
@@ -228,8 +228,8 @@ TextureImporter:
       name: Mask-Butterfly-World
       rect:
         serializedVersion: 2
-        x: 848
-        y: 374
+        x: 210
+        y: 48
         width: 101
         height: 99
       alignment: 0
@@ -249,8 +249,8 @@ TextureImporter:
       name: Mask-Devil-World
       rect:
         serializedVersion: 2
-        x: 735
-        y: 254
+        x: 400
+        y: 66
         width: 77
         height: 81
       alignment: 0
@@ -270,8 +270,8 @@ TextureImporter:
       name: Mask-Plauge-World
       rect:
         serializedVersion: 2
-        x: 820
-        y: 279
+        x: 315
+        y: 52
         width: 81
         height: 95
       alignment: 0
@@ -291,8 +291,8 @@ TextureImporter:
       name: Mask-Rabbit-World
       rect:
         serializedVersion: 2
-        x: 949
-        y: 341
+        x: 2
+        y: 15
         width: 87
         height: 132
       alignment: 0
@@ -312,8 +312,8 @@ TextureImporter:
       name: Mask-Tiger_World
       rect:
         serializedVersion: 2
-        x: 1036
-        y: 396
+        x: 481
+        y: 70
         width: 64
         height: 77
       alignment: 0
@@ -333,10 +333,10 @@ TextureImporter:
       name: Mask-Generic-World
       rect:
         serializedVersion: 2
-        x: 735
-        y: 335
+        x: 93
+        y: 6
         width: 85
-        height: 39
+        height: 38
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,6 +346,153 @@ TextureImporter:
       bones: []
       spriteID: 25eb01262bec79b408e07d6f4b384e6f
       internalID: 1907366252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster-Mimic
+      rect:
+        serializedVersion: 2
+        x: 2216
+        y: 2451
+        width: 797
+        height: 1643
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 715dc5b8f690b074b8806cc379a7ad83
+      internalID: 1690877540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster-Slime
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2088
+        width: 1235
+        height: 2006
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8683144bd4a46f646bd7c84b72ebd0f8
+      internalID: 218530220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster-Succubus
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 151
+        width: 1595
+        height: 1933
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8286bb344e184bf46a71c53f9acc92d4
+      internalID: 1900417595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster-Vampire
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 2306
+        width: 971
+        height: 1788
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a8f24a02dbd08b49889ea86fe945651
+      internalID: -1223794386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster-Werewolf
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 636
+        width: 1027
+        height: 1666
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f37d3f48ff722304692acc0a11211359
+      internalID: -1530260781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Bubble
+      rect:
+        serializedVersion: 2
+        x: 2778
+        y: 218
+        width: 442
+        height: 414
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f303ef83c4f27e418ab44a6bf72548a
+      internalID: 936981961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thought_Bubble
+      rect:
+        serializedVersion: 2
+        x: 2267
+        y: 202
+        width: 507
+        height: 430
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a621d664acf18d1428fdf4b0bf4d3a35
+      internalID: -2106400391
       vertices: []
       indices: 
       edges: []
@@ -361,9 +508,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Thought_Bubble: -2106400391
       Character_K: 637786094
+      Monster-Werewolf: -1530260781
       Mask-Plauge-World: 1119162597
+      Monster-Succubus: 1900417595
+      Monster-Vampire: -1223794386
+      Monster-Mimic: 1690877540
+      Speech_Bubble: 936981961
       Mask-Generic-World: 1907366252
+      Monster-Slime: 218530220
       Character_M: 389551884
       Mask-Tiger_World: -450183932
       Mask-Bird-World: -1246942064

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GuideVampire
   m_EditorClassIdentifier: 
   monsterName: Vampyrus Cometessa
-  image: {fileID: 21300000, guid: 6db28da6aa0ef804984913cd4397f42c, type: 3}
+  image: {fileID: 1994368184, guid: 106be5ecfeb21b0488333aaf84fc7adb, type: 3}
   description: 'The Vampyrus Cometessa blends incredibly well with society. They
     play their immortality off as being the <b>Heir</b> of a long aristrocractic
     line.

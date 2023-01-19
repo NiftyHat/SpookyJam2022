@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GuideMimic
   m_EditorClassIdentifier: 
   monsterName: Simulo Humano
-  image: {fileID: 21300000, guid: 84491f9e1e8a5c94bb86b0916ebc4c73, type: 3}
+  image: {fileID: 517420975, guid: 106be5ecfeb21b0488333aaf84fc7adb, type: 3}
   description: 'The main ability of a mimic is to precisely copy something it has
     observed. This gives them a great eye for clothing and they are very <b>Fasionable</b>
 

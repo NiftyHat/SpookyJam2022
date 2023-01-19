@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MonsterSuccubus
   m_EditorClassIdentifier: 
   _friendlyName: Succubus
-  _revealSprite: {fileID: 21300000, guid: 401ca7f691ff71a4583b8e137723493c, type: 3}
+  _revealSprite: {fileID: 1900417595, guid: 4fe53f8dd68020047b70b4702be97926, type: 3}
   _preferredTraits:
   - {fileID: -8261361936468618248, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
   - {fileID: 7801872093390142965, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Name: MonsterSlime
   m_EditorClassIdentifier: 
   _friendlyName: Slime Girl
-  _revealSprite: {fileID: 21300000, guid: c2bf71c152d12f2488bae1d797c16b8b, type: 3}
+  _revealSprite: {fileID: 218530220, guid: 4fe53f8dd68020047b70b4702be97926, type: 3}
   _preferredTraits:
   - {fileID: -2805436319213069506, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
   - {fileID: -8375821426753182368, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Name: MonsterMimic
   m_EditorClassIdentifier: 
   _friendlyName: Mimic
-  _revealSprite: {fileID: 21300000, guid: 41a88d88368b0d94b818fe83be22d546, type: 3}
+  _revealSprite: {fileID: 1690877540, guid: 4fe53f8dd68020047b70b4702be97926, type: 3}
   _preferredTraits:
   - {fileID: -3720208353616562387, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
   - {fileID: 8104443354933046619, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: MonsterVampire
   m_EditorClassIdentifier: 
   _friendlyName: Vampire
-  _revealSprite: {fileID: 21300000, guid: ab751eda94c41e84b9da4968e66d72d1, type: 3}
+  _revealSprite: {fileID: -1223794386, guid: 4fe53f8dd68020047b70b4702be97926, type: 3}
   _preferredTraits:
   - {fileID: -5725889087623111918, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
   - {fileID: 5929050957276257929, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: MonsterWerewolf
   m_EditorClassIdentifier: 
   _friendlyName: Werewolf
-  _revealSprite: {fileID: 21300000, guid: 77a961e72060ef741a5c1ca7f8a9d020, type: 3}
+  _revealSprite: {fileID: -1530260781, guid: 4fe53f8dd68020047b70b4702be97926, type: 3}
   _preferredTraits:
   - {fileID: -3630619555549854146, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}
   - {fileID: -2975150411840568887, guid: 26f61f036fbd8a843af3f89912a03468, type: 2}

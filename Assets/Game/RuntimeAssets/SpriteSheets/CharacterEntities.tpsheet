@@ -9,17 +9,24 @@
 #
 :format=40300
 :texture=CharacterEntities.png
-:size=1100x473
+:size=4096x4096
 :pivotpoints=enabled
 :borders=disabled
 
-Character_F;0;0;245;473; 0.5;0.5; 0;0;0;0
-Character_K;245;0;245;473; 0.5;0.5; 0;0;0;0
-Character_M;490;0;245;473; 0.5;0.5; 0;0;0;0
-Mask-Bird-World;735;374;113;99; 0.5;0.5; 0;0;0;0
-Mask-Butterfly-World;848;374;101;99; 0.5;0.5; 0;0;0;0
-Mask-Rabbit-World;949;341;87;132; 0.5;0.5; 0;0;0;0
-Mask-Generic-World;735;335;85;39; 0.5;0.5; 0;0;0;0
-Mask-Plauge-World;820;279;81;95; 0.5;0.5; 0;0;0;0
-Mask-Devil-World;735;254;77;81; 0.5;0.5; 0;0;0;0
-Mask-Tiger_World;1036;396;64;77; 0.5;0.5; 0;0;0;0
+Monster-Slime;2;2088;1235;2006; 0.5;0.5; 0;0;0;0
+Monster-Succubus;2;151;1595;1933; 0.5;0.5; 0;0;0;0
+Mask-Rabbit-World;2;15;87;132; 0.5;0.5; 0;0;0;0
+Mask-Bird-World;93;48;113;99; 0.5;0.5; 0;0;0;0
+Mask-Generic-World;93;6;85;38; 0.5;0.5; 0;0;0;0
+Mask-Butterfly-World;210;48;101;99; 0.5;0.5; 0;0;0;0
+Mask-Plauge-World;315;52;81;95; 0.5;0.5; 0;0;0;0
+Mask-Devil-World;400;66;77;81; 0.5;0.5; 0;0;0;0
+Mask-Tiger_World;481;70;64;77; 0.5;0.5; 0;0;0;0
+Monster-Vampire;1241;2306;971;1788; 0.5;0.5; 0;0;0;0
+Monster-Werewolf;1601;636;1027;1666; 0.5;0.5; 0;0;0;0
+Monster-Mimic;2216;2451;797;1643; 0.5;0.5; 0;0;0;0
+Character_F;1601;162;218;470; 0.5;0.5; 0;0;0;0
+Character_M;1823;177;218;455; 0.5;0.5; 0;0;0;0
+Character_K;2045;178;218;454; 0.5;0.5; 0;0;0;0
+Thought_Bubble;2267;202;507;430; 0.5;0.5; 0;0;0;0
+Speech_Bubble;2778;218;442;414; 0.5;0.5; 0;0;0;0

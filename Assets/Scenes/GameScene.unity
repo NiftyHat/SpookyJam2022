@@ -2668,7 +2668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -4.7939453, y: 85.54297}
+  m_AnchoredPosition: {x: -4.793701, y: 85.54297}
   m_SizeDelta: {x: -781.377, y: 171.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &74256135
@@ -3244,7 +3244,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2504edf50b685b94cb81e4890474e335, type: 3}
+  m_Sprite: {fileID: 664545553, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3687,6 +3687,12 @@ PrefabInstance:
       value: The Mimic will pick a single guest and copy either the shape or colour
         of their mask and also appear in the same areas.
       objectReference: {fileID: 0}
+    - target: {fileID: 7362254670731253225, guid: 7d36a2556291ad64bba838e955bcae1f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 517420975, guid: 106be5ecfeb21b0488333aaf84fc7adb,
+        type: 3}
     - target: {fileID: 7362254671422816564, guid: 7d36a2556291ad64bba838e955bcae1f,
         type: 3}
       propertyPath: m_text
@@ -5215,7 +5221,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bd5c31fc9d2e8ed4381ef9b96dce1950, type: 3}
+  m_Sprite: {fileID: 115842204, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -5867,7 +5873,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 163.423, y: -226.22406}
+  m_AnchoredPosition: {x: 163.423, y: -226.06061}
   m_SizeDelta: {x: 305.85, y: 401.1446}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &182440923
@@ -7069,7 +7075,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 31e08f6f424fd794fa52541b7d4379d9, type: 3}
+  m_Sprite: {fileID: 4095538057763963606, guid: 14fe3116877bfff46be0e6b5b95c6904,
+    type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7078,7 +7085,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.6
+  m_PixelsPerUnitMultiplier: 1.11
 --- !u!222 &218788591
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11320,7 +11327,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e8bd732370dfae749afea8411eeb8426, type: 3}
+  m_Sprite: {fileID: 936981961, guid: 4fe53f8dd68020047b70b4702be97926, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14580,7 +14587,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2504edf50b685b94cb81e4890474e335, type: 3}
+  m_Sprite: {fileID: 664545553, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16058,7 +16065,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2504edf50b685b94cb81e4890474e335, type: 3}
+  m_Sprite: {fileID: 664545553, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19373,7 +19380,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 31e08f6f424fd794fa52541b7d4379d9, type: 3}
+  m_Sprite: {fileID: 4095538057763963606, guid: 14fe3116877bfff46be0e6b5b95c6904,
+    type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19382,7 +19390,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.6
+  m_PixelsPerUnitMultiplier: 1.11
 --- !u!222 &556507395
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20037,7 +20045,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2504edf50b685b94cb81e4890474e335, type: 3}
+  m_Sprite: {fileID: 664545553, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20891,7 +20899,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 31e08f6f424fd794fa52541b7d4379d9, type: 3}
+  m_Sprite: {fileID: 4095538057763963606, guid: 14fe3116877bfff46be0e6b5b95c6904,
+    type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20900,7 +20909,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.6
+  m_PixelsPerUnitMultiplier: 1.11
 --- !u!222 &602906686
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22630,7 +22639,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c06228c0350d2b943a80d67f4f3c2df6, type: 3}
+  m_Sprite: {fileID: 664545553, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -26217,7 +26226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.1397705, y: 0}
+  m_AnchoredPosition: {x: -12.139893, y: 0}
   m_SizeDelta: {x: -24.2795, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &789587833
@@ -29763,6 +29772,12 @@ PrefabInstance:
       value: Outside of simple deduction with social traits there is no other known
         way to identify this cryptid.
       objectReference: {fileID: 0}
+    - target: {fileID: 7362254670731253225, guid: 7d36a2556291ad64bba838e955bcae1f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1136827718, guid: 106be5ecfeb21b0488333aaf84fc7adb,
+        type: 3}
     - target: {fileID: 7362254671422816564, guid: 7d36a2556291ad64bba838e955bcae1f,
         type: 3}
       propertyPath: m_text
@@ -33956,7 +33971,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 163.423, y: -699.6133}
+  m_AnchoredPosition: {x: 163.423, y: -699.4498}
   m_SizeDelta: {x: 308.5393, y: 537.6338}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1094846390
@@ -35348,7 +35363,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2504edf50b685b94cb81e4890474e335, type: 3}
+  m_Sprite: {fileID: 664545553, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -37068,7 +37083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2504edf50b685b94cb81e4890474e335, type: 3}
+  m_Sprite: {fileID: 664545553, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -39583,7 +39598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 420441f33c5ff5f40a90b24bc672ae8e, type: 3}
+  m_Sprite: {fileID: 1849366863, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -49685,6 +49700,12 @@ PrefabInstance:
       value: The Succubus will use social "mirroring" to hide in plain sight by sticking
         close to another guest during the event.
       objectReference: {fileID: 0}
+    - target: {fileID: 7362254670731253225, guid: 7d36a2556291ad64bba838e955bcae1f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -18716419, guid: 106be5ecfeb21b0488333aaf84fc7adb,
+        type: 3}
     - target: {fileID: 7362254671422816564, guid: 7d36a2556291ad64bba838e955bcae1f,
         type: 3}
       propertyPath: m_text
@@ -55208,6 +55229,12 @@ PrefabInstance:
       propertyPath: m_text
       value: They require an invitation to enter a building, and have to lurk outside.
       objectReference: {fileID: 0}
+    - target: {fileID: 7362254670731253225, guid: 7d36a2556291ad64bba838e955bcae1f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1994368184, guid: 106be5ecfeb21b0488333aaf84fc7adb,
+        type: 3}
     - target: {fileID: 7362254671422816564, guid: 7d36a2556291ad64bba838e955bcae1f,
         type: 3}
       propertyPath: m_text
@@ -56828,7 +56855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 67.5, y: -0.0000038147}
+  m_AnchoredPosition: {x: 79.5, y: -0.0000038147}
   m_SizeDelta: {x: 48.6105, y: 62.6258}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1867845212
@@ -56851,7 +56878,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f629d121e51ce8c4ea806aa91967c0c6, type: 3}
+  m_Sprite: {fileID: 1867067168, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -57542,7 +57569,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2504edf50b685b94cb81e4890474e335, type: 3}
+  m_Sprite: {fileID: 664545553, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -59592,7 +59619,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2504edf50b685b94cb81e4890474e335, type: 3}
+  m_Sprite: {fileID: 664545553, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -64385,7 +64412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e8bd732370dfae749afea8411eeb8426, type: 3}
+  m_Sprite: {fileID: 936981961, guid: 4fe53f8dd68020047b70b4702be97926, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -64667,6 +64694,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7362254670731253225, guid: 7d36a2556291ad64bba838e955bcae1f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1507054460, guid: 106be5ecfeb21b0488333aaf84fc7adb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d36a2556291ad64bba838e955bcae1f, type: 3}
 --- !u!1001 &7386694898687073581
