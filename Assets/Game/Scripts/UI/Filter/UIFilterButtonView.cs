@@ -1,5 +1,6 @@
 using System;
 using Data.Menu;
+using NiftyFramework.Core.Data;
 using NiftyFramework.UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,8 +14,10 @@ namespace UI.Filter
         {
             protected Sprite _icon;
             protected string _friendlyName;
+            protected Optional<Color> _color;
             public Sprite Icon => _icon;
             public string FriendlyName => _friendlyName;
+            public Optional<Color> Color => _color;
         }
 
         public class Data<TFilterItem> : Data
@@ -68,6 +71,10 @@ namespace UI.Filter
             if (gameObject.TrySetActive(true))
             {
                 _icon.sprite = _data.Icon;
+                if (_data.Color.Enabled)
+                {
+                    _icon.color = _data.Color.Value;
+                }
             }
         }
 

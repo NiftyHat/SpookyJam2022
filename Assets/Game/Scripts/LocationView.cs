@@ -16,11 +16,13 @@ public class LocationView : MonoBehaviour, IView<LocationData>
     [SerializeField] private LocationData _locationData;
     [SerializeField] private List<TransitionZoneView> _transitionZoneViews;
 
+    private AudioPlayerContext _audioPlayerContext;
     private GameStateContext _gameStateService;
     private CharacterSpawnSet _spawnSet;
     private bool _canSpawn = true;
 
     private Action _onDeferedSpawn;
+    private int _guestCount = 0;
     
     private void Awake()
     {
@@ -43,12 +45,6 @@ public class LocationView : MonoBehaviour, IView<LocationData>
         Init();
     }
 
-    private void HandleGameState(GameStateContext gameStateService)
-    {
-        _gameStateService = gameStateService;
-        
-    }
-
     private void HandlePhaseChange(int newvalue, int oldvalue)
     {
         _canSpawn = true;
@@ -59,10 +55,21 @@ public class LocationView : MonoBehaviour, IView<LocationData>
         }
     }
 
-    void SpawnCharacters(IReadOnlyList<CharacterEntity> entities, System.Random random)
+    protected void SpawnCharacters(IReadOnlyList<CharacterEntity> entities, System.Random random)
     {
         if (_canSpawn)
         {
+            _guestCount = entities.Count;
+            _audioPlayerContext?.SetAmbient(_locationData.AudioState);
+            if (_guestCount > 0)
+            {
+                _audioPlayerContext?.SetGuestVolume(1.0f - (1f / _guestCount));
+            }
+            else
+            {
+                _audioPlayerContext?.SetGuestVolume(0.1f);
+            }
+            
             StringBuilder sb = new StringBuilder();
             foreach (var item in entities)
             {
@@ -96,6 +103,26 @@ public class LocationView : MonoBehaviour, IView<LocationData>
                 }
             });
             return;
+        }
+
+        if (_audioPlayerContext == null)
+        {
+            ContextService.Get<AudioPlayerContext>(audioPlayerContext =>
+            {
+                if (_audioPlayerContext == null)
+                {
+                    _audioPlayerContext = audioPlayerContext;
+                    _audioPlayerContext.SetAmbient(_locationData.AudioState);
+                    if (_guestCount > 0)
+                    {
+                        _audioPlayerContext?.SetGuestVolume(1.0f - (1f / _guestCount));
+                    }
+                    else
+                    {
+                        _audioPlayerContext?.SetGuestVolume(0.1f);
+                    }
+                }
+            });
         }
         var charactersInLocation = _gameStateService.GetCharactersInLocation(_locationData);
         if (charactersInLocation != null && charactersInLocation.Count > 0)

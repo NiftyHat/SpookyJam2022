@@ -1,0 +1,32 @@
+version: 2
+tpsheetFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
+- Assets/Game/RuntimeAssets/SpriteSheets/Card-SpriteSheet.tpsheet
+- Assets/Game/RuntimeAssets/SpriteSheets/CharacterEntities.tpsheet
+- Assets/Game/RuntimeAssets/SpriteSheets/Guidbook-UIAssets.tpsheet
+- Assets/Game/RuntimeAssets/SpriteSheets/Guidebook-Art-Assets.tpsheet
+- Assets/Game/RuntimeAssets/SpriteSheets/HUD-SpriteSheet.tpsheet
+- Assets/Game/RuntimeAssets/SpriteSheets/Locations/Location-Assets.tpsheet
+- Assets/Game/RuntimeAssets/SpriteSheets/Locations/Location-Garden.tpsheet
+- Assets/Game/RuntimeAssets/SpriteSheets/TMP-Emojis.tpsheet
+textureFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites.png
+- Assets/Game/RuntimeAssets/SpriteSheets/Card-SpriteSheet.png
+- Assets/Game/RuntimeAssets/SpriteSheets/CharacterEntities.png
+- Assets/Game/RuntimeAssets/SpriteSheets/Book-Assets.png
+- Assets/Game/RuntimeAssets/SpriteSheets/Guidebook-Assets.png
+- Assets/Game/RuntimeAssets/SpriteSheets/HUD-SpriteSheet.png
+- Assets/Game/RuntimeAssets/SpriteSheets/Locations/Location-Assets.png
+- Assets/Game/RuntimeAssets/SpriteSheets/Locations/Location-Garden.png
+- Assets/Game/RuntimeAssets/SpriteSheets/TMP-Emojis.png
+normalmapFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+enableDebugOutput: 0

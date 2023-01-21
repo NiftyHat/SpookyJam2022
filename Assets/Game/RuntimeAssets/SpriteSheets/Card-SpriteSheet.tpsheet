@@ -1,0 +1,24 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://assetstore.unity.com/packages/tools/sprite-management/texturepacker-importer-16641
+#
+# created with Free texture packer v0.6.7
+# http://free-tex-packer.com
+#
+:format=40300
+:texture=Card-SpriteSheet.png
+:size=4096x4096
+:pivotpoints=enabled
+:borders=disabled
+
+Card_back.PNG;1;688;1900;3407; 0.5;0.5; 0;0;0;0
+Card-Element.PNG;1;99;746;587; 0.5;0.5; 0;0;0;0
+Card_Front_texture.png;749;345;195;341; 0.5;0.5; 0;0;0;0
+Card-Footer.png;749;137;729;206; 0.5;0.5; 0;0;0;0
+Card-Header.png;946;517;709;169; 0.5;0.5; 0;0;0;0
+Card-Portrait.PNG;1903;2015;1540;2080; 0.5;0.5; 0;0;0;0
+Card-Portrait-Mask.png;1903;569;1013;1444; 0.5;0.5; 0;0;0;0
+Card-Boarder.png;2918;583;825;1430; 0.5;0.5; 0;0;0;0
+Card-Inner-Boarder.png;3745;1078;76;935; 0.5;0.5; 0;0;0;0

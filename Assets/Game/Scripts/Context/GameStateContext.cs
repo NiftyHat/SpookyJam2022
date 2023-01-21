@@ -16,6 +16,7 @@ using Interactions.Commands;
 using NiftyFramework.Core;
 using NiftyFramework.Core.Context;
 using TouchInput.UnitControl;
+using UI.Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityUtils;
@@ -240,6 +241,11 @@ namespace Context
         {
             var playerSelection = _player.GetComponent<PointerSelectionHandler>();
             OnSetSelection?.Invoke(playerSelection);
+        }
+
+        public void SetAmbientState(AmbientAudioPlayer.AudioState audioState)
+        {
+            
         }
     }
 }

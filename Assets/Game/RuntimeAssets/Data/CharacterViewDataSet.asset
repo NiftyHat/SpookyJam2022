@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CharactSuitView
   m_EditorClassIdentifier: 
   _sprite: {fileID: 389551884, guid: 4fe53f8dd68020047b70b4702be97926, type: 3}
+  _reactionAudio: {fileID: 11400000, guid: 0ee0bf4134180f04eb7e5476eaff12d7, type: 2}
 --- !u!114 &-3820920086352674849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,6 +27,7 @@ MonoBehaviour:
   m_Name: CharacterDressView
   m_EditorClassIdentifier: 
   _sprite: {fileID: -701150861, guid: 4fe53f8dd68020047b70b4702be97926, type: 3}
+  _reactionAudio: {fileID: 11400000, guid: 5a6c9030ab2ebab4abaae06861911339, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

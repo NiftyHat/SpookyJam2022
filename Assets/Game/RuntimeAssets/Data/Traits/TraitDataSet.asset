@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: DisgracedTrait
   m_EditorClassIdentifier: 
   _friendlyName: Disgraced
-  _icon: {fileID: 21300000, guid: b943ab256a6f9ac488de018530ac6a6c, type: 3}
+  _icon: {fileID: -5194033518427056601, guid: 84260c44931a7244abdc8238a6b6fafd, type: 3}
   _description: Living with the shame of some past offence
   _isEnabled: 1
   _cardNumber: 2

@@ -1,0 +1,21 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://assetstore.unity.com/packages/tools/sprite-management/texturepacker-importer-16641
+#
+# created with Free texture packer v0.6.7
+# http://free-tex-packer.com
+#
+:format=40300
+:texture=Book-Assets.png
+:size=2048x1024
+:pivotpoints=enabled
+:borders=disabled
+
+Book-Background.png;2;351;1000;671; 0.5;0.5; 0;0;0;0
+Page-Right.png;1006;405;489;617; 0.5;0.5; 0;0;0;0
+Page-Left.png;1499;404;481;618; 0.5;0.5; 0;0;0;0
+Tutorial-Mouse-Left.png;1006;162;126;239; 0.5;0.5; 0;0;0;0
+Tutorial-Mouse-Right.png;1136;162;126;239; 0.5;0.5; 0;0;0;0
+Book-Contents-Mark.png;1266;238;87;163; 0.5;0.5; 0;0;0;0

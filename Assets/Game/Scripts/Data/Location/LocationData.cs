@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using NiftyFramework.Core.Utils;
 using Spawn;
+using UI.Audio;
 using UnityEngine;
 using UnityUtils;
 
@@ -14,6 +15,7 @@ namespace Data.Location
         [SerializeField] private Sprite _icon;
         [SerializeField] private int _spawnSeed = 523523;
         [SerializeField][NonNull] private LocationView _prefab;
+        [SerializeField] private AmbientAudioPlayer.AudioState _audioState;
 
         private LocationView _instance;
         public LocationView Instance => _instance;
@@ -25,6 +27,7 @@ namespace Data.Location
         protected Action<CharacterSpawnSet> _onSpawnsSet;
 
         public int SpawnSeed => _spawnSeed;
+        public AmbientAudioPlayer.AudioState AudioState => _audioState;
 
         public void SetSpawns(CharacterSpawnSet spawnSet)
         {

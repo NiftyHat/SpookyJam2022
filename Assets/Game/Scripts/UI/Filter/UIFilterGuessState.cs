@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Data.Menu;
 using NiftyFramework.Core;
+using NiftyFramework.Core.Data;
 using UnityEngine;
 
 namespace UI.Filter
@@ -18,10 +19,13 @@ namespace UI.Filter
                 [SerializeField] private string _friendlyName;
                 [SerializeField][SpritePreview] private Sprite _icon;
                 [SerializeField] private string _description;
+                [SerializeField] private Optional<Color> _colour;
 
                 public string FriendlyName => _friendlyName;
 
                 public Sprite Icon => _icon;
+
+                public Optional<Color> Color => _colour;
 
                 public string Description => _description;
             }

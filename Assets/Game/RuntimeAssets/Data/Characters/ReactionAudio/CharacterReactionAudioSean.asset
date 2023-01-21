@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac48a57b38e4622adf41feae02f521c, type: 3}
+  m_Name: CharacterReactionAudioSean
+  m_EditorClassIdentifier: 
+  _entryList:
+  - _reactionData: {fileID: -6433956699517619100, guid: e32084423b1cd6646889c10d75f87b73,
+      type: 2}
+    _audioClips:
+    - {fileID: 8300000, guid: 32ca91884bcbf714ebc5a35ebbad095d, type: 3}
+  - _reactionData: {fileID: 277367436992013977, guid: e32084423b1cd6646889c10d75f87b73,
+      type: 2}
+    _audioClips:
+    - {fileID: 8300000, guid: dbf913c70118b884493a7c4427eeb693, type: 3}
+  - _reactionData: {fileID: 2558676309207384288, guid: e32084423b1cd6646889c10d75f87b73,
+      type: 2}
+    _audioClips:
+    - {fileID: 8300000, guid: 3ffe778cf6d2a9b43b4bb59a64c28c9d, type: 3}
+  - _reactionData: {fileID: 3959208671623290579, guid: e32084423b1cd6646889c10d75f87b73,
+      type: 2}
+    _audioClips:
+    - {fileID: 8300000, guid: 7b5faaed3192d144784f2f17946d5d94, type: 3}
+  - _reactionData: {fileID: 4349075112016446601, guid: e32084423b1cd6646889c10d75f87b73,
+      type: 2}
+    _audioClips:
+    - {fileID: 8300000, guid: 31a2a3ad8dbb50e4d968bdc2f0f07123, type: 3}
+  - _reactionData: {fileID: -6149206598976904165, guid: e32084423b1cd6646889c10d75f87b73,
+      type: 2}
+    _audioClips:
+    - {fileID: 8300000, guid: dfd9c2881fada8f4b980d26c4ddfc25a, type: 3}
+  - _reactionData: {fileID: -3605238400349697620, guid: e32084423b1cd6646889c10d75f87b73,
+      type: 2}
+    _audioClips:
+    - {fileID: 8300000, guid: dfd9c2881fada8f4b980d26c4ddfc25a, type: 3}
+  - _reactionData: {fileID: -6753986248370573308, guid: e32084423b1cd6646889c10d75f87b73,
+      type: 2}
+    _audioClips:
+    - {fileID: 8300000, guid: 745572bf89b47704cac8588dcb5cba22, type: 3}
+  - _reactionData: {fileID: 8380605986334348715, guid: e32084423b1cd6646889c10d75f87b73,
+      type: 2}
+    _audioClips:
+    - {fileID: 8300000, guid: 6c90469f1365a9946838eebbba9e3726, type: 3}
+  - _reactionData: {fileID: 1943571472787848707, guid: e32084423b1cd6646889c10d75f87b73,
+      type: 2}
+    _audioClips:
+    - {fileID: 8300000, guid: 221f53e36b56dae4aae169322723be9a, type: 3}

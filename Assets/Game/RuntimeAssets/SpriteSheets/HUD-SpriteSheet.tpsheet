@@ -1,0 +1,64 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://assetstore.unity.com/packages/tools/sprite-management/texturepacker-importer-16641
+#
+# created with Free texture packer v0.6.7
+# http://free-tex-packer.com
+#
+:format=40300
+:texture=HUD-SpriteSheet.png
+:size=4096x2048
+:pivotpoints=enabled
+:borders=disabled
+
+HUD-Bottom-Bar.png;1;1725;1920;322; 0.5;0.5; 0;0;0;0
+Action_Search.PNG;1923;1388;574;659; 0.5;0.5; 0;0;0;0
+Action_Move.PNG;2499;1660;561;387; 0.5;0.5; 0;0;0;0
+Action_Mingle.PNG;3062;1749;512;298; 0.5;0.5; 0;0;0;0
+Monster-Select-Tag.png;3576;1935;508;112; 0.5;0.5; 0;0;0;0
+Interaction-Speech.png;3576;1460;490;473; 0.5;0.5; 0;0;0;0
+Interaction-Instigate.png;3062;1266;485;481; 0.5;0.5; 0;0;0;0
+Icon-Cancel.png;3549;978;480;480; 0.5;0.5; 0;0;0;0
+AbilityButton-CostBackground.png;4031;1415;55;43; 0.5;0.5; 0;0;0;0
+Small-Square-Rounded-Corners.png;4031;1364;50;49; 0.5;0.5; 0;0;0;0
+Icon-Confirmed.png;2499;1178;480;480; 0.5;0.5; 0;0;0;0
+Icon-Help.png;2981;784;480;480; 0.5;0.5; 0;0;0;0
+Interaction-Flirt.png;3463;500;480;476; 0.5;0.5; 0;0;0;0
+AbilityButton-Background.png;3945;654;128;128; 0.5;0.5; 0;0;0;0
+AbilityButton-Outline.png;3945;848;128;128; 0.5;0.5; 0;0;0;0
+DashedBox.png;3945;524;128;128; 0.5;0.5; 0;0;0;0
+AbilityFill-CurvedCorners.png;3945;394;127;128; 0.5;0.5; 0;0;0;0
+Interaction-Conspire.png;1;1238;479;485; 0.5;0.5; 0;0;0;0
+Interaction-Confess.png;482;1245;479;478; 0.5;0.5; 0;0;0;0
+Interaction-Mingle.png;963;1302;479;421; 0.5;0.5; 0;0;0;0
+Interaction-Examine.png;1444;1247;475;476; 0.5;0.5; 0;0;0;0
+Icon-EvilMoon.png;963;823;478;477; 0.5;0.5; 0;0;0;0
+Action_Flirt.PNG;482;866;472;377; 0.5;0.5; 0;0;0;0
+Icon-Search.png;1;770;466;466; 0.5;0.5; 0;0;0;0
+Interaction-Brag.png;469;384;408;480; 0.5;0.5; 0;0;0;0
+Action_Question.PNG;1;226;400;542; 0.5;0.5; 0;0;0;0
+TooltipSkill.png;1921;1288;380;98; 0.5;0.5; 0;0;0;0
+Checkbox_Box.png;2303;1266;126;120; 0.5;0.5; 0;0;0;0
+Interaction-EndTurn.png;1921;895;367;391; 0.5;0.5; 0;0;0;0
+Icon_Local_Dance.PNG;2290;1051;198;213; 0.5;0.5; 0;0;0;0
+Interaction-Walk.png;1443;779;349;466; 0.5;0.5; 0;0;0;0
+Checkbox-Cross.png;1794;1130;123;115; 0.5;0.5; 0;0;0;0
+Mask-Butterfly-Icon.png;1794;1043;120;85; 0.5;0.5; 0;0;0;0
+Mask-Bird-Icon.png;1794;961;120;80; 0.5;0.5; 0;0;0;0
+Mask-Devil-Icon.png;1794;857;114;102; 0.5;0.5; 0;0;0;0
+Interaction-Joke.png;2490;726;344;450; 0.5;0.5; 0;0;0;0
+UI-Rounded-Edges-9Slice.png;2836;1113;126;63; 0.5;0.5; 0;0;0;0
+Checkbox-Tick.png;2836;987;110;124; 0.5;0.5; 0;0;0;0
+Mask-Tiger-Icon.png;2836;881;106;104; 0.5;0.5; 0;0;0;0
+Icon-Chevron-Next.png;2836;744;98;135; 0.5;0.5; 0;0;0;0
+Mask-Rabbit-Icon.png;2290;947;94;102; 0.5;0.5; 0;0;0;0
+Mask-Plauge-Icon.png;2386;943;87;106; 0.5;0.5; 0;0;0;0
+Rounded-Button-Glow.png;2936;629;244;153; 0.5;0.5; 0;0;0;0
+Icon_Local_Garden.PNG;3182;580;234;202; 0.5;0.5; 0;0;0;0
+Icon_Local_Upper_Landing.PNG;879;601;233;220; 0.5;0.5; 0;0;0;0
+Icon_Local_Lower_Landing.PNG;1114;627;232;194; 0.5;0.5; 0;0;0;0
+Icon_Local_Balcony.PNG;1910;700;221;193; 0.5;0.5; 0;0;0;0
+Icon_Local_Banq.PNG;2133;722;221;171; 0.5;0.5; 0;0;0;0
+RoundedButton.png;1348;664;213;113; 0.5;0.5; 0;0;0;0

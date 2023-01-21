@@ -1,3 +1,4 @@
+using Data.Character;
 using Data.Reactions;
 using NiftyFramework.Core.Utils;
 using TouchInput.UnitControl;
@@ -16,12 +17,15 @@ namespace Entity
         [SerializeField] protected FacingDirectionView _facingDirectionView;
         [SerializeField] protected MaskEntityView _maskView;
         [SerializeField] protected Transform _reactionBubbleLocation;
+        [SerializeField] protected AudioSource _audioSource;
 
         private object _handleContextMenuRequest;
         private IContextMenuOptions _contextMenuOptions;
 
         private ReactionBubbleView _reactionBubbleCache;
         private CharacterEntity _entity;
+
+        private CharacterReactionAudioData _reactionAudio;
 
         public virtual void Start()
         {
@@ -110,6 +114,14 @@ namespace Entity
             {
                 Destroy(_reactionBubbleCache);
             }
+
+            if (_reactionAudio != null)
+            {
+                if (_reactionAudio.TryGetClip(reactionData, out AudioClip clip))
+                {
+                    _audioSource.PlayOneShot(clip);
+                }
+            }
             _reactionBubbleCache = Instantiate(reactionData.Prefab, _reactionBubbleLocation.transform.position, Quaternion.identity);
             _reactionBubbleCache.Set(reactionData);
         }
@@ -124,6 +136,7 @@ namespace Entity
             _entity = entity;
             _entity.OnReaction += ShowReaction;
             _spriteRenderer.sprite = _entity.ViewData.Sprite;
+            _reactionAudio = entity.ViewData.ReactionAudio;
             _maskView.Set(_entity.Mask);
         }
     }

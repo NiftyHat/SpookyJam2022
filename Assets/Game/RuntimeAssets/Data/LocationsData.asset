@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _friendlyName: The Balcony
   _description: 
-  _icon: {fileID: -1183904889, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+  _icon: {fileID: -1340806212, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   _spawnSeed: 523523
   _prefab: {fileID: 3762711554452035201, guid: baa231597ed566946899cc96335c6a73, type: 3}
+  _audioState:
+    MusicVolume: 0.3
+    OutdoorVolume: 0.3
 --- !u!114 &-3538942094896422244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,9 +34,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _friendlyName: Upper Landing
   _description: 
-  _icon: {fileID: 1555194403, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+  _icon: {fileID: -1978604286, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   _spawnSeed: 523523
   _prefab: {fileID: 3569508133178324469, guid: d3f40801252025b4cbd04102f9d5642a, type: 3}
+  _audioState:
+    MusicVolume: 0.5
+    OutdoorVolume: 0
 --- !u!114 &-2087783226966105912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,9 +54,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _friendlyName: Dance Hall
   _description: 
-  _icon: {fileID: 954018197, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+  _icon: {fileID: 2029396510, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   _spawnSeed: 523523
   _prefab: {fileID: 2537605791046746212, guid: 6355b932abf8c714ba235a7a9e351df0, type: 3}
+  _audioState:
+    MusicVolume: 1
+    OutdoorVolume: 0
 --- !u!114 &-622056154717205662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,10 +74,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _friendlyName: Statue Garden
   _description: 
-  _icon: {fileID: -563166384, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+  _icon: {fileID: -1709849434, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   _spawnSeed: 523523
   _prefab: {fileID: -5968094147890646115, guid: d4aba0a81e9429c46baf5986d0438163,
     type: 3}
+  _audioState:
+    MusicVolume: 0.2
+    OutdoorVolume: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,9 +114,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _friendlyName: Lower Landing
   _description: 
-  _icon: {fileID: -339829450, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+  _icon: {fileID: -1144561465, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
   _spawnSeed: 523523
   _prefab: {fileID: 1183476245819586080, guid: 31fcd2a59ced21b428206be3ea6c5aa9, type: 3}
+  _audioState:
+    MusicVolume: 0.5
+    OutdoorVolume: 0
 --- !u!114 &4635359559426436241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +134,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _friendlyName: Dining Hall
   _description: 
-  _icon: {fileID: -721656892, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+  _icon: {fileID: -1907860204, guid: 27e3eef24e81f83479645c858e4b7b25, type: 3}
   _spawnSeed: 523523
   _prefab: {fileID: 6280254265414593223, guid: 6a1398d66e4292d49804a315af92eed3, type: 3}
+  _audioState:
+    MusicVolume: 0.8
+    OutdoorVolume: 0
