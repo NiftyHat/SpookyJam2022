@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a778bc127143e2833e76361208b9bb, type: 3}
+  m_Name: AudioButtonData
+  m_EditorClassIdentifier: 
+  _click: {fileID: 8300000, guid: 3067985e5d3e1c14989cdf7af63eff4f, type: 3}

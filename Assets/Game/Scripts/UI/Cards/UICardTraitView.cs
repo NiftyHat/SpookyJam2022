@@ -8,6 +8,7 @@ using Data.Trait;
 using DG.Tweening;
 using NiftyFramework.UI;
 using TMPro;
+using UI.Audio;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -28,8 +29,10 @@ namespace UI.Cards
         [SerializeField] private float _popHeight = 30;
         [SerializeField] private Canvas _canvas;
         [SerializeField] private Image _markedNoDecal;
+        [SerializeField] private UIGuessAudio _guessAudio;
 
 
+        private bool _isAudioInit;
         public TraitData TraitData { get; private set; }
         public IList<ReactionData> ReactionList {get; private set; }
         public IList<AbilityReactionTriggerData> AbilityList { get; private set; }
@@ -73,6 +76,10 @@ namespace UI.Cards
             var nextGuess = GuessUtils.Next(_guessValue);
             SetGuess(nextGuess);
             OnGuessChange?.Invoke(this,_guessValue);
+            if (_guessAudio != null)
+            {
+                _guessAudio.PlayStateAudio(_guessValue);
+            }
         }
 
         public void Clear()
@@ -154,7 +161,5 @@ namespace UI.Cards
             }
             _boarderView.Set(guess);
         }
-
-
     }
 }

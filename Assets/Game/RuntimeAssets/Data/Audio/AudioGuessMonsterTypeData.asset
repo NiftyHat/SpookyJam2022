@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: defa26dc9f78490eb815c977b086b11a, type: 3}
+  m_Name: AudioGuessMonsterTypeData
+  m_EditorClassIdentifier: 
+  _yes: {fileID: 8300000, guid: 56a5ea173751d104386f733364ff3930, type: 3}
+  _no: {fileID: 8300000, guid: dc92de9c7cc980e48b783b0583e420ee, type: 3}
+  _none: {fileID: 8300000, guid: 64a915a8a7f685c47a8dc37b8fa9f721, type: 3}

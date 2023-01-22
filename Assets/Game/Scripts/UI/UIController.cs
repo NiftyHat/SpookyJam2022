@@ -8,9 +8,10 @@ using Interactions.Commands;
 using NiftyFramework.Core.Context;
 using NiftyFramework.Core.Utils;
 using TouchInput.UnitControl;
+using UI.Audio;
 using UI.Targeting;
 using UnityEngine;
-using UnityUtils;
+using UI.Audio;
 
 namespace UI
 {
@@ -59,6 +60,7 @@ namespace UI
         [SerializeField] [NonNull] private UIInteractionListPanel _interactionList;
         [SerializeField] [NonNull] private UICharacterSelectPreview _characterSelectPreview;
         [SerializeField] [NonNull] private UIPlayerInfo _playerInfoView;
+        [SerializeField] [NonNull] private UIAudioSelection _uiAudioSelection;
         
         private FloorLocation _floorLocation;
         
@@ -176,6 +178,10 @@ namespace UI
             {
                 if (_previewCommand.IsValidTarget(_floorLocation))
                 {
+                    if (_uiAudioSelection != null)
+                    {
+                        _uiAudioSelection.PlayGroundSelected();
+                    }
                     _previewCommand.SetTarget(_floorLocation);
                     _gameStateContext.RunCommand(_previewCommand);
                     ClearPreview();
@@ -195,6 +201,19 @@ namespace UI
 
         public void SetSelected(PointerSelectionHandler selected)
         {
+            if (_uiAudioSelection != null)
+            {
+                if (selected != null)
+                {
+                    _uiAudioSelection.PlaySelected();
+                }
+                else
+                {
+                    _uiAudioSelection.PlaySelectionCleared();
+                }
+            }
+            
+           
             if (_previewCommand != null && selected != null && selected.Target is TransitionZoneView transitionZoneView)
             {
                 _previewCommand.SetTarget(transitionZoneView);

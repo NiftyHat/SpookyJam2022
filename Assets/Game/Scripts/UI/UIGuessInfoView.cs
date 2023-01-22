@@ -44,25 +44,29 @@ namespace UI
                         possibleMonsters.Remove(item);
                         break;
                     case Guess.Yes:
-                        if (useYesItems == false)
-                        {
-                            possibleMonsters.Clear();
-                        }
                         useYesItems = true;
+                        //if (useYesItems == false)
+                        //{
+                            //possibleMonsters.Clear();
+                        //}
                         possibleMonsters.Add(item);
                         break;
                 }
             }
 
-            if (useYesItems && possibleMonsters.Count == 1)
+            if (possibleMonsters.Count == 1 && useYesItems)
             {
                 _icon.color = Color.white;
+            }
+            else if (possibleMonsters.Count == 0)
+            {
+                _icon.color = Color.red;
             }
             else
             {
                 _icon.color = Color.black;
             }
-            
+
             if (possibleMonsters.Count <= 1)
             {
                 _amountView.Clear();

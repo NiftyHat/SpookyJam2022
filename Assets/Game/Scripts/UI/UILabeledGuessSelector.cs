@@ -3,6 +3,7 @@ using Data.Monsters;
 using NiftyFramework.Core.Utils;
 using NiftyFramework.UI;
 using TMPro;
+using UI.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,30 +16,14 @@ namespace UI
         [SerializeField] [NonNull] private Button _button;
         [SerializeField] [NonNull] private Image _icon;
         [SerializeField] private CanvasGroup _canvasGroup;
+        [SerializeField] private UIGuessAudio _guessAudio;
 
         protected Guess _guess;
         public event Action<Guess> OnValueChanged;
-        protected bool _isEliminated;
 
         public void Start()
         {
             _button.onClick.AddListener(HandleButtonClick);
-        }
-
-        private void SetEliminated(bool isEliminated)
-        {
-            _isEliminated = isEliminated;
-            if (_canvasGroup != null)
-            {
-                if (isEliminated)
-                {
-                    _canvasGroup.alpha = 0.5f;
-                }
-                else
-                {
-                    _canvasGroup.alpha = 1.0f;
-                }
-            }
         }
 
         private void HandleButtonClick()
@@ -46,6 +31,10 @@ namespace UI
             var nextGuess = GuessUtils.Next(_guess);
             SetGuess(nextGuess);
             OnValueChanged?.Invoke(_guess);
+            if (_guessAudio != null)
+            {
+                _guessAudio.PlayStateAudio(nextGuess);
+            }
         }
 
         public void SetGuess(Guess guess)
