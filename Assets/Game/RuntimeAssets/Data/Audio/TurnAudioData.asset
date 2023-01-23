@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e16435e787d4588b7f229cc52983808, type: 3}
+  m_Name: TurnAudioData
+  m_EditorClassIdentifier: 
+  _turnEnd: {fileID: 8300000, guid: 79893b2c4b611af4db47073f7c4d635f, type: 3}
+  _phaseChange: {fileID: 8300000, guid: 5f67c3bd0ba985b40875eb8bc12f0945, type: 3}

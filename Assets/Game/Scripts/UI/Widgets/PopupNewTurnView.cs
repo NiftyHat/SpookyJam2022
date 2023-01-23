@@ -3,6 +3,7 @@ using Context;
 using NiftyFramework.Core.Context;
 using NiftyFramework.UnityUtils;
 using TMPro;
+using UI.Audio;
 using UnityEngine;
 
 namespace UI.Screens
@@ -13,6 +14,7 @@ namespace UI.Screens
         [SerializeField] protected TextMeshProUGUI _textPhase;
         [SerializeField] protected AnimatedTimeLabelView _textTime;
         [SerializeField] protected TextMeshProUGUI _textSubtitle;
+        [SerializeField] protected TurnChangeAudio _turnChangeAudio;
 
         protected GameStateContext _gameStateContext;
         protected int _animationIn = Animator.StringToHash("UIPopupNewTurn@In");
@@ -31,6 +33,7 @@ namespace UI.Screens
             HandleTurnStarted(service.Turns.Value, service.Turns.Max, service.Phase.Value);
 
             service.OnTurnStarted += HandleTurnStarted;
+            service.OnPhaseChange += HandlePhaseChange;
 
             StateChangeDispatchBehaviour stateChangeDispatchBehaviour = _animator.GetBehaviour<StateChangeDispatchBehaviour>();
             if (stateChangeDispatchBehaviour != null)
@@ -38,7 +41,15 @@ namespace UI.Screens
                 stateChangeDispatchBehaviour.OnStateExited += HandleStateExit;
             }
         }
-        
+
+        private void HandlePhaseChange(int newValue, int oldValue)
+        {
+            if (newValue != oldValue)
+            {
+                _turnChangeAudio.PlayPhaseChange();
+            }
+        }
+
         private void HandleStateExit(Animator animator, AnimatorStateInfo stateinfo, int layerindex)
         {
         }
@@ -52,6 +63,7 @@ namespace UI.Screens
             _textTime.Set(_gameStateContext.CurrentTime - subtractTime, _gameStateContext.CurrentTime, 3f);
             _animator.Play(_animationIn);
             gameObject.SetActive(true);
+            _turnChangeAudio.PlayTurnEnd();
         }
 
         public static string AddOrdinal(int num)
