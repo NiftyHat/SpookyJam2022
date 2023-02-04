@@ -1,9 +1,9 @@
 {
   "dependencies": {
-      "com.aboudoux.fluentcsv": "https://github.com/NiftyHat/FluentCSVUnity.git",
-      "com.niftyhat.editormenu": "https://github.com/NiftyHat/NiftyEditorMenu.git",
-      "com.niftyhat.niftycore": "https://github.com/NiftyHat/NiftyCore.git",
-      "com.niftyhat.scriptableset": "https://github.com/NiftyHat/NiftyScriptableSet.git",
+    "com.aboudoux.fluentcsv": "https://github.com/NiftyHat/FluentCSVUnity.git",
+    "com.niftyhat.editormenu": "https://github.com/NiftyHat/NiftyEditorMenu.git",
+    "com.niftyhat.niftycore": "https://github.com/NiftyHat/NiftyCore.git",
+    "com.niftyhat.scriptableset": "https://github.com/NiftyHat/NiftyScriptableSet.git",
     "com.unity.2d.animation": "7.0.9",
     "com.unity.2d.pixel-perfect": "5.0.3",
     "com.unity.2d.psdimporter": "6.0.6",
@@ -15,6 +15,7 @@
     "com.unity.ide.rider": "3.0.16",
     "com.unity.ide.visualstudio": "2.0.16",
     "com.unity.ide.vscode": "1.2.5",
+    "com.unity.recorder": "3.0.3",
     "com.unity.test-framework": "1.1.31",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.6.4",

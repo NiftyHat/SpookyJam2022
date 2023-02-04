@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3115932398057013757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: You failed to propose to anyone at the party and went home alone.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266bf38ec503480db6bd5af0d7c5c05a, type: 3}
+  m_Name: GameOverDialogue-OutOfTime
+  m_EditorClassIdentifier: 
+  _references:
+  - {fileID: -3115932398057013757}

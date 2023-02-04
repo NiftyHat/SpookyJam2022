@@ -1,5 +1,6 @@
 using System;
 using Data.Menu;
+using Data.TextSequence;
 using Data.Trait;
 using Entity;
 using Generators;
@@ -33,6 +34,8 @@ namespace Data.Monsters
         [SerializeField] private bool _hasCopyMaskAbility;
         [SerializeField] private bool _hasCopyScheduleAbility;
         [SerializeField] private bool _hasFollowGuestAbility;
+        [SerializeField] private TextSequenceSetData _revealDialogue;
+        [SerializeField] private ColoredTextData _copyWin;
         
         public Sprite RevealSprite => _revealSprite;
         public string FriendlyName => _friendlyName;
@@ -40,6 +43,9 @@ namespace Data.Monsters
         public TraitData[] PreferredTraits => _preferredTraits;
         public ScheduleGenerator ScheduleGenerator => _scheduleGenerator;
         public IMenuItem MenuItem => _menuItem;
+
+        public TextSequenceSetData RevealDialogue => _revealDialogue;
+        public ColoredTextData CopyWin => _copyWin;
 
         public bool HasCopyMaskAbility => _hasCopyMaskAbility;
         public bool HasCopyScheduleAbility => _hasCopyScheduleAbility;

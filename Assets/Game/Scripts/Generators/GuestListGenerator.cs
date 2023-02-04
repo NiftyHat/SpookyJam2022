@@ -4,15 +4,11 @@ using System.Linq;
 using System.Text;
 using Data;
 using Data.Character;
-using Data.Mask;
 using Data.Monsters;
 using Data.Trait;
 using Entity;
-using FluentCsv.FluentReader;
-using Interactions;
 using NiftyFramework.Scripts;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Generators
 {

@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8543007991742771341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: The whole of society will know how debased you are with your wretched thirst. 
+    Word shall reach your family, your friends, your potential suitors. Every person
+    you know or will come to meet will know of this <color=red><shake>immorality</shake></color>
+  _summaryText: The whole of society will know how debased you are
+--- !u!114 &-5708528498560595573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: What a <b><shake>vulgar proposition!</shake></b> How <color=red>dare</color>
+    you offend me in such a way. You will come to rue the day you so boldly proclaimed
+    your lust for such <shake>descipable creatures</shake>. Especially to someone
+    with a reputation such as mine!
+  _summaryText: What a <b><shake>vulgar proposition!</shake></b> H
+--- !u!114 &-3694142112196522382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: Where you to <wave>repent for one thousand years</wave> it would not be
+    enough. May the devil take you for they are the only one who would care for a
+    creature with such <color=red>debacuhed tastes</color>.
+  _summaryText: Where you to <wave>repent for one thousand years</
+--- !u!114 &-3115932398057013757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: Exit my sight before you somehow further taint my eyes with further misdeeds.
+    Leave quickly lest <color=red><b>Satan Himself</b></color> catch you fleeing
+    the scene of your sins!
+  _summaryText: <size=+6>Begone wretch!</size> Exit my sight befor
+--- !u!114 &-1888709171969742897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: '<size=+20>Begone wretch!</size> '
+  _summaryText: <size=+6>Begone wretch!</size> Exit my sight befor
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266bf38ec503480db6bd5af0d7c5c05a, type: 3}
+  m_Name: GameOverDialogue-Guest
+  m_EditorClassIdentifier: 
+  _references:
+  - {fileID: -5708528498560595573}
+  - {fileID: 2283800530181053945}
+  - {fileID: -8543007991742771341}
+  - {fileID: -3694142112196522382}
+  - {fileID: -1888709171969742897}
+  - {fileID: -3115932398057013757}
+--- !u!114 &2283800530181053945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: When I am done with you <wave>nobody</wave> will want to be associated with
+    you or your name for the horrific reputation it will carry. Your character will
+    be bismirched until the end of time.
+  _summaryText: When I am done with you <wave>nobody</wave> will w

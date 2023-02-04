@@ -16,6 +16,7 @@ using Interactions.Commands;
 using NiftyFramework.Core;
 using NiftyFramework.Core.Context;
 using TouchInput.UnitControl;
+using UI;
 using UI.Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -69,7 +70,6 @@ namespace Context
         private readonly LocationDataSet _locationDataSet;
 
         private PlayerInputHandler _player;
-        private GameOverReasonData _gameOverReason;
         private MonsterEntityTypeDataSet _monsterEntityTypeSet;
 
         public event Action<CharacterEntity> OnTriggerCharacterReview;
@@ -84,6 +84,9 @@ namespace Context
         public LastInteractionData LastInteraction => _lastInteractionData;
 
         protected int _seed;
+
+        protected GameOverState _gameOver;
+        public GameOverState GameOverState => _gameOver;
 
         public GameStateContext(TimeData timeData, GuestListGenerator guestListGenerator, LocationDataSet locationDataSet)
         {
@@ -187,18 +190,19 @@ namespace Context
 
         private void EndGame(GameOverReasonData gameOverReasonData = null)
         {
-            _gameOverReason = gameOverReasonData;
+            _gameOver = new GameOverState(gameOverReasonData);
             SceneManager.LoadScene(2);
         }
 
         public void EndGame(CharacterEntity targetEntity, GameOverReasonData gameOverReason)
         {
             var nearestMatchingMonster = _monsterEntityTypeSet.GetNearestMatchingTraits(targetEntity.Traits);
-            _gameOverReason = gameOverReason;
-            OnConfessionConfirmed?.Invoke(targetEntity, nearestMatchingMonster, () =>
+            _gameOver = new GameOverState(gameOverReason, new GameOverRevealView.Data()
             {
-                EndGame(gameOverReason);
+                Target = targetEntity,
+                NearestMonster = nearestMatchingMonster
             });
+            SceneManager.LoadScene(2);
         }
 
         public TimeSpan ConvertTurnsToTime(int turn)

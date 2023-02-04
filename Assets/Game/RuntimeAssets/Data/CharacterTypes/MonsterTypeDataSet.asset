@@ -26,6 +26,12 @@ MonoBehaviour:
   _hasCopyMaskAbility: 0
   _hasCopyScheduleAbility: 1
   _hasFollowGuestAbility: 1
+  _revealDialogue: {fileID: 11400000, guid: 93d89510f433ce349b413d4e438bfa9a, type: 2}
+  _copyWin:
+    _copy: Defiled
+    _color:
+      _enabled: 1
+      _value: {r: 0.22352943, g: 0.33333334, b: 0.6117647, a: 1}
 --- !u!114 &-7332454293359213735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,6 +58,12 @@ MonoBehaviour:
   _hasCopyMaskAbility: 0
   _hasCopyScheduleAbility: 0
   _hasFollowGuestAbility: 0
+  _revealDialogue: {fileID: 11400000, guid: 1caefeaa175c71641bfbc9a8f998a96e, type: 2}
+  _copyWin:
+    _copy: Delighted
+    _color:
+      _enabled: 1
+      _value: {r: 0.77647066, g: 0.26666668, b: 0.56078434, a: 1}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +108,12 @@ MonoBehaviour:
   _hasCopyMaskAbility: 1
   _hasCopyScheduleAbility: 1
   _hasFollowGuestAbility: 0
+  _revealDialogue: {fileID: 11400000, guid: 2666f81d236def94183879bf4f8c6adf, type: 2}
+  _copyWin:
+    _copy: Dazzled
+    _color:
+      _enabled: 1
+      _value: {r: 0.5254902, g: 0.31764707, b: 0.5921569, a: 1}
 --- !u!114 &5411978165187354891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +140,12 @@ MonoBehaviour:
   _hasCopyMaskAbility: 0
   _hasCopyScheduleAbility: 0
   _hasFollowGuestAbility: 0
+  _revealDialogue: {fileID: 11400000, guid: 47014445538a6b149b2986e7df69e2dd, type: 2}
+  _copyWin:
+    _copy: Demanded
+    _color:
+      _enabled: 1
+      _value: {r: 0.8705883, g: 0.21960786, b: 0.2901961, a: 1}
 --- !u!114 &8339396799328357754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,3 +172,9 @@ MonoBehaviour:
   _hasCopyMaskAbility: 0
   _hasCopyScheduleAbility: 0
   _hasFollowGuestAbility: 0
+  _revealDialogue: {fileID: 11400000, guid: c0f6da7cc1a00284893a669c7796f3d6, type: 2}
+  _copyWin:
+    _copy: Dominated
+    _color:
+      _enabled: 1
+      _value: {r: 0.5058824, g: 0.7294118, b: 0.24705884, a: 1}
