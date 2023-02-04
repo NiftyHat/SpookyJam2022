@@ -18,7 +18,7 @@ public class UIAbilityTooltipView : MonoBehaviour, IView<TooltipAbilitySimple>
     [SerializeField] private LayoutGroup _traitIconLayout;
     [SerializeField] private TextMeshProUGUI _bodyCopyLabel;
     [SerializeField] private TextMeshProUGUI _costLabel;
-    
+
     private List<UITraitView> _traitViews;
     private MonoPool<UITraitView> _traitViewPool;
 
@@ -117,7 +117,8 @@ public class UIAbilityTooltipView : MonoBehaviour, IView<TooltipAbilitySimple>
 
     private void HandleTargetChange(RectTransform obj)
     {
-        transform.position = obj.position + (Vector3.up * 80);
+        Vector2 newPosition = new Vector2(obj.position.x, obj.offsetMin.y + 280);
+        transform.position = newPosition;
     }
 
     private void ClearTraitViews()
