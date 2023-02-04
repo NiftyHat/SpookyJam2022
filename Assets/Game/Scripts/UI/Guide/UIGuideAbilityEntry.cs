@@ -70,7 +70,8 @@ namespace UI.Guide
 
             if (_bodyCopyLabel != null)
             {
-                _bodyCopyLabel.SetText(viewData.GetDescription());
+                string description = viewData.GetDescription().Replace("{targetName}", "Target");
+                _bodyCopyLabel.SetText(description);
             }
 
             if (_costLabel != null)

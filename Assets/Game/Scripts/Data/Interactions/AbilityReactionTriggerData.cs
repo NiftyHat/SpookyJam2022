@@ -115,7 +115,8 @@ namespace Data.Interactions
             
             public override ITooltip GetTooltip()
             {
-                return new TooltipTriggerReactionAbility(Interaction.MenuItem.Icon, GetDescription(),
+                string description = GetDescription();
+                return new TooltipTriggerReactionAbility(Interaction.MenuItem.Icon, description,
                     Interaction.GetFriendlyName(), Interaction.CostAP, ReactionTriggerSet.GetAllTraits());
             }
         }
@@ -126,7 +127,6 @@ namespace Data.Interactions
         public override string GetDescription()
         {
             return base.GetDescription().Replace("{traitList}", "").
-                Replace("{targetName}", "Target").
                 Replace("{range}", RangeMax.ToString()).
                 Replace("{radius}", Radius.ToString());
         }

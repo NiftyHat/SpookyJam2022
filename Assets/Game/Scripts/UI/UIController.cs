@@ -197,6 +197,10 @@ namespace UI
         public void SetPreview(InteractionCommand command)
         {
             _previewCommand = command;
+            if (_selected.Target != null)
+            {
+                _previewCommand.SetTarget(_selected.Target);
+            }
         }
 
         public void SetSelected(PointerSelectionHandler selected)

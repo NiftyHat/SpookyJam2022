@@ -74,7 +74,7 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: Instigate
     _icon: {fileID: 412789284, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
-    _description: Instigate {target} and everyone within {radius}.
+    _description: Instigate {targetName} and everyone within {radius}.
   _reactionTrigger:
     _triggerList:
     - _trait: {fileID: -1646269247474937957, guid: 26f61f036fbd8a843af3f89912a03468,
