@@ -163,7 +163,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4031
-        y: 1415
+        y: 3463
         width: 55
         height: 43
       alignment: 0
@@ -184,7 +184,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3945
-        y: 848
+        y: 2896
         width: 128
         height: 128
       alignment: 0
@@ -205,7 +205,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3945
-        y: 394
+        y: 2442
         width: 127
         height: 128
       alignment: 0
@@ -225,8 +225,8 @@ TextureImporter:
       name: RoundedButton.png
       rect:
         serializedVersion: 2
-        x: 1348
-        y: 664
+        x: 3241
+        y: 2567
         width: 213
         height: 113
       alignment: 0
@@ -246,8 +246,8 @@ TextureImporter:
       name: TooltipSkill.png
       rect:
         serializedVersion: 2
-        x: 1921
-        y: 1288
+        x: 411
+        y: 2723
         width: 380
         height: 98
       alignment: 0
@@ -268,12 +268,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3945
-        y: 654
+        y: 2702
         width: 128
         height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 14, y: 10, z: 14, w: 9}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -288,8 +288,8 @@ TextureImporter:
       name: Checkbox-Cross.png
       rect:
         serializedVersion: 2
-        x: 1794
-        y: 1130
+        x: 3787
+        y: 2366
         width: 123
         height: 115
       alignment: 0
@@ -309,8 +309,8 @@ TextureImporter:
       name: Checkbox-Tick.png
       rect:
         serializedVersion: 2
-        x: 2836
-        y: 987
+        x: 2376
+        y: 2691
         width: 110
         height: 124
       alignment: 0
@@ -330,8 +330,8 @@ TextureImporter:
       name: Icon-Chevron-Next.png
       rect:
         serializedVersion: 2
-        x: 2836
-        y: 744
+        x: 3241
+        y: 2695
         width: 98
         height: 135
       alignment: 0
@@ -352,7 +352,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4031
-        y: 1364
+        y: 3412
         width: 50
         height: 49
       alignment: 0
@@ -372,8 +372,8 @@ TextureImporter:
       name: Rounded-Button-Glow.png
       rect:
         serializedVersion: 2
-        x: 2936
-        y: 629
+        x: 3787
+        y: 2107
         width: 244
         height: 153
       alignment: 0
@@ -393,8 +393,8 @@ TextureImporter:
       name: Interaction-Brag.png
       rect:
         serializedVersion: 2
-        x: 469
-        y: 384
+        x: 1
+        y: 2804
         width: 408
         height: 480
       alignment: 0
@@ -414,8 +414,8 @@ TextureImporter:
       name: Interaction-Confess.png
       rect:
         serializedVersion: 2
-        x: 482
-        y: 1245
+        x: 963
+        y: 3293
         width: 479
         height: 478
       alignment: 0
@@ -436,7 +436,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 1238
+        y: 3286
         width: 479
         height: 485
       alignment: 0
@@ -456,8 +456,8 @@ TextureImporter:
       name: Interaction-EndTurn.png
       rect:
         serializedVersion: 2
-        x: 1921
-        y: 895
+        x: 375
+        y: 2330
         width: 367
         height: 391
       alignment: 0
@@ -478,7 +478,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1444
-        y: 1247
+        y: 3295
         width: 475
         height: 476
       alignment: 0
@@ -499,7 +499,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3463
-        y: 500
+        y: 2548
         width: 480
         height: 476
       alignment: 0
@@ -520,7 +520,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3062
-        y: 1266
+        y: 3314
         width: 485
         height: 481
       alignment: 0
@@ -540,8 +540,8 @@ TextureImporter:
       name: Interaction-Joke.png
       rect:
         serializedVersion: 2
-        x: 2490
-        y: 726
+        x: 3441
+        y: 2096
         width: 344
         height: 450
       alignment: 0
@@ -561,8 +561,8 @@ TextureImporter:
       name: Interaction-Mingle.png
       rect:
         serializedVersion: 2
-        x: 963
-        y: 1302
+        x: 1921
+        y: 3013
         width: 479
         height: 421
       alignment: 0
@@ -583,7 +583,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3576
-        y: 1460
+        y: 3508
         width: 490
         height: 473
       alignment: 0
@@ -603,8 +603,8 @@ TextureImporter:
       name: Interaction-Walk.png
       rect:
         serializedVersion: 2
-        x: 1443
-        y: 779
+        x: 1
+        y: 2012
         width: 349
         height: 466
       alignment: 0
@@ -625,7 +625,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3576
-        y: 1935
+        y: 3983
         width: 508
         height: 112
       alignment: 0
@@ -645,8 +645,8 @@ TextureImporter:
       name: Mask-Bird-Icon.png
       rect:
         serializedVersion: 2
-        x: 1794
-        y: 961
+        x: 3912
+        y: 2360
         width: 120
         height: 80
       alignment: 0
@@ -666,8 +666,8 @@ TextureImporter:
       name: Mask-Butterfly-Icon.png
       rect:
         serializedVersion: 2
-        x: 1794
-        y: 1043
+        x: 3341
+        y: 2745
         width: 120
         height: 85
       alignment: 0
@@ -687,8 +687,8 @@ TextureImporter:
       name: Mask-Devil-Icon.png
       rect:
         serializedVersion: 2
-        x: 1794
-        y: 857
+        x: 3787
+        y: 2262
         width: 114
         height: 102
       alignment: 0
@@ -708,8 +708,8 @@ TextureImporter:
       name: Mask-Plauge-Icon.png
       rect:
         serializedVersion: 2
-        x: 2386
-        y: 943
+        x: 2402
+        y: 3224
         width: 87
         height: 106
       alignment: 0
@@ -729,8 +729,8 @@ TextureImporter:
       name: Mask-Rabbit-Icon.png
       rect:
         serializedVersion: 2
-        x: 2290
-        y: 947
+        x: 2402
+        y: 3332
         width: 94
         height: 102
       alignment: 0
@@ -750,8 +750,8 @@ TextureImporter:
       name: Mask-Tiger-Icon.png
       rect:
         serializedVersion: 2
-        x: 2836
-        y: 881
+        x: 2376
+        y: 2585
         width: 106
         height: 104
       alignment: 0
@@ -771,8 +771,8 @@ TextureImporter:
       name: Action_Flirt.PNG
       rect:
         serializedVersion: 2
-        x: 482
-        y: 866
+        x: 1444
+        y: 2916
         width: 472
         height: 377
       alignment: 0
@@ -793,7 +793,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3062
-        y: 1749
+        y: 3797
         width: 512
         height: 298
       alignment: 0
@@ -814,7 +814,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2499
-        y: 1660
+        y: 3708
         width: 561
         height: 387
       alignment: 0
@@ -834,8 +834,8 @@ TextureImporter:
       name: Action_Question.PNG
       rect:
         serializedVersion: 2
-        x: 1
-        y: 226
+        x: 2491
+        y: 2682
         width: 400
         height: 542
       alignment: 0
@@ -856,7 +856,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1923
-        y: 1388
+        y: 3436
         width: 574
         height: 659
       alignment: 0
@@ -877,7 +877,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3945
-        y: 524
+        y: 2572
         width: 128
         height: 128
       alignment: 0
@@ -898,7 +898,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 1725
+        y: 3773
         width: 1920
         height: 322
       alignment: 0
@@ -919,7 +919,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3549
-        y: 978
+        y: 3026
         width: 480
         height: 480
       alignment: 0
@@ -940,7 +940,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2499
-        y: 1178
+        y: 3226
         width: 480
         height: 480
       alignment: 0
@@ -961,7 +961,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 963
-        y: 823
+        y: 2814
         width: 478
         height: 477
       alignment: 0
@@ -981,8 +981,8 @@ TextureImporter:
       name: UI-Rounded-Edges-9Slice.png
       rect:
         serializedVersion: 2
-        x: 2836
-        y: 1113
+        x: 3787
+        y: 2483
         width: 126
         height: 63
       alignment: 0
@@ -1003,7 +1003,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2981
-        y: 784
+        y: 2832
         width: 480
         height: 480
       alignment: 0
@@ -1023,8 +1023,8 @@ TextureImporter:
       name: Icon-Search.png
       rect:
         serializedVersion: 2
-        x: 1
-        y: 770
+        x: 482
+        y: 2823
         width: 466
         height: 466
       alignment: 0
@@ -1044,8 +1044,8 @@ TextureImporter:
       name: Checkbox_Box.png
       rect:
         serializedVersion: 2
-        x: 2303
-        y: 1266
+        x: 793
+        y: 2701
         width: 126
         height: 120
       alignment: 0
@@ -1065,8 +1065,8 @@ TextureImporter:
       name: Icon_Local_Balcony.PNG
       rect:
         serializedVersion: 2
-        x: 1910
-        y: 700
+        x: 2153
+        y: 2622
         width: 221
         height: 193
       alignment: 0
@@ -1086,8 +1086,8 @@ TextureImporter:
       name: Icon_Local_Banq.PNG
       rect:
         serializedVersion: 2
-        x: 2133
-        y: 722
+        x: 2484
+        y: 2509
         width: 221
         height: 171
       alignment: 0
@@ -1107,8 +1107,8 @@ TextureImporter:
       name: Icon_Local_Dance.PNG
       rect:
         serializedVersion: 2
-        x: 2290
-        y: 1051
+        x: 3241
+        y: 2352
         width: 198
         height: 213
       alignment: 0
@@ -1128,8 +1128,8 @@ TextureImporter:
       name: Icon_Local_Garden.PNG
       rect:
         serializedVersion: 2
-        x: 3182
-        y: 580
+        x: 3787
+        y: 1903
         width: 234
         height: 202
       alignment: 0
@@ -1149,8 +1149,8 @@ TextureImporter:
       name: Icon_Local_Lower_Landing.PNG
       rect:
         serializedVersion: 2
-        x: 1114
-        y: 627
+        x: 2153
+        y: 2817
         width: 232
         height: 194
       alignment: 0
@@ -1170,8 +1170,8 @@ TextureImporter:
       name: Icon_Local_Upper_Landing.PNG
       rect:
         serializedVersion: 2
-        x: 879
-        y: 601
+        x: 1918
+        y: 2791
         width: 233
         height: 220
       alignment: 0
@@ -1183,6 +1183,69 @@ TextureImporter:
       bones: []
       spriteID: 1efa44132f54367448b76a2892ac63de
       internalID: -1978604286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speaker.png
+      rect:
+        serializedVersion: 2
+        x: 2893
+        y: 2508
+        width: 346
+        height: 322
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93fb2af202a73db4d8ac3a1428379a0c
+      internalID: -1681514338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speaker-off.png
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2480
+        width: 372
+        height: 322
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb298fe24137f349814558abfed60c0
+      internalID: 1012026399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cog.png
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 3291
+        width: 479
+        height: 480
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 612d4505509a39b43976e8de1127b876
+      internalID: 426233037
       vertices: []
       indices: 
       edges: []
@@ -1199,6 +1262,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Icon_Local_Dance.PNG: 2029396510
+      speaker.png: -1681514338
       Small-Square-Rounded-Corners.png: -2004639798
       Icon-Chevron-Next.png: -1086382725
       Interaction-Speech.png: 394077799
@@ -1206,6 +1270,7 @@ TextureImporter:
       AbilityButton-Outline.png: -3945633791335285793
       Interaction-Examine.png: -1157539444
       Checkbox-Tick.png: 1867067168
+      speaker-off.png: 1012026399
       Action_Search.PNG: -723308284
       Icon-EvilMoon.png: -1521613531
       Action_Flirt.PNG: -90754077
@@ -1221,6 +1286,7 @@ TextureImporter:
       Mask-Butterfly-Icon.png: -1744400674
       UI-Rounded-Edges-9Slice.png: 259617731
       Checkbox-Cross.png: 1007505744
+      cog.png: 426233037
       Mask-Bird-Icon.png: 1955585649
       Mask-Tiger-Icon.png: 1751181281
       Action_Mingle.PNG: 1047142057

@@ -1,3 +1,5 @@
+using Context;
+using NiftyFramework.Core.Context;
 using NiftyFramework.Core.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,7 +18,10 @@ namespace UI.Buttons
 
         private void HandleButtonClick()
         {
-            SceneManager.LoadScene(0);
+            ContextService.Get<GameStateContext>(service =>
+            {
+                service.RestartGame();
+            });
         }
     }
 }

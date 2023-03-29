@@ -13,5 +13,10 @@ namespace NiftyFramework
             Debug.Log("Bootstrap worked!");
             _app.Init();
         }
+
+        public static void Reset()
+        {
+            _app.Reset();
+        }
     }
 }

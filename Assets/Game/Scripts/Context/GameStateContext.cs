@@ -13,6 +13,7 @@ using GameStats;
 using Generators;
 using Interactions;
 using Interactions.Commands;
+using NiftyFramework;
 using NiftyFramework.Core;
 using NiftyFramework.Core.Context;
 using TouchInput.UnitControl;
@@ -50,8 +51,10 @@ namespace Context
         public delegate void TurnStarted(int turn, int turnMax, int phase);
         public delegate void ConfessionConfirmed(CharacterEntity entity, MonsterEntityTypeData monsterEntityTypeData, Action OnAnimationComplete);
 
-        public readonly GameStat Turns = new GameStat("Turn", null, 12, 0);
-        public readonly GameStat Phase = new GameStat("Phase", null, 3, 0);
+        public GameStat _phase = new("Phase", null, 3, 0);
+        private GameStat _turns = new("Turn", null, 12, 0);
+        public GameStat Turns => _turns;
+        public GameStat Phase => _phase;
 
         public TimeSpan CurrentTime => _currentTime;
         
@@ -67,7 +70,6 @@ namespace Context
         
         private readonly TimeData _timeData;
         private readonly GuestListGenerator _guestListGenerator;
-        private readonly LocationDataSet _locationDataSet;
 
         private PlayerInputHandler _player;
         private MonsterEntityTypeDataSet _monsterEntityTypeSet;
@@ -95,7 +97,6 @@ namespace Context
             _timeData = timeData;
             _guestListGenerator = guestListGenerator;
             _monsterEntityTypeSet = guestListGenerator.MonsterTypeSet;
-            _locationDataSet = locationDataSet;
             _currentTime = ConvertTurnsToTime(Turns.Value);
             _characterEntities = _guestListGenerator.Generate(8, 1, 1, _seed);
             Debug.Log(GuestListGenerator.PrintDebug(_characterEntities));
@@ -250,6 +251,19 @@ namespace Context
         public void SetAmbientState(AmbientAudioPlayer.AudioState audioState)
         {
             
+        }
+
+        public void RestartGame()
+        {
+            OnClearReactions = null;
+            OnConfessionConfirmed = null;
+            OnTurnStarted = null;
+            _turns = null;
+            _phase = null;
+            _onPlayerAssigned = null;
+            _player = null;
+            NiftyBootstrap.Reset();
+            SceneManager.LoadScene(0);
         }
     }
 }

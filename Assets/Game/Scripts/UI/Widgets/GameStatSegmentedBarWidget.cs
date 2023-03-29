@@ -12,16 +12,16 @@ namespace UI.Widgets
     {
         [SerializeField][NonNull] private HorizontalOrVerticalLayoutGroup _layoutGroup;
 
-        private List<ImageToggleWidget> _items;
-        private MonoPool<ImageToggleWidget> _monoPool;
+        private List<ImageActiveToggleWidget> _items;
+        private MonoPool<ImageActiveToggleWidget> _monoPool;
         private GameStat _gameStat;
 
         public void Start()
         {
-            var prototype = _layoutGroup.GetComponentInChildren<ImageToggleWidget>();
+            var prototype = _layoutGroup.GetComponentInChildren<ImageActiveToggleWidget>();
             if (prototype != null)
             {
-                _monoPool = new MonoPool<ImageToggleWidget>(prototype);
+                _monoPool = new MonoPool<ImageActiveToggleWidget>(prototype);
             }
         }
 
@@ -30,7 +30,7 @@ namespace UI.Widgets
             Clear();
             gameObject.SetActive(true);
             _gameStat = gameStat;
-            _items = new List<ImageToggleWidget>(gameStat.Max);
+            _items = new List<ImageActiveToggleWidget>(gameStat.Max);
             for (int i = 0; i < gameStat.Max; i++)
             {
                 _monoPool.TryGet(out var instance);
