@@ -18,7 +18,6 @@ using NiftyFramework.Core;
 using NiftyFramework.Core.Context;
 using TouchInput.UnitControl;
 using UI;
-using UI.Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityUtils;
@@ -75,6 +74,7 @@ namespace Context
         private MonsterEntityTypeDataSet _monsterEntityTypeSet;
 
         public event Action<CharacterEntity> OnTriggerCharacterReview;
+        public event Action<bool,int> OnGuideBookOpenChanged;
         public event ConfessionConfirmed OnConfessionConfirmed;
         private event Action<PlayerInputHandler> _onPlayerAssigned;
         private List<CharacterEntity> _characterEntities;
@@ -99,7 +99,6 @@ namespace Context
             _monsterEntityTypeSet = guestListGenerator.MonsterTypeSet;
             _currentTime = ConvertTurnsToTime(Turns.Value);
             _characterEntities = _guestListGenerator.Generate(8, 1, 1, _seed);
-            Debug.Log(GuestListGenerator.PrintDebug(_characterEntities));
             _commandRunner = new CommandRunner();
             Phase.OnChanged += HandlePhaseChange;
         }
@@ -237,6 +236,11 @@ namespace Context
             OnTriggerCharacterReview?.Invoke(entity);
         }
 
+        public void SetGuideBookOpen(bool isOpen, int page = -1)
+        {
+            OnGuideBookOpenChanged?.Invoke(isOpen, page);
+        }
+
         public void SetLastInteraction(LastInteractionData lastInteractionData)
         {
             _lastInteractionData = lastInteractionData;
@@ -246,11 +250,6 @@ namespace Context
         {
             var playerSelection = _player.GetComponent<PointerSelectionHandler>();
             OnSetSelection?.Invoke(playerSelection);
-        }
-
-        public void SetAmbientState(AmbientAudioPlayer.AudioState audioState)
-        {
-            
         }
 
         public void RestartGame()

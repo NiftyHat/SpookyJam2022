@@ -25,6 +25,7 @@ namespace UI
                 if (_guessPool.TryGet(out var view))
                 {
                     view.Set(item.FriendlyName, item.MenuItem.Icon);
+                    view.SetGuidePage(item.BookPage);
                     _views.Add(item, view);
                     //TODO dsaunders - move this into a static handler.
                     view.OnValueChanged += (Guess value) =>
@@ -74,6 +75,7 @@ namespace UI
                     if (data.TryGetValue(kvp.Key, out var guess))
                     {
                         view.Set(monsterData.FriendlyName, monsterData.MenuItem.Icon, guess);
+                        view.SetGuidePage(monsterData.BookPage);
                     }
                     else
                     {

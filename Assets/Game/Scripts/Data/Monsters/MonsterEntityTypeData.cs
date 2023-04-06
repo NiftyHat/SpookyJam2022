@@ -19,11 +19,11 @@ namespace Data.Monsters
             [SerializeField] private string _friendlyName;
             [SerializeField][SpritePreview] private Sprite _icon;
             [SerializeField][TextArea] private string _description;
-
+            
             public string FriendlyName => _friendlyName;
             public Sprite Icon => _icon;
             public string Description => _description;
-            
+
         }
         
         [SerializeField] private string _friendlyName;
@@ -36,6 +36,7 @@ namespace Data.Monsters
         [SerializeField] private bool _hasFollowGuestAbility;
         [SerializeField] private TextSequenceSetData _revealDialogue;
         [SerializeField] private ColoredTextData _copyWin;
+        [SerializeField] private int _bookPage;
         
         public Sprite RevealSprite => _revealSprite;
         public string FriendlyName => _friendlyName;
@@ -50,5 +51,7 @@ namespace Data.Monsters
         public bool HasCopyMaskAbility => _hasCopyMaskAbility;
         public bool HasCopyScheduleAbility => _hasCopyScheduleAbility;
         public bool HasFollowGuestAbility => _hasFollowGuestAbility;
+        
+        public int BookPage => _bookPage;
     }
 }

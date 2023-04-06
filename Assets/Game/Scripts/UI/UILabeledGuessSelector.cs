@@ -15,6 +15,7 @@ namespace UI
         [SerializeField] [NonNull] private TextMeshProUGUI _label;
         [SerializeField] [NonNull] private Button _button;
         [SerializeField] [NonNull] private Image _icon;
+        [SerializeField] [NonNull] private UIMonsterGuideButtonWidget _guideButton;
         [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private UIGuessAudio _guessAudio;
 
@@ -63,6 +64,14 @@ namespace UI
             }
             _icon.sprite = icon;
             _label.SetText(label);
+        }
+
+        public void SetGuidePage(int page)
+        {
+            if (_guideButton != null)
+            {
+                _guideButton.Set(page);
+            }
         }
     
         public void Set(string label, Guess guess)
