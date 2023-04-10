@@ -2,7 +2,6 @@ using Context;
 using NiftyFramework.Core.Context;
 using NiftyFramework.Core.Utils;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace UI.Buttons

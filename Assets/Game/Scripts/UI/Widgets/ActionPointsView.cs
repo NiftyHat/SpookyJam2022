@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using GameStats;
 using Interactions.Commands;
@@ -5,6 +6,7 @@ using NiftyFramework.Core.Utils;
 using NiftyFramework.UI;
 using TMPro;
 using UnityEngine;
+using UnityUtils;
 
 namespace UI.Widgets
 {
@@ -96,7 +98,10 @@ namespace UI.Widgets
                 _textValueDisplay.text = "";
             }
 
-            gameObject.SetActive(false);
+            if (gameObject != null)
+            {
+                gameObject.TrySetActive(false);
+            }
         }
 
         public void AnimateChange(int newValue, int oldValue)
@@ -108,9 +113,16 @@ namespace UI.Widgets
                 HandleActionPointsChanged(oldValue, displayValue);
             }
 
-            gameObject.SetActive(true);
-            Tween tween = DOTween.To(TweenUpdate, oldValue, newValue, animDuration).SetEase(Ease.OutCubic);
-            tween.onComplete += Clear;
+            if (gameObject != null && gameObject.TrySetActive(true))
+            {
+                Tween tween = DOTween.To(TweenUpdate, oldValue, newValue, animDuration).SetEase(Ease.OutCubic);
+                tween.onComplete += Clear;
+            }
+            else
+            {
+                Clear();
+            }
+            
         }
     }
 }

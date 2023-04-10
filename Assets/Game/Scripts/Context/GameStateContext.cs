@@ -73,6 +73,7 @@ namespace Context
         private PlayerInputHandler _player;
         private MonsterEntityTypeDataSet _monsterEntityTypeSet;
 
+        public event Action OnReset;
         public event Action<CharacterEntity> OnTriggerCharacterReview;
         public event Action<bool,int> OnGuideBookOpenChanged;
         public event ConfessionConfirmed OnConfessionConfirmed;
@@ -254,6 +255,9 @@ namespace Context
 
         public void RestartGame()
         {
+            OnReset?.Invoke();
+            OnReset = null;
+            _player?.Clear();
             OnClearReactions = null;
             OnConfessionConfirmed = null;
             OnTurnStarted = null;

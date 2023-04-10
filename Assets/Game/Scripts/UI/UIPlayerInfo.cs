@@ -4,6 +4,7 @@ using Entity;
 using GameStats;
 using NiftyFramework.Core.Context;
 using NiftyFramework.UI;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -11,7 +11,6 @@ using TouchInput.UnitControl;
 using UI.Audio;
 using UI.Targeting;
 using UnityEngine;
-using UI.Audio;
 
 namespace UI
 {
@@ -169,7 +168,15 @@ namespace UI
         private void HandleGameState(GameStateContext service)
         {
             _gameStateContext = service;
-            service.GetPlayer(player => _player = player);
+            _gameStateContext.GetPlayer(player => _player = player);
+            _gameStateContext.OnReset += HandleGameStateReset;
+        }
+
+        private void HandleGameStateReset()
+        {
+            _gameStateContext.OnReset -= HandleGameStateReset;
+            _gameStateContext = null;
+            _player = null;
         }
 
         private void HandleInputSelectGround(WalkLocationView groundPlane, RaycastHit raycastHit)

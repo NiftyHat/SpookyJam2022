@@ -27,7 +27,7 @@ namespace Entity
         private LocationData _location;
         public LocationData CurrentLocation => _location;
 
-        public new void Start()
+        public void Start()
         {
             if (_playerData != null)
             {
@@ -82,6 +82,12 @@ namespace Entity
             {
                 _camera.Snap();
             }
+        }
+
+        public void Clear()
+        {
+            _actionPoints.ClearListeners();
+            _actionPointsView = null;
         }
     }
 }
