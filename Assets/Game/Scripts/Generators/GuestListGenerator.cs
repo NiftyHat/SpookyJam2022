@@ -57,6 +57,7 @@ namespace Generators
         [SerializeField] protected IntRange _peopleWithMonsterTraits;
         [SerializeField] protected CharacterViewDataSet _viewDataSet;
         [SerializeField] protected ScheduleGenerator _scheduleGenerator;
+        [SerializeField] protected MonsterEntityTypeData _forceMonsterType;
 
         public CharacterEntitySet EntitySet => _characterEntitySet;
         public MonsterEntityTypeDataSet MonsterTypeSet => _monsterGenerator?.MonsterTypeDate;
@@ -99,7 +100,17 @@ namespace Generators
             GuestSchedule monsterTargetSchedule = null;
             for (int i = 0; i < monsterCount; i++)
             {
-                MonsterEntity monster = _monsterGenerator.Generate(random, itemPool, out var monsterType);
+                MonsterEntity monster;
+                MonsterEntityTypeData monsterType;
+                if (_forceMonsterType != null)
+                {
+                    monster = _monsterGenerator.Generate(random, _forceMonsterType, itemPool);
+                    monsterType = _forceMonsterType;
+                }
+                else
+                {  
+                    monster = _monsterGenerator.Generate(random, itemPool, out monsterType);
+                }
                 monsterEntities.Add(monster);
                 generatedCharacters.Add(monster);
                 if (!monsterTypeSet.Contains(monsterType))

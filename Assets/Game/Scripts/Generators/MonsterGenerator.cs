@@ -23,6 +23,11 @@ namespace Generators
             monsterEntityTypeData = _monsterEntityTypeDataSet.References.RandomItem(random);
             return Generate(random, monsterEntityTypeData, itemPool);
         }
+        
+        public MonsterEntity Generate(System.Random random, GuestListGenerator.GuestItemPool itemPool, MonsterEntityTypeData monsterEntityTypeData)
+        {
+            return Generate(random, monsterEntityTypeData, itemPool);
+        }
 
         public MonsterEntity Generate(System.Random random, MonsterEntityTypeData entityTypeData, GuestListGenerator.GuestItemPool itemPool)
         {

@@ -12,8 +12,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
   m_Name: TextSequenceSetText
   m_EditorClassIdentifier: 
-  _copy: Sweetie, you would like to spending the night with me? How <color=pink>bold</color>
-    of you to ask directly~
+  _copy: Oh hello there <rainb>cutie!</rainb>
+--- !u!114 &-5343078198772532426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: '{size d=2.0}Hehehe~{/size} your eyes went {size d=2.0} <size=+8>so wide.</size>{/size}'
+--- !u!114 &-5234958492915644294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: You look incredibly <wave>bored</wave>.
+--- !u!114 &-1888791526359994051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: "You where going to ask me that? \nAdorable and willing <color=#39559C>just
+    the way I like it.</color> \nIt's my <wiggle>lucky night</wiggle>."
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,8 +67,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _references:
   - {fileID: -5708528498560595573}
-  - {fileID: 2283800530181053945}
---- !u!114 &2283800530181053945
+  - {fileID: -5234958492915644294}
+  - {fileID: 8697188268002601323}
+  - {fileID: -1888791526359994051}
+  - {fileID: 3864673990167209346}
+  - {fileID: -5343078198772532426}
+  - {fileID: 8079098026133956455}
+--- !u!114 &3864673990167209346
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,5 +85,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
   m_Name: TextSequenceSetText
   m_EditorClassIdentifier: 
-  _copy: Don't look so <shake>nervous<shake>, I don't bite. Unless that's the kind
-    of thing you like~
+  _copy: "You don't need to look so nervous <rainb>sweetie!</rainb>\nI don't <shake>bite</shake>...
+    unless that's the kind of thing you like. \nThen I'll put delicious little marks
+    all over your body."
+--- !u!114 &8079098026133956455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: Let's be away then. I'll tell you all about what I'm going to do to you
+    on the way.
+--- !u!114 &8697188268002601323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: "Want to leave? We can have our own party. \nA pretty little thing like
+    you is quite wasted on the one here."

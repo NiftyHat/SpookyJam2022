@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5708528498560595573
+--- !u!114 &-8135722405560893016
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,7 +12,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
   m_Name: TextSequenceSetText
   m_EditorClassIdentifier: 
-  _copy: Oh, you are <shake>approaching me</shake>?
+  _copy: I'm not sure a precious little thing like you would survive the night with
+    me under a full moon like this one.
+--- !u!114 &-5740077706635326675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: You where looking for me?
+--- !u!114 &-4642428374599382010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: You aren't worried because you think you can <b>tame me</b>?
+--- !u!114 &-136823354763450251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: Let's go then. I can't wait to hear all the cute noises you make whilst
+    you struggle to <shake>tame</shake> me.
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,10 +67,17 @@ MonoBehaviour:
   m_Name: GameOverDialogue-Werewolf
   m_EditorClassIdentifier: 
   _references:
-  - {fileID: -5708528498560595573}
-  - {fileID: 2283800530181053945}
-  - {fileID: 5076344712753975758}
---- !u!114 &2283800530181053945
+  - {fileID: 8032278849234223280}
+  - {fileID: -5740077706635326675}
+  - {fileID: 1288320342550271681}
+  - {fileID: 6450020237832133497}
+  - {fileID: -8135722405560893016}
+  - {fileID: 4772906382540079760}
+  - {fileID: -4642428374599382010}
+  - {fileID: 6271487247526593586}
+  - {fileID: 7290423620838616799}
+  - {fileID: -136823354763450251}
+--- !u!114 &1288320342550271681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,8 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
   m_Name: TextSequenceSetText
   m_EditorClassIdentifier: 
-  _copy: Well I guess <color=red>you'll do</color>.
---- !u!114 &5076344712753975758
+  _copy: <b>You</b> want to bring <b>me</b> home?
+--- !u!114 &4772906382540079760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,4 +102,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
   m_Name: TextSequenceSetText
   m_EditorClassIdentifier: 
-  _copy: I hope you like to play <wave>rough</wave>!
+  _copy: <size=+30>{size 1.0}..?!{/size}</size>
+--- !u!114 &6271487247526593586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: <size=+10><wiggle>Hahahahahahaha<wiggle></size>
+--- !u!114 &6450020237832133497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: '<size=+6><wiggle>Hahahaha</wiggle></size>
+
+
+    <size=-4>{fade}Well I guess
+    you''ll do.{/fade}</size>'
+--- !u!114 &7290423620838616799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: Oh that's a good one. Tame me. Adorable.
+--- !u!114 &8032278849234223280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: What is a little treat like you doing wasting your time on all these <color=#81BA3F>dull
+    little people</color>?

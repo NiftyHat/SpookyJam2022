@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5708528498560595573
+--- !u!114 &-7537703670547629678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,10 +12,89 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
   m_Name: TextSequenceSetText
   m_EditorClassIdentifier: 
-  _copy: 'Ooooh! You are into <shake>that</shake> kind thing?
-
-    What a <wave>deviant</wave>
-    you are!'
+  _copy: "You want to do <size=+6><b>that</b></size> sort of thing? \nWith a refined
+    lady like me?\nHow despicable!"
+--- !u!114 &-5848821687669803801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: '{size d=1.0}<size=+16><wave>Ehehehehehehe~</wave></size>{/size}'
+--- !u!114 &-5020040217613356796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: You still want me to leave with you? How persistant.
+--- !u!114 &-4531648586984512708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: "Well that's certainly not how you proposition a lady. \nTry again and ask
+    with a little more nobility."
+--- !u!114 &-4224417582713790837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: '{size d=0.5}...{/size}'
+--- !u!114 &-2822190557971684417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: I'll walk with you a little bit, but only because you insisted. You better
+    try and impress me though.
+--- !u!114 &-200977750281266017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: Well that's a tiny bit better. I'll give you some credit for the effort.
+    <size=-6>{fade} just a little though </size> {/fade}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,10 +108,15 @@ MonoBehaviour:
   m_Name: GameOverDialogue-Mimic
   m_EditorClassIdentifier: 
   _references:
-  - {fileID: -5708528498560595573}
-  - {fileID: 2283800530181053945}
-  - {fileID: 275634155233381184}
---- !u!114 &275634155233381184
+  - {fileID: 1210601334182973825}
+  - {fileID: -7537703670547629678}
+  - {fileID: -5848821687669803801}
+  - {fileID: -4531648586984512708}
+  - {fileID: -4224417582713790837}
+  - {fileID: -200977750281266017}
+  - {fileID: -5020040217613356796}
+  - {fileID: -2822190557971684417}
+--- !u!114 &1210601334182973825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,18 +128,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
   m_Name: TextSequenceSetText
   m_EditorClassIdentifier: 
-  _copy: Lets go, the night is young. I'm sure we can find something <color=red>fun</color>
-    to do.
---- !u!114 &2283800530181053945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
-  m_Name: TextSequenceSetText
-  m_EditorClassIdentifier: 
-  _copy: <size=+30><wave>Ehehehehe~ </wave></size>
+  _copy: You want to ask me a bold question? Go ahead then...

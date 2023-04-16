@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9207716737704402616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: Every part of your delicious looking body will be used for my <color=red><wave>personal
+    pleasure</wave></color>.
 --- !u!114 &-5708528498560595573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,8 +26,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
   m_Name: TextSequenceSetText
   m_EditorClassIdentifier: 
-  _copy: <shake>Vulgar</shake> enough to approach someone they barely know at a Masquarade
-    Ball, but with such a beautiful and traditional rose as a token...
+  _copy: "<wiggle>What is it you want?</wiggle> \n{size d=3.0}<size=+8>Speak up little
+    morsel.</size>{/size}"
+--- !u!114 &-2731214665998288057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: Come along then, let's waste no more time. I want plenty of time to savour
+    a good meal.
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30,6 +58,11 @@ MonoBehaviour:
   - {fileID: -5708528498560595573}
   - {fileID: 2283800530181053945}
   - {fileID: 5076344712753975758}
+  - {fileID: 8414107706318880415}
+  - {fileID: -9207716737704402616}
+  - {fileID: 8431215736544939261}
+  - {fileID: 6780837755575776723}
+  - {fileID: -2731214665998288057}
 --- !u!114 &2283800530181053945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,7 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
   m_Name: TextSequenceSetText
   m_EditorClassIdentifier: 
-  _copy: I can spare you some time.
+  _copy: You want me to escort you from this place? Away from this tired little social
+    charade and into the night.
 --- !u!114 &5076344712753975758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,5 +89,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
   m_Name: TextSequenceSetText
   m_EditorClassIdentifier: 
-  _copy: <b>You better impress me though</b>. I like to consume little morsels that
-    bore me.
+  _copy: It would please me very much to leave with you on my arm.
+--- !u!114 &6780837755575776723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: What a perverted little morsel you are.
+--- !u!114 &8414107706318880415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: But you should know little morsel, if you please me I will drain you to
+    the last drop and you will <color=red><shake>beg me for more</shake></color>.
+--- !u!114 &8431215736544939261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6400efd4874a7c98609d3cd2f6e51f, type: 3}
+  m_Name: TextSequenceSetText
+  m_EditorClassIdentifier: 
+  _copy: 'Are you quivering in <wave>excitement</wave> or <shake>fear</shake> little
+    morsel.
+
+    or perhaps
+
+    a little of both?'
