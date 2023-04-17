@@ -43,6 +43,7 @@ namespace UI
 
         private static readonly int RevealState = Animator.StringToHash("RevealState");
         private static readonly int Exit = Animator.StringToHash("Exit");
+        private static readonly int IsComplete = Animator.StringToHash("IsComplete");
         private object _handleAnimationComplete;
 
         private bool _isWaitingForInput = true;
@@ -88,15 +89,16 @@ namespace UI
         {
             ContextService.Get<GameStateContext>(gameState =>
             {
-                if (gameState.GameOverState != null)
-                {
-                    Set(gameState.GameOverState.RevealAnimData);
-                }
-                else
-                {
-                    SetCharacter(null);
-                }
-                /*
+                
+               if (gameState.GameOverState != null)
+               {
+                   Set(gameState.GameOverState.RevealAnimData);
+               }
+               else
+               {
+                   SetCharacter(null);
+               }
+               /*
                 var data = new Data()
                 {
                     NearestMonster = null,
@@ -114,6 +116,8 @@ namespace UI
                 {
                     _characterView.Set(targetCharacter);
                 }
+
+                _textSequencePlayer.OnComplete += HandleTextSequenceComplete;
                 if (targetCharacter is MonsterEntity monsterEntity)
                 {
                     _musicSource.clip = _musicWin;
@@ -160,6 +164,12 @@ namespace UI
                 _titleText.SetColor(_titleGiveUp.Color);
             }
             _animator.enabled = true;
+        }
+
+        private void HandleTextSequenceComplete()
+        {
+            _isAnimComplete = true;
+            _animator.SetBool(IsComplete, true);
         }
 
         public void Update()
