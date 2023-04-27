@@ -49,7 +49,7 @@ public class LocationView : MonoBehaviour, IView<LocationData>
     {
         _canSpawn = true;
         var charactersInLocation = _gameStateService.GetCharactersInLocation(_locationData);
-        if (charactersInLocation != null && charactersInLocation.Count > 0)
+        if (charactersInLocation != null)
         {
             SpawnCharacters(charactersInLocation, new System.Random(_locationData.SpawnSeed));
         }

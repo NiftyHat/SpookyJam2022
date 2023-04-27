@@ -3,13 +3,15 @@ using NiftyFramework.Core.Utils;
 using NiftyFramework.DataView;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityUtils;
 
 namespace UI
 {
     public class UICharacterView : MonoBehaviour, IDataView<CharacterEntity>
     {
         [SerializeField][NonNull] private Image _character;
-        [SerializeField][NonNull] private Image _mask;
+        [SerializeField] private UIMaskView[] _maskViews;
+        [SerializeField] private Transform _makeViewHolder;
 
         public void Clear()
         {
@@ -18,6 +20,7 @@ namespace UI
 
         static void AlignPivot(Image image)
         {
+  
             RectTransform imageRect = image.GetComponent<RectTransform>();
             Vector2 size = imageRect.sizeDelta;
             Vector2 pixelPivot = image.sprite.pivot;
@@ -29,13 +32,28 @@ namespace UI
         {
             if (isHidden)
             {
-                _mask.gameObject.SetActive(false);
+                _makeViewHolder.gameObject.SetActive(false);
                 _character.color = Color.black;
             }
             else
             {
-                _mask.gameObject.SetActive(true);
+                _makeViewHolder.gameObject.SetActive(true);
                 _character.color = Color.white;
+            }
+        }
+
+        public void SetMask(MaskEntity mask)
+        {
+            foreach (var item in _maskViews)
+            {
+                if (item.MaskData == mask.MaskData)
+                {
+                    item.Set(mask);
+                }
+                else
+                {
+                    item.Clear();
+                }
             }
         }
         
@@ -51,21 +69,14 @@ namespace UI
             {
                 gameObject.SetActive(true);
                 _character.gameObject.SetActive(true);
-                _character.sprite = data.ViewData.Sprite;
-               
-                
+                _character.sprite = data.ViewData.UISprite;
                 if (data.Mask != null)
                 {
-                    _mask.gameObject.SetActive(true);
-                    _mask.sprite = data.Mask.MaskData.WorldSprite;
-                    _mask.color = data.Mask.ColorStyleData.Color;
-                    _mask.SetNativeSize();
-                    
-                     AlignPivot(_mask);
+                    SetMask(data.Mask);
                 }
                 else
                 {
-                    _mask.gameObject.SetActive(false);
+                    SetMask(null);
                 }
             }
             else

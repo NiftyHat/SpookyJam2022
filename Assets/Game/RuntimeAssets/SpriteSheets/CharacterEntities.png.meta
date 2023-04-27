@@ -497,6 +497,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Portrait_F
+      rect:
+        serializedVersion: 2
+        x: 1643
+        y: 418
+        width: 178
+        height: 217
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd532d223f95ba545add1bf80879c480
+      internalID: -1869421442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portrait_M
+      rect:
+        serializedVersion: 2
+        x: 1856
+        y: 447
+        width: 148
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f36671b5a0431184c851fe2498d48594
+      internalID: -1935063204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -510,6 +552,7 @@ TextureImporter:
     nameFileIdTable:
       Thought_Bubble: -2106400391
       Character_K: 637786094
+      Portrait_M: -1935063204
       Monster-Werewolf: -1530260781
       Mask-Plauge-World: 1119162597
       Monster-Succubus: 1900417595
@@ -521,6 +564,7 @@ TextureImporter:
       Character_M: 389551884
       Mask-Tiger_World: -450183932
       Mask-Bird-World: -1246942064
+      Portrait_F: -1869421442
       Mask-Butterfly-World: 532432071
       Mask-Devil-World: -325744854
       Character_F: -701150861
