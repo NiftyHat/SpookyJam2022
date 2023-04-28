@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Data;
 using Data.Menu;
 using NiftyFramework.Core;
 using NiftyFramework.Core.Data;
@@ -20,10 +21,13 @@ namespace UI.Filter
                 [SerializeField][SpritePreview] private Sprite _icon;
                 [SerializeField] private string _description;
                 [SerializeField] private Optional<Color> _colour;
+                private IIconViewData _selectionIcon;
 
                 public string FriendlyName => _friendlyName;
 
                 public Sprite Icon => _icon;
+
+                public IIconViewData SelectionIcon => _selectionIcon;
 
                 public Optional<Color> Color => _colour;
 

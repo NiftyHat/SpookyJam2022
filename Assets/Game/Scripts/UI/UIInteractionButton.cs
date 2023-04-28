@@ -24,7 +24,7 @@ namespace UI
         [SerializeField] private CanvasGroup _backgroundGroup;
         [SerializeField] private CanvasGroup _costGroup;
         [SerializeField] private RectTransform _tooltipTransform;
-        
+
         private TooltipContext _tooltipContext;
         private ITooltip _tooltip;
         private TargetingInfo _targetingInfo;
@@ -93,7 +93,7 @@ namespace UI
                 _label.SetText(data.MenuItem.FriendlyName);
             }
 
-            _icon.SetSprite(data.MenuItem.Icon);
+            _icon.Set(data.MenuItem.SelectionIcon);
             _command = data.GetCommand(targetingInfo);
             _button.enabled = _command.Validate();
             _icon.SetEnabled(_button.enabled);
@@ -102,6 +102,15 @@ namespace UI
             if (_costGroup.TrySetActive(data.CostAP > 0))
             {
                 _costLabel.SetText(data.CostAP.ToString());
+            }
+        }
+
+        private void Update()
+        {
+            if (_command != null)
+            {
+                _button.enabled = _command.Validate();
+                _icon.SetEnabled(_button.enabled);
             }
         }
 

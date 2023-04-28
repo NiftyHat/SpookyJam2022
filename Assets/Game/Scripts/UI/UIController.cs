@@ -228,7 +228,15 @@ namespace UI
             if (_previewCommand != null && selected != null && selected.Target is TransitionZoneView transitionZoneView)
             {
                 _previewCommand.SetTarget(transitionZoneView);
-                _gameStateContext.RunCommand(_previewCommand);
+                if (_previewCommand.Validate())
+                {
+                    _gameStateContext.RunCommand(_previewCommand);
+                }
+                else
+                {
+                    _previewCommand.SetTarget(_floorLocation);
+                    _gameStateContext.RunCommand(_previewCommand);
+                }
                 ClearPreview();
                 return;
             }

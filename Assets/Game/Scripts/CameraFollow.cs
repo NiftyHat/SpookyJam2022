@@ -9,6 +9,7 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField] private Transform _followTarget;
     [SerializeField] private float _distanceToMove = 1.0f;
+    [SerializeField] private float _speed = 5.0f;
 
     [SerializeField] private IntRange _movementRangeZ;
     // Start is called before the first frame update
@@ -39,7 +40,8 @@ public class CameraFollow : MonoBehaviour
         {
             Vector3 newCameraTargetPos = _followTarget.position + _relativeVectorFromTarget;
             newCameraTargetPos.Set(newCameraTargetPos.x, newCameraTargetPos.y, Mathf.Clamp(newCameraTargetPos.z, _movementRangeZ.Min, _movementRangeZ.Max));
-            transform.position = Vector3.Lerp(transform.position, newCameraTargetPos, 0.005f);
+            float interpolateRate = Time.deltaTime * _speed;
+            transform.position = Vector3.Lerp(transform.position, newCameraTargetPos, Mathf.Clamp(interpolateRate, 0.005f, 1f));
             _lookAtPoint = transform.position - _relativeVectorFromTarget;
         }
     }

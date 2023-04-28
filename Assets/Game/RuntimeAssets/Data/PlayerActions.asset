@@ -22,6 +22,11 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: Flirt
     _icon: {fileID: -1515131695, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+    _selectionIcon:
+      _sprite: {fileID: -1515131695, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+      _tint:
+        _enabled: 0
+        _value: {r: 0, g: 0, b: 0, a: 0}
     _description: '{abilityName} with {targetName}'
   _reactionTrigger:
     _triggerList:
@@ -74,6 +79,11 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: Instigate
     _icon: {fileID: 412789284, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+    _selectionIcon:
+      _sprite: {fileID: 412789284, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+      _tint:
+        _enabled: 0
+        _value: {r: 0, g: 0, b: 0, a: 0}
     _description: Instigate {targetName} and everyone within {radius}.
   _reactionTrigger:
     _triggerList:
@@ -126,6 +136,11 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: 
     _icon: {fileID: 0}
+    _selectionIcon:
+      _sprite: {fileID: 0}
+      _tint:
+        _enabled: 0
+        _value: {r: 0, g: 0, b: 0, a: 0}
     _description: 
 --- !u!114 &-3633477180647774105
 MonoBehaviour:
@@ -140,15 +155,20 @@ MonoBehaviour:
   m_Name: Walk
   m_EditorClassIdentifier: 
   _range:
-    _min: 2
+    _min: 0
     _max: 50
-  _costAP: 10
+  _costAP: 1
   _radius: 0
   _minTargets: 0
   _targetType: 3
   _menuItemData:
     _friendlyName: Walk
     _icon: {fileID: 1959121752, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+    _selectionIcon:
+      _sprite: {fileID: 1959121752, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+      _tint:
+        _enabled: 1
+        _value: {r: 0.36470592, g: 0.45677057, b: 0.7764706, a: 1}
     _description: Spend {apCost} to move {distance}
 --- !u!114 &-1671792078212301720
 MonoBehaviour:
@@ -172,6 +192,11 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: Conspire
     _icon: {fileID: -628399140, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+    _selectionIcon:
+      _sprite: {fileID: -628399140, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+      _tint:
+        _enabled: 0
+        _value: {r: 0, g: 0, b: 0, a: 0}
     _description: '{abilityName} with {targetName}'
   _reactionTrigger:
     _triggerList:
@@ -228,6 +253,11 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: Brag
     _icon: {fileID: 430583790, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+    _selectionIcon:
+      _sprite: {fileID: 430583790, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+      _tint:
+        _enabled: 0
+        _value: {r: 0, g: 0, b: 0, a: 0}
     _description: '{abilityName} with everyone within {radius}'
   _reactionTrigger:
     _triggerList:
@@ -312,6 +342,11 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: Joke
     _icon: {fileID: 1804464223, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+    _selectionIcon:
+      _sprite: {fileID: 1804464223, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+      _tint:
+        _enabled: 0
+        _value: {r: 0, g: 0, b: 0, a: 0}
     _description: 'Tell a joke eveyone within {radius} of  {targetName}. '
   _reactionTrigger:
     _triggerList:
@@ -368,6 +403,11 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: Speech
     _icon: {fileID: 394077799, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+    _selectionIcon:
+      _sprite: {fileID: 394077799, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+      _tint:
+        _enabled: 0
+        _value: {r: 0, g: 0, b: 0, a: 0}
     _description: Give a {abilityName} to everyone within {radius}.
   _reactionTrigger:
     _triggerList:
@@ -424,6 +464,11 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: Confess
     _icon: {fileID: 1145517890, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+    _selectionIcon:
+      _sprite: {fileID: 1145517890, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+      _tint:
+        _enabled: 1
+        _value: {r: 0.76601994, g: 0.20799215, b: 0.7735849, a: 1}
     _description: Confess to {targetName}. If it's the Monster you win.
   _gameOverReason: {fileID: -7597645516445229309, guid: 0a1d5b9cddaf5794aae9e417cf1b6921,
     type: 2}
@@ -449,6 +494,11 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: Examine
     _icon: {fileID: -1157539444, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+    _selectionIcon:
+      _sprite: {fileID: 0}
+      _tint:
+        _enabled: 0
+        _value: {r: 0, g: 0, b: 0, a: 0}
     _description: Examine the target. If it's a character you can log traits
 --- !u!114 &8888680982059933768
 MonoBehaviour:
@@ -472,6 +522,11 @@ MonoBehaviour:
   _menuItemData:
     _friendlyName: Mingle
     _icon: {fileID: 1456780871, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+    _selectionIcon:
+      _sprite: {fileID: 1456780871, guid: 14fe3116877bfff46be0e6b5b95c6904, type: 3}
+      _tint:
+        _enabled: 0
+        _value: {r: 0, g: 0, b: 0, a: 0}
     _description: '{abilityName} with everyone within {radius}'
   _reactionTrigger:
     _triggerList:

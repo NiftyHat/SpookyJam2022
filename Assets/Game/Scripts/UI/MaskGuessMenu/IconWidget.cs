@@ -72,4 +72,5 @@ public class IconWidget : MonoBehaviour, IDataView<IIconViewData>
             image.color = _defaultColor.Value;
         }
     }
+    
 }

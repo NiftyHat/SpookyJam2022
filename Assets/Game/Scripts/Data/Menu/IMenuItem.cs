@@ -1,3 +1,4 @@
+using NiftyFramework.Core.Data;
 using UnityEngine;
 
 namespace Data.Menu
@@ -6,6 +7,8 @@ namespace Data.Menu
     {
         public string FriendlyName { get; }
         public Sprite Icon { get; }
+        
+        public IIconViewData SelectionIcon { get; }
         public string Description { get; }
     }
 }

@@ -3,6 +3,7 @@ using Data.Menu;
 using Interactions;
 using Interactions.Commands;
 using NiftyFramework.Core;
+using NiftyFramework.Core.Data;
 using NiftyFramework.Scripts;
 using UnityEngine;
 
@@ -18,15 +19,30 @@ namespace Data.Interactions
     
     public abstract class InteractionData : ScriptableObject, IInteraction, ISerializationCallbackReceiver
     {
+        
+    
         [Serializable]
         public struct MenuItemData : IMenuItem
         {
+            [Serializable]
+            public struct SelectIcon : IIconViewData
+            {
+                [SerializeField][SpritePreview] private Sprite _sprite;
+                [SerializeField] private Optional<Color> _tint;
+
+                public Sprite Sprite => _sprite;
+
+                public Optional<Color> Tint => _tint;
+            }
+            
             [SerializeField] private string _friendlyName;
             [SerializeField][SpritePreview] private Sprite _icon;
+            [SerializeField] private SelectIcon _selectionIcon;
             [SerializeField][TextArea] private string _description;
 
             public string FriendlyName => _friendlyName;
             public Sprite Icon => _icon;
+            public IIconViewData SelectionIcon => _selectionIcon;
             
             public string Description => _description;
             

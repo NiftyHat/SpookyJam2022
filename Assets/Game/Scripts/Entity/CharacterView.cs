@@ -1,3 +1,4 @@
+using System;
 using Data.Character;
 using Data.Reactions;
 using NiftyFramework.Core.Utils;
@@ -134,11 +135,25 @@ namespace Entity
             }
             gameObject.SetActive(true);
             _entity = entity;
-            _entity.ClearReaction();
+            _entity.ClearListeners();
             _entity.OnReaction += ShowReaction;
+            _entity.OnLookTowards += HandleLookTowards;
             _spriteRenderer.sprite = _entity.ViewData.Sprite;
             _reactionAudio = entity.ViewData.ReactionAudio;
             _maskView.Set(_entity.Mask);
+        }
+
+        private void HandleLookTowards(Vector3 position)
+        {
+            if (transform.position.x > position.x)
+            {
+                SetFacing(Vector3.right);
+            }
+            else if (transform.position.x < position.x)
+            {
+                SetFacing(Vector3.left);
+            }
+            
         }
     }
 }

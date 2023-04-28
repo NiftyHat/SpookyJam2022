@@ -117,7 +117,7 @@ public class UIAbilityTooltipView : MonoBehaviour, IView<TooltipAbilitySimple>
 
     private void HandleTargetChange(RectTransform obj)
     {
-        Vector2 newPosition = new Vector2(obj.position.x, obj.offsetMin.y + 280);
+        Vector2 newPosition = new Vector2(obj.position.x, obj.position.y);
         transform.position = newPosition;
     }
 

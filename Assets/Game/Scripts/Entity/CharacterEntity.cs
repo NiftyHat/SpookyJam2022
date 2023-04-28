@@ -1,16 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Data;
 using Data.Character;
-using Data.Interactions;
 using Data.Location;
 using Data.Reactions;
 using Data.Trait;
 using GameStats;
-using Generators;
-using Interactions;
 using NiftyFramework.Core;
+using UnityEngine;
 
 namespace Entity
 {
@@ -54,12 +51,12 @@ namespace Entity
         public GuestSchedule Schedule => _schedule;
         
         private CharacterEntity _followTarget;
-
         public CharacterEntity FollowTarget => _followTarget;
 
         public virtual string TypeFriendlyName => "Character";
 
         public event Action<ReactionData> OnReaction;
+        public event Action<Vector3> OnLookTowards; 
         public event Action<LocationData, LocationData> OnLocationChange;
 
         public ValueProvider<bool> WasSeen;
@@ -147,9 +144,16 @@ namespace Entity
             _schedule.TryGetLocation(newValue, out _currentLocation);
         }
 
-        public void ClearReaction()
+        public void ClearListeners()
         {
             OnReaction = null;
+            OnLookTowards = null;
         }
+
+        public void LookTowards(Vector3 position)
+        {
+            OnLookTowards?.Invoke(position);
+        }
+        
     }
 }

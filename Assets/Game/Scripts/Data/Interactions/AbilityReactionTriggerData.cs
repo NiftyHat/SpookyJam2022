@@ -47,6 +47,7 @@ namespace Data.Interactions
                     {
                         reaction = triggerReactions.First();
                         entity.DisplayReaction(reaction);
+                        entity.LookTowards(_targets.Source.GetInteractionPosition());
                         onDone?.Invoke(this);
                     }
                     else
@@ -87,6 +88,10 @@ namespace Data.Interactions
                             {
                                 TriggerReaction(character, null, out var reaction);
                                 reactions.Add(character, reaction);
+                                if (_targets.Source != null)
+                                {
+                                    character.LookTowards(_targets.Source.GetInteractionPosition());
+                                }
                             }
                             _actionPoints.Subtract(_interaction.CostAP);
                             ContextService.Get<GameStateContext>(gameContext =>
@@ -98,6 +103,10 @@ namespace Data.Interactions
                         else if (_targets.TryGetTargetEntity(out CharacterEntity entity))
                         {
                             TriggerReaction(entity, null, out var reaction);
+                            if (_targets.Source != null)
+                            {
+                                entity.LookTowards(_targets.Source.GetInteractionPosition());
+                            }
                             _actionPoints.Subtract(_interaction.CostAP);
                             ContextService.Get<GameStateContext>(gameContext =>
                             {

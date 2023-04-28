@@ -19,9 +19,13 @@ namespace Data.Monsters
             [SerializeField] private string _friendlyName;
             [SerializeField][SpritePreview] private Sprite _icon;
             [SerializeField][TextArea] private string _description;
-            
+            private IIconViewData _selectionIcon;
+
             public string FriendlyName => _friendlyName;
             public Sprite Icon => _icon;
+
+            public IIconViewData SelectionIcon => _selectionIcon;
+
             public string Description => _description;
 
         }

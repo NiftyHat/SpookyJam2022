@@ -15,7 +15,7 @@ namespace Data.Interactions
     {
         public class Command : InteractionCommand
         {
-            private readonly float _oneUnit = 0.5f;
+            private readonly float _oneUnit = 2f;
             private float _apCostForOneMovementUnit;
             
             private int _maxRangeFromAP;
@@ -35,7 +35,7 @@ namespace Data.Interactions
 
             public Command(IInteraction interaction, TargetingInfo targets, GameStat actionPoints) : base(interaction, targets, actionPoints)
             {
-                _apCostForOneMovementUnit = (interaction.RangeMax / interaction.CostAP) * _oneUnit;
+                _apCostForOneMovementUnit = _oneUnit;
             }
 
             public override string GetDescription()
@@ -123,7 +123,6 @@ namespace Data.Interactions
                 _maxRangeFromAP = (int)(ap * _apCostForOneMovementUnit);
                 _apCostFromDistance = (int)(distance / _apCostForOneMovementUnit);
                 APCostProvider.Value = _apCostFromDistance;
-                //int maxRange = Mathf.Max(abilityRange.Min, _maxRangeFromAP);
                 int maxRange = Mathf.Min(_interaction.RangeMax, _maxRangeFromAP);
                 abilityRange.Max = maxRange;
                 if (distance > _maxRangeFromAP)
@@ -133,6 +132,11 @@ namespace Data.Interactions
 
                 
                 return base.Validate();
+            }
+            
+            public override bool ValidateRange()
+            {
+                return Validate();
             }
         }
         
