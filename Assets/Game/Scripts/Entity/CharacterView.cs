@@ -122,7 +122,7 @@ namespace Entity
                     _audioSource.PlayOneShot(clip);
                 }
             }
-            _reactionBubbleCache = Instantiate(reactionData.Prefab, _reactionBubbleLocation.transform.position, Quaternion.identity);
+            _reactionBubbleCache = Instantiate(reactionData.Prefab,  _reactionBubbleLocation.transform.position, Quaternion.identity);
             _reactionBubbleCache.Set(reactionData);
         }
 
@@ -134,6 +134,7 @@ namespace Entity
             }
             gameObject.SetActive(true);
             _entity = entity;
+            _entity.ClearReaction();
             _entity.OnReaction += ShowReaction;
             _spriteRenderer.sprite = _entity.ViewData.Sprite;
             _reactionAudio = entity.ViewData.ReactionAudio;

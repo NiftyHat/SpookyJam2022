@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Context;
 using Data;
 using Data.Interactions;
@@ -35,8 +36,10 @@ namespace UI
         [SerializeField] private UIFilterSetMonsterType _filterMonsterType;
         [SerializeField] private UIFilterGuessState _filterGuessState;
         [SerializeField] private GameObject _blockerUnmetCharacter;
+        [SerializeField] private GameObject _blockerDiscounted;
 
         [SerializeField] private GameObject _root;
+        [SerializeField] private MonsterEntityTypeDataSet _monsterEntityTypes;
 
         private GameStateContext _gameStateContext;
         private CharacterEntity _currentCharacter;
@@ -244,6 +247,7 @@ namespace UI
         {
             _currentCharacter = characterEntity;
             _cardSpreadView.SetGuessInfo(_currentCharacter.TraitGuessInfo);
+            _currentCharacter.TypeGuess.OnChange += HandleTypeGuessChanged;
             _lastInteractionData = _gameStateContext.LastInteraction;
             if (_lastInteractionData != null)
             {
@@ -272,6 +276,27 @@ namespace UI
                 _blockerUnmetCharacter.SetActive(!characterEntity.WasSeen.Value);
             }
             _guessTypeSelector.Set(_currentCharacter.TypeGuess);
+            UpdateDiscountedBlockers();
+        }
+
+        private void HandleTypeGuessChanged(CharacterTypeGuess obj)
+        {
+            UpdateDiscountedBlockers();
+        }
+
+        private void UpdateDiscountedBlockers()
+        {
+            if (!_blockerUnmetCharacter.activeSelf)
+            {
+                if (_currentCharacter.TypeGuess.IsEliminated(_monsterEntityTypes.References))
+                {
+                    _blockerDiscounted.SetActive(true);
+                }
+                else
+                {
+                    _blockerDiscounted.SetActive(false);
+                }
+            }
         }
 
         public void Clear()

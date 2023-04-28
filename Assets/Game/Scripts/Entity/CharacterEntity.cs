@@ -146,5 +146,10 @@ namespace Entity
         {
             _schedule.TryGetLocation(newValue, out _currentLocation);
         }
+
+        public void ClearReaction()
+        {
+            OnReaction = null;
+        }
     }
 }
