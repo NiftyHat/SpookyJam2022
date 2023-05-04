@@ -3127,7 +3127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4201087742831782173}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 89.9, y: 26.992947, z: 45.7}
+  m_LocalPosition: {x: 89.9, y: 44.5, z: 45.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3152,7 +3152,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4201087742848124229}
   - component: {fileID: 4201087742848124230}
-  - component: {fileID: 7704539231344317100}
   m_Layer: 0
   m_Name: Fountain_Base
   m_TagString: Untagged
@@ -3231,19 +3230,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7704539231344317100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4201087742848124231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0903ec033bb341cfa6c9d46404f7f642, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _renderer: {fileID: 4201087742848124230}
 --- !u!1 &4201087743019318155
 GameObject:
   m_ObjectHideFlags: 0
@@ -5143,7 +5129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7517588901785411110}
   - component: {fileID: 2235815706693821410}
-  - component: {fileID: 5243402055511548687}
   m_Layer: 0
   m_Name: Collision (1)
   m_TagString: Untagged
@@ -5179,19 +5164,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 19.703537, y: 6.8478518, z: 1.2558613}
   m_Center: {x: 0.78692055, y: 5.812036, z: -0.13824701}
---- !u!114 &5243402055511548687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5219006960592661499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0903ec033bb341cfa6c9d46404f7f642, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _renderer: {fileID: 4201087742848124230}
 --- !u!1 &5323924507549386745
 GameObject:
   m_ObjectHideFlags: 0
@@ -5942,7 +5914,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8976761567186695232}
   - component: {fileID: 4356697672362993276}
-  - component: {fileID: 6931689502570495814}
   m_Layer: 7
   m_Name: Collision
   m_TagString: Untagged
@@ -5978,19 +5949,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8.6, y: 6.18, z: 1.6649947}
   m_Center: {x: -0.32284546, y: -1.5759337, z: -0.21845174}
---- !u!114 &6931689502570495814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7139213997528897560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0903ec033bb341cfa6c9d46404f7f642, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _renderer: {fileID: 4201087742848124230}
 --- !u!1 &7207557369878887467
 GameObject:
   m_ObjectHideFlags: 0
@@ -6505,7 +6463,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5145169068259345935}
   - component: {fileID: 4066267125930258576}
-  - component: {fileID: 274923244809830239}
   m_Layer: 0
   m_Name: Collision (2)
   m_TagString: Untagged
@@ -6541,19 +6498,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 14.270258, y: 13.582588, z: 1.3597598}
   m_Center: {x: 3.50356, y: 15.532761, z: -0.057601213}
---- !u!114 &274923244809830239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7881686969808918725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0903ec033bb341cfa6c9d46404f7f642, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _renderer: {fileID: 4201087742848124230}
 --- !u!1 &7916405933749702795
 GameObject:
   m_ObjectHideFlags: 0

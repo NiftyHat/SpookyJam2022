@@ -28,7 +28,6 @@ namespace UI.Guide
         {
             for (int i = 0; i < _traitViews.Count; i++)
             {
-                Debug.Log($"Trait {i}");
                 if (i < _traitViews.Count && _traitViews[i] != null)
                 {
                     if (i < _traitDataSet.References.Count && _traitDataSet.References[i] != null)

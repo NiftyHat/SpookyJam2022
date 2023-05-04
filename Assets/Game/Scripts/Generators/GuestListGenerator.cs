@@ -182,6 +182,7 @@ namespace Generators
                     generatedCharacters.Add(killer);
                 }
             }
+            generatedCharacters.Shuffle(random);
             return generatedCharacters;
         }
 

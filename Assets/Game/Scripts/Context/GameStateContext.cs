@@ -99,6 +99,7 @@ namespace Context
             _guestListGenerator = guestListGenerator;
             _monsterEntityTypeSet = guestListGenerator.MonsterTypeSet;
             _currentTime = ConvertTurnsToTime(Turns.Value);
+            Debug.Log("seed: " + _seed);
             _characterEntities = _guestListGenerator.Generate(8, 1, 1, _seed);
             _commandRunner = new CommandRunner();
             Phase.OnChanged += HandlePhaseChange;
@@ -181,11 +182,14 @@ namespace Context
 
         public void StartGame(out AsyncOperation loadingOperation)
         {
+            
             Turns.Value = 0;
             Phase.Value = 0;
             _currentTime = ConvertTurnsToTime(Turns.Value);
-            _characterEntities = _guestListGenerator.Generate(8, 1, 1);
-
+            System.Random seed = new System.Random();
+            Debug.Log($"Start Game Seed{seed}");
+            _characterEntities = _guestListGenerator.Generate(8, 1, 1, seed.Next());
+            Debug.Log( GuestListGenerator.PrintDebug(_characterEntities));
             loadingOperation = SceneManager.LoadSceneAsync(1);
         }
 

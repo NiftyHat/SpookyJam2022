@@ -99,7 +99,7 @@ namespace Spawn
             {
                 _viewCache = Instantiate(_viewPrefab, this.transform);
             }
-            Debug.Log($"{name} assigned to {entity.Name.Full}");
+            //Debug.Log($"{name} assigned to {entity.Name.Full}");
             _viewCache.Set(entity);
         }
 
